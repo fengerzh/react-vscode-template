@@ -15,14 +15,7 @@
     }
   },
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "max-classes-per-file": "off",
-    "no-underscore-dangle": [
-      "error",
-      {
-        "allow": ["__POWERED_BY_QIANKUN__"]
-      }
-    ]
+    "react/react-in-jsx-scope": "off"
   },
   "parser": "babel-eslint"
 }
