@@ -1,0 +1,28 @@
+{
+  "extends": ["airbnb"],
+  "env": {
+    "browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["babel-polyfill", "babel-polyfill/dist/polyfill.min.js"],
+          ["@", "./src/"]
+        ],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "max-classes-per-file": "off",
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["__POWERED_BY_QIANKUN__"]
+      }
+    ]
+  },
+  "parser": "babel-eslint"
+}
