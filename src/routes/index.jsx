@@ -1,8 +1,11 @@
 import { Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import {Spin} from 'antd'
+import userRouterConfig from './user-router';
 import commonRouterConfig from './common-router';
 
 const routerConfig = [
+  ...userRouterConfig,
   ...commonRouterConfig,
 ];
 
@@ -12,26 +15,29 @@ function getRouteByConfig() {
       <Route
         key={config.key}
         path={config.path}
-        exact={config.exact || false}
-        component={config.component}
+        exact={false}
+        render={({ location, ...props }) => (config.component ? (
+          <config.component
+            // eslint-disable-next-line
+            {...props}
+            routes={config.routes}
+          />
+        ) : (
+          <Redirect
+            to={{
+              pathname: config.redirect,
+              state: { from: location },
+            }}
+          />
+        ))}
       />
     ),
-  );
-  // 把首页缺省重定向
-  route.push(
-    <Route
-      exact
-      key="home"
-      path="/"
-    >
-      <Redirect to="/home" />
-    </Route>,
   );
   return route;
 }
 
 export default (
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense fallback={<Spin spinning={true}/>}>
     <Switch>
       {getRouteByConfig()}
     </Switch>

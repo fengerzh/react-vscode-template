@@ -41,7 +41,7 @@
     react-color "2.19.3"
     swr "^0.3.6"
 
-"@ant-design/pro-form@1.22.1":
+"@ant-design/pro-form@1.22.1", "@ant-design/pro-form@^1.22.1":
   version "1.22.1"
   resolved "https://registry.nlark.com/@ant-design/pro-form/download/@ant-design/pro-form-1.22.1.tgz?cache=0&sync_timestamp=1619701664410&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.22.1.tgz#8a4a734ebfae90737f0d1f1a768184d3bc6a0c7e"
   integrity sha1-ikpzTr+ukHN/DR8adoGE07xqDH4=
