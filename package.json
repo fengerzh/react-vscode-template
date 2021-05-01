@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "license": "MIT",
   "scripts": {
-    "css": "postcss src/index.css -o src/tailwind.css",
+    "css": "postcss --config src/tailwind src/tailwind/index.css -o src/tailwind/tailwind.css",
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview"
@@ -11,9 +11,10 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@ant-design/pro-layout": "^6.17.1",
-    "@ant-design/pro-table": "^2.35.0",
-    "@vitejs/plugin-react-refresh": "^1.3.1",
-    "antd": "^4.15.3",
+    "@ant-design/pro-table": "^2.35.1",
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "@vitejs/plugin-react-refresh": "^1.3.3",
+    "antd": "^4.15.4",
     "autoprefixer": "^10.2.5",
     "axios": "^0.21.1",
     "axios-mock-adapter": "^1.19.0",
@@ -30,8 +31,8 @@
     "postcss": "^8.2.13",
     "postcss-cli": "^8.3.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "tailwindcss": "^2.1.2",
     "vite": "^2.2.3",

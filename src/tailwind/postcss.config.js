@@ -7,7 +7,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     './src/**/*.vue',
     './src/**/*.jsx',
     './src/**/*.js',
-    './public/index.html',
+    './index.html',
   ],
 
   // Include any special characters you're using in this regular expression
@@ -16,7 +16,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 
 module.exports = {
   plugins: [
-    tailwindcss('./tailwind.config.js'),
+    tailwindcss('./src/tailwind/tailwind.config.js'),
     // require('autoprefixer'),
     purgecss,
   ],

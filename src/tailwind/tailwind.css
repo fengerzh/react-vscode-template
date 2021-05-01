@@ -577,6 +577,10 @@ video {
   display: flex;
 }
 
+.h-full {
+  height: 100%;
+}
+
 * {
   --tw-shadow: 0 0 #0000;
 }

@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
 import App from './App';
-import 'antd/dist/antd.less';
-import './tailwind.css';
+import './tailwind/tailwind.css';
 
 ReactDOM.render(
   // 临时禁用StrictMode，等待antd团队解决问题
