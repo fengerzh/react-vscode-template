@@ -4,14 +4,22 @@ import ProTable from '@ant-design/pro-table';
 import { getUsers } from '../services';
 
 const Home = () => {
-  const columns = [{
-    title: '姓名',
-    dataIndex: 'name',
-  },
-  {
-    title: '年龄',
-    dataIndex: 'age',
-  }];
+  const columns = [
+    {
+      title: '姓名',
+      dataIndex: 'name',
+    },
+    {
+      title: '年龄',
+      dataIndex: 'age',
+      valueType: 'digit',
+    },
+    {
+      title: '生日',
+      dataIndex: 'birthday',
+      valueType: 'date',
+    },
+  ];
 
   /**
    * 生成面包屑内容

@@ -8,6 +8,7 @@ export default [
     path: '/user',
     key: 'user',
     component: UserLayout,
+    auth: false,
     routes: [
       {
         path: '/user',

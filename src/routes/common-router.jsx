@@ -9,6 +9,7 @@ export default [
     path: '/dashboard',
     key: 'dashboard',
     component: BasicLayout,
+    auth: true,
     routes: [
       {
         path: '/dashboard',

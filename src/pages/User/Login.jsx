@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import { message } from 'antd';
 import ProForm, { ProFormText, ProFormCaptcha } from '@ant-design/pro-form';
 import { MobileOutlined, MailOutlined } from '@ant-design/icons';
+import { login } from '@/services';
 
 const waitTime = (time = 100) => new Promise((resolve) => {
   setTimeout(() => {
@@ -8,7 +10,14 @@ const waitTime = (time = 100) => new Promise((resolve) => {
   }, time);
 });
 
-const Login = () => (
+const propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
+const defaultProps = {};
+
+const Login = ({ history }) => (
   <div
     style={{
       width: 330,
@@ -16,9 +25,14 @@ const Login = () => (
     }}
   >
     <ProForm
-      onFinish={async () => {
-        await waitTime(2000);
-        message.success('提交成功');
+      onFinish={async (data) => {
+        const res = await login(data);
+        if (res) {
+          message.success('登录成功');
+          localStorage.setItem('userName', res.data.data.userName);
+          document.cookie = 'token=abcde;path=/';
+          history.push('/dashboard');
+        }
       }}
       submitter={{
         searchConfig: {
@@ -33,11 +47,7 @@ const Login = () => (
         },
       }}
     >
-      <h1
-        style={{
-          textAlign: 'center',
-        }}
-      >
+      <h1 className="flex text-center text-2xl">
         <img
           style={{
             height: '44px',
@@ -46,7 +56,7 @@ const Login = () => (
           alt="logo"
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
         />
-        Ant Design
+        React Vscode Template
       </h1>
       <div
         style={{
@@ -55,7 +65,7 @@ const Login = () => (
           marginBottom: 40,
         }}
       >
-        Ant Design 是西湖区最具影响力的 Web 设计规范
+        用最新的技术，做最好的网站
       </div>
       <ProFormText
         fieldProps={{
@@ -63,7 +73,7 @@ const Login = () => (
           prefix: <MobileOutlined />,
         }}
         name="phone"
-        placeholder="请输入手机号"
+        placeholder="13912345678"
         rules={[
           {
             required: true,
@@ -91,7 +101,7 @@ const Login = () => (
             message: '请输入验证码',
           },
         ]}
-        placeholder="请输入验证码"
+        placeholder="admin"
         onGetCaptcha={async (phone) => {
           await waitTime(1000);
           message.success(`手机号 ${phone} 验证码发送成功!`);
@@ -100,5 +110,8 @@ const Login = () => (
     </ProForm>
   </div>
 );
+
+Login.propTypes = propTypes;
+Login.defaultProps = defaultProps;
 
 export default Login;

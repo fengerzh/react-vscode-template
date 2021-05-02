@@ -581,6 +581,11 @@ video {
   height: 100%;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 * {
   --tw-shadow: 0 0 #0000;
 }
@@ -592,6 +597,10 @@ video {
   --tw-ring-color: rgba(59, 130, 246, 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
+}
+
+.text-center {
+  text-align: center;
 }
 
 @keyframes spin {

@@ -1,7 +1,23 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+import { message } from 'antd';
 
 const mock = new MockAdapter(axios);
+
+mock
+  .onPost('/login')
+  .reply((config) => {
+    const { phone, captcha } = JSON.parse(config.data);
+    if (phone === '13912345678' && captcha === 'admin') {
+      return [
+        200,
+        {
+          data: { userName: '张三' },
+          success: true,
+        }];
+    }
+    return [401, { message: 'wrong' }];
+  });
 
 mock.onPost('/users').reply(200, {
   data: [
@@ -11,6 +27,15 @@ mock.onPost('/users').reply(200, {
   success: true,
   total: 2,
 });
+
+axios.interceptors.response.use((response) => response, (error) => {
+  if (error.response.status === 401) {
+    message.error('用户名或密码错误，登录失败');
+  }
+  return null;
+});
+
+export const login = (params) => axios.post('/login', params);
 
 export const getUsers = (params) => axios.post('/users', params);
 
