@@ -71,6 +71,9 @@ const BasicLayout = ({
             ))}
           />
         ))}
+        <Route path="*">
+          <Redirect to="/exception/404" />
+        </Route>
       </Switch>
     </ProLayout>
   );

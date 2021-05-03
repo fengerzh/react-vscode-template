@@ -31,6 +31,9 @@ const UserLayout = ({ routes }) => (
         ))}
       />
     ))}
+    <Route path="*">
+      <Redirect to="/exception/404" />
+    </Route>
   </Switch>
 );
 
