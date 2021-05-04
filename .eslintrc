@@ -1,5 +1,6 @@
 {
-  "extends": ["airbnb"],
+  "extends": ["airbnb", "plugin:cypress/recommended"],
+  "plugins": ["cypress"],
   "env": {
     "browser": true
   },

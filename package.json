@@ -5,6 +5,7 @@
   "scripts": {
     "css": "postcss --config src/tailwind src/tailwind/index.css -o src/tailwind/tailwind.css",
     "start": "vite",
+    "e2e": "cypress open",
     "build": "vite build",
     "serve": "vite preview"
   },
@@ -20,10 +21,12 @@
     "axios": "^0.21.1",
     "axios-mock-adapter": "^1.19.0",
     "babel-eslint": "^10.1.0",
+    "cypress": "^7.2.0",
     "dayjs": "^1.10.4",
     "eslint": "^7.25.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.23.2",

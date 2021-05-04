@@ -31,6 +31,7 @@ const Login = ({ history }) => (
           message.success('登录成功');
           localStorage.setItem('userName', res.data.data.userName);
           document.cookie = 'token=abcde;path=/';
+          console.log('i am here');
           history.push('/dashboard');
         }
       }}
