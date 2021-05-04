@@ -1,14 +1,17 @@
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-const propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.shape()),
-};
-const defaultProps = {
-  routes: [],
-};
+interface Props {
+  routes: {
+    key: string,
+    path: string,
+    redirect: string,
+    component: React.ComponentType<any>,
+    routes: {}[]
+  }[],
+}
 
-const UserLayout = ({ routes }) => (
+const UserLayout: React.VFC<Props> = ({ routes }: Props) => (
   <Switch>
     {routes.map((route) => (
       <Route
@@ -36,8 +39,5 @@ const UserLayout = ({ routes }) => (
     </Route>
   </Switch>
 );
-
-UserLayout.propTypes = propTypes;
-UserLayout.defaultProps = defaultProps;
 
 export default UserLayout;

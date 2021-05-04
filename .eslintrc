@@ -11,12 +11,13 @@
           ["babel-polyfill", "babel-polyfill/dist/polyfill.min.js"],
           ["@", "./src/"]
         ],
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx", ".tsx"]
       }
     }
   },
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [2, { "extensions": [".jsx", ".tsx"] }]
   },
   "parser": "babel-eslint"
 }

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["es2018", "dom", "esnext"],
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}

@@ -1,22 +1,25 @@
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Avatar, Dropdown, Menu } from 'antd';
 import ProLayout from '@ant-design/pro-layout';
 import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
 
-const propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.shape()),
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
-};
-const defaultProps = {
-  routes: [],
-};
+interface Props {
+  routes: {
+    key: string,
+    path: string,
+    redirect: string,
+    component: React.ComponentType<any>,
+    routes: {}[]
+  }[],
+  history: {
+    push: (val: string) => void
+  }
+}
 
-const BasicLayout = ({
+const BasicLayout: React.VFC<Props> = ({
   routes, history,
-}) => {
+}: Props) => {
   const userName = localStorage.getItem('userName');
   return (
     <ProLayout
@@ -78,8 +81,5 @@ const BasicLayout = ({
     </ProLayout>
   );
 };
-
-BasicLayout.propTypes = propTypes;
-BasicLayout.defaultProps = defaultProps;
 
 export default BasicLayout;
