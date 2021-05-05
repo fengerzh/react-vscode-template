@@ -5,7 +5,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-        yarn: true
-        record: true
-        start: yarn start
-        wait-on: 'http://localhost:3000'
+          yarn: true
+          record: true
+          start: yarn start
+          wait-on: 'http://localhost:3000'
