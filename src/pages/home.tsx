@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PageContainer } from '@ant-design/pro-layout';
 import ProTable from '@ant-design/pro-table';
-import { getUsers } from '../services';
+import { getUsers } from '@/services';
 
 const Home = () => {
   const columns = [
@@ -21,11 +21,7 @@ const Home = () => {
     },
   ];
 
-  /**
-   * 生成面包屑内容
-   * @param {*} route
-   */
-  const breadcrumbItemRender = (route) => (
+  const breadcrumbItemRender = (route: any) => (
     route.path
       ? <Link to={route.path}>{route.breadcrumbName}</Link>
       : <span>{route.breadcrumbName}</span>

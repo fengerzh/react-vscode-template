@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 interface Props {
@@ -6,12 +5,12 @@ interface Props {
     key: string,
     path: string,
     redirect: string,
-    component: React.ComponentType<any>,
+    component: any,
     routes: {}[]
   }[],
 }
 
-const UserLayout: React.VFC<Props> = ({ routes }: Props) => (
+const UserLayout = ({ routes }: Props) => (
   <Switch>
     {routes.map((route) => (
       <Route

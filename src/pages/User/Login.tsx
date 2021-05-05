@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import { message } from 'antd';
 import ProForm, { ProFormText, ProFormCaptcha } from '@ant-design/pro-form';
 import { MobileOutlined, MailOutlined } from '@ant-design/icons';
-import { login } from '@/services';
+import { login } from '@/services/index';
 
 const waitTime = (time = 100) => new Promise((resolve) => {
   setTimeout(() => {
@@ -10,14 +9,13 @@ const waitTime = (time = 100) => new Promise((resolve) => {
   }, time);
 });
 
-const propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
-};
-const defaultProps = {};
+interface Props {
+  history: {
+    push: (val: string) => void
+  }
+}
 
-const Login = ({ history }) => (
+const Login = ({ history }: Props) => (
   <div
     style={{
       width: 330,
@@ -31,7 +29,6 @@ const Login = ({ history }) => (
           message.success('登录成功');
           localStorage.setItem('userName', res.data.data.userName);
           document.cookie = 'token=abcde;path=/';
-          console.log('i am here');
           history.push('/dashboard');
         }
       }}
@@ -103,7 +100,7 @@ const Login = ({ history }) => (
           },
         ]}
         placeholder="admin"
-        onGetCaptcha={async (phone) => {
+        onGetCaptcha={async (phone: string) => {
           await waitTime(1000);
           message.success(`手机号 ${phone} 验证码发送成功!`);
         }}
@@ -111,8 +108,5 @@ const Login = ({ history }) => (
     </ProForm>
   </div>
 );
-
-Login.propTypes = propTypes;
-Login.defaultProps = defaultProps;
 
 export default Login;

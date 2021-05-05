@@ -11,7 +11,7 @@ class UserStore {
     };
   })
 
-  setUserInfo = action((userInfo) => {
+  setUserInfo = action((userInfo: any) => {
     this.userInfo = userInfo;
   })
 }

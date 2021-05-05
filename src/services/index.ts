@@ -44,7 +44,7 @@ instance.interceptors.response.use(
   },
 );
 
-export const login = (params: { phone: string; captcha: string }) => instance.post('/login', params);
+export const login = (params: any) => instance.post('/login', params);
 
 export const getUsers = (params: any) => instance.post('/users', params);
 

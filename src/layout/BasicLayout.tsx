@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Avatar, Dropdown, Menu } from 'antd';
 import ProLayout from '@ant-design/pro-layout';
@@ -9,7 +8,7 @@ interface Props {
     key: string,
     path: string,
     redirect: string,
-    component: React.ComponentType<any>,
+    component: any,
     routes: {}[]
   }[],
   history: {
@@ -17,7 +16,7 @@ interface Props {
   }
 }
 
-const BasicLayout: React.VFC<Props> = ({
+const BasicLayout = ({
   routes, history,
 }: Props) => {
   const userName = localStorage.getItem('userName');
