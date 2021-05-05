@@ -8,4 +8,3 @@ workflows:
           yarn: true
           record: true
           start: yarn start
-          wait-on: 'http://localhost:3000'
