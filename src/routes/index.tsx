@@ -15,7 +15,7 @@ function getRouteByConfig() {
   const cookies = Object.fromEntries(document.cookie.split('; ').map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent)));
 
   const route = routerConfig.map(
-    (config) => (
+    (config: any) => (
       <Route
         key={config.key}
         path={config.path}
