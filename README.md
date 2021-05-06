@@ -1,5 +1,6 @@
 # React Vscode Template
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/739a3d0b510e48b7850cadf6c5ccf7b5)](https://app.codacy.com/gh/fengerzh/react-vscode-template?utm_source=github.com&utm_medium=referral&utm_content=fengerzh/react-vscode-template&utm_campaign=Badge_Grade_Settings)
 [![CircleCI](https://circleci.com/gh/fengerzh/react-vscode-template.svg?style=svg)](https://circleci.com/gh/fengerzh/react-vscode-template)
 
 用最新的技术，做最好的网站
