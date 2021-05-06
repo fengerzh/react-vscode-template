@@ -452,10 +452,10 @@
     js-yaml "^3.13.1"
     resolve-from "^5.0.0"
 
-"@istanbuljs/nyc-config-typescript@^1.0.1":
+"@istanbuljs/nyc-config-typescript@1.0.1":
   version "1.0.1"
-  resolved "https://registry.npm.taobao.org/@istanbuljs/nyc-config-typescript/download/@istanbuljs/nyc-config-typescript-1.0.1.tgz#55172f5663b3635586add21b14d42ca94a163d58"
-  integrity sha1-VRcvVmOzY1WGrdIbFNQsqUoWPVg=
+  resolved "https://registry.yarnpkg.com/@istanbuljs/nyc-config-typescript/-/nyc-config-typescript-1.0.1.tgz#55172f5663b3635586add21b14d42ca94a163d58"
+  integrity sha512-/gz6LgVpky205LuoOfwEZmnUtaSmdk0QIMcNFj9OvxhiMhPpKftMgZmGN7jNj7jR+lr8IB1Yks3QSSSNSxfoaQ==
   dependencies:
     "@istanbuljs/schema" "^0.1.2"
 
@@ -512,10 +512,10 @@
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/mocha@^8.2.2":
+"@types/mocha@8.2.2":
   version "8.2.2"
-  resolved "https://registry.npm.taobao.org/@types/mocha/download/@types/mocha-8.2.2.tgz?cache=0&sync_timestamp=1616204300394&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fmocha%2Fdownload%2F%40types%2Fmocha-8.2.2.tgz#91daa226eb8c2ff261e6a8cbf8c7304641e095e0"
-  integrity sha1-kdqiJuuML/Jh5qjL+McwRkHgleA=
+  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-8.2.2.tgz#91daa226eb8c2ff261e6a8cbf8c7304641e095e0"
+  integrity sha512-Lwh0lzzqT5Pqh6z61P3c3P5nm6fzQK/MMHl9UKeneAeInVflBSz1O2EkX6gM6xfJd7FBXBY5purtLx7fUiZ7Hw==
 
 "@types/node@^14.14.31":
   version "14.14.43"
@@ -3336,10 +3336,10 @@ mobx@6.3.0:
   resolved "https://registry.npmjs.org/mobx/-/mobx-6.3.0.tgz"
   integrity sha512-Aa1+VXsg4WxqJMTQfWoYuJi5UD10VZhiobSmcs5kcmI3BIT0aVtn7DysvCeDADCzl7dnbX+0BTHUj/v7gLlZpQ==
 
-mocha@^8.3.2:
+mocha@8.3.2:
   version "8.3.2"
-  resolved "https://registry.npm.taobao.org/mocha/download/mocha-8.3.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmocha%2Fdownload%2Fmocha-8.3.2.tgz#53406f195fa86fbdebe71f8b1c6fb23221d69fcc"
-  integrity sha1-U0BvGV+ob73r5x+LHG+yMiHWn8w=
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-8.3.2.tgz#53406f195fa86fbdebe71f8b1c6fb23221d69fcc"
+  integrity sha512-UdmISwr/5w+uXLPKspgoV7/RXZwKRTiTjJ2/AC5ZiEztIoOYdfKb19+9jNmEInzx5pBsCyJQzarAxqIGBNYJhg==
   dependencies:
     "@ungap/promise-all-settled" "1.1.2"
     ansi-colors "4.1.1"
@@ -3475,10 +3475,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nyc@^15.1.0:
+nyc@15.1.0:
   version "15.1.0"
-  resolved "https://registry.npm.taobao.org/nyc/download/nyc-15.1.0.tgz#1335dae12ddc87b6e249d5a1994ca4bdaea75f02"
-  integrity sha1-EzXa4S3ch7biSdWhmUykva6nXwI=
+  resolved "https://registry.yarnpkg.com/nyc/-/nyc-15.1.0.tgz#1335dae12ddc87b6e249d5a1994ca4bdaea75f02"
+  integrity sha512-jMW04n9SxKdKi1ZMGhvUTHBN0EICCRkHemEoE5jm6mTYcqcdas0ATzgUgejlQUHMvpnOZqGB5Xxsv9KxJW1j8A==
   dependencies:
     "@istanbuljs/load-nyc-config" "^1.0.0"
     "@istanbuljs/schema" "^0.1.2"
@@ -4793,10 +4793,10 @@ slice-ansi@^4.0.0:
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
 
-source-map-support@^0.5.17, source-map-support@^0.5.19:
+source-map-support@0.5.19, source-map-support@^0.5.17:
   version "0.5.19"
-  resolved "https://registry.nlark.com/source-map-support/download/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
-  integrity sha1-qYti+G3K9PZzmWSMCFKRq56P7WE=
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
+  integrity sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw==
   dependencies:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
@@ -5134,10 +5134,10 @@ tough-cookie@~2.5.0:
     psl "^1.1.28"
     punycode "^2.1.1"
 
-ts-node@^9.1.1:
+ts-node@9.1.1:
   version "9.1.1"
-  resolved "https://registry.npm.taobao.org/ts-node/download/ts-node-9.1.1.tgz#51a9a450a3e959401bda5f004a72d54b936d376d"
-  integrity sha1-UamkUKPpWUAb2l8ASnLVS5NtN20=
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-9.1.1.tgz#51a9a450a3e959401bda5f004a72d54b936d376d"
+  integrity sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==
   dependencies:
     arg "^4.1.0"
     create-require "^1.1.0"
