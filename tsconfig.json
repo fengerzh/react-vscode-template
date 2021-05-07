@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["reflect-metadata", "jest"],
     "esModuleInterop": true,
     "lib": ["es2018", "dom", "esnext"],
     "jsx": "react-jsx",
@@ -7,5 +8,6 @@
     "paths": {
       "@/*": ["src/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "**/*.spec.tsx", "**/*.mock.ts"]
 }
