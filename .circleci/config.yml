@@ -15,7 +15,7 @@ jobs:
       - store_artifacts:
           path: coverage
       - coverage-reporter/send_report:
-          coverage-reports: 'clover.xml,lcov.info'
+          coverage-reports: 'coverage/clover.xml,coverage/lcov.info'
 workflows:
   build:
     jobs:
