@@ -5,7 +5,7 @@ orbs:
 jobs:
   codacy-coverage-report:
     docker:
-      - image: circleci/node:10.0-browsers
+      - image: circleci/node:14.16-browsers
     steps:
       - checkout
       - run: yarn
@@ -15,7 +15,7 @@ jobs:
       - store_artifacts:
           path: coverage
       - coverage-reporter/send_report:
-          coverage-reports: 'clover.xml,lcov.info'
+          coverage-reports: 'coverage/clover.xml,coverage/lcov.info'
 workflows:
   build:
     jobs:
