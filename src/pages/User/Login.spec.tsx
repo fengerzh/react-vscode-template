@@ -1,7 +1,8 @@
 import './matchMedia.mock';
-import { mount, configure } from 'enzyme';
+import { mount, configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { expect } from 'chai';
+import { act } from 'react-dom/test-utils';
+import ProForm, { ProFormProps, ProFormCaptcha } from '@ant-design/pro-form';
 import Login from './Login';
 
 configure({ adapter: new Adapter() });
@@ -11,6 +12,24 @@ describe('<Login /> 组件测试', () => {
     const pageMounted = mount(<Login history={{ push: () => {} }} />);
 
     // 检查标题栏是否有标题
-    expect(pageMounted.find('h1').text()).to.equal('React Vscode Template');
+    expect(pageMounted.find('h1').text()).toEqual('React Vscode Template');
+  });
+  it('发送验证码', async () => {
+    const wrapper = mount(<Login history={{ push: () => {} }} />);
+    const form = wrapper.find(ProFormCaptcha).props();
+    await act(async () => {
+      await form.onGetCaptcha('13912345678');
+    });
+  });
+  it('登录成功', async () => {
+    const wrapper = shallow(<Login history={{ push: () => {} }} />);
+    // const wrapper = mount(<Login history={{ push: () => {} }} />);
+    const { onFinish } = wrapper.find(ProForm).props() as ProFormProps;
+    await onFinish({ phone: '13912345678', captcha: 'admin' });
+  });
+  it('登录失败', async () => {
+    const wrapper = mount(<Login history={{ push: () => {} }} />);
+    const { onFinish } = wrapper.find(ProForm).props() as ProFormProps;
+    await onFinish({ phone: '13912345678', captcha: 'wrong' });
   });
 });
