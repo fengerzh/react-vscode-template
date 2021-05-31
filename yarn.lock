@@ -118,16 +118,16 @@
   dependencies:
     rc-util "^5.0.1"
 
-"@ant-design/pro-table@2.39.0":
-  version "2.39.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.39.0.tgz#0656f50049a365480978d704eb36db20aae6ea4b"
-  integrity sha512-t36bK3XdyaM8azitnVjbRubwk9nEFf8kQJHJkqDldjFAihxvyZ3VXc4U6Qm+cezpQ0rCb65tbMQgnJRHPglmiw==
+"@ant-design/pro-table@2.39.2":
+  version "2.39.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.39.2.tgz#4c84e0c55b66da623c0f4147b7fd8c3ae0625d3b"
+  integrity sha512-gIKZD7HyHMVuRgv2ETp+iuM9c3hKszZrWw+58BgklCvXZLpnMeQY7DrjL3gl0Ol1uSXx+bFgYboV/L6xe9RaXg==
   dependencies:
     "@ant-design/icons" "^4.1.0"
-    "@ant-design/pro-field" "1.18.0"
-    "@ant-design/pro-form" "1.26.0"
+    "@ant-design/pro-field" "1.18.2"
+    "@ant-design/pro-form" "1.27.1"
     "@ant-design/pro-provider" "1.4.12"
-    "@ant-design/pro-utils" "1.18.0"
+    "@ant-design/pro-utils" "1.18.2"
     classnames "^2.2.6"
     moment "^2.24.0"
     omit.js "^2.0.2"
