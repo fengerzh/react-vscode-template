@@ -9,6 +9,7 @@ const config: Config.InitialOptions = {
     '^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
     '@/(.*)': '<rootDir>/src/$1',
   },
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
     'cypress',
   ],
