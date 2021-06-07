@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { jest } from '@jest/globals';
 
 Object.defineProperty(window, 'matchMedia', {
