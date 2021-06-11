@@ -41,6 +41,22 @@
     react-color "2.19.3"
     swr "^0.5.6"
 
+"@ant-design/pro-field@1.18.4":
+  version "1.18.4"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.18.4.tgz#1454e53c0dc049ca3b089f3cedba31a54081dd80"
+  integrity sha512-LyFnxK1gyeooTJk6+H3fxR/Oay1We1ikkX/e+PVmFndOjHtV/dvK0PUFXyoEDrZHgW3yMOrxsLpiVlW2JoX2JQ==
+  dependencies:
+    "@ant-design/icons" "^4.2.1"
+    "@ant-design/pro-provider" "1.4.13"
+    "@ant-design/pro-utils" "1.19.0"
+    classnames "^2.2.6"
+    lodash.tonumber "^4.0.3"
+    moment "^2.27.0"
+    omit.js "^2.0.2"
+    rc-util "^5.4.0"
+    react-color "2.19.3"
+    swr "^0.5.6"
+
 "@ant-design/pro-form@1.28.0":
   version "1.28.0"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.28.0.tgz#79e33da584d17b280fa4dfbc4eb59c7b276ab296"
@@ -48,6 +64,23 @@
   dependencies:
     "@ant-design/icons" "^4.2.1"
     "@ant-design/pro-field" "1.18.3"
+    "@ant-design/pro-provider" "1.4.13"
+    "@ant-design/pro-utils" "1.19.0"
+    "@umijs/use-params" "^1.0.2"
+    classnames "^2.2.6"
+    lodash.merge "^4.6.2"
+    omit.js "^2.0.2"
+    rc-resize-observer "^0.2.3"
+    rc-util "^5.0.6"
+    use-media-antd-query "^1.0.6"
+
+"@ant-design/pro-form@1.28.1":
+  version "1.28.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.28.1.tgz#9ba8d9546f361a1b4f2ddc852870af2c16187d4e"
+  integrity sha512-Z7YkkW6WY1Ujxl9+E/qQdJ6upzS2lKoA1g/eHTNPolJN+cdnkYKBVH6RUBC1/WcW8YA91vqGEslP/IYv+1nItA==
+  dependencies:
+    "@ant-design/icons" "^4.2.1"
+    "@ant-design/pro-field" "1.18.4"
     "@ant-design/pro-provider" "1.4.13"
     "@ant-design/pro-utils" "1.19.0"
     "@umijs/use-params" "^1.0.2"
@@ -86,14 +119,14 @@
   dependencies:
     rc-util "^5.0.1"
 
-"@ant-design/pro-table@2.40.0":
-  version "2.40.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.40.0.tgz#85bb50c4e23650cbc1ef6aa60809032456162c8f"
-  integrity sha512-b59LUnVWUKE5AwrnuKjHAEOhvj4vzRw2eXyS8FAvUWJ5acOepqhhC7A/BaheveQ6SdC2r7VO9HsXl3iI51+rJg==
+"@ant-design/pro-table@2.40.1":
+  version "2.40.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.40.1.tgz#8de547d4a27634cfb85faef98b561ef7caa36c58"
+  integrity sha512-/DOSkQOmZ2qKqqFft6HRutUNfepzvFxepdhkdftSorTWCf+tjxhwHCmEggg3Tbau6SVWX97CTdeb6SN2aJ5zaA==
   dependencies:
     "@ant-design/icons" "^4.1.0"
-    "@ant-design/pro-field" "1.18.3"
-    "@ant-design/pro-form" "1.28.0"
+    "@ant-design/pro-field" "1.18.4"
+    "@ant-design/pro-form" "1.28.1"
     "@ant-design/pro-provider" "1.4.13"
     "@ant-design/pro-utils" "1.19.0"
     classnames "^2.2.6"
