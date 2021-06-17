@@ -25,22 +25,6 @@
     classnames "^2.2.6"
     rc-util "^5.9.4"
 
-"@ant-design/pro-field@1.18.3":
-  version "1.18.3"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.18.3.tgz#dea6461e38975cb53fda35cb73ccf8a50c414212"
-  integrity sha512-YoMC5pos/JdOxNxOKy8UsgVRWW5B6Q11lvlaIwviRuoTXZQqrokds8C+KFvrD0WVlEl/zLy9D3GNgTUreypYhw==
-  dependencies:
-    "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-provider" "1.4.13"
-    "@ant-design/pro-utils" "1.19.0"
-    classnames "^2.2.6"
-    lodash.tonumber "^4.0.3"
-    moment "^2.27.0"
-    omit.js "^2.0.2"
-    rc-util "^5.4.0"
-    react-color "2.19.3"
-    swr "^0.5.6"
-
 "@ant-design/pro-field@1.18.4":
   version "1.18.4"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.18.4.tgz#1454e53c0dc049ca3b089f3cedba31a54081dd80"
@@ -56,23 +40,6 @@
     rc-util "^5.4.0"
     react-color "2.19.3"
     swr "^0.5.6"
-
-"@ant-design/pro-form@1.28.0":
-  version "1.28.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.28.0.tgz#79e33da584d17b280fa4dfbc4eb59c7b276ab296"
-  integrity sha512-GtmbPtLEM68+ER0GdK8nLncAxOFn3VlF/y/xYHFJUj3Gi2iwWWC1RhadawoR2U3DYhJfDeV+wiDpnh1874ZUAg==
-  dependencies:
-    "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-field" "1.18.3"
-    "@ant-design/pro-provider" "1.4.13"
-    "@ant-design/pro-utils" "1.19.0"
-    "@umijs/use-params" "^1.0.2"
-    classnames "^2.2.6"
-    lodash.merge "^4.6.2"
-    omit.js "^2.0.2"
-    rc-resize-observer "^0.2.3"
-    rc-util "^5.0.6"
-    use-media-antd-query "^1.0.6"
 
 "@ant-design/pro-form@1.28.1":
   version "1.28.1"
@@ -5530,10 +5497,10 @@ postcss-value-parser@^4.1.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
-postcss@8.3.2:
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.2.tgz#ed3ec489f5428af5740cd6effcc216b4d455ee64"
-  integrity sha512-y1FK/AWdZlBF5lusS5j5l4/vF67+vQZt1SXPVJ32y1kRGDQyrs1zk32hG1cInRTu14P0V+orPz+ifwW/7rR4bg==
+postcss@8.3.5:
+  version "8.3.5"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.5.tgz#982216b113412bc20a86289e91eb994952a5b709"
+  integrity sha512-NxTuJocUhYGsMiMFHDUkmjSKT3EdH4/WbGF6GCi1NDGk+vbcUTun4fpbOqaPtD8IIsztA2ilZm2DhYCuyN58gA==
   dependencies:
     colorette "^1.2.2"
     nanoid "^3.1.23"
