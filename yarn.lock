@@ -25,22 +25,6 @@
     classnames "^2.2.6"
     rc-util "^5.9.4"
 
-"@ant-design/pro-field@1.18.3":
-  version "1.18.3"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.18.3.tgz#dea6461e38975cb53fda35cb73ccf8a50c414212"
-  integrity sha512-YoMC5pos/JdOxNxOKy8UsgVRWW5B6Q11lvlaIwviRuoTXZQqrokds8C+KFvrD0WVlEl/zLy9D3GNgTUreypYhw==
-  dependencies:
-    "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-provider" "1.4.13"
-    "@ant-design/pro-utils" "1.19.0"
-    classnames "^2.2.6"
-    lodash.tonumber "^4.0.3"
-    moment "^2.27.0"
-    omit.js "^2.0.2"
-    rc-util "^5.4.0"
-    react-color "2.19.3"
-    swr "^0.5.6"
-
 "@ant-design/pro-field@1.18.4":
   version "1.18.4"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.18.4.tgz#1454e53c0dc049ca3b089f3cedba31a54081dd80"
@@ -56,23 +40,6 @@
     rc-util "^5.4.0"
     react-color "2.19.3"
     swr "^0.5.6"
-
-"@ant-design/pro-form@1.28.0":
-  version "1.28.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.28.0.tgz#79e33da584d17b280fa4dfbc4eb59c7b276ab296"
-  integrity sha512-GtmbPtLEM68+ER0GdK8nLncAxOFn3VlF/y/xYHFJUj3Gi2iwWWC1RhadawoR2U3DYhJfDeV+wiDpnh1874ZUAg==
-  dependencies:
-    "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-field" "1.18.3"
-    "@ant-design/pro-provider" "1.4.13"
-    "@ant-design/pro-utils" "1.19.0"
-    "@umijs/use-params" "^1.0.2"
-    classnames "^2.2.6"
-    lodash.merge "^4.6.2"
-    omit.js "^2.0.2"
-    rc-resize-observer "^0.2.3"
-    rc-util "^5.0.6"
-    use-media-antd-query "^1.0.6"
 
 "@ant-design/pro-form@1.28.1":
   version "1.28.1"
@@ -2922,10 +2889,10 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-2.1.0.tgz"
   integrity sha512-0rSmRBzXgDzIsD6mGdJgevzgezI534Cer5L/vyMX0kHzT/jiB43jRhd9YUlMGYLQy2zprNmoT8qasCGtY+QaKw==
 
-eslint@7.28.0:
-  version "7.28.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.28.0.tgz#435aa17a0b82c13bb2be9d51408b617e49c1e820"
-  integrity sha512-UMfH0VSjP0G4p3EWirscJEQ/cHqnT/iuH6oNZOB94nBjWbMnhGEPxsZm1eyIW0C/9jLI0Fow4W5DXLjEI7mn1g==
+eslint@7.29.0:
+  version "7.29.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.29.0.tgz#ee2a7648f2e729485e4d0bd6383ec1deabc8b3c0"
+  integrity sha512-82G/JToB9qIy/ArBzIWG9xvvwL3R86AlCjtGw+A29OMZDqhTybz/MByORSukGxeI+YPCR4coYyITKk8BFH9nDA==
   dependencies:
     "@babel/code-frame" "7.12.11"
     "@eslint/eslintrc" "^0.4.2"
