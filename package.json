@@ -18,7 +18,7 @@
     "@fullhuman/postcss-purgecss": "4.0.3",
     "@istanbuljs/nyc-config-typescript": "1.0.1",
     "@jest/globals": "27.0.3",
-    "@types/chai": "4.2.18",
+    "@types/chai": "4.2.19",
     "@types/chai-spies": "1.0.3",
     "@types/enzyme": "3.10.8",
     "@types/jest": "26.0.23",
