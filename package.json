@@ -14,7 +14,7 @@
     "@ant-design/icons": "4.6.2",
     "@ant-design/pro-form": "1.29.1",
     "@ant-design/pro-layout": "6.19.7",
-    "@ant-design/pro-table": "2.42.1",
+    "@ant-design/pro-table": "2.43.0",
     "@fullhuman/postcss-purgecss": "4.0.3",
     "@istanbuljs/nyc-config-typescript": "1.0.1",
     "@jest/globals": "27.0.5",
