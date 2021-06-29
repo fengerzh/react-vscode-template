@@ -41,6 +41,22 @@
     react-color "2.19.3"
     swr "^0.5.6"
 
+"@ant-design/pro-field@1.18.8":
+  version "1.18.8"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.18.8.tgz#830c625218973842091589d4f29ff654a75db28b"
+  integrity sha512-b4orl1jhI73+oJ4/2OHCL8f4DxpYrtXu6yfT+uWxT4BD6aocrEE2XFpTMQPIpAypnIfG2zs8yXmYr0O+JuQK5g==
+  dependencies:
+    "@ant-design/icons" "^4.2.1"
+    "@ant-design/pro-provider" "1.4.14"
+    "@ant-design/pro-utils" "1.19.3"
+    classnames "^2.2.6"
+    lodash.tonumber "^4.0.3"
+    moment "^2.27.0"
+    omit.js "^2.0.2"
+    rc-util "^5.4.0"
+    react-color "2.19.3"
+    swr "^0.5.6"
+
 "@ant-design/pro-form@1.30.0":
   version "1.30.0"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.30.0.tgz#c8d84517e1e45db5701bd28f79e8747aad5e0714"
@@ -50,6 +66,23 @@
     "@ant-design/pro-field" "1.18.7"
     "@ant-design/pro-provider" "1.4.14"
     "@ant-design/pro-utils" "1.19.2"
+    "@umijs/use-params" "^1.0.2"
+    classnames "^2.2.6"
+    lodash.merge "^4.6.2"
+    omit.js "^2.0.2"
+    rc-resize-observer "^0.2.3"
+    rc-util "^5.0.6"
+    use-media-antd-query "^1.0.6"
+
+"@ant-design/pro-form@1.31.0":
+  version "1.31.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.31.0.tgz#25b4662d0838b7eece8004459c7776ac7b41559a"
+  integrity sha512-Lk9w05ey7goLJ0Zw0qVhXhkh4M/ONDFZxu+P45CACAqXVkjK5rfSYkdeME/Ro8wBMDxfVybr3cQL6+zUPcfHgg==
+  dependencies:
+    "@ant-design/icons" "^4.2.1"
+    "@ant-design/pro-field" "1.18.8"
+    "@ant-design/pro-provider" "1.4.14"
+    "@ant-design/pro-utils" "1.19.3"
     "@umijs/use-params" "^1.0.2"
     classnames "^2.2.6"
     lodash.merge "^4.6.2"
