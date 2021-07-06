@@ -41,39 +41,6 @@
     react-color "2.19.3"
     swr "^0.5.6"
 
-"@ant-design/pro-field@1.18.9":
-  version "1.18.9"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.18.9.tgz#b647f26ae32ee7ee10c51dfaa19aa161a8cc44d0"
-  integrity sha512-8+jBiYn8yA/bTj/C2uklapQKheq9C/1J9dJEKBq3y8imWG3SAbUIm1a0hdxlZiw4mOVzckoOP/tXR8iiGQWe3A==
-  dependencies:
-    "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-provider" "1.4.15"
-    "@ant-design/pro-utils" "1.19.4"
-    classnames "^2.2.6"
-    lodash.tonumber "^4.0.3"
-    moment "^2.27.0"
-    omit.js "^2.0.2"
-    rc-util "^5.4.0"
-    react-color "2.19.3"
-    swr "^0.5.6"
-
-"@ant-design/pro-form@1.31.1":
-  version "1.31.1"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.31.1.tgz#ddaa92557a3a0a952819f364a10bac8384a84891"
-  integrity sha512-sDw3FFzchJPHxLDj7gVbUFWjbkChQE4HE4C5reXX8zaQT5+XkzAbqlLj6dLBcaU7CqU01RFY9DNkr1QasFsecQ==
-  dependencies:
-    "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-field" "1.18.9"
-    "@ant-design/pro-provider" "1.4.15"
-    "@ant-design/pro-utils" "1.19.4"
-    "@umijs/use-params" "^1.0.2"
-    classnames "^2.2.6"
-    lodash.merge "^4.6.2"
-    omit.js "^2.0.2"
-    rc-resize-observer "^0.2.3"
-    rc-util "^5.0.6"
-    use-media-antd-query "^1.0.6"
-
 "@ant-design/pro-form@1.31.2":
   version "1.31.2"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.31.2.tgz#8603381344f508f7d1892984fd451ddc08342781"
@@ -921,10 +888,15 @@
   dependencies:
     "@types/chai" "*"
 
-"@types/chai@*", "@types/chai@4.2.19":
+"@types/chai@*":
   version "4.2.19"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.19.tgz#80f286b515897413c7a35bdda069cc80f2344233"
   integrity sha512-jRJgpRBuY+7izT7/WNXP/LsMO9YonsstuL+xuvycDyESpoDoIAsMd7suwpB4h9oEWB+ZlPTqJJ8EHomzNhwTPQ==
+
+"@types/chai@4.2.20":
+  version "4.2.20"
+  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.20.tgz#bb02e7d02b6c452f6bbb8fe575b56e180644de67"
+  integrity sha512-E121rHk/4BlcEwANZOwcHl8L/Sl0zyIFXJoyggXkl7FCT/4MTf5u25f+qiphe0V5ELaFIkCptgvbf4whCJUVMA==
 
 "@types/cheerio@*":
   version "0.22.29"
