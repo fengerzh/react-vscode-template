@@ -13,7 +13,7 @@
   "dependencies": {
     "@ant-design/icons": "4.6.2",
     "@ant-design/pro-form": "1.31.2",
-    "@ant-design/pro-layout": "6.21.0",
+    "@ant-design/pro-layout": "6.21.1",
     "@ant-design/pro-table": "2.43.4",
     "@fullhuman/postcss-purgecss": "4.0.3",
     "@istanbuljs/nyc-config-typescript": "1.0.1",
