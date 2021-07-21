@@ -87,10 +87,10 @@
   dependencies:
     rc-util "^5.0.1"
 
-"@ant-design/pro-table@2.43.6":
-  version "2.43.6"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.43.6.tgz#e27835afc7e41c947a6a707c30676b529d241863"
-  integrity sha512-zgT2dNeNAEauL05zvurCL3TcUmEp4YCF20r4otMQ4lo0b0weTLawRDG5q3dS49wCmN0+CYJiOXMXLzwcIf6MJQ==
+"@ant-design/pro-table@2.44.0":
+  version "2.44.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.44.0.tgz#e2f98ddd0be79892b67694d270d1678a8dfc86fc"
+  integrity sha512-+HhJ1uDkEisZJKZrv8DOcaK2tykQBeB85JdxBzLhCEtjvgvIwJweRKfL+rwUpyhzUghIgw8h4CxsoBO4ccviQw==
   dependencies:
     "@ant-design/icons" "^4.1.0"
     "@ant-design/pro-field" "1.18.12"
