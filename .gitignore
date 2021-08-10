@@ -6,3 +6,5 @@ dist-ssr
 /cypress/videos
 .nyc_output
 coverage
+.yarn/cache
+.yarn/install-state.gz
