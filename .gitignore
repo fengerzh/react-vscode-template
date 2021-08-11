@@ -8,3 +8,4 @@ dist-ssr
 coverage
 .yarn/cache
 .yarn/install-state.gz
+.pnp.cjs
