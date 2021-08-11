@@ -21,6 +21,6 @@ workflows:
     jobs:
       - codacy-coverage-report
       - cypress/run:
-          yarn: true
+          yarn: false
           record: true
           start: yarn start
