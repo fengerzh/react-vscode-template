@@ -8177,6 +8177,7 @@ __metadata:
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
     "@jest/globals": 27.0.6
+    "@jest/types": ^27.0.6
     "@types/chai": 4.2.21
     "@types/chai-spies": 1.0.3
     "@types/enzyme": 3.10.9

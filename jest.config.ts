@@ -14,4 +14,5 @@ const config: Config.InitialOptions = {
     'cypress',
   ],
 };
+
 export default config;
