@@ -21,6 +21,6 @@ workflows:
     jobs:
       - codacy-coverage-report
       - cypress/run:
-          install-command: yarn --version
+          install-command: yarn
           record: true
           start: yarn start
