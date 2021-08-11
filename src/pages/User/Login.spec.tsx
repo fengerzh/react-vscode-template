@@ -2,7 +2,7 @@ import './matchMedia.mock';
 import { mount, configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { act } from 'react-dom/test-utils';
-import ProForm, { ProFormProps, ProFormCaptcha } from '@ant-design/pro-form';
+import ProForm, { ProFormProps, ProFormCaptcha, ProFormCaptchaProps } from '@ant-design/pro-form';
 import Login from './Login';
 
 configure({ adapter: new Adapter() });
@@ -16,9 +16,9 @@ describe('<Login /> 组件测试', () => {
   });
   it('发送验证码', async () => {
     const wrapper = mount(<Login history={{ push: () => {} }} />);
-    const form = wrapper.find(ProFormCaptcha).props();
+    const { onGetCaptcha } = wrapper.find(ProFormCaptcha).props() as ProFormCaptchaProps;
     await act(async () => {
-      await form.onGetCaptcha('13912345678');
+      await onGetCaptcha('13912345678');
     });
   });
   it('登录成功', async () => {
