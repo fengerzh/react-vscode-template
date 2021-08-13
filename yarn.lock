@@ -2032,15 +2032,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios-mock-adapter@npm:1.19.0":
-  version: 1.19.0
-  resolution: "axios-mock-adapter@npm:1.19.0"
+"axios-mock-adapter@npm:1.20.0":
+  version: 1.20.0
+  resolution: "axios-mock-adapter@npm:1.20.0"
   dependencies:
     fast-deep-equal: ^3.1.3
-    is-buffer: ^2.0.3
+    is-blob: ^2.1.0
+    is-buffer: ^2.0.5
   peerDependencies:
     axios: ">= 0.9.0"
-  checksum: f3f4e6533ff02445b15a605586059d24270567a4eef8958ffc2e88f1dfdb1a76a8962cc15fc07d4d6696e56985405e6c7510521ea3784c737b3498303d3d91b3
+  checksum: 93b366b135d09a179d0d0562c705cb0104f0e92a8839a45abedc405322ca01eaa8b9e859c087a8d366d6ab1cac42d40b845ae40b8a9a0dd77110097570836f88
   languageName: node
   linkType: hard
 
@@ -4785,6 +4786,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-blob@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "is-blob@npm:2.1.0"
+  checksum: ce24917bf50a52736e37702a14bc729a0e1eab6bf61ac0b8e6ee86caf33d73eba297131736f8e54615732d08168859493ba7ced4fc840bb5b7c2ae21a5de6861
+  languageName: node
+  linkType: hard
+
 "is-boolean-object@npm:^1.0.1, is-boolean-object@npm:^1.1.0":
   version: 1.1.2
   resolution: "is-boolean-object@npm:1.1.2"
@@ -4795,7 +4803,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-buffer@npm:^2.0.3":
+"is-buffer@npm:^2.0.5":
   version: 2.0.5
   resolution: "is-buffer@npm:2.0.5"
   checksum: 764c9ad8b523a9f5a32af29bdf772b08eb48c04d2ad0a7240916ac2688c983bf5f8504bf25b35e66240edeb9d9085461f9b5dae1f3d2861c6b06a65fe983de42
@@ -8121,7 +8129,7 @@ __metadata:
     antd: 4.16.11
     autoprefixer: 10.3.1
     axios: 0.21.1
-    axios-mock-adapter: 1.19.0
+    axios-mock-adapter: 1.20.0
     chai: 4.3.4
     chai-spies: 1.0.0
     cypress: 8.2.0
