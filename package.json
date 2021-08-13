@@ -50,7 +50,7 @@
     "ignore-styles": "5.0.1",
     "jest": "27.0.6",
     "jest-transform-stub": "2.0.0",
-    "jsdom": "16.7.0",
+    "jsdom": "17.0.0",
     "jsdom-global": "3.0.2",
     "less": "4.1.1",
     "mobx": "6.3.2",
