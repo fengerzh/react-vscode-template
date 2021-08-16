@@ -3443,12 +3443,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.12.8":
-  version: 0.12.19
-  resolution: "esbuild@npm:0.12.19"
+"esbuild@npm:^0.12.17":
+  version: 0.12.20
+  resolution: "esbuild@npm:0.12.20"
   bin:
     esbuild: bin/esbuild
-  checksum: f6ba6b9ee0e114c24b222bf95f18f6742002c4462d8b74e779effd1244bae8af964452ad8f6d70120d8ddf311a3b8ccc5026fb8ff1d0ac1fda14ed6435e2f6b3
+  checksum: 52a67e06a675fe632655b9edb8beba2b67e55ff1853561fc2b1d5098e5c4801e885707af2441f3b3612791085f132eb46868f7353949ef4054caa714233156db
   languageName: node
   linkType: hard
 
@@ -8234,7 +8234,7 @@ __metadata:
     ts-jest: 27.0.4
     ts-node: 10.2.0
     typescript: 4.3.5
-    vite: 2.4.4
+    vite: 2.5.0
     vite-plugin-imp: 2.0.7
   languageName: unknown
   linkType: soft
@@ -9689,11 +9689,11 @@ typescript@4.3.5:
   languageName: node
   linkType: hard
 
-"vite@npm:2.4.4":
-  version: 2.4.4
-  resolution: "vite@npm:2.4.4"
+"vite@npm:2.5.0":
+  version: 2.5.0
+  resolution: "vite@npm:2.5.0"
   dependencies:
-    esbuild: ^0.12.8
+    esbuild: ^0.12.17
     fsevents: ~2.3.2
     postcss: ^8.3.6
     resolve: ^1.20.0
@@ -9703,7 +9703,7 @@ typescript@4.3.5:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 075deeb5f915f2a0a2b2e90c6bcbe919b894b6004133e3280eb413dfb17aa1dd6b82aaf35451291f3ba572566f8948e62b32476ce39d5046eef6092106c80a8a
+  checksum: 9465f56c7b3bf9014cb028fbf533590c9f150bd5d37eac81e1f3abb3a05a8a20ad431204b622a7d39d18fd245b175dbf00b5b800138544371d436c214cfbb09f
   languageName: node
   linkType: hard
 
