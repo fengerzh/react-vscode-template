@@ -3492,13 +3492,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb-typescript@npm:13.0.0":
-  version: 13.0.0
-  resolution: "eslint-config-airbnb-typescript@npm:13.0.0"
+"eslint-config-airbnb-typescript@npm:13.0.1":
+  version: 13.0.1
+  resolution: "eslint-config-airbnb-typescript@npm:13.0.1"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^4.4.1
     "@typescript-eslint/parser": ^4.4.1
-  checksum: 1ec21905c4cbb45a1a584756ec7d2a96c4bcc4c8359a39c4c7c129a802ce332d9f01990fdd6e77fb061019404300ecdac9496bced0863e18004af89a1bab48bc
+  checksum: ea8a1435838552489e2044d4fb59bc17a5b5d8c221b4ece4b08b8064d5624197c3d59b7a3d846f29b0db543a1ef89ce9ff5c0affa88ed1312fd8132a4a2f6bc5
   languageName: node
   linkType: hard
 
@@ -8166,7 +8166,7 @@ __metadata:
     dayjs: 1.10.6
     enzyme: 3.11.0
     eslint: 7.32.0
-    eslint-config-airbnb-typescript: 13.0.0
+    eslint-config-airbnb-typescript: 13.0.1
     eslint-import-resolver-alias: 1.1.2
     eslint-import-resolver-typescript: 2.4.0
     eslint-plugin-cypress: 2.11.3
