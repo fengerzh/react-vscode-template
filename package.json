@@ -65,7 +65,7 @@
     "react-router-dom": "5.2.0",
     "source-map-support": "0.5.19",
     "tailwindcss": "2.2.7",
-    "ts-jest": "27.0.4",
+    "ts-jest": "27.0.5",
     "ts-node": "10.2.0",
     "typescript": "4.3.5",
     "vite": "2.5.0",
