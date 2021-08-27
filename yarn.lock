@@ -96,13 +96,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-layout@npm:6.24.2":
-  version: 6.24.2
-  resolution: "@ant-design/pro-layout@npm:6.24.2"
+"@ant-design/pro-layout@npm:6.24.3":
+  version: 6.24.3
+  resolution: "@ant-design/pro-layout@npm:6.24.3"
   dependencies:
     "@ant-design/icons": ^4.0.0
     "@ant-design/pro-provider": 1.4.17
-    "@ant-design/pro-utils": 1.22.0
+    "@ant-design/pro-utils": 1.23.0
     "@umijs/route-utils": ^1.0.35
     "@umijs/use-params": ^1.0.2
     classnames: ^2.2.6
@@ -119,7 +119,7 @@ __metadata:
   peerDependencies:
     antd: ^4.x
     react: ">=16.9.0"
-  checksum: dd6fd1167db5d7053a0c1ccc3d7633bb61d4b54fb1c25e538ab0ccd6bb526128ab74d105f22691d87c498a141f9e919075c9d61bf7f7b7b80d7681b5e06badb6
+  checksum: aa92a786069a770cf21150eb58706251d3cf3764b2b9dbfc31f43f12de42818136c6b4844d9304c6af946d615a1409326f11e2ed4d43c700c957d963259d5eb6
   languageName: node
   linkType: hard
 
@@ -192,9 +192,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-utils@npm:1.22.0":
-  version: 1.22.0
-  resolution: "@ant-design/pro-utils@npm:1.22.0"
+"@ant-design/pro-utils@npm:1.23.0":
+  version: 1.23.0
+  resolution: "@ant-design/pro-utils@npm:1.23.0"
   dependencies:
     "@ant-design/icons": ^4.3.0
     "@ant-design/pro-provider": 1.4.17
@@ -208,7 +208,7 @@ __metadata:
     antd: 4.x
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 60ff24db1d2cacc28448be4ce78737db7d5d30102b8b7852773f738ba76b35a116aadc27f51a5679b5b2447b7df10ecfbf3441e1b6c9668305f888473cfd3c3f
+  checksum: a3c5a0d90decdaab5f30e08b2732b61a04e893ee4e83f018acddf403229374b01cefde8996a8715745cf3c49f45c6c065079838fd575220327a6f4ec191c6e62
   languageName: node
   linkType: hard
 
@@ -8254,7 +8254,7 @@ __metadata:
   dependencies:
     "@ant-design/icons": 4.6.3
     "@ant-design/pro-form": 1.34.0
-    "@ant-design/pro-layout": 6.24.2
+    "@ant-design/pro-layout": 6.24.3
     "@ant-design/pro-table": 2.48.0
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
