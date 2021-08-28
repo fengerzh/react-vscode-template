@@ -21,9 +21,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons@npm:4.6.3, @ant-design/icons@npm:^4.6.3":
-  version: 4.6.3
-  resolution: "@ant-design/icons@npm:4.6.3"
+"@ant-design/icons@npm:4.6.4":
+  version: 4.6.4
+  resolution: "@ant-design/icons@npm:4.6.4"
   dependencies:
     "@ant-design/colors": ^6.0.0
     "@ant-design/icons-svg": ^4.0.0
@@ -33,7 +33,7 @@ __metadata:
   peerDependencies:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: 3fe450dbf2972350b97b2f116d25e9d75e48c123f85c8bc059170c1f61dc2aac6e0d1417ea8e1e72b6dae1b6aaa1eab5b4a00f0a2f388551a6b7da1860de1cc5
+  checksum: 8bc2cbac17dcd1eb2296370ced7b8c66ba24e720809373ea50f06b00711bdc13e4bd6783d571ff0df7fd05f092bd96206c3dd5dee5f42f4a0fc2c6f2c864d00b
   languageName: node
   linkType: hard
 
@@ -49,6 +49,22 @@ __metadata:
   peerDependencies:
     react: ">=16.0.0"
   checksum: 970104dff18be13bb05214a048f185adad8adfc897122ac358dcdc56e9cba0f1b154fac4f9535773c8788e1f58bb7906413cbf66845f6d62deb55cca56a64845
+  languageName: node
+  linkType: hard
+
+"@ant-design/icons@npm:^4.6.3":
+  version: 4.6.3
+  resolution: "@ant-design/icons@npm:4.6.3"
+  dependencies:
+    "@ant-design/colors": ^6.0.0
+    "@ant-design/icons-svg": ^4.0.0
+    "@babel/runtime": ^7.11.2
+    classnames: ^2.2.6
+    rc-util: ^5.9.4
+  peerDependencies:
+    react: ">=16.0.0"
+    react-dom: ">=16.0.0"
+  checksum: 3fe450dbf2972350b97b2f116d25e9d75e48c123f85c8bc059170c1f61dc2aac6e0d1417ea8e1e72b6dae1b6aaa1eab5b4a00f0a2f388551a6b7da1860de1cc5
   languageName: node
   linkType: hard
 
@@ -8243,7 +8259,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-vscode-template@workspace:."
   dependencies:
-    "@ant-design/icons": 4.6.3
+    "@ant-design/icons": 4.6.4
     "@ant-design/pro-form": 1.37.0
     "@ant-design/pro-layout": 6.24.3
     "@ant-design/pro-table": 2.50.1
