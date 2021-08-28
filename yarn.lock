@@ -995,20 +995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/types@npm:27.0.6, @jest/types@npm:^27.0.6":
-  version: 27.0.6
-  resolution: "@jest/types@npm:27.0.6"
-  dependencies:
-    "@types/istanbul-lib-coverage": ^2.0.0
-    "@types/istanbul-reports": ^3.0.0
-    "@types/node": "*"
-    "@types/yargs": ^16.0.0
-    chalk: ^4.0.0
-  checksum: abe367b073d5b7396d7397620f57a24409551bb940761d78e6775f10aee68fb96eb80d7177824090ac811c7e7ba5d9cfce4cbdded86f3adef2abc291da28de77
-  languageName: node
-  linkType: hard
-
-"@jest/types@npm:^27.1.0":
+"@jest/types@npm:27.1.0, @jest/types@npm:^27.1.0":
   version: 27.1.0
   resolution: "@jest/types@npm:27.1.0"
   dependencies:
@@ -1018,6 +1005,19 @@ __metadata:
     "@types/yargs": ^16.0.0
     chalk: ^4.0.0
   checksum: 11899aba8103e00332baab35eb7ed435e4e06b270d02ca75fc6ccf08e41f36abae7b25d623377da47596c3e817c102e79e99caf717e6ec8eb78a85fdaa439ee8
+  languageName: node
+  linkType: hard
+
+"@jest/types@npm:^27.0.6":
+  version: 27.0.6
+  resolution: "@jest/types@npm:27.0.6"
+  dependencies:
+    "@types/istanbul-lib-coverage": ^2.0.0
+    "@types/istanbul-reports": ^3.0.0
+    "@types/node": "*"
+    "@types/yargs": ^16.0.0
+    chalk: ^4.0.0
+  checksum: abe367b073d5b7396d7397620f57a24409551bb940761d78e6775f10aee68fb96eb80d7177824090ac811c7e7ba5d9cfce4cbdded86f3adef2abc291da28de77
   languageName: node
   linkType: hard
 
@@ -8265,7 +8265,7 @@ __metadata:
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
     "@jest/globals": 27.1.0
-    "@jest/types": 27.0.6
+    "@jest/types": 27.1.0
     "@types/chai": 4.2.21
     "@types/chai-spies": 1.0.3
     "@types/enzyme": 3.10.9
