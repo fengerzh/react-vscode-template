@@ -8349,7 +8349,7 @@ __metadata:
     ts-jest: 27.0.5
     ts-node: 10.2.1
     typescript: 4.4.2
-    vite: 2.5.1
+    vite: 2.5.2
     vite-plugin-imp: 2.0.7
   languageName: unknown
   linkType: soft
@@ -9814,9 +9814,9 @@ typescript@4.4.2:
   languageName: node
   linkType: hard
 
-"vite@npm:2.5.1":
-  version: 2.5.1
-  resolution: "vite@npm:2.5.1"
+"vite@npm:2.5.2":
+  version: 2.5.2
+  resolution: "vite@npm:2.5.2"
   dependencies:
     esbuild: ^0.12.17
     fsevents: ~2.3.2
@@ -9828,7 +9828,7 @@ typescript@4.4.2:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 31dfd00615143f79b30a95bd709951646448ddc552a1de3da0c3151f93e1de5ded9ddc97704d75518bf06f111e51cb37c547c4c84b598be45bc566d1e41cb599
+  checksum: ba328352374c6c78eb03b6d3df9a692a73f2e360a2fc19ecb04a1158834670983e7e7bc730d438a0b223ad35bfd1cc5b26453975d51798b6c13a98ec8fd1a84c
   languageName: node
   linkType: hard
 
