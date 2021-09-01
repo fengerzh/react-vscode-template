@@ -1261,6 +1261,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:^27.0.1":
+  version: 27.0.1
+  resolution: "@types/jest@npm:27.0.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-27.0.1.tgz"
+  dependencies:
+    jest-diff: ^27.0.0
+    pretty-format: ^27.0.0
+  checksum: 972aaae341b83eb608970c93295282f1f9edc056dc8123635456cbaced822702673118d60279c7b889300e7c9a0726c3674d701115915e2e1967db09542389c2
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.7":
   version: 7.0.9
   resolution: "@types/json-schema@npm:7.0.9"
@@ -5311,6 +5321,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-diff@npm:^27.0.0":
+  version: 27.1.0
+  resolution: "jest-diff@npm:27.1.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fjest-diff%2Fdownload%2Fjest-diff-27.1.0.tgz"
+  dependencies:
+    chalk: ^4.0.0
+    diff-sequences: ^27.0.6
+    jest-get-type: ^27.0.6
+    pretty-format: ^27.1.0
+  checksum: 8475d6daf0e0ab166a647debd9c6c622e2a79fb0c4c98b1158b87bedf3b118ffbf56004020335dad4f45686667f621f6c102f79d1a3b6a20379c01699b8b3adc
+  languageName: node
+  linkType: hard
+
 "jest-diff@npm:^27.1.0":
   version: 27.1.0
   resolution: "jest-diff@npm:27.1.0"
@@ -7421,6 +7443,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pretty-format@npm:^27.0.0":
+  version: 27.1.0
+  resolution: "pretty-format@npm:27.1.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fpretty-format%2Fdownload%2Fpretty-format-27.1.0.tgz"
+  dependencies:
+    "@jest/types": ^27.1.0
+    ansi-regex: ^5.0.0
+    ansi-styles: ^5.0.0
+    react-is: ^17.0.1
+  checksum: 2472b03b804c21cb1fde94fb01c4ad6e3395e33d8e339ae0ee3dbca0a212235079c8250b5ccb15aa8700c7107b6bbbaaf7ab0d8246d4cf9092e9467a6e22beda
+  languageName: node
+  linkType: hard
+
 "pretty-format@npm:^27.1.0":
   version: 27.1.0
   resolution: "pretty-format@npm:27.1.0"
@@ -8303,6 +8337,7 @@ __metadata:
     "@types/chai": 4.2.21
     "@types/chai-spies": 1.0.3
     "@types/enzyme": 3.10.9
+    "@types/jest": ^27.0.1
     "@types/mocha": 9.0.0
     "@types/react-dom": 17.0.9
     "@types/react-router-dom": 5.1.8
