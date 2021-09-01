@@ -1261,7 +1261,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^27.0.1":
+"@types/jest@npm:27.0.1":
   version: 27.0.1
   resolution: "@types/jest@npm:27.0.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-27.0.1.tgz"
   dependencies:
@@ -8337,7 +8337,7 @@ __metadata:
     "@types/chai": 4.2.21
     "@types/chai-spies": 1.0.3
     "@types/enzyme": 3.10.9
-    "@types/jest": ^27.0.1
+    "@types/jest": 27.0.1
     "@types/mocha": 9.0.0
     "@types/react-dom": 17.0.9
     "@types/react-router-dom": 5.1.8
