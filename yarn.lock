@@ -8093,9 +8093,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:5.2.1":
-  version: 5.2.1
-  resolution: "react-router-dom@npm:5.2.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Freact-router-dom%2Fdownload%2Freact-router-dom-5.2.1.tgz"
+"react-router-dom@npm:5.3.0":
+  version: 5.3.0
+  resolution: "react-router-dom@npm:5.3.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Freact-router-dom%2Fdownload%2Freact-router-dom-5.3.0.tgz"
   dependencies:
     "@babel/runtime": ^7.12.13
     history: ^4.9.0
@@ -8106,7 +8106,7 @@ __metadata:
     tiny-warning: ^1.0.0
   peerDependencies:
     react: ">=15"
-  checksum: d331c9179c291bce798ab7fb041831377a0216e680a031dbf4af6046a02bbbf2ec1215e32bbd1fc0f5a902a37c3ad679de9ae103164b56bf5848749052ac1516
+  checksum: 47584fd629ecca52398d7888cab193b8a74057cc99a7ef44410c405d4082f618c3c0399db5325bc3524f9c511404086169570013b61a94dfa6acdfdc850d7a1f
   languageName: node
   linkType: hard
 
@@ -8227,7 +8227,7 @@ __metadata:
     prop-types: 15.7.2
     react: 17.0.2
     react-dom: 17.0.2
-    react-router-dom: 5.2.1
+    react-router-dom: 5.3.0
     source-map-support: 0.5.19
     tailwindcss: 2.2.9
     ts-jest: 27.0.5
