@@ -37,27 +37,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-field@npm:1.21.2":
-  version: 1.21.2
-  resolution: "@ant-design/pro-field@npm:1.21.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.21.2.tgz"
-  dependencies:
-    "@ant-design/icons": ^4.2.1
-    "@ant-design/pro-provider": 1.4.17
-    "@ant-design/pro-utils": 1.24.1
-    classnames: ^2.2.6
-    lodash.tonumber: ^4.0.3
-    moment: ^2.27.0
-    omit.js: ^2.0.2
-    rc-util: ^5.4.0
-    react-color: 2.19.3
-    swr: ^0.5.6
-  peerDependencies:
-    antd: 4.x
-    react: ">=16.9.0"
-  checksum: 554ea67b58deffcc1d0ed9cc3b153b6d0f8a925fc9aaafe45b99f41f68dcba61d2cb1c16852e4b51f363ec3e7ba679a079593e550b0bbc6c522262cde2265422
-  languageName: node
-  linkType: hard
-
 "@ant-design/pro-field@npm:1.22.0":
   version: 1.22.0
   resolution: "@ant-design/pro-field@npm:1.22.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.22.0.tgz"
@@ -76,29 +55,6 @@ __metadata:
     antd: 4.x
     react: ">=16.9.0"
   checksum: f71f327b72f275af6a14f42f51a5a5c0d1eacbc7b1f0eb46aefeb70d3b1eb6a72f613ea300709fca326190ae06bf3b28b60614087b4c541d6716b192312b42f6
-  languageName: node
-  linkType: hard
-
-"@ant-design/pro-form@npm:1.38.1":
-  version: 1.38.1
-  resolution: "@ant-design/pro-form@npm:1.38.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.38.1.tgz"
-  dependencies:
-    "@ant-design/icons": ^4.2.1
-    "@ant-design/pro-field": 1.21.2
-    "@ant-design/pro-provider": 1.4.17
-    "@ant-design/pro-utils": 1.24.1
-    "@umijs/use-params": ^1.0.2
-    classnames: ^2.2.6
-    lodash.merge: ^4.6.2
-    omit.js: ^2.0.2
-    rc-resize-observer: ^0.2.3
-    rc-util: ^5.0.6
-    use-media-antd-query: ^1.0.6
-  peerDependencies:
-    antd: 4.x
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: a7bfb7af2dc4e17a308cb0ba93624b30311a327e5daf1e1433e110325a9eb877f1110fa70fbc2e0d82c4118bf903f4b63276cd979270075348380c11eb2c890b
   languageName: node
   linkType: hard
 
@@ -164,16 +120,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-table@npm:2.51.2":
-  version: 2.51.2
-  resolution: "@ant-design/pro-table@npm:2.51.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.51.2.tgz"
+"@ant-design/pro-table@npm:2.52.0":
+  version: 2.52.0
+  resolution: "@ant-design/pro-table@npm:2.52.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.52.0.tgz"
   dependencies:
     "@ant-design/icons": ^4.1.0
-    "@ant-design/pro-field": 1.21.2
-    "@ant-design/pro-form": 1.38.1
+    "@ant-design/pro-field": 1.22.0
+    "@ant-design/pro-form": 1.39.0
     "@ant-design/pro-provider": 1.4.17
-    "@ant-design/pro-utils": 1.24.1
-    array-move: 3.0.1
+    "@ant-design/pro-utils": 1.24.2
     classnames: ^2.2.6
     moment: ^2.24.0
     omit.js: ^2.0.2
@@ -186,7 +141,7 @@ __metadata:
     antd: 4.x
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 9064de3718984c9c1fe2ea5e7daf47167025f145bf552348f739db8b542f49d22a278da458e796cd9726a156a34e6c72b7655bf1f2b61c5f8402c6173b8f3286
+  checksum: f16c65e08c79d731f6201110f77ec0f72dd55d6daadfa780a6d2f0c94dbd9b855e03109ebe2dc369210034a26f0deab6d000d0158db369bcc0e384a6b242bee0
   languageName: node
   linkType: hard
 
@@ -1956,13 +1911,6 @@ __metadata:
     get-intrinsic: ^1.1.1
     is-string: ^1.0.5
   checksum: eaab8812412b5ec921c8fe678a9d61f501b12f6c72e271e0e8652fe7f4145276cc7ad79ff303ac4ed69cbf5135155bfb092b1b6d552e423e75106d1c887da150
-  languageName: node
-  linkType: hard
-
-"array-move@npm:3.0.1":
-  version: 3.0.1
-  resolution: "array-move@npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Farray-move%2Fdownload%2Farray-move-3.0.1.tgz"
-  checksum: 4b550fe07f89750e5830be6e0b0165e5900a8d087ac51c4f7bf8cac6f87b4e96dfda05629cb962cdc33f64a3b0be49ee783595d74ccd2278e5a588fc436481d0
   languageName: node
   linkType: hard
 
@@ -8242,7 +8190,7 @@ __metadata:
     "@ant-design/icons": 4.6.4
     "@ant-design/pro-form": 1.39.0
     "@ant-design/pro-layout": 6.25.1
-    "@ant-design/pro-table": 2.51.2
+    "@ant-design/pro-table": 2.52.0
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
     "@jest/globals": 27.1.0
