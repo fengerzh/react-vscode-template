@@ -2821,6 +2821,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-color-names@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "css-color-names@npm:0.0.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fcss-color-names%2Fdownload%2Fcss-color-names-0.0.4.tgz"
+  checksum: 9c6106320430a9da3a13daab8d8b4def39113edbfb68042444585d9a214af5fd5cb384b9be45124bc75f88261d461b517e00e278f4d2e0ab5a619b182f9f0e2d
+  languageName: node
+  linkType: hard
+
 "css-select@npm:^4.1.3":
   version: 4.1.3
   resolution: "css-select@npm:4.1.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fcss-select%2Fdownload%2Fcss-select-4.1.3.tgz"
@@ -4496,6 +4503,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hex-color-regex@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "hex-color-regex@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhex-color-regex%2Fdownload%2Fhex-color-regex-1.1.0.tgz"
+  checksum: 44fa1b7a26d745012f3bfeeab8015f60514f72d2fcf10dce33068352456b8d71a2e6bc5a17f933ab470da2c5ab1e3e04b05caf3fefe3c1cabd7e02e516fc8784
+  languageName: node
+  linkType: hard
+
 "history@npm:^4.9.0":
   version: 4.10.1
   resolution: "history@npm:4.10.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fhistory%2Fdownload%2Fhistory-4.10.1.tgz"
@@ -4523,6 +4537,20 @@ __metadata:
   version: 2.8.9
   resolution: "hosted-git-info@npm:2.8.9::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fhosted-git-info%2Fdownload%2Fhosted-git-info-2.8.9.tgz"
   checksum: c955394bdab888a1e9bb10eb33029e0f7ce5a2ac7b3f158099dc8c486c99e73809dca609f5694b223920ca2174db33d32b12f9a2a47141dc59607c29da5a62dd
+  languageName: node
+  linkType: hard
+
+"hsl-regex@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "hsl-regex@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhsl-regex%2Fdownload%2Fhsl-regex-1.0.0.tgz"
+  checksum: de9ee1bf39de1b83cc3fa0fa1cc337f29f14911e79411d66347365c54fab6b109eea2dd741eaa02486e24de31627ad7bf4453f22224fb55a2fe2b58166fa63b8
+  languageName: node
+  linkType: hard
+
+"hsla-regex@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "hsla-regex@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fhsla-regex%2Fdownload%2Fhsla-regex-1.0.0.tgz"
+  checksum: 9aa6eb9ff6c102d2395435aa5d1d91eae20043c4b1497c543d8db501c05f3edacd9a07fb34a987059d7902dba415af4cb4e610f751859ae8e7525df4ffcd085f
   languageName: node
   linkType: hard
 
@@ -4864,6 +4892,20 @@ __metadata:
   bin:
     is-ci: bin.js
   checksum: 4b45aef32dd42dcb1f6fb3cd4b3a7ee7e18ea47516d2129005f46c3f36983506bb471382bac890973cf48a2f60d926a24461674ca2d9dc10744d82d4a876c26b
+  languageName: node
+  linkType: hard
+
+"is-color-stop@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "is-color-stop@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fis-color-stop%2Fdownload%2Fis-color-stop-1.1.0.tgz"
+  dependencies:
+    css-color-names: ^0.0.4
+    hex-color-regex: ^1.1.0
+    hsl-regex: ^1.0.0
+    hsla-regex: ^1.0.0
+    rgb-regex: ^1.0.1
+    rgba-regex: ^1.0.0
+  checksum: 778dd52a603ab8da827925aa4200fe6733b667b216495a04110f038b925dc5ef58babe759b94ffc4e44fcf439328695770873937f59d6045f676322b97f3f92d
   languageName: node
   linkType: hard
 
@@ -8241,7 +8283,7 @@ __metadata:
     react-dom: 17.0.2
     react-router-dom: 5.3.0
     source-map-support: 0.5.19
-    tailwindcss: 2.2.10
+    tailwindcss: 2.2.11
     ts-jest: 27.0.5
     ts-node: 10.2.1
     typescript: 4.4.2
@@ -8497,6 +8539,20 @@ resolve@^2.0.0-next.3:
   version: 1.0.4
   resolution: "reusify@npm:1.0.4::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Freusify%2Fdownload%2Freusify-1.0.4.tgz"
   checksum: c3076ebcc22a6bc252cb0b9c77561795256c22b757f40c0d8110b1300723f15ec0fc8685e8d4ea6d7666f36c79ccc793b1939c748bf36f18f542744a4e379fcc
+  languageName: node
+  linkType: hard
+
+"rgb-regex@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "rgb-regex@npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frgb-regex%2Fdownload%2Frgb-regex-1.0.1.tgz"
+  checksum: b270ce8bc14782d2d21d3184c1e6c65b465476d8f03e72b93ef57c95710a452b2fe280e1d516c88873aec06efd7f71373e673f114b9d99f3a4f9a0393eb00126
+  languageName: node
+  linkType: hard
+
+"rgba-regex@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "rgba-regex@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Frgba-regex%2Fdownload%2Frgba-regex-1.0.0.tgz"
+  checksum: 7f2cd271572700faea50753d82524cb2b98f17a5b9722965c7076f6cd674fe545f28145b7ef2cccabc9eca2475c793db16862cd5e7b3784a9f4b8d6496431057
   languageName: node
   linkType: hard
 
@@ -9131,9 +9187,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:2.2.10":
-  version: 2.2.10
-  resolution: "tailwindcss@npm:2.2.10::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ftailwindcss%2Fdownload%2Ftailwindcss-2.2.10.tgz"
+"tailwindcss@npm:2.2.11":
+  version: 2.2.11
+  resolution: "tailwindcss@npm:2.2.11::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ftailwindcss%2Fdownload%2Ftailwindcss-2.2.11.tgz"
   dependencies:
     arg: ^5.0.1
     bytes: ^3.0.0
@@ -9148,6 +9204,7 @@ resolve@^2.0.0-next.3:
     fs-extra: ^10.0.0
     glob-parent: ^6.0.1
     html-tags: ^3.1.0
+    is-color-stop: ^1.1.0
     is-glob: ^4.0.1
     lodash: ^4.17.21
     lodash.topath: ^4.5.2
@@ -9172,7 +9229,7 @@ resolve@^2.0.0-next.3:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: e5a1116e7912486ec1be97a171e8a365d978c79ffb284c12d5db501cf50a2ce1be13c58176ef4f3893c175f0b54774d44ac0083462accd6de2a3ebc0cd48dabe
+  checksum: 1e72a9b525e9866a134a8d25c3c4205fa43ccd7ef478a3e13fb4873cdddf145440db5c92796173d272621e635839eb3ecfff4cd91175f8a2c5b81ce660b78ad7
   languageName: node
   linkType: hard
 
