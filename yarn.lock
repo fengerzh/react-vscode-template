@@ -58,6 +58,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ant-design/pro-field@npm:1.22.0":
+  version: 1.22.0
+  resolution: "@ant-design/pro-field@npm:1.22.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.22.0.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-provider": 1.4.17
+    "@ant-design/pro-utils": 1.24.2
+    classnames: ^2.2.6
+    lodash.tonumber: ^4.0.3
+    moment: ^2.27.0
+    omit.js: ^2.0.2
+    rc-util: ^5.4.0
+    react-color: 2.19.3
+    swr: ^1.0.0
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+  checksum: f71f327b72f275af6a14f42f51a5a5c0d1eacbc7b1f0eb46aefeb70d3b1eb6a72f613ea300709fca326190ae06bf3b28b60614087b4c541d6716b192312b42f6
+  languageName: node
+  linkType: hard
+
 "@ant-design/pro-form@npm:1.38.1":
   version: 1.38.1
   resolution: "@ant-design/pro-form@npm:1.38.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.38.1.tgz"
@@ -78,6 +99,29 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: a7bfb7af2dc4e17a308cb0ba93624b30311a327e5daf1e1433e110325a9eb877f1110fa70fbc2e0d82c4118bf903f4b63276cd979270075348380c11eb2c890b
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-form@npm:1.39.0":
+  version: 1.39.0
+  resolution: "@ant-design/pro-form@npm:1.39.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.39.0.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-field": 1.22.0
+    "@ant-design/pro-provider": 1.4.17
+    "@ant-design/pro-utils": 1.24.2
+    "@umijs/use-params": ^1.0.2
+    classnames: ^2.2.6
+    lodash.merge: ^4.6.2
+    omit.js: ^2.0.2
+    rc-resize-observer: ^0.2.3
+    rc-util: ^5.0.6
+    use-media-antd-query: ^1.0.6
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 7d88fe867f6003f8837ed3906981a8f0ef37ca4b2849ad339886ed942790d57c0d03153b6cc4114c60ef45f0f2995c45b1040d11aa5635bf2dfae196245adb17
   languageName: node
   linkType: hard
 
@@ -163,6 +207,26 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: a23b4bc2d8c136eaa356e3dc509e63cf7ee46897bd6ea3898866d41c1e2394ea21da14f5b908937de2069c7fa895492a6146826036512b766323e7653a96aa33
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-utils@npm:1.24.2":
+  version: 1.24.2
+  resolution: "@ant-design/pro-utils@npm:1.24.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-utils%2Fdownload%2F%40ant-design%2Fpro-utils-1.24.2.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.3.0
+    "@ant-design/pro-provider": 1.4.17
+    classnames: ^2.2.6
+    lodash.merge: ^4.6.2
+    moment: ^2.27.0
+    rc-util: ^5.0.6
+    react-sortable-hoc: ^2.0.0
+    swr: ^1.0.0
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: e8395a753235723fe0022fc3acca08532b1d3fbe4b0d55acbfb053015adf6e9fd3d8a2117ec456878d18c4d8b645cbc4a950c76147241840c74f9529a394b0b7
   languageName: node
   linkType: hard
 
@@ -8176,7 +8240,7 @@ __metadata:
   resolution: "react-vscode-template@workspace:."
   dependencies:
     "@ant-design/icons": 4.6.4
-    "@ant-design/pro-form": 1.38.1
+    "@ant-design/pro-form": 1.39.0
     "@ant-design/pro-layout": 6.25.1
     "@ant-design/pro-table": 2.51.2
     "@fullhuman/postcss-purgecss": 4.0.3
@@ -9084,6 +9148,17 @@ resolve@^2.0.0-next.3:
   peerDependencies:
     react: ^16.11.0 || ^17.0.0
   checksum: 1bbc7fb107565cdfa2d15d5e14cd51cac9e4087ba08d4557aedf69552186ec4eb57aeb9dc6e3021e23b2ad3638b56e392b86f95518a000842797d10e89f2405e
+  languageName: node
+  linkType: hard
+
+"swr@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "swr@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fswr%2Fdownload%2Fswr-1.0.0.tgz"
+  dependencies:
+    dequal: 2.0.2
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0
+  checksum: 8ffb767ca5c2f0d5e2280d31a6f497fac2739cf7c3518b0266b8d5c619ea9a74b1953b82e13b47463f6dd4f122885f941ce785b2fbf4d45e4b2e1d88f62b9c74
   languageName: node
   linkType: hard
 
