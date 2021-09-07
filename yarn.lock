@@ -8246,7 +8246,7 @@ __metadata:
     ts-node: 10.2.1
     typescript: 4.4.2
     vite: 2.5.3
-    vite-plugin-imp: 2.0.7
+    vite-plugin-imp: 2.0.8
   languageName: unknown
   linkType: soft
 
@@ -9690,9 +9690,9 @@ typescript@4.4.2:
   languageName: node
   linkType: hard
 
-"vite-plugin-imp@npm:2.0.7":
-  version: 2.0.7
-  resolution: "vite-plugin-imp@npm:2.0.7::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fvite-plugin-imp%2Fdownload%2Fvite-plugin-imp-2.0.7.tgz"
+"vite-plugin-imp@npm:2.0.8":
+  version: 2.0.8
+  resolution: "vite-plugin-imp@npm:2.0.8::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fvite-plugin-imp%2Fdownload%2Fvite-plugin-imp-2.0.8.tgz"
   dependencies:
     "@babel/core": ^7.12.10
     "@babel/generator": ^7.12.11
@@ -9702,7 +9702,7 @@ typescript@4.4.2:
     param-case: ^3.0.4
   peerDependencies:
     vite: ">= 2.0.0-beta.5"
-  checksum: e0144a08df04606a1888353a0ef9b77a977a744b79822f733d8d7b7a16c13b8015fb2b8b6fb5230db81eaa4ac16f2f5005236a8620132ba33344899ea1bfcb63
+  checksum: 6e5da7c49c02796af33cdf0daa44df456d64ac97ee3b0890538a1172fe857f903216d3fca7dc58819b00c3c5d5c5f362085cd9df6ce3fd53ee8524be9b59347a
   languageName: node
   linkType: hard
 
