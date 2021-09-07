@@ -1,8 +1,8 @@
 # React Vscode Template
 
-<center>
+<p align="center">
   <img src="src/logo.png" alt="logo" />
-</center>
+</p>
 
 [![CircleCI](https://circleci.com/gh/fengerzh/react-vscode-template.svg?style=svg)](https://circleci.com/gh/fengerzh/react-vscode-template) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/51b6e97af415445b9c68abc5719051f3)](https://www.codacy.com/gh/fengerzh/react-vscode-template/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fengerzh/react-vscode-template&amp;utm_campaign=Badge_Grade)[![Known Vulnerabilities](https://snyk.io/test/github/fengerzh/react-vscode-template/badge.svg)](https://snyk.io/test/github/fengerzh/react-vscode-template)
 
