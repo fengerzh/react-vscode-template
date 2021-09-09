@@ -58,6 +58,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ant-design/pro-field@npm:1.22.1":
+  version: 1.22.1
+  resolution: "@ant-design/pro-field@npm:1.22.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.22.1.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-provider": 1.4.17
+    "@ant-design/pro-utils": 1.24.3
+    classnames: ^2.2.6
+    lodash.tonumber: ^4.0.3
+    moment: ^2.27.0
+    omit.js: ^2.0.2
+    rc-util: ^5.4.0
+    react-color: 2.19.3
+    swr: ^1.0.0
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+  checksum: a62d8d5dd05a85c8b08538b96a22a6e6dd54a11265fc415555cf9db1ca93dd144f1a0afe9c6048d09e4d7a2689b01ba091085fe20af571c1fda64f1dd0f6be66
+  languageName: node
+  linkType: hard
+
 "@ant-design/pro-form@npm:1.39.0":
   version: 1.39.0
   resolution: "@ant-design/pro-form@npm:1.39.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.39.0.tgz"
@@ -78,6 +99,29 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 7d88fe867f6003f8837ed3906981a8f0ef37ca4b2849ad339886ed942790d57c0d03153b6cc4114c60ef45f0f2995c45b1040d11aa5635bf2dfae196245adb17
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-form@npm:1.39.1":
+  version: 1.39.1
+  resolution: "@ant-design/pro-form@npm:1.39.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.39.1.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-field": 1.22.1
+    "@ant-design/pro-provider": 1.4.17
+    "@ant-design/pro-utils": 1.24.3
+    "@umijs/use-params": ^1.0.2
+    classnames: ^2.2.6
+    lodash.merge: ^4.6.2
+    omit.js: ^2.0.2
+    rc-resize-observer: ^0.2.3
+    rc-util: ^5.0.6
+    use-media-antd-query: ^1.0.6
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 6f2fe2fdccd5aea91e14800dd48cb3184f3b4c9eb98731dbe66578641e5789d4c5d7513a181136d650b8942c90a96c8d66caa363accef2c72779c210597dab9b
   languageName: node
   linkType: hard
 
@@ -182,6 +226,26 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: e8395a753235723fe0022fc3acca08532b1d3fbe4b0d55acbfb053015adf6e9fd3d8a2117ec456878d18c4d8b645cbc4a950c76147241840c74f9529a394b0b7
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-utils@npm:1.24.3":
+  version: 1.24.3
+  resolution: "@ant-design/pro-utils@npm:1.24.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-utils%2Fdownload%2F%40ant-design%2Fpro-utils-1.24.3.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.3.0
+    "@ant-design/pro-provider": 1.4.17
+    classnames: ^2.2.6
+    lodash.merge: ^4.6.2
+    moment: ^2.27.0
+    rc-util: ^5.0.6
+    react-sortable-hoc: ^2.0.0
+    swr: ^1.0.0
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 6362301b6f440f55352909d6549919973a4d6fb0a0daa1f089213408e91464fd415b31c49a296de9eb4375363884247179b8a7ef3f30cf0da68facb7697e6237
   languageName: node
   linkType: hard
 
@@ -8281,7 +8345,7 @@ __metadata:
   resolution: "react-vscode-template@workspace:."
   dependencies:
     "@ant-design/icons": 4.6.4
-    "@ant-design/pro-form": 1.39.0
+    "@ant-design/pro-form": 1.39.1
     "@ant-design/pro-layout": 6.25.1
     "@ant-design/pro-table": 2.52.0
     "@fullhuman/postcss-purgecss": 4.0.3
