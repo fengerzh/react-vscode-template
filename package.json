@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.6.4",
-    "@ant-design/pro-form": "1.39.0",
+    "@ant-design/pro-form": "1.39.1",
     "@ant-design/pro-layout": "6.25.1",
     "@ant-design/pro-table": "2.53.0",
     "@fullhuman/postcss-purgecss": "4.0.3",
