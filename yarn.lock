@@ -81,6 +81,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ant-design/pro-form@npm:1.40.0":
+  version: 1.40.0
+  resolution: "@ant-design/pro-form@npm:1.40.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.40.0.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-field": 1.22.1
+    "@ant-design/pro-provider": 1.4.17
+    "@ant-design/pro-utils": 1.24.3
+    "@umijs/use-params": ^1.0.2
+    classnames: ^2.2.6
+    lodash.merge: ^4.6.2
+    omit.js: ^2.0.2
+    rc-resize-observer: ^0.2.3
+    rc-util: ^5.0.6
+    use-media-antd-query: ^1.0.6
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 37e178cbcb2921ca2cde511f799ac0c6ad4d3478588c1304d2b82f6736c7825f4a768f23d729a1ea3cde737a05d87696a1dfe8e702b9186c7076f36e0ff4b73e
+  languageName: node
+  linkType: hard
+
 "@ant-design/pro-layout@npm:6.25.3":
   version: 6.25.3
   resolution: "@ant-design/pro-layout@npm:6.25.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-layout%2Fdownload%2F%40ant-design%2Fpro-layout-6.25.3.tgz"
@@ -120,13 +143,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-table@npm:2.53.0":
-  version: 2.53.0
-  resolution: "@ant-design/pro-table@npm:2.53.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.53.0.tgz"
+"@ant-design/pro-table@npm:2.53.1":
+  version: 2.53.1
+  resolution: "@ant-design/pro-table@npm:2.53.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.53.1.tgz"
   dependencies:
     "@ant-design/icons": ^4.1.0
     "@ant-design/pro-field": 1.22.1
-    "@ant-design/pro-form": 1.39.1
+    "@ant-design/pro-form": 1.40.0
     "@ant-design/pro-provider": 1.4.17
     "@ant-design/pro-utils": 1.24.3
     classnames: ^2.2.6
@@ -141,7 +164,7 @@ __metadata:
     antd: 4.x
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: fa396247868fb041b715579064dde28b0e9da064225c7834cf75d73dee737a3497eccaedd1a24ec379feb550424c2fd6a0f41c268d29a6c5ecdc528ee9183079
+  checksum: d14fc78c79f91d621f101a1f504b473b5fab8f8476811dcd3b169b807758c4274ecc43218e7c8aae899957b8a025a1f47bc84dc3b350d3df82e1b20a9cc4f770
   languageName: node
   linkType: hard
 
@@ -8263,7 +8286,7 @@ __metadata:
     "@ant-design/icons": 4.6.4
     "@ant-design/pro-form": 1.39.1
     "@ant-design/pro-layout": 6.25.3
-    "@ant-design/pro-table": 2.53.0
+    "@ant-design/pro-table": 2.53.1
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
     "@jest/globals": 27.1.1
