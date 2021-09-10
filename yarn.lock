@@ -81,9 +81,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-layout@npm:6.25.3":
-  version: 6.25.3
-  resolution: "@ant-design/pro-layout@npm:6.25.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-layout%2Fdownload%2F%40ant-design%2Fpro-layout-6.25.3.tgz"
+"@ant-design/pro-layout@npm:6.25.4":
+  version: 6.25.4
+  resolution: "@ant-design/pro-layout@npm:6.25.4::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-layout%2Fdownload%2F%40ant-design%2Fpro-layout-6.25.4.tgz"
   dependencies:
     "@ant-design/icons": ^4.0.0
     "@ant-design/pro-provider": 1.4.17
@@ -104,7 +104,7 @@ __metadata:
   peerDependencies:
     antd: ^4.x
     react: ">=16.9.0"
-  checksum: 80c3875ceb7add9cf3baa03340a55e275d863da1a2d1cc776ef0a0af07a45e68289db683fec7f29b4a2dd051d2aeb35bfdcb9c83b9109ddb676362aeb0915209
+  checksum: 8af5cb2e9aa183bf54926f1c89873e20ba4a2b34cbdf7e455f02f65271bf77c879578c58ca7dde8b2817182508e1200b816ae32da0471f4445223ea1a879c5a5
   languageName: node
   linkType: hard
 
@@ -8262,7 +8262,7 @@ __metadata:
   dependencies:
     "@ant-design/icons": 4.6.4
     "@ant-design/pro-form": 1.40.0
-    "@ant-design/pro-layout": 6.25.3
+    "@ant-design/pro-layout": 6.25.4
     "@ant-design/pro-table": 2.53.1
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
