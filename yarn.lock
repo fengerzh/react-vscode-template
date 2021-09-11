@@ -8314,7 +8314,7 @@ __metadata:
     react-dom: 17.0.2
     react-router-dom: 5.3.0
     source-map-support: 0.5.20
-    tailwindcss: 2.2.14
+    tailwindcss: 2.2.15
     ts-jest: 27.0.5
     ts-node: 10.2.1
     typescript: 4.4.3
@@ -9217,9 +9217,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:2.2.14":
-  version: 2.2.14
-  resolution: "tailwindcss@npm:2.2.14::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ftailwindcss%2Fdownload%2Ftailwindcss-2.2.14.tgz"
+"tailwindcss@npm:2.2.15":
+  version: 2.2.15
+  resolution: "tailwindcss@npm:2.2.15::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ftailwindcss%2Fdownload%2Ftailwindcss-2.2.15.tgz"
   dependencies:
     arg: ^5.0.1
     bytes: ^3.0.0
@@ -9259,7 +9259,7 @@ resolve@^2.0.0-next.3:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 3ea0bf679b90f5c18353ccdf362548be7306b97b5a01746d19c2870fbd938cf2c4afba3c6fa8cb20879813d5af2941f5c1e411ae97d19661f1a42da7642f2101
+  checksum: a4e477b0ece0af289be4cef6a682ee0f23eefe2be7a2a6ff0f4cce25665d3f79589ad4ec928b81f3066ae8a00881a6b4178af715946dced6d588bc4c845c6429
   languageName: node
   linkType: hard
 
