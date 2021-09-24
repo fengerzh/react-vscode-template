@@ -11,7 +11,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@ant-design/icons": "4.6.4",
+    "@ant-design/icons": "4.7.0",
     "@ant-design/pro-form": "1.40.0",
     "@ant-design/pro-layout": "6.25.4",
     "@ant-design/pro-table": "2.53.1",
