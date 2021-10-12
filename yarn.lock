@@ -81,6 +81,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ant-design/pro-field@npm:1.22.7":
+  version: 1.22.7
+  resolution: "@ant-design/pro-field@npm:1.22.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.22.7.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-provider": 1.4.19
+    "@ant-design/pro-utils": 1.24.7
+    classnames: ^2.2.6
+    lodash.tonumber: ^4.0.3
+    moment: ^2.27.0
+    omit.js: ^2.0.2
+    rc-util: ^5.4.0
+    react-color: 2.19.3
+    swr: ^1.1.0-beta.0
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+  checksum: 4bc6d56cc0c6c652eb51e2eb43e2a6f9fbecdcfb3121503fe0033291c13b39330ac10670cce2e01d306acc30df0c0235a6c3b738f9b3363ce56775012de305bf
+  languageName: node
+  linkType: hard
+
 "@ant-design/pro-form@npm:1.40.0":
   version: 1.40.0
   resolution: "@ant-design/pro-form@npm:1.40.0::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.40.0.tgz"
@@ -101,6 +122,29 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 37e178cbcb2921ca2cde511f799ac0c6ad4d3478588c1304d2b82f6736c7825f4a768f23d729a1ea3cde737a05d87696a1dfe8e702b9186c7076f36e0ff4b73e
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-form@npm:1.43.1":
+  version: 1.43.1
+  resolution: "@ant-design/pro-form@npm:1.43.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.43.1.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-field": 1.22.7
+    "@ant-design/pro-provider": 1.4.19
+    "@ant-design/pro-utils": 1.24.7
+    "@umijs/use-params": ^1.0.2
+    classnames: ^2.2.6
+    lodash.merge: ^4.6.2
+    omit.js: ^2.0.2
+    rc-resize-observer: ^0.2.3
+    rc-util: ^5.0.6
+    use-media-antd-query: ^1.0.6
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 44a74e05812dd567955574e59d637f0f14495916f6f02f32d166f2b8f9ffce7fe7b334f7baf39446ffb4c55eb218c023d72fcc763d0173d28da4d3e62bb3a81b
   languageName: node
   linkType: hard
 
@@ -143,15 +187,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-table@npm:2.53.1":
-  version: 2.53.1
-  resolution: "@ant-design/pro-table@npm:2.53.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.53.1.tgz"
+"@ant-design/pro-provider@npm:1.4.19":
+  version: 1.4.19
+  resolution: "@ant-design/pro-provider@npm:1.4.19::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-provider%2Fdownload%2F%40ant-design%2Fpro-provider-1.4.19.tgz"
+  dependencies:
+    rc-util: ^5.0.1
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+  checksum: 1286367295b2f684d4b0e3aca0ac469babaf61876dd95084953e6a0b1e2c1c45bf6299dd3e3b9830efba78db9ed6eeeffe6699861879e850b53d82c325159c10
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-table@npm:2.55.0":
+  version: 2.55.0
+  resolution: "@ant-design/pro-table@npm:2.55.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.55.0.tgz"
   dependencies:
     "@ant-design/icons": ^4.1.0
-    "@ant-design/pro-field": 1.22.1
-    "@ant-design/pro-form": 1.40.0
-    "@ant-design/pro-provider": 1.4.17
-    "@ant-design/pro-utils": 1.24.3
+    "@ant-design/pro-field": 1.22.7
+    "@ant-design/pro-form": 1.43.1
+    "@ant-design/pro-provider": 1.4.19
+    "@ant-design/pro-utils": 1.24.7
     classnames: ^2.2.6
     moment: ^2.24.0
     omit.js: ^2.0.2
@@ -164,7 +220,7 @@ __metadata:
     antd: 4.x
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: d14fc78c79f91d621f101a1f504b473b5fab8f8476811dcd3b169b807758c4274ecc43218e7c8aae899957b8a025a1f47bc84dc3b350d3df82e1b20a9cc4f770
+  checksum: 35de7066e089c527c6f12e6a3d0eff760f7cf2b5cc5d2f688ba010d0878f7f2f74300859d7e96df008a4bb68e584c44b15868b15d49f708d4d52bcc04ee3324a
   languageName: node
   linkType: hard
 
@@ -185,6 +241,26 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 6362301b6f440f55352909d6549919973a4d6fb0a0daa1f089213408e91464fd415b31c49a296de9eb4375363884247179b8a7ef3f30cf0da68facb7697e6237
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-utils@npm:1.24.7":
+  version: 1.24.7
+  resolution: "@ant-design/pro-utils@npm:1.24.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-utils%2Fdownload%2F%40ant-design%2Fpro-utils-1.24.7.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.3.0
+    "@ant-design/pro-provider": 1.4.19
+    classnames: ^2.2.6
+    lodash.merge: ^4.6.2
+    moment: ^2.27.0
+    rc-util: ^5.0.6
+    react-sortable-hoc: ^2.0.0
+    swr: ^1.1.0-beta.0
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 8938aa679807380763644d68230253e21e22c95cd64f419977c6e4c1b18086d8a5d4126313c278c1d19b7bae725da86fbc67ba25ddf0da80b0d9bd19d35145cf
   languageName: node
   linkType: hard
 
@@ -8599,7 +8675,7 @@ __metadata:
     "@ant-design/icons": 4.7.0
     "@ant-design/pro-form": 1.40.0
     "@ant-design/pro-layout": 6.25.4
-    "@ant-design/pro-table": 2.53.1
+    "@ant-design/pro-table": 2.55.0
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
     "@jest/globals": 27.2.4
@@ -9529,6 +9605,15 @@ resolve@^2.0.0-next.3:
   peerDependencies:
     react: ^16.11.0 || ^17.0.0
   checksum: 8ffb767ca5c2f0d5e2280d31a6f497fac2739cf7c3518b0266b8d5c619ea9a74b1953b82e13b47463f6dd4f122885f941ce785b2fbf4d45e4b2e1d88f62b9c74
+  languageName: node
+  linkType: hard
+
+"swr@npm:^1.1.0-beta.0":
+  version: 1.1.0-beta.4
+  resolution: "swr@npm:1.1.0-beta.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswr%2Fdownload%2Fswr-1.1.0-beta.4.tgz"
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0 || ^18.0.0
+  checksum: 5293d0707c242fba6c8ca03c5adbe37fd74e367c83aceb1a63d9c9a26b7356dc0b7efa9d27725c9e94fdbf021676f7fd39b205a083ebce5ed40c2a90eb98cd65
   languageName: node
   linkType: hard
 
