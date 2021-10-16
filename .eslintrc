@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb-typescript", "plugin:cypress/recommended"],
+  "extends": ["airbnb", "airbnb-typescript", "plugin:cypress/recommended"],
   "plugins": ["cypress"],
   "env": {
     "browser": true

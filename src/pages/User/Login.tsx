@@ -9,13 +9,7 @@ const waitTime = (time = 100) => new Promise((resolve) => {
   }, time);
 });
 
-interface Props {
-  history: {
-    push: (val: string) => void
-  }
-}
-
-const Login = ({ history }: Props) => (
+const Login = () => (
   <div
     style={{
       width: 330,
@@ -29,7 +23,7 @@ const Login = ({ history }: Props) => (
           message.success('登录成功');
           localStorage.setItem('userName', res.data.data.userName);
           document.cookie = 'token=abcde;path=/';
-          history.push('/dashboard');
+          window.location.href = '/dashboard';
         }
       }}
       submitter={{

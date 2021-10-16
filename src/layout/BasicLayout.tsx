@@ -32,6 +32,7 @@ const BasicLayout = ({
           overlay={(
             <Menu>
               <Menu.Item
+                key="logout"
                 icon={<LogoutOutlined />}
                 onClick={() => {
                   document.cookie = 'token=;path=/';
