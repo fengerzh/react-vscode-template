@@ -18,7 +18,7 @@ const Login = () => (
   >
     <ProForm
       onFinish={async (data) => {
-        const res = await login(data);
+        const res: any = await login(data);
         if (res) {
           message.success('登录成功');
           localStorage.setItem('userName', res.data.data.userName);
