@@ -1,7 +1,7 @@
 context('React-Vscode-Template', () => {
   before(() => {
     cy.visit('/user/login');
-    cy.get('.ant-input', { timeout: 58000 }).first().type('13912345678');
+    cy.get('.ant-input', { timeout: 158000 }).first().type('13912345678');
     cy.get('#captcha').type('admin').type('{enter}');
   });
 
