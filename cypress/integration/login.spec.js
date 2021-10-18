@@ -10,6 +10,7 @@ context('React-Vscode-Template', () => {
   });
 
   it('首页', () => {
+    cy.setCookie('token', '12345');
     cy.visit('/dashboard/home');
     cy.get('.ant-spin', { timeout: 18000 }).should('not.exist');
     cy.get('.ant-page-header-heading-title').should('have.text', '首页');
