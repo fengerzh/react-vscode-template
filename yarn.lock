@@ -6360,9 +6360,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less@npm:4.1.1":
-  version: 4.1.1
-  resolution: "less@npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fless%2Fdownload%2Fless-4.1.1.tgz"
+"less@npm:4.1.2":
+  version: 4.1.2
+  resolution: "less@npm:4.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fless%2Fdownload%2Fless-4.1.2.tgz"
   dependencies:
     copy-anything: ^2.0.1
     errno: ^0.1.1
@@ -6373,7 +6373,7 @@ __metadata:
     needle: ^2.5.2
     parse-node-version: ^1.0.1
     source-map: ~0.6.0
-    tslib: ^1.10.0
+    tslib: ^2.3.0
   dependenciesMeta:
     errno:
       optional: true
@@ -6391,7 +6391,7 @@ __metadata:
       optional: true
   bin:
     lessc: bin/lessc
-  checksum: 56872a0b8e9dc58abba585c7b771b42b628ce841e962b1c5c66f0e73eb6c4ce7f4a8e7fe857568c84d17c91e2a384af272bf13a9dcd945e5a2bd08094063d961
+  checksum: d3cbc3e18a8313e44f7feaf5fce1728b25911e116a8b9f7206e1f7bf5660902ddaf470b58e68a52288488c8a337433b7de686a3d2405ce49155c2280191983de
   languageName: node
   linkType: hard
 
@@ -8717,7 +8717,7 @@ __metadata:
     jest-transform-stub: 2.0.0
     jsdom: 18.0.0
     jsdom-global: 3.0.2
-    less: 4.1.1
+    less: 4.1.2
     mobx: 6.3.3
     mobx-react: 7.2.0
     moment: 2.29.1
@@ -9917,14 +9917,14 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0":
+"tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.2.0":
+"tslib@npm:^2.0.3, tslib@npm:^2.2.0, tslib@npm:^2.3.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
