@@ -37,27 +37,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-field@npm:1.25.0":
-  version: 1.25.0
-  resolution: "@ant-design/pro-field@npm:1.25.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.25.0.tgz"
-  dependencies:
-    "@ant-design/icons": ^4.2.1
-    "@ant-design/pro-provider": 1.4.20
-    "@ant-design/pro-utils": 1.27.0
-    classnames: ^2.2.6
-    lodash.tonumber: ^4.0.3
-    moment: ^2.27.0
-    omit.js: ^2.0.2
-    rc-util: ^5.4.0
-    react-color: 2.19.3
-    swr: 1.1.0-beta.6
-  peerDependencies:
-    antd: 4.x
-    react: ">=16.9.0"
-  checksum: 06839f8246c8f3c42d8ecf57fd201cc4349f5aae4d8e8cc81b75dbcb5c11d0c6cb0e9785baddd00dbece1974bf9d4d82c09fa2d89ae92e6ddae483dbb6a63f1c
-  languageName: node
-  linkType: hard
-
 "@ant-design/pro-field@npm:1.26.2":
   version: 1.26.2
   resolution: "@ant-design/pro-field@npm:1.26.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.26.2.tgz"
@@ -76,28 +55,6 @@ __metadata:
     antd: 4.x
     react: ">=16.9.0"
   checksum: e0fa8942abbfe7709480101fd75348ae862365a223de365dd3910d9e7d95e02a6c3d891462cf9641d4b63e20f8d782cbd9b4c3c94e982f1ff285201ca606e128
-  languageName: node
-  linkType: hard
-
-"@ant-design/pro-form@npm:1.47.0":
-  version: 1.47.0
-  resolution: "@ant-design/pro-form@npm:1.47.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.47.0.tgz"
-  dependencies:
-    "@ant-design/icons": ^4.2.1
-    "@ant-design/pro-field": 1.25.0
-    "@ant-design/pro-provider": 1.4.20
-    "@ant-design/pro-utils": 1.27.0
-    "@umijs/use-params": ^1.0.2
-    classnames: ^2.2.6
-    omit.js: ^2.0.2
-    rc-resize-observer: ^0.2.3
-    rc-util: ^5.0.6
-    use-media-antd-query: ^1.0.6
-  peerDependencies:
-    antd: 4.x
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 36a08ea5b689f3ebca4030bf290d64ba63b1aa1377d9015c43d29f8700e8771a22a2496e51d11b9ba709fa02985e9957551a3f72a020a505382d2ac90d4a84cf
   languageName: node
   linkType: hard
 
@@ -123,13 +80,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-layout@npm:6.28.0":
-  version: 6.28.0
-  resolution: "@ant-design/pro-layout@npm:6.28.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-layout%2Fdownload%2F%40ant-design%2Fpro-layout-6.28.0.tgz"
+"@ant-design/pro-layout@npm:6.30.1":
+  version: 6.30.1
+  resolution: "@ant-design/pro-layout@npm:6.30.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-layout%2Fdownload%2F%40ant-design%2Fpro-layout-6.30.1.tgz"
   dependencies:
     "@ant-design/icons": ^4.0.0
     "@ant-design/pro-provider": 1.4.20
-    "@ant-design/pro-utils": 1.27.0
+    "@ant-design/pro-utils": 1.28.2
     "@umijs/route-utils": ^2.0.1
     "@umijs/use-params": ^1.0.2
     classnames: ^2.2.6
@@ -146,7 +103,7 @@ __metadata:
   peerDependencies:
     antd: 4.x
     react: ">=16.9.0"
-  checksum: 4b2596917c6af9ab6c78384cf5c19220a9f9db3eddd21a7818fa6a366b797c49bb8bc1386f338621c7853b841fdab0aa41ccd642e92577eec550d3337d83d0d0
+  checksum: e279281b77d9bc6fa7658810323e07b6b68dc26a9bfc3c8ac00e53db2cb50bf6719df4c3c1c1ef9c511c15151da48e342c8861a94c71d021745b717361056619
   languageName: node
   linkType: hard
 
@@ -184,25 +141,6 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 17e6c114525749944c218b7dbf56afe853b1b4722a6123745bc134bb1843c5ccd380378c2a707a6ab746b8b2295b101bac2801d9379d9a344fcc1e5070a94a3b
-  languageName: node
-  linkType: hard
-
-"@ant-design/pro-utils@npm:1.27.0":
-  version: 1.27.0
-  resolution: "@ant-design/pro-utils@npm:1.27.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-utils%2Fdownload%2F%40ant-design%2Fpro-utils-1.27.0.tgz"
-  dependencies:
-    "@ant-design/icons": ^4.3.0
-    "@ant-design/pro-provider": 1.4.20
-    classnames: ^2.2.6
-    moment: ^2.27.0
-    rc-util: ^5.0.6
-    react-sortable-hoc: ^2.0.0
-    swr: 1.1.0-beta.6
-  peerDependencies:
-    antd: 4.x
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 14497c3c92123f3aad75641393d71e8bc9dde5b6111b86ffa3c58e7de9a0d65e8565d4b5530a04b034c21ec97d2ff8ff5396ff1378fd6c8f19c2f28300f9bf88
   languageName: node
   linkType: hard
 
@@ -8562,7 +8500,7 @@ __metadata:
   dependencies:
     "@ant-design/icons": 4.7.0
     "@ant-design/pro-form": 1.49.0
-    "@ant-design/pro-layout": 6.28.0
+    "@ant-design/pro-layout": 6.30.1
     "@ant-design/pro-table": 2.57.2
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
