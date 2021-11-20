@@ -6113,9 +6113,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdom@npm:18.0.1":
-  version: 18.0.1
-  resolution: "jsdom@npm:18.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjsdom%2Fdownload%2Fjsdom-18.0.1.tgz"
+"jsdom@npm:18.1.0":
+  version: 18.1.0
+  resolution: "jsdom@npm:18.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjsdom%2Fdownload%2Fjsdom-18.1.0.tgz"
   dependencies:
     abab: ^2.0.5
     acorn: ^8.5.0
@@ -6149,7 +6149,7 @@ __metadata:
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: 475475d4ba6316d92e7098aa803e33aa6b0968db9180aedb4bf7aeeaa93ca4629e4976b506213f7fdf40c5a8bb50d41e3cc4b8227f2c09daa9161f08257e4975
+  checksum: d0188c702e4221e7f6b2124679bd5dd87a57a8ed271f17aedc6c4de4a88154ada6ba46c43625c5305dbb1979a9d47e71471cd20dce4502495bda69c673c5810b
   languageName: node
   linkType: hard
 
@@ -8601,7 +8601,7 @@ __metadata:
     ignore-styles: 5.0.1
     jest: 27.3.1
     jest-transform-stub: 2.0.0
-    jsdom: 18.0.1
+    jsdom: 18.1.0
     jsdom-global: 3.0.2
     less: 4.1.2
     mobx: 6.3.7
