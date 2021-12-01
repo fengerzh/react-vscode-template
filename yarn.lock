@@ -6915,10 +6915,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:6.3.7":
-  version: 6.3.7
-  resolution: "mobx@npm:6.3.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fmobx%2Fdownload%2Fmobx-6.3.7.tgz"
-  checksum: c3ad168d67dcf3c3ddf5f06cf3225fc2b99205cde55a9884ad711a762dc888b81c22d2a97ab987a6bff04f00d3cfb6610af516995ab48221920e9123f3f74836
+"mobx@npm:6.3.8":
+  version: 6.3.8
+  resolution: "mobx@npm:6.3.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fmobx%2Fdownload%2Fmobx-6.3.8.tgz"
+  checksum: 755806b8f9a9782330ff5ef1ebe472f60db5deda9c532269d456d84ecfe81aacbe36d744d2efd117784a142c2732ff3b7093f3c0bef8b9b03917a245972a22de
   languageName: node
   linkType: hard
 
@@ -8670,7 +8670,7 @@ __metadata:
     jsdom: 18.1.0
     jsdom-global: 3.0.2
     less: 4.1.2
-    mobx: 6.3.7
+    mobx: 6.3.8
     mobx-react: 7.2.0
     moment: 2.29.1
     nyc: 15.1.0
