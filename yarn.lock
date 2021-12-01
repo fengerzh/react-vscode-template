@@ -37,27 +37,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-field@npm:1.26.2":
-  version: 1.26.2
-  resolution: "@ant-design/pro-field@npm:1.26.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.26.2.tgz"
-  dependencies:
-    "@ant-design/icons": ^4.2.1
-    "@ant-design/pro-provider": 1.4.20
-    "@ant-design/pro-utils": 1.28.2
-    classnames: ^2.2.6
-    lodash.tonumber: ^4.0.3
-    moment: ^2.27.0
-    omit.js: ^2.0.2
-    rc-util: ^5.4.0
-    react-color: 2.19.3
-    swr: 1.1.0-beta.6
-  peerDependencies:
-    antd: 4.x
-    react: ">=16.9.0"
-  checksum: e0fa8942abbfe7709480101fd75348ae862365a223de365dd3910d9e7d95e02a6c3d891462cf9641d4b63e20f8d782cbd9b4c3c94e982f1ff285201ca606e128
-  languageName: node
-  linkType: hard
-
 "@ant-design/pro-field@npm:1.28.2":
   version: 1.28.2
   resolution: "@ant-design/pro-field@npm:1.28.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.28.2.tgz"
@@ -77,28 +56,6 @@ __metadata:
     antd: 4.x
     react: ">=16.9.0"
   checksum: ed0cfbadc838d2186c14940d84b8a93cc4e12cef7a7f9216aecd8b2f8f5d3e5e82f60c77ef9e15411db0f22620ef7743f25e300179df5a0753e6cb3b912b2a96
-  languageName: node
-  linkType: hard
-
-"@ant-design/pro-form@npm:1.49.0":
-  version: 1.49.0
-  resolution: "@ant-design/pro-form@npm:1.49.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.49.0.tgz"
-  dependencies:
-    "@ant-design/icons": ^4.2.1
-    "@ant-design/pro-field": 1.26.2
-    "@ant-design/pro-provider": 1.4.20
-    "@ant-design/pro-utils": 1.28.2
-    "@umijs/use-params": ^1.0.2
-    classnames: ^2.2.6
-    omit.js: ^2.0.2
-    rc-resize-observer: ^0.2.3
-    rc-util: ^5.0.6
-    use-media-antd-query: ^1.0.6
-  peerDependencies:
-    antd: 4.x
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 9ae9fccb1c5652cb6ed78566a8bf563344b2beec66fc4b4f499fb4c42973db02563eb22571f4ed457dbbd0512bf5fffa7e1d3de07d58eb541e12464c0bcb6ef0
   languageName: node
   linkType: hard
 
@@ -8589,7 +8546,7 @@ __metadata:
   resolution: "react-vscode-template@workspace:."
   dependencies:
     "@ant-design/icons": 4.7.0
-    "@ant-design/pro-form": 1.49.0
+    "@ant-design/pro-form": 1.49.6
     "@ant-design/pro-layout": 6.30.1
     "@ant-design/pro-table": 2.59.2
     "@fullhuman/postcss-purgecss": 4.0.3
