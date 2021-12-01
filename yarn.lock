@@ -3871,9 +3871,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb@npm:19.0.0":
-  version: 19.0.0
-  resolution: "eslint-config-airbnb@npm:19.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-airbnb%2Fdownload%2Feslint-config-airbnb-19.0.0.tgz"
+"eslint-config-airbnb@npm:19.0.1":
+  version: 19.0.1
+  resolution: "eslint-config-airbnb@npm:19.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-airbnb%2Fdownload%2Feslint-config-airbnb-19.0.1.tgz"
   dependencies:
     eslint-config-airbnb-base: ^15.0.0
     object.assign: ^4.1.2
@@ -3882,9 +3882,9 @@ __metadata:
     eslint: ^7.32.0 || ^8.2.0
     eslint-plugin-import: ^2.25.3
     eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-react: ^7.27.0
+    eslint-plugin-react: ^7.27.1
     eslint-plugin-react-hooks: ^4.3.0
-  checksum: e42dcc743d0e741c466dceaa26d7f92ba8d3ae110752694e4dedf9fdcab6b4390580817a315409b8f7c850892244fd18a337a1d5d4d2da8f529320cdb855548a
+  checksum: 87683958a0872954cdf59b51a1592f2ec3ad0dcb0a6321a1c5839b72c6cefbd03125f28a2452168052dee24be10fd20a70be73ee09b5b4ba93362491dc6eeb5a
   languageName: node
   linkType: hard
 
@@ -7735,14 +7735,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.3.11":
-  version: 8.3.11
-  resolution: "postcss@npm:8.3.11::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss%2Fdownload%2Fpostcss-8.3.11.tgz"
+"postcss@npm:8.4.4":
+  version: 8.4.4
+  resolution: "postcss@npm:8.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss%2Fdownload%2Fpostcss-8.4.4.tgz"
   dependencies:
     nanoid: ^3.1.30
     picocolors: ^1.0.0
-    source-map-js: ^0.6.2
-  checksum: 1a230553d74c66aa9585c90781ed8ea75f19cefea405d2117b67fbeb24b5b5e0e17be2e0c5a07db31dd085643a13394127ab2222e940771b70498331bf20f35e
+    source-map-js: ^1.0.1
+  checksum: 6cf3fe0ecdf5a0d2aeb5e8404938c7eab968704e2e29dc5421e90b4014eb1975c1c0ad828425f2428807ef6e3fcfadd71f988ab55cb06c28ac2866f22403255b
   languageName: node
   linkType: hard
 
@@ -8690,7 +8690,7 @@ __metadata:
     dayjs: 1.10.7
     enzyme: 3.11.0
     eslint: 7.32.0
-    eslint-config-airbnb: 19.0.0
+    eslint-config-airbnb: 19.0.1
     eslint-config-airbnb-typescript: 16.1.0
     eslint-import-resolver-alias: 1.1.2
     eslint-import-resolver-typescript: 2.5.0
@@ -8709,7 +8709,7 @@ __metadata:
     mobx-react: 7.2.0
     moment: 2.29.1
     nyc: 15.1.0
-    postcss: 8.3.11
+    postcss: 8.4.4
     postcss-cli: 9.0.2
     prop-types: 15.7.2
     react: 17.0.2
@@ -9242,6 +9242,13 @@ resolve@^2.0.0-next.3:
   version: 0.6.2
   resolution: "source-map-js@npm:0.6.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fsource-map-js%2Fdownload%2Fsource-map-js-0.6.2.tgz"
   checksum: 9c8151a29e00fd8d3ba87709fdf9a9ce48313d653f4a29a39b4ae53d346ac79e005de624796ff42eff55cbaf26d2e87f4466001ca87831d400d818c5cf146a0e
+  languageName: node
+  linkType: hard
+
+"source-map-js@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "source-map-js@npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsource-map-js%2Fdownload%2Fsource-map-js-1.0.1.tgz"
+  checksum: 22606113d62bbd468712b0cb0c46e9a8629de7eb081049c62a04d977a211abafd7d61455617f8b78daba0b6c0c7e7c88f8c6b5aaeacffac0a6676ecf5caac5ce
   languageName: node
   linkType: hard
 
