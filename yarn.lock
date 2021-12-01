@@ -58,6 +58,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ant-design/pro-field@npm:1.28.2":
+  version: 1.28.2
+  resolution: "@ant-design/pro-field@npm:1.28.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.28.2.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-provider": 1.5.0
+    "@ant-design/pro-utils": 1.28.5
+    "@babel/runtime": ^7.16.3
+    classnames: ^2.2.6
+    lodash.tonumber: ^4.0.3
+    moment: ^2.27.0
+    omit.js: ^2.0.2
+    rc-util: ^5.4.0
+    react-color: 2.19.3
+    swr: 1.1.0-beta.6
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+  checksum: ed0cfbadc838d2186c14940d84b8a93cc4e12cef7a7f9216aecd8b2f8f5d3e5e82f60c77ef9e15411db0f22620ef7743f25e300179df5a0753e6cb3b912b2a96
+  languageName: node
+  linkType: hard
+
 "@ant-design/pro-form@npm:1.49.0":
   version: 1.49.0
   resolution: "@ant-design/pro-form@npm:1.49.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.49.0.tgz"
@@ -77,6 +99,29 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 9ae9fccb1c5652cb6ed78566a8bf563344b2beec66fc4b4f499fb4c42973db02563eb22571f4ed457dbbd0512bf5fffa7e1d3de07d58eb541e12464c0bcb6ef0
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-form@npm:1.49.6":
+  version: 1.49.6
+  resolution: "@ant-design/pro-form@npm:1.49.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-form%2Fdownload%2F%40ant-design%2Fpro-form-1.49.6.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-field": 1.28.2
+    "@ant-design/pro-provider": 1.5.0
+    "@ant-design/pro-utils": 1.28.5
+    "@babel/runtime": ^7.16.3
+    "@umijs/use-params": ^1.0.9
+    classnames: ^2.2.6
+    omit.js: ^2.0.2
+    rc-resize-observer: ^0.2.3
+    rc-util: ^5.0.6
+    use-media-antd-query: ^1.0.6
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 9aa5ef9ee19a3838bffc70e3d50f89b907c8e3eed97853d51992f6f451e9934342ae6023ee488288b05203021956cdea5cd1e7ce50bd4f01ab69ed5e0d96db2c
   languageName: node
   linkType: hard
 
@@ -119,15 +164,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-table@npm:2.57.2":
-  version: 2.57.2
-  resolution: "@ant-design/pro-table@npm:2.57.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.57.2.tgz"
+"@ant-design/pro-provider@npm:1.5.0":
+  version: 1.5.0
+  resolution: "@ant-design/pro-provider@npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-provider%2Fdownload%2F%40ant-design%2Fpro-provider-1.5.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.16.3
+    rc-util: ^5.0.1
+    swr: 1.1.0-beta.6
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+  checksum: 98a02598913ee0e1d5987926a35bdfbcf364af11e03cd5f09d9c281327f2d5e9d3fd779c367b9ecbab60c54a64e34379c99b86bb61c133629d83abda7ae6cd4c
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-table@npm:2.59.2":
+  version: 2.59.2
+  resolution: "@ant-design/pro-table@npm:2.59.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.59.2.tgz"
   dependencies:
     "@ant-design/icons": ^4.1.0
-    "@ant-design/pro-field": 1.26.2
-    "@ant-design/pro-form": 1.49.0
-    "@ant-design/pro-provider": 1.4.20
-    "@ant-design/pro-utils": 1.28.2
+    "@ant-design/pro-field": 1.28.2
+    "@ant-design/pro-form": 1.49.6
+    "@ant-design/pro-provider": 1.5.0
+    "@ant-design/pro-utils": 1.28.5
+    "@babel/runtime": ^7.16.3
     classnames: ^2.2.6
     moment: ^2.24.0
     omit.js: ^2.0.2
@@ -138,9 +198,10 @@ __metadata:
     use-media-antd-query: ^1.1.0
   peerDependencies:
     antd: 4.x
+    rc-field-form: ^1.x
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 17e6c114525749944c218b7dbf56afe853b1b4722a6123745bc134bb1843c5ccd380378c2a707a6ab746b8b2295b101bac2801d9379d9a344fcc1e5070a94a3b
+  checksum: 3778e251a9e7a40143395330086c7e0fa060096b9a1951d9ae2f5f3187da48385cf86183997cfa05f99900d39c9b8de7eeabf4836b928c826cbad674254c63c2
   languageName: node
   linkType: hard
 
@@ -160,6 +221,26 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 9d3f14d75354fcd66be660aff1cd6441fe61aaaf6905bd3043b1e028630b05ec3b2f17ae248d806a9e775ed82e17ee745fe99b49c58754e477bf9c6bb88f67a5
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-utils@npm:1.28.5":
+  version: 1.28.5
+  resolution: "@ant-design/pro-utils@npm:1.28.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-utils%2Fdownload%2F%40ant-design%2Fpro-utils-1.28.5.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.3.0
+    "@ant-design/pro-provider": 1.5.0
+    "@babel/runtime": ^7.16.3
+    classnames: ^2.2.6
+    moment: ^2.27.0
+    rc-util: ^5.0.6
+    react-sortable-hoc: ^2.0.0
+    swr: 1.1.0-beta.6
+  peerDependencies:
+    antd: 4.x
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 815ed979b64978641c20b99aaef34c15e74485257c38e3b8d9329f695a0133917b4848011d6114fc4e948f5e5e90489d0d3bc9de67ca091cee15c8dc7d398fa5
   languageName: node
   linkType: hard
 
@@ -1518,6 +1599,15 @@ __metadata:
   peerDependencies:
     react: "*"
   checksum: e52c7c426d1e32feac659cd2df0ed59ac8090c584cfac4bec498725d135cd27fad9fa1dc63c1bdbd6742fe65b133d9341e19027a287400f75a48deda13658043
+  languageName: node
+  linkType: hard
+
+"@umijs/use-params@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "@umijs/use-params@npm:1.0.9::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40umijs%2Fuse-params%2Fdownload%2F%40umijs%2Fuse-params-1.0.9.tgz"
+  peerDependencies:
+    react: "*"
+  checksum: 7f72436440dff0e1911ee916340bd26c6c9a510bad4af536d3ec9a5a175d37255d42dbd1cb0dc996daf4d0c3b76e44816ac423ac73e6b3c1655b6b839fed175c
   languageName: node
   linkType: hard
 
@@ -8501,7 +8591,7 @@ __metadata:
     "@ant-design/icons": 4.7.0
     "@ant-design/pro-form": 1.49.0
     "@ant-design/pro-layout": 6.30.1
-    "@ant-design/pro-table": 2.57.2
+    "@ant-design/pro-table": 2.59.2
     "@fullhuman/postcss-purgecss": 4.0.3
     "@istanbuljs/nyc-config-typescript": 1.0.1
     "@jest/globals": 27.3.1
