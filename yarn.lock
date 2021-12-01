@@ -3750,20 +3750,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb-base@npm:^14.2.1":
-  version: 14.2.1
-  resolution: "eslint-config-airbnb-base@npm:14.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-airbnb-base%2Fdownload%2Feslint-config-airbnb-base-14.2.1.tgz"
-  dependencies:
-    confusing-browser-globals: ^1.0.10
-    object.assign: ^4.1.2
-    object.entries: ^1.1.2
-  peerDependencies:
-    eslint: ^5.16.0 || ^6.8.0 || ^7.2.0
-    eslint-plugin-import: ^2.22.1
-  checksum: 858bea748a3c8685b52fcf2488e6a0b964022f8387f4ee1e69cb707d4fda2a409f09eb8eea658bcd83fae3519967d10208ba7576dd3d3202b8cf0b9d1a6e21eb
-  languageName: node
-  linkType: hard
-
 "eslint-config-airbnb-base@npm:^15.0.0":
   version: 15.0.0
   resolution: "eslint-config-airbnb-base@npm:15.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-airbnb-base%2Fdownload%2Feslint-config-airbnb-base-15.0.0.tgz"
@@ -3779,15 +3765,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb-typescript@npm:15.0.0":
-  version: 15.0.0
-  resolution: "eslint-config-airbnb-typescript@npm:15.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-airbnb-typescript%2Fdownload%2Feslint-config-airbnb-typescript-15.0.0.tgz"
+"eslint-config-airbnb-typescript@npm:16.1.0":
+  version: 16.1.0
+  resolution: "eslint-config-airbnb-typescript@npm:16.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-airbnb-typescript%2Fdownload%2Feslint-config-airbnb-typescript-16.1.0.tgz"
   dependencies:
-    eslint-config-airbnb-base: ^14.2.1
+    eslint-config-airbnb-base: ^15.0.0
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
-  checksum: 83d863f62c9863139b8cb276fb5016587c996962306dfdae30ca664803479e5d79da868837d2732d96b4783bfd433727cfe06b039f3b7c9cca88ee68fc5d1706
+  checksum: 65bb6763ab825c228d01c884ddb306001f3b5cbb5c138646f6629ac780acc68d388091844b3983aa9f8f138e4e972a2a1d5a23ce95bd7a217b4a917e4e2366dd
   languageName: node
   linkType: hard
 
@@ -7150,7 +7136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.entries@npm:^1.1.1, object.entries@npm:^1.1.2, object.entries@npm:^1.1.5":
+"object.entries@npm:^1.1.1, object.entries@npm:^1.1.5":
   version: 1.1.5
   resolution: "object.entries@npm:1.1.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fobject.entries%2Fdownload%2Fobject.entries-1.1.5.tgz"
   dependencies:
@@ -8528,7 +8514,7 @@ __metadata:
     enzyme: 3.11.0
     eslint: 7.32.0
     eslint-config-airbnb: 19.0.0
-    eslint-config-airbnb-typescript: 15.0.0
+    eslint-config-airbnb-typescript: 16.1.0
     eslint-import-resolver-alias: 1.1.2
     eslint-import-resolver-typescript: 2.5.0
     eslint-plugin-cypress: 2.12.1
