@@ -1192,10 +1192,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:*, @types/chai@npm:4.2.22":
+"@types/chai@npm:*":
   version: 4.2.22
   resolution: "@types/chai@npm:4.2.22::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fchai%2Fdownload%2F%40types%2Fchai-4.2.22.tgz"
   checksum: dca66a263b25c26112c0a8c6df20316412fa54b557443a108836c07cee961aa56cc5b1763273f69eb450c83ca9f28069ff78b617bffc01806cdd83afc1c20c2a
+  languageName: node
+  linkType: hard
+
+"@types/chai@npm:4.3.1":
+  version: 4.3.1
+  resolution: "@types/chai@npm:4.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fchai%2F-%2Fchai-4.3.1.tgz"
+  checksum: 2ee246b76c469cd620a7a1876a73bc597074361b67d547b4bd96a0c1adb43597ede2d8589ab626192e14349d83cbb646cc11e2c179eeeb43ff11596de94d82c4
   languageName: node
   linkType: hard
 
@@ -2441,17 +2448,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chai@npm:4.3.4":
-  version: 4.3.4
-  resolution: "chai@npm:4.3.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fchai%2Fdownload%2Fchai-4.3.4.tgz"
+"chai@npm:4.3.6":
+  version: 4.3.6
+  resolution: "chai@npm:4.3.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fchai%2F-%2Fchai-4.3.6.tgz"
   dependencies:
     assertion-error: ^1.1.0
     check-error: ^1.0.2
     deep-eql: ^3.0.1
     get-func-name: ^2.0.0
+    loupe: ^2.3.1
     pathval: ^1.1.1
     type-detect: ^4.0.5
-  checksum: 772c522b3bfe3fcf0e0e74edfe584cd886b0e85a73126dec750095300e023d4e1ec6d40e3c35a80d2bd8f33dca46c42767a36f5f50f32dca6fa31c88b5f49ab8
+  checksum: acff93fd537f96d4a4d62dd83810285dffcfccb5089e1bf2a1205b28ec82d93dff551368722893cf85004282df10ee68802737c33c90c5493957ed449ed7ce71
   languageName: node
   linkType: hard
 
@@ -6597,6 +6605,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"loupe@npm:^2.3.1":
+  version: 2.3.4
+  resolution: "loupe@npm:2.3.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Floupe%2F-%2Floupe-2.3.4.tgz"
+  dependencies:
+    get-func-name: ^2.0.0
+  checksum: 5af91db61aa18530f1749a64735ee194ac263e65e9f4d1562bf3036c591f1baa948289c193e0e34c7b5e2c1b75d3c1dc4fce87f5edb3cee10b0c0df46bc9ffb3
+  languageName: node
+  linkType: hard
+
 "lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Flower-case%2Fdownload%2Flower-case-2.0.2.tgz"
@@ -8623,7 +8640,7 @@ __metadata:
     "@istanbuljs/nyc-config-typescript": 1.0.2
     "@jest/globals": 27.4.2
     "@jest/types": 27.4.2
-    "@types/chai": 4.2.22
+    "@types/chai": 4.3.1
     "@types/chai-spies": 1.0.3
     "@types/enzyme": 3.10.10
     "@types/jest": 27.0.3
@@ -8638,7 +8655,7 @@ __metadata:
     autoprefixer: 10.4.0
     axios: 0.24.0
     axios-mock-adapter: 1.20.0
-    chai: 4.3.4
+    chai: 4.3.6
     chai-spies: 1.0.0
     cypress: 9.1.0
     dayjs: 1.10.7
