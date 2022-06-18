@@ -37,6 +37,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ant-design/pro-card@npm:1.20.10":
+  version: 1.20.10
+  resolution: "@ant-design/pro-card@npm:1.20.10::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-card%2F-%2Fpro-card-1.20.10.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-utils": 1.42.2
+    "@babel/runtime": ^7.18.0
+    classnames: ^2.2.6
+    omit.js: ^2.0.2
+    rc-util: ^5.4.0
+  peerDependencies:
+    antd: ">=4.20.0"
+    react: ">=16.9.0"
+  checksum: 2fe0b8bd4a1d22fe75f30953f8a8f02de7563e2764cb96c696206adc5a67b47ec973619de44c68b6f37a81b8e348479ea1a527452703bd5223e32b037fb520c0
+  languageName: node
+  linkType: hard
+
 "@ant-design/pro-field@npm:1.28.2":
   version: 1.28.2
   resolution: "@ant-design/pro-field@npm:1.28.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-field%2Fdownload%2F%40ant-design%2Fpro-field-1.28.2.tgz"
@@ -56,6 +73,28 @@ __metadata:
     antd: 4.x
     react: ">=16.9.0"
   checksum: ed0cfbadc838d2186c14940d84b8a93cc4e12cef7a7f9216aecd8b2f8f5d3e5e82f60c77ef9e15411db0f22620ef7743f25e300179df5a0753e6cb3b912b2a96
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-field@npm:1.34.17":
+  version: 1.34.17
+  resolution: "@ant-design/pro-field@npm:1.34.17::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-field%2F-%2Fpro-field-1.34.17.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-provider": 1.8.0
+    "@ant-design/pro-utils": 1.42.2
+    "@babel/runtime": ^7.18.0
+    "@chenshuai2144/sketch-color": ^1.0.8
+    classnames: ^2.2.6
+    lodash.tonumber: ^4.0.3
+    moment: ^2.27.0
+    omit.js: ^2.0.2
+    rc-util: ^5.4.0
+    swr: ^1.2.0
+  peerDependencies:
+    antd: ">=4.20.0"
+    react: ">=16.9.0"
+  checksum: 27f2936f3bb562b1673b3eff8917b91e781ed2ae8c280693c5af9c626396457ef862d3329d6d83b30726ab60657407fb0112066dd82b21dcd4346b56a06ea110
   languageName: node
   linkType: hard
 
@@ -79,6 +118,32 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 9aa5ef9ee19a3838bffc70e3d50f89b907c8e3eed97853d51992f6f451e9934342ae6023ee488288b05203021956cdea5cd1e7ce50bd4f01ab69ed5e0d96db2c
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-form@npm:1.69.4":
+  version: 1.69.4
+  resolution: "@ant-design/pro-form@npm:1.69.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-form%2F-%2Fpro-form-1.69.4.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.2.1
+    "@ant-design/pro-field": 1.34.17
+    "@ant-design/pro-provider": 1.8.0
+    "@ant-design/pro-utils": 1.42.2
+    "@babel/runtime": ^7.18.0
+    "@umijs/use-params": ^1.0.9
+    classnames: ^2.2.6
+    lodash: ^4.17.21
+    omit.js: ^2.0.2
+    rc-resize-observer: ^1.1.0
+    rc-util: ^5.0.6
+    use-json-comparison: ^1.0.5
+    use-media-antd-query: ^1.1.0
+  peerDependencies:
+    antd: ">=4.20.0"
+    rc-field-form: ^1.22.0
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 45647772a4ad48541fdafcb673316fbce54e168da3e4db01fea68fcfca9957201c3e1e90eb45eaa9130cfa59e14bd21036af519725f9341d09fd2345c1418ec4
   languageName: node
   linkType: hard
 
@@ -124,16 +189,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-table@npm:2.59.2":
-  version: 2.59.2
-  resolution: "@ant-design/pro-table@npm:2.59.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-table%2Fdownload%2F%40ant-design%2Fpro-table-2.59.2.tgz"
+"@ant-design/pro-provider@npm:1.8.0":
+  version: 1.8.0
+  resolution: "@ant-design/pro-provider@npm:1.8.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-provider%2F-%2Fpro-provider-1.8.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.18.0
+    rc-util: ^5.0.1
+    swr: ^1.2.0
+  peerDependencies:
+    antd: ">=4.20.0"
+    react: ">=16.9.0"
+  checksum: 24003d0b8829193b98109295b1ea9a9ccaf7ce61c5447ef654ea5ac64b0197f1db0b6b5f5b77ebf1793d1cff80edd85a92aaeef6e113954c1e1af97537827bc5
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-table@npm:2.76.4":
+  version: 2.76.4
+  resolution: "@ant-design/pro-table@npm:2.76.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-table%2F-%2Fpro-table-2.76.4.tgz"
   dependencies:
     "@ant-design/icons": ^4.1.0
-    "@ant-design/pro-field": 1.28.2
-    "@ant-design/pro-form": 1.49.6
-    "@ant-design/pro-provider": 1.5.0
-    "@ant-design/pro-utils": 1.28.5
-    "@babel/runtime": ^7.16.3
+    "@ant-design/pro-card": 1.20.10
+    "@ant-design/pro-field": 1.34.17
+    "@ant-design/pro-form": 1.69.4
+    "@ant-design/pro-provider": 1.8.0
+    "@ant-design/pro-utils": 1.42.2
+    "@babel/runtime": ^7.18.0
     classnames: ^2.2.6
     moment: ^2.24.0
     omit.js: ^2.0.2
@@ -143,11 +223,11 @@ __metadata:
     use-json-comparison: ^1.0.5
     use-media-antd-query: ^1.1.0
   peerDependencies:
-    antd: 4.x
-    rc-field-form: ^1.x
+    antd: ">=4.20.0"
+    rc-field-form: ^1.22.0
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 3778e251a9e7a40143395330086c7e0fa060096b9a1951d9ae2f5f3187da48385cf86183997cfa05f99900d39c9b8de7eeabf4836b928c826cbad674254c63c2
+  checksum: 242c2b0714527c003afc00ce54f4d664451bd63ffbf8b72b6841a6e895c294de59ec3ef2ab080cf5ce3bdd53f2363a383880aabffba4652a73f16190df18d32e
   languageName: node
   linkType: hard
 
@@ -168,6 +248,26 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 815ed979b64978641c20b99aaef34c15e74485257c38e3b8d9329f695a0133917b4848011d6114fc4e948f5e5e90489d0d3bc9de67ca091cee15c8dc7d398fa5
+  languageName: node
+  linkType: hard
+
+"@ant-design/pro-utils@npm:1.42.2":
+  version: 1.42.2
+  resolution: "@ant-design/pro-utils@npm:1.42.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40ant-design%2Fpro-utils%2F-%2Fpro-utils-1.42.2.tgz"
+  dependencies:
+    "@ant-design/icons": ^4.3.0
+    "@ant-design/pro-provider": 1.8.0
+    "@babel/runtime": ^7.18.0
+    classnames: ^2.2.6
+    moment: ^2.27.0
+    rc-util: ^5.0.6
+    react-sortable-hoc: ^2.0.0
+    swr: ^1.2.0
+  peerDependencies:
+    antd: ">=4.20.0"
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: bfefdbbdc2067a2f91e7bdad6480469054ab541c84535ef2866b3ca5ddcb2f09e646605d07f81f66796681d4bb7d387807d00f024fce9070dd1ecd9ade7027fa
   languageName: node
   linkType: hard
 
@@ -606,6 +706,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.18.0, @babel/runtime@npm:^7.18.3":
+  version: 7.18.3
+  resolution: "@babel/runtime@npm:7.18.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fruntime%2F-%2Fruntime-7.18.3.tgz"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: db8526226aa02cfa35a5a7ac1a34b5f303c62a1f000c7db48cb06c6290e616483e5036ab3c4e7a84d0f3be6d4e2148d5fe5cec9564bf955f505c3e764b83d7f1
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.15.4, @babel/template@npm:^7.3.3":
   version: 7.15.4
   resolution: "@babel/template@npm:7.15.4::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2F%40babel%2Ftemplate%2Fdownload%2F%40babel%2Ftemplate-7.15.4.tgz"
@@ -648,6 +757,18 @@ __metadata:
   version: 0.2.3
   resolution: "@bcoe/v8-coverage@npm:0.2.3::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40bcoe%2Fv8-coverage%2Fdownload%2F%40bcoe%2Fv8-coverage-0.2.3.tgz"
   checksum: 850f9305536d0f2bd13e9e0881cb5f02e4f93fad1189f7b2d4bebf694e3206924eadee1068130d43c11b750efcc9405f88a8e42ef098b6d75239c0f047de1a27
+  languageName: node
+  linkType: hard
+
+"@chenshuai2144/sketch-color@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "@chenshuai2144/sketch-color@npm:1.0.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40chenshuai2144%2Fsketch-color%2F-%2Fsketch-color-1.0.8.tgz"
+  dependencies:
+    reactcss: ^1.2.3
+    tinycolor2: ^1.4.2
+  peerDependencies:
+    react: ">=16.12.0"
+  checksum: 6bb61dd944f51deb78e305b6538a53dd405218f01dff4c51da3bd24a2c898c68b337dc2dbd7b6bd01d6063d637fe4557f439225bf9e46087c302c9d9e5c8c282
   languageName: node
   linkType: hard
 
@@ -8254,6 +8375,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-resize-observer@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "rc-resize-observer@npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-resize-observer%2F-%2Frc-resize-observer-1.2.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.10.1
+    classnames: ^2.2.1
+    rc-util: ^5.15.0
+    resize-observer-polyfill: ^1.5.1
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: cb338ee405c6df3d072754ad2fc29c19fe90cc9264331c02b7e23cb85d75f8ad984352fa8e0ff48f339439f548613b8960992e3050754290f2e651ed71909489
+  languageName: node
+  linkType: hard
+
 "rc-select@npm:~13.1.0-alpha.0":
   version: 13.1.1
   resolution: "rc-select@npm:13.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-select%2Fdownload%2Frc-select-13.1.1.tgz"
@@ -8467,6 +8603,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-util@npm:^5.15.0":
+  version: 5.22.0
+  resolution: "rc-util@npm:5.22.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-util%2F-%2Frc-util-5.22.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.18.3
+    react-is: ^16.12.0
+    shallowequal: ^1.1.0
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 01d8ff44abd9ce9afe134a7f3a67f795da7f36a390bfed2f6c193f8c115d928786014d7854b9bdbd371bf69515c6aa013f47cf6a616cce4bfc7212cfd541b65c
+  languageName: node
+  linkType: hard
+
 "rc-virtual-list@npm:^3.2.0":
   version: 3.4.1
   resolution: "rc-virtual-list@npm:3.4.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frc-virtual-list%2Fdownload%2Frc-virtual-list-3.4.1.tgz"
@@ -8618,7 +8768,7 @@ __metadata:
     "@ant-design/icons": 4.7.0
     "@ant-design/pro-form": 1.49.6
     "@ant-design/pro-layout": 6.31.3
-    "@ant-design/pro-table": 2.59.2
+    "@ant-design/pro-table": 2.76.4
     "@fullhuman/postcss-purgecss": 4.1.3
     "@istanbuljs/nyc-config-typescript": 1.0.2
     "@jest/globals": 27.4.2
@@ -8692,6 +8842,15 @@ __metadata:
 "reactcss@npm:^1.2.0":
   version: 1.2.3
   resolution: "reactcss@npm:1.2.3::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Freactcss%2Fdownload%2Freactcss-1.2.3.tgz"
+  dependencies:
+    lodash: ^4.0.1
+  checksum: c53e386a0881f1477e1cff661f6a6ad4c662230941f3827862193ac30f9b75cdf7bc7b4c7e5ca543d3e4e80fee1a3e9fa0056c206b1c0423726c41773ab3fe45
+  languageName: node
+  linkType: hard
+
+"reactcss@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "reactcss@npm:1.2.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freactcss%2F-%2Freactcss-1.2.3.tgz"
   dependencies:
     lodash: ^4.0.1
   checksum: c53e386a0881f1477e1cff661f6a6ad4c662230941f3827862193ac30f9b75cdf7bc7b4c7e5ca543d3e4e80fee1a3e9fa0056c206b1c0423726c41773ab3fe45
@@ -9494,6 +9653,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"swr@npm:^1.2.0":
+  version: 1.3.0
+  resolution: "swr@npm:1.3.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswr%2F-%2Fswr-1.3.0.tgz"
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0 || ^18.0.0
+  checksum: e7a184f0d560e9c8be85c023cc8e65e56a88a6ed46f9394b301b07f838edca23d2e303685319a4fcd620b81d447a7bcb489c7fa0a752c259f91764903c690cdb
+  languageName: node
+  linkType: hard
+
 "symbol-tree@npm:^3.2.4":
   version: 3.2.4
   resolution: "symbol-tree@npm:3.2.4::__archiveUrl=https%3A%2F%2Fregistry.nlark.com%2Fsymbol-tree%2Fdownload%2Fsymbol-tree-3.2.4.tgz"
@@ -9627,6 +9795,13 @@ resolve@^2.0.0-next.3:
 "tinycolor2@npm:^1.4.1":
   version: 1.4.2
   resolution: "tinycolor2@npm:1.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftinycolor2%2Fdownload%2Ftinycolor2-1.4.2.tgz"
+  checksum: 57ed262e08815a4ab0ed933edafdbc6555a17081781766149813b44a080ecbe58b3ee281e81c0e75b42e4d41679f138cfa98eabf043f829e0683c04adb12c031
+  languageName: node
+  linkType: hard
+
+"tinycolor2@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "tinycolor2@npm:1.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftinycolor2%2F-%2Ftinycolor2-1.4.2.tgz"
   checksum: 57ed262e08815a4ab0ed933edafdbc6555a17081781766149813b44a080ecbe58b3ee281e81c0e75b42e4d41679f138cfa98eabf043f829e0683c04adb12c031
   languageName: node
   linkType: hard
