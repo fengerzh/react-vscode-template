@@ -34,7 +34,7 @@
     "antd": "5.15.2",
     "autoprefixer": "10.4.21",
     "axios": "0.30.0",
-    "axios-mock-adapter": "1.22.0",
+    "axios-mock-adapter": "2.1.0",
     "chai": "4.3.4",
     "chai-spies": "1.0.0",
     "cypress": "13.17.0",
