@@ -3660,14 +3660,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:1.10.7":
-  version: 1.10.7
-  resolution: "dayjs@npm:1.10.7"
-  checksum: 10c0/2ce908776ea5b383dba2c01c72290ff12ad97cafa81b9c72a9cc4f801d736d592f20bd992ea1dff083ab80e807080b5af21f634bb09e67f89f66582a9059053a
-  languageName: node
-  linkType: hard
-
-"dayjs@npm:^1.10.4, dayjs@npm:^1.11.10":
+"dayjs@npm:1.11.13, dayjs@npm:^1.10.4, dayjs@npm:^1.11.10":
   version: 1.11.13
   resolution: "dayjs@npm:1.11.13"
   checksum: 10c0/a3caf6ac8363c7dade9d1ee797848ddcf25c1ace68d9fe8678ecf8ba0675825430de5d793672ec87b24a69bf04a1544b176547b2539982275d5542a7955f35b7
@@ -9267,7 +9260,7 @@ __metadata:
     chai: "npm:4.3.4"
     chai-spies: "npm:1.0.0"
     cypress: "npm:13.7.3"
-    dayjs: "npm:1.10.7"
+    dayjs: "npm:1.11.13"
     enzyme: "npm:3.11.0"
     eslint: "npm:7.32.0"
     eslint-config-airbnb: "npm:19.0.4"
