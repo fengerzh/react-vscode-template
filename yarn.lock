@@ -3812,9 +3812,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb@npm:19.0.1":
-  version: 19.0.1
-  resolution: "eslint-config-airbnb@npm:19.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-airbnb%2Fdownload%2Feslint-config-airbnb-19.0.1.tgz"
+"eslint-config-airbnb@npm:19.0.4":
+  version: 19.0.4
+  resolution: "eslint-config-airbnb@npm:19.0.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-config-airbnb%2Fdownload%2Feslint-config-airbnb-19.0.4.tgz"
   dependencies:
     eslint-config-airbnb-base: ^15.0.0
     object.assign: ^4.1.2
@@ -3823,9 +3823,9 @@ __metadata:
     eslint: ^7.32.0 || ^8.2.0
     eslint-plugin-import: ^2.25.3
     eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-react: ^7.27.1
+    eslint-plugin-react: ^7.28.0
     eslint-plugin-react-hooks: ^4.3.0
-  checksum: 87683958a0872954cdf59b51a1592f2ec3ad0dcb0a6321a1c5839b72c6cefbd03125f28a2452168052dee24be10fd20a70be73ee09b5b4ba93362491dc6eeb5a
+  checksum: 253178689c3c80eef2567e3aaf0612e18973bc9cf51d9be36074b5dd58210e8b6942200a424bcccbb81ac884e41303479ab09f251a2a97addc2de61efdc9576c
   languageName: node
   linkType: hard
 
@@ -8644,7 +8644,7 @@ __metadata:
     dayjs: 1.10.7
     enzyme: 3.11.0
     eslint: 7.32.0
-    eslint-config-airbnb: 19.0.1
+    eslint-config-airbnb: 19.0.4
     eslint-config-airbnb-typescript: 16.1.0
     eslint-import-resolver-alias: 1.1.2
     eslint-import-resolver-typescript: 2.5.0
