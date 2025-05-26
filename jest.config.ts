@@ -13,6 +13,7 @@ const config: Config.InitialOptions = {
   testPathIgnorePatterns: [
     'cypress',
   ],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
 
 export default config;
