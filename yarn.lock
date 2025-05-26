@@ -9271,7 +9271,7 @@ __metadata:
     react-router-dom: "npm:6.30.1"
     source-map-support: "npm:0.5.21"
     tailwindcss: "npm:2.2.19"
-    ts-jest: "npm:27.0.7"
+    ts-jest: "npm:27.1.5"
     ts-node: "npm:10.4.0"
     typescript: "npm:4.5.2"
     vite: "npm:4.5.14"
@@ -10509,9 +10509,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:27.0.7":
-  version: 27.0.7
-  resolution: "ts-jest@npm:27.0.7"
+"ts-jest@npm:27.1.5":
+  version: 27.1.5
+  resolution: "ts-jest@npm:27.1.5"
   dependencies:
     bs-logger: "npm:0.x"
     fast-json-stable-stringify: "npm:2.x"
@@ -10534,9 +10534,11 @@ __metadata:
       optional: true
     babel-jest:
       optional: true
+    esbuild:
+      optional: true
   bin:
     ts-jest: cli.js
-  checksum: 10c0/84b0093c4f294c6dddb052868203dc2f1b86a0fc95ae4494018af869fcd2fe098f974785695989e95bce8eb8eef4ad07982e716b684decc6c1e7491fe258edb1
+  checksum: 10c0/af11586658a0766dcc82ba540448334f8370eb71b22f5d6749b1dc0a203b30e766ab3c02e4c7ed4b1f4c862613c2bb0cbc275d28922bed7d7a06e3b3af73fba1
   languageName: node
   linkType: hard
 
