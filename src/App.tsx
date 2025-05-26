@@ -3,6 +3,7 @@ import { Provider } from 'mobx-react';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import 'moment/dist/locale/zh-cn';
+import 'antd/dist/reset.css';
 import userStore from '@/store';
 import router from '@/routes';
 

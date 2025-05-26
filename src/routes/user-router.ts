@@ -9,15 +9,14 @@ export default [
     key: 'user',
     component: UserLayout,
     auth: false,
-    routes: [
+    children: [
       {
-        path: '/user',
-        key: 'user',
+        index: true,
         redirect: '/user/login',
       },
       {
         name: '登录',
-        path: '/user/login',
+        path: 'login',
         key: 'login',
         component: Login,
       },

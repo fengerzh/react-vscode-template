@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { PageContainer } from '@ant-design/pro-layout';
+import { PageContainer } from '@ant-design/pro-components';
 import ProTable from '@ant-design/pro-table';
 import { getUsers } from '@/services';
 
@@ -35,12 +35,12 @@ const Home = () => {
         subTitle: '这里是首页',
         breadcrumb: {
           itemRender: breadcrumbItemRender,
-          routes: [
+          items: [
             {
-              breadcrumbName: '网站',
+              title: '网站',
             },
             {
-              breadcrumbName: '首页',
+              title: '首页',
             },
           ],
         },

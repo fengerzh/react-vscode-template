@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Spin } from 'antd';
 import userRouterConfig from './user-router';
 import commonRouterConfig from './common-router';
@@ -11,45 +11,40 @@ const routerConfig = [
   ...commonRouterConfig,
 ];
 
-function getRouteByConfig() {
+function renderRoutes(configs: any[]) {
   const cookies = Object.fromEntries(document.cookie.split('; ').map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent)));
-
-  const route = routerConfig.map(
-    (config: any) => (
-      <Route
-        key={config.key}
-        path={config.path}
-        exact={false}
-        render={({ location, ...props }) => {
-          if (config.auth && !cookies.token) {
-            return (
-              <Redirect
-                to={{
-                  pathname: '/user',
-                  state: { from: location },
-                }}
-              />
-            );
-          }
-          return (config.component ? (
-            <config.component
-              // eslint-disable-next-line
-              {...props}
-              routes={config.routes}
-            />
-          ) : (
-            <Redirect
-              to={{
-                pathname: config.redirect,
-                state: { from: location },
-              }}
-            />
-          ));
-        }}
-      />
-    ),
-  );
-  return route;
+  return configs.map((config) => {
+    // 权限拦截
+    if (config.auth && !cookies.token) {
+      return <Route key={config.key} path={config.path} element={<Navigate to="/user" replace />} />;
+    }
+    // 重定向
+    if (config.redirect) {
+      if (config.index) {
+        return <Route key={config.key || config.redirect} index element={<Navigate to={config.redirect} replace />} />;
+      }
+      return <Route key={config.key || config.redirect} path={config.path} element={<Navigate to={config.redirect} replace />} />;
+    }
+    // 嵌套路由
+    if (config.children && config.children.length > 0) {
+      const Comp = config.component;
+      return (
+        <Route
+          key={config.key}
+          path={config.path}
+          element={Comp ? <Comp routes={config.children} /> : undefined}
+        >
+          {renderRoutes(config.children)}
+        </Route>
+      );
+    }
+    // 普通路由
+    if (config.component) {
+      const Comp = config.component;
+      return <Route key={config.key} path={config.path} element={<Comp routes={config.children} />} />;
+    }
+    return null;
+  });
 }
 
 export default (
@@ -58,8 +53,10 @@ export default (
       <Spin size="large" spinning style={{ margin: 'auto' }} />
     )}
   >
-    <Switch>
-      {getRouteByConfig()}
-    </Switch>
+    <Routes>
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      {renderRoutes(routerConfig)}
+      <Route path="*" element={<Navigate to="/exception/404" replace />} />
+    </Routes>
   </Suspense>
 );

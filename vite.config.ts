@@ -9,10 +9,8 @@ export default defineConfig({
     reactRefresh(),
     vitePluginImp({
       libList: [
-        {
-          libName: 'antd',
-          style: (name) => `antd/lib/${name}/style/index.less`,
-        },
+        // antd 5.x 不再需要按需引入 less 样式，官方推荐全局引入 reset.css
+        // 如有其它库需要按需引入样式，可在此添加
       ],
     }),
   ],
@@ -31,5 +29,8 @@ export default defineConfig({
   },
   esbuild: {
     jsxInject: 'import React from \'react\'',
+  },
+  server: {
+    port: 3123,
   },
 });

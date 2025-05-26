@@ -1,24 +1,24 @@
 import { lazy } from 'react';
 import { HomeOutlined } from '@ant-design/icons';
+import { Navigate } from 'react-router-dom';
 
 const BasicLayout = lazy(() => import('@/layout/BasicLayout'));
 const Home = lazy(() => import('@/pages/home'));
 
 export default [
   {
-    path: '/dashboard',
+    path: '/dashboard/*',
     key: 'dashboard',
     component: BasicLayout,
     auth: true,
-    routes: [
+    children: [
       {
-        path: '/dashboard',
-        key: 'dashboard',
-        redirect: '/dashboard/home',
+        index: true,
+        redirect: 'home',
       },
       {
         name: '首页',
-        path: '/dashboard/home',
+        path: 'home',
         key: 'home',
         icon: <HomeOutlined />,
         component: Home,

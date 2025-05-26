@@ -1,83 +1,43 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Avatar, Dropdown, Menu } from 'antd';
-import ProLayout from '@ant-design/pro-layout';
+import { ProLayout } from '@ant-design/pro-components';
 import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
 
-interface Props {
-  routes: {
-    key: string,
-    path: string,
-    redirect: string,
-    component: any,
-    routes: {}[]
-  }[],
-  history: {
-    push: (val: string) => void
-  }
-}
-
-const BasicLayout = ({
-  routes, history,
-}: Props) => {
+const BasicLayout = () => {
   const userName = localStorage.getItem('userName');
+  const navigate = useNavigate();
   return (
     <ProLayout
       navTheme="light"
       menuHeaderRender={false}
-      route={{ routes }}
       contentStyle={{ display: 'flex', flexDirection: 'column' }}
-      disableContentMargin
-      rightContentRender={() => (
+      actionsRender={() => [
         <Dropdown
-          overlay={(
-            <Menu>
-              <Menu.Item
-                key="logout"
-                icon={<LogoutOutlined />}
-                onClick={() => {
+          menu={{
+            items: [
+              {
+                key: 'logout',
+                // @ts-expect-error antd icon 类型不兼容
+                icon: <LogoutOutlined />,
+                label: '退出登录',
+                onClick: () => {
                   document.cookie = 'token=;path=/';
                   localStorage.removeItem('userName');
-                  history.push('/user');
-                }}
-              >
-                退出登录
-              </Menu.Item>
-            </Menu>
-        )}
+                  navigate('/user', { replace: true });
+                },
+              },
+            ],
+          }}
         >
           <div>
+            {/* @ts-expect-error antd icon 类型不兼容 */}
             <Avatar shape="square" size="small" icon={<UserOutlined />} />
-            {userName}
+            {userName || ''}
           </div>
         </Dropdown>
-      )}
+      ]}
     >
-      <Switch>
-        {routes.map((route) => (
-          <Route
-            key={route.key}
-            path={route.path}
-            exact
-            render={({ location, ...props }) => (route.component ? (
-              <route.component
-                // eslint-disable-next-line
-                {...props}
-                routes={route.routes}
-              />
-            ) : (
-              <Redirect
-                to={{
-                  pathname: route.redirect,
-                  state: { from: location },
-                }}
-              />
-            ))}
-          />
-        ))}
-        <Route path="*">
-          <Redirect to="/exception/404" />
-        </Route>
-      </Switch>
+      <Outlet />
     </ProLayout>
   );
 };
