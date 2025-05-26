@@ -1831,10 +1831,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mocha@npm:9.0.0":
-  version: 9.0.0
-  resolution: "@types/mocha@npm:9.0.0"
-  checksum: 10c0/82501aa1453ffe204d94f0a975e2ff266bfe38fb66a788a6c1fd72db3b7707534fb28f60b99eee128b22df7efa2b3064c57e749ec5f142d294854bb43f3da82d
+"@types/mocha@npm:9.1.1":
+  version: 9.1.1
+  resolution: "@types/mocha@npm:9.1.1"
+  checksum: 10c0/d033742ce0c92b917815b6e515165ee396866d0db0c0bbe0c301e49402abe3a61bd51e5bb1df7577f1fac60c99ee505fa744f515b476cc934ecb57f709f327e9
   languageName: node
   linkType: hard
 
@@ -9279,7 +9279,7 @@ __metadata:
     "@types/chai-spies": "npm:1.0.3"
     "@types/enzyme": "npm:3.10.19"
     "@types/jest": "npm:27.0.3"
-    "@types/mocha": "npm:9.0.0"
+    "@types/mocha": "npm:9.1.1"
     "@types/react-dom": "npm:17.0.11"
     "@types/react-router-dom": "npm:5.3.3"
     "@typescript-eslint/eslint-plugin": "npm:5.5.0"
