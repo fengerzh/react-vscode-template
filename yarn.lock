@@ -2509,12 +2509,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.24.0":
-  version: 0.24.0
-  resolution: "axios@npm:0.24.0"
+"axios@npm:0.30.0":
+  version: 0.30.0
+  resolution: "axios@npm:0.30.0"
   dependencies:
-    follow-redirects: "npm:^1.14.4"
-  checksum: 10c0/d106561e761bf48633633073626eafb80289eb7c7c27f9fae4fb796939b6ecd2c9f63b596e3b3d872f7c0bec6b2fb117c58456d387e4ca2da7fc07c795a979c3
+    follow-redirects: "npm:^1.15.4"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/c3ac8aef31e30063b4aa277aeafdbf2262adbae6d459a405de66d9dd8a8b691bc5fac32c3db691d3dbb23e6d11daebb82aae166b4b858adb036287007215bdc9
   languageName: node
   linkType: hard
 
@@ -4945,7 +4947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.4":
+"follow-redirects@npm:^1.15.4":
   version: 1.15.9
   resolution: "follow-redirects@npm:1.15.9"
   peerDependenciesMeta:
@@ -8406,6 +8408,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: 10c0/fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
+  languageName: node
+  linkType: hard
+
 "prr@npm:~1.0.1":
   version: 1.0.1
   resolution: "prr@npm:1.0.1"
@@ -9203,7 +9212,7 @@ __metadata:
     "@wojtekmaj/enzyme-adapter-react-17": "npm:0.6.5"
     antd: "npm:5.15.2"
     autoprefixer: "npm:10.4.0"
-    axios: "npm:0.24.0"
+    axios: "npm:0.30.0"
     axios-mock-adapter: "npm:1.20.0"
     chai: "npm:4.3.4"
     chai-spies: "npm:1.0.0"
