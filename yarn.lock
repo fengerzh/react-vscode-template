@@ -2140,12 +2140,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:17.0.11":
-  version: 17.0.11
-  resolution: "@types/react-dom@npm:17.0.11"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 10c0/afd57cfd7c6ffbd5f71e6fbfb130323e938cc914b699513be7e69d7d59d3b0e332b15e5379c1e58b9f7f71fc48c0cbdcd5301e1a0017540b53c6152e150e2fee
+"@types/react-dom@npm:17.0.26":
+  version: 17.0.26
+  resolution: "@types/react-dom@npm:17.0.26"
+  peerDependencies:
+    "@types/react": ^17.0.0
+  checksum: 10c0/8363921f08afe3f2ef82fe293301a0809ec646975fe9f5bfeb2e823f7237b97e47d27e1c6c2ffff27d15c12ab3cad1de6c77a737e37499fcc52793b0fd674f3f
   languageName: node
   linkType: hard
 
@@ -4813,12 +4813,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:4.3.0":
-  version: 4.3.0
-  resolution: "eslint-plugin-react-hooks@npm:4.3.0"
+"eslint-plugin-react-hooks@npm:4.6.2":
+  version: 4.6.2
+  resolution: "eslint-plugin-react-hooks@npm:4.6.2"
   peerDependencies:
     eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
-  checksum: 10c0/fdf491b182fd0815c95af6b5a9ef9de0640cbf0e446b2886899769470276c9a69be35a2aac42b2ada3e26b73cefee23b1eb4a93f27ee984b5763ee4718509629
+  checksum: 10c0/4844e58c929bc05157fb70ba1e462e34f1f4abcbc8dd5bbe5b04513d33e2699effb8bca668297976ceea8e7ebee4e8fc29b9af9d131bcef52886feaa2308b2cc
   languageName: node
   linkType: hard
 
@@ -9497,7 +9497,7 @@ __metadata:
     "@types/enzyme": "npm:3.10.19"
     "@types/jest": "npm:27.5.2"
     "@types/mocha": "npm:9.1.1"
-    "@types/react-dom": "npm:17.0.11"
+    "@types/react-dom": "npm:17.0.26"
     "@types/react-router-dom": "npm:5.3.3"
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
     "@typescript-eslint/parser": "npm:5.62.0"
@@ -9521,7 +9521,7 @@ __metadata:
     eslint-plugin-import: "npm:2.25.3"
     eslint-plugin-jsx-a11y: "npm:6.10.2"
     eslint-plugin-react: "npm:7.27.1"
-    eslint-plugin-react-hooks: "npm:4.3.0"
+    eslint-plugin-react-hooks: "npm:4.6.2"
     ignore-styles: "npm:5.0.1"
     jest: "npm:27.5.1"
     jest-transform-stub: "npm:2.0.0"
