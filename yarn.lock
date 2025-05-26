@@ -60,26 +60,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons-svg@npm:^4.2.1, @ant-design/icons-svg@npm:^4.4.0":
+"@ant-design/icons-svg@npm:^4.3.0, @ant-design/icons-svg@npm:^4.4.0":
   version: 4.4.2
   resolution: "@ant-design/icons-svg@npm:4.4.2"
   checksum: 10c0/d08f051824599850efcd691a67b0ee602ee886f23fe04e77890b083a0343cde72560317e3909fd029f999df00aef7b57142c863326fff7293251d9162828079b
   languageName: node
   linkType: hard
 
-"@ant-design/icons@npm:4.7.0":
-  version: 4.7.0
-  resolution: "@ant-design/icons@npm:4.7.0"
+"@ant-design/icons@npm:4.8.3":
+  version: 4.8.3
+  resolution: "@ant-design/icons@npm:4.8.3"
   dependencies:
     "@ant-design/colors": "npm:^6.0.0"
-    "@ant-design/icons-svg": "npm:^4.2.1"
+    "@ant-design/icons-svg": "npm:^4.3.0"
     "@babel/runtime": "npm:^7.11.2"
     classnames: "npm:^2.2.6"
+    lodash: "npm:^4.17.15"
     rc-util: "npm:^5.9.4"
   peerDependencies:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: 10c0/9304ccdce8b9a3d1c7ffff1601eedbf26f0fc4da0d1698cbc480c677723c584a353821206a61b3d91683cd43cd9f2b77f78dead51c3ba35c3a9b2d212120c6f0
+  checksum: 10c0/1707c68b0c2b4d7679e1c0b9fba52ab91acbd720ff5b352b18c3574f7946002ae972772605f25ab30aaae29c293a999b361ac78747cd644895bc6921c3f3a195
   languageName: node
   linkType: hard
 
@@ -7252,7 +7253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.0.1, lodash@npm:^4.17.21, lodash@npm:^4.7.0":
+"lodash@npm:^4.0.1, lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
@@ -9265,7 +9266,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-vscode-template@workspace:."
   dependencies:
-    "@ant-design/icons": "npm:4.7.0"
+    "@ant-design/icons": "npm:4.8.3"
     "@ant-design/pro-components": "npm:^2.8.7"
     "@ant-design/pro-field": "npm:3.0.4"
     "@ant-design/pro-form": "npm:2.31.7"
