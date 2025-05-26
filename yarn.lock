@@ -7392,10 +7392,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:6.3.8":
-  version: 6.3.8
-  resolution: "mobx@npm:6.3.8"
-  checksum: 10c0/94a34cfe350fac0a0f679714d78ebdc936ab4d33a2032201234e6ebd0068e91aa23e96e923b529cc6389a157349543d38ea13308fed4adc4c0364ae5003acce2
+"mobx@npm:6.13.7":
+  version: 6.13.7
+  resolution: "mobx@npm:6.13.7"
+  checksum: 10c0/3ae7f8c586a48a0a2b9b4900871455bc93d3878bdff70b6820ba830c6b883d7f8a0222aa2a0fec7201d25f38a19cb340e62a18a3939182a676dc35d857f35dd6
   languageName: node
   linkType: hard
 
@@ -9049,7 +9049,7 @@ __metadata:
     jsdom: "npm:26.1.0"
     jsdom-global: "npm:3.0.2"
     less: "npm:4.3.0"
-    mobx: "npm:6.3.8"
+    mobx: "npm:6.13.7"
     mobx-react: "npm:9.2.0"
     moment: "npm:2.30.1"
     nyc: "npm:17.1.0"
