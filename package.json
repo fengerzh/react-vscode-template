@@ -22,7 +22,7 @@
     "@jest/types": "27.4.2",
     "@types/chai": "4.2.22",
     "@types/chai-spies": "1.0.3",
-    "@types/enzyme": "3.10.10",
+    "@types/enzyme": "3.10.19",
     "@types/jest": "27.0.3",
     "@types/mocha": "9.0.0",
     "@types/react-dom": "17.0.11",

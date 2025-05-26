@@ -1739,7 +1739,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cheerio@npm:*":
+"@types/cheerio@npm:<1":
   version: 0.22.35
   resolution: "@types/cheerio@npm:0.22.35"
   dependencies:
@@ -1755,13 +1755,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/enzyme@npm:3.10.10":
-  version: 3.10.10
-  resolution: "@types/enzyme@npm:3.10.10"
+"@types/enzyme@npm:3.10.19":
+  version: 3.10.19
+  resolution: "@types/enzyme@npm:3.10.19"
   dependencies:
-    "@types/cheerio": "npm:*"
-    "@types/react": "npm:*"
-  checksum: 10c0/37f2e81d1bd81ed310c8f948e39816e5a99e66ff21f6bf48d0a5ca95df5526889648915daea68ad33c4ed95d16877b39b9e2789e729475d4229785b819a65e85
+    "@types/cheerio": "npm:<1"
+    "@types/react": "npm:^16"
+  checksum: 10c0/4bf7e30ffec4e154d24f9555dc2c7fab8463628e7aaf030005d06adb472e282a9a25ff6924a646bec47a5db241d82c54b4f81a20452b09e3ab6ca2960a730a12
   languageName: node
   linkType: hard
 
@@ -1860,6 +1860,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prop-types@npm:*":
+  version: 15.7.14
+  resolution: "@types/prop-types@npm:15.7.14"
+  checksum: 10c0/1ec775160bfab90b67a782d735952158c7e702ca4502968aa82565bd8e452c2de8601c8dfe349733073c31179116cf7340710160d3836aa8a1ef76d1532893b1
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:17.0.11":
   version: 17.0.11
   resolution: "@types/react-dom@npm:17.0.11"
@@ -1896,6 +1903,24 @@ __metadata:
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 10c0/e0811aadc65cf4030e2418c7975b524f126db806bacb85cffdbe5e50c3606e9a5ffe89ffe6bf9c945e03f5e8d5ed992686bc6bb478db1f3127cc50933f648e1e
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^16":
+  version: 16.14.64
+  resolution: "@types/react@npm:16.14.64"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:^0.16"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/dab1c56e228299bb6203d5cd8f91498444990023e67cda872b8cdcfaedf35b9d21760a495f7df7ac567c742430b2dd6a10642300d242d23618c2aa5fb07ea612
+  languageName: node
+  linkType: hard
+
+"@types/scheduler@npm:^0.16":
+  version: 0.16.8
+  resolution: "@types/scheduler@npm:0.16.8"
+  checksum: 10c0/f86de504945b8fc41b1f391f847444d542e2e4067cf7e5d9bfeb5d2d2393d3203b1161bc0ef3b1e104d828dabfb60baf06e8d2c27e27ff7e8258e6e618d8c4ec
   languageName: node
   linkType: hard
 
@@ -9251,7 +9276,7 @@ __metadata:
     "@jest/types": "npm:27.4.2"
     "@types/chai": "npm:4.2.22"
     "@types/chai-spies": "npm:1.0.3"
-    "@types/enzyme": "npm:3.10.10"
+    "@types/enzyme": "npm:3.10.19"
     "@types/jest": "npm:27.0.3"
     "@types/mocha": "npm:9.0.0"
     "@types/react-dom": "npm:17.0.11"
