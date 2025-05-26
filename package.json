@@ -57,7 +57,7 @@
     "jsdom-global": "3.0.2",
     "less": "4.3.0",
     "mobx": "6.3.8",
-    "mobx-react": "7.6.0",
+    "mobx-react": "9.2.0",
     "moment": "2.29.4",
     "nyc": "15.1.0",
     "postcss": "8.5.3",
