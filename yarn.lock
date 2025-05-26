@@ -1714,12 +1714,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai-spies@npm:1.0.3":
-  version: 1.0.3
-  resolution: "@types/chai-spies@npm:1.0.3"
+"@types/chai-spies@npm:1.0.6":
+  version: 1.0.6
+  resolution: "@types/chai-spies@npm:1.0.6"
   dependencies:
     "@types/chai": "npm:*"
-  checksum: 10c0/f38fe55756e65aaca1d0eddfcf9d0ec5969f0a66f529b80e77fe5ecbd43f7c61d985d7d0947d375523b233cfb96dfff8dba85035428648e886327ffdcb217d6e
+  checksum: 10c0/b5c5055b257562d85e218e5e4243d663372b9cff5170a98621e81fb75d30e0f30fcb1fb67c0a06059f942d11de48a03150f7f3a1b4e8ebdefd3ef3acd39c1b8a
   languageName: node
   linkType: hard
 
@@ -3023,12 +3023,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chai-spies@npm:1.0.0":
-  version: 1.0.0
-  resolution: "chai-spies@npm:1.0.0"
+"chai-spies@npm:1.1.0":
+  version: 1.1.0
+  resolution: "chai-spies@npm:1.1.0"
   peerDependencies:
     chai: "*"
-  checksum: 10c0/dcd039e94de2e22efd3c549bb5df5c6192927e79d22722633d1898ac737a6b6a8ccb8834d2e729b5200850d042beca51db357bf192a84a61c4df8bec2725b580
+  checksum: 10c0/fdcfa1f00bab4fe7a86178fc9edd7ae8ce8ccedf12d21c16268f779ffd9fc4f4ce3c816f3a15201807e534766665b5b359eedd9e7630f350af1bfa499f3afd3e
   languageName: node
   linkType: hard
 
@@ -9250,7 +9250,7 @@ __metadata:
     "@jest/globals": "npm:27.4.2"
     "@jest/types": "npm:27.4.2"
     "@types/chai": "npm:4.2.22"
-    "@types/chai-spies": "npm:1.0.3"
+    "@types/chai-spies": "npm:1.0.6"
     "@types/enzyme": "npm:3.10.10"
     "@types/jest": "npm:27.0.3"
     "@types/mocha": "npm:9.0.0"
@@ -9265,7 +9265,7 @@ __metadata:
     axios: "npm:0.30.0"
     axios-mock-adapter: "npm:1.20.0"
     chai: "npm:4.3.4"
-    chai-spies: "npm:1.0.0"
+    chai-spies: "npm:1.1.0"
     cypress: "npm:13.7.3"
     dayjs: "npm:1.10.7"
     enzyme: "npm:3.11.0"
