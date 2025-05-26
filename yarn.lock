@@ -4434,15 +4434,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb-typescript@npm:16.1.0":
-  version: 16.1.0
-  resolution: "eslint-config-airbnb-typescript@npm:16.1.0"
+"eslint-config-airbnb-typescript@npm:16.2.0":
+  version: 16.2.0
+  resolution: "eslint-config-airbnb-typescript@npm:16.2.0"
   dependencies:
     eslint-config-airbnb-base: "npm:^15.0.0"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
-  checksum: 10c0/fe3257d2bcacc4504d73c8f5706a815497d30bf285170caba7d3480199c5ad79cb341b0ef0518fb462146cca35df7b8ec211e20dd7a3de090240cda9e49a2a01
+    eslint: ^7.32.0 || ^8.2.0
+    eslint-plugin-import: ^2.25.3
+  checksum: 10c0/d89053871b15290b655ca5c04dd27dac3d0a307273c223c6e3735b72bf094802177f2617c5828af04d4db443b2386ad62a7c90e01107cb11a8447b633ab48cf6
   languageName: node
   linkType: hard
 
@@ -9284,7 +9286,7 @@ __metadata:
     enzyme: "npm:3.11.0"
     eslint: "npm:7.32.0"
     eslint-config-airbnb: "npm:19.0.4"
-    eslint-config-airbnb-typescript: "npm:16.1.0"
+    eslint-config-airbnb-typescript: "npm:16.2.0"
     eslint-import-resolver-alias: "npm:1.1.2"
     eslint-import-resolver-typescript: "npm:2.5.0"
     eslint-plugin-cypress: "npm:2.12.1"
