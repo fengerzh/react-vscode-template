@@ -2703,14 +2703,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.30.0":
-  version: 0.30.0
-  resolution: "axios@npm:0.30.0"
+"axios@npm:1.9.0":
+  version: 1.9.0
+  resolution: "axios@npm:1.9.0"
   dependencies:
-    follow-redirects: "npm:^1.15.4"
+    follow-redirects: "npm:^1.15.6"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/c3ac8aef31e30063b4aa277aeafdbf2262adbae6d459a405de66d9dd8a8b691bc5fac32c3db691d3dbb23e6d11daebb82aae166b4b858adb036287007215bdc9
+  checksum: 10c0/9371a56886c2e43e4ff5647b5c2c3c046ed0a3d13482ef1d0135b994a628c41fbad459796f101c655e62f0c161d03883454474d2e435b2e021b1924d9f24994c
   languageName: node
   linkType: hard
 
@@ -5032,7 +5032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.4":
+"follow-redirects@npm:^1.15.6":
   version: 1.15.9
   resolution: "follow-redirects@npm:1.15.9"
   peerDependenciesMeta:
@@ -9271,7 +9271,7 @@ __metadata:
     "@wojtekmaj/enzyme-adapter-react-17": "npm:0.8.0"
     antd: "npm:5.15.2"
     autoprefixer: "npm:10.4.21"
-    axios: "npm:0.30.0"
+    axios: "npm:1.9.0"
     axios-mock-adapter: "npm:1.22.0"
     chai: "npm:4.3.4"
     chai-spies: "npm:1.0.0"
