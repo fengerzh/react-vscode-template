@@ -8095,6 +8095,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pascal-case@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "pascal-case@npm:3.1.2"
+  dependencies:
+    no-case: "npm:^3.0.4"
+    tslib: "npm:^2.0.3"
+  checksum: 10c0/05ff7c344809fd272fc5030ae0ee3da8e4e63f36d47a1e0a4855ca59736254192c5a27b5822ed4bae96e54048eec5f6907713cfcfff7cdf7a464eaf7490786d8
+  languageName: node
+  linkType: hard
+
 "path-exists@npm:^4.0.0":
   version: 4.0.0
   resolution: "path-exists@npm:4.0.0"
@@ -9301,7 +9311,7 @@ __metadata:
     ts-node: "npm:10.4.0"
     typescript: "npm:4.5.2"
     vite: "npm:4.5.14"
-    vite-plugin-imp: "npm:2.0.9"
+    vite-plugin-imp: "npm:2.4.0"
   languageName: unknown
   linkType: soft
 
@@ -10913,9 +10923,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-imp@npm:2.0.9":
-  version: 2.0.9
-  resolution: "vite-plugin-imp@npm:2.0.9"
+"vite-plugin-imp@npm:2.4.0":
+  version: 2.4.0
+  resolution: "vite-plugin-imp@npm:2.4.0"
   dependencies:
     "@babel/core": "npm:^7.12.10"
     "@babel/generator": "npm:^7.12.11"
@@ -10923,9 +10933,10 @@ __metadata:
     "@babel/traverse": "npm:^7.12.12"
     chalk: "npm:^4.1.0"
     param-case: "npm:^3.0.4"
+    pascal-case: "npm:^3.1.2"
   peerDependencies:
     vite: ">= 2.0.0-beta.5"
-  checksum: 10c0/ee492ff2db1f994556f04bca2f9b860921ff4b8f4ca4c1aa5ba2e861ec0783faca4c579f624a8a92fcaf15849f0a0e23de043f27b897d8d5876b6240cfa97321
+  checksum: 10c0/27cbd822da44c06f8b9cbc92e205faad2cb48ce3870dd2a4b604eee5c2f901fcae7338a1bf6b89a8f19810188da41c97a69370729d0ecde9221d077b7b24cd6d
   languageName: node
   linkType: hard
 
