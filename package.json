@@ -65,7 +65,7 @@
     "prop-types": "15.8.1",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "react-router-dom": "6.30.1",
+    "react-router-dom": "7.6.1",
     "source-map-support": "0.5.21",
     "tailwindcss": "2.2.19",
     "ts-jest": "27.1.5",
