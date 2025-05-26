@@ -7550,7 +7550,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.30, nanoid@npm:^3.3.8":
+"nanoid@npm:^3.3.6, nanoid@npm:^3.3.8":
   version: 3.3.11
   resolution: "nanoid@npm:3.3.11"
   bin:
@@ -8273,14 +8273,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.4":
-  version: 8.4.4
-  resolution: "postcss@npm:8.4.4"
+"postcss@npm:8.4.31":
+  version: 8.4.31
+  resolution: "postcss@npm:8.4.31"
   dependencies:
-    nanoid: "npm:^3.1.30"
+    nanoid: "npm:^3.3.6"
     picocolors: "npm:^1.0.0"
-    source-map-js: "npm:^1.0.1"
-  checksum: 10c0/2de71775edc7e3cbcdeb2a068fd790c2fcb35f70016ce1feb4618c63d71feb1630ef2a3ecc8a9dbba3216a0340a7b4a68a71869f69550c19e1152a09f700dee2
+    source-map-js: "npm:^1.0.2"
+  checksum: 10c0/748b82e6e5fc34034dcf2ae88ea3d11fd09f69b6c50ecdd3b4a875cfc7cdca435c958b211e2cb52355422ab6fccb7d8f2f2923161d7a1b281029e4a913d59acf
   languageName: node
   linkType: hard
 
@@ -9230,7 +9230,7 @@ __metadata:
     mobx-react: "npm:7.2.0"
     moment: "npm:2.29.1"
     nyc: "npm:15.1.0"
-    postcss: "npm:8.4.4"
+    postcss: "npm:8.4.31"
     postcss-cli: "npm:9.0.2"
     prop-types: "npm:15.7.2"
     react: "npm:^18.3.0"
@@ -9904,7 +9904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-js@npm:^1.0.1, source-map-js@npm:^1.2.1":
+"source-map-js@npm:^1.0.2, source-map-js@npm:^1.2.1":
   version: 1.2.1
   resolution: "source-map-js@npm:1.2.1"
   checksum: 10c0/7bda1fc4c197e3c6ff17de1b8b2c20e60af81b63a52cb32ec5a5d67a20a7d42651e2cb34ebe93833c5a2a084377e17455854fee3e21e7925c64a51b6a52b0faf
