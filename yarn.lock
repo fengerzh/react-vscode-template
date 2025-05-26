@@ -2627,21 +2627,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.0":
-  version: 10.4.0
-  resolution: "autoprefixer@npm:10.4.0"
+"autoprefixer@npm:10.4.21":
+  version: 10.4.21
+  resolution: "autoprefixer@npm:10.4.21"
   dependencies:
-    browserslist: "npm:^4.17.5"
-    caniuse-lite: "npm:^1.0.30001272"
-    fraction.js: "npm:^4.1.1"
+    browserslist: "npm:^4.24.4"
+    caniuse-lite: "npm:^1.0.30001702"
+    fraction.js: "npm:^4.3.7"
     normalize-range: "npm:^0.1.2"
-    picocolors: "npm:^1.0.0"
-    postcss-value-parser: "npm:^4.1.0"
+    picocolors: "npm:^1.1.1"
+    postcss-value-parser: "npm:^4.2.0"
   peerDependencies:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 10c0/07da901364c14e3b45b1f50dba247b04ee09e6616fb8d40c4e3f93359ee35baa0b51564436974c6c2c6d666aa56ef9777b685eb2b9ab943e417acdf92e67833b
+  checksum: 10c0/de5b71d26d0baff4bbfb3d59f7cf7114a6030c9eeb66167acf49a32c5b61c68e308f1e0f869d92334436a221035d08b51cd1b2f2c4689b8d955149423c16d4d4
   languageName: node
   linkType: hard
 
@@ -2872,7 +2872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.17.5, browserslist@npm:^4.24.0":
+"browserslist@npm:^4.24.0, browserslist@npm:^4.24.4":
   version: 4.24.5
   resolution: "browserslist@npm:4.24.5"
   dependencies:
@@ -3034,7 +3034,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001716":
+"caniuse-lite@npm:^1.0.30001702, caniuse-lite@npm:^1.0.30001716":
   version: 1.0.30001718
   resolution: "caniuse-lite@npm:1.0.30001718"
   checksum: 10c0/67f9ad09bc16443e28d14f265d6e468480cd8dc1900d0d8b982222de80c699c4f2306599c3da8a3fa7139f110d4b30d49dbac78f215470f479abb6ffe141d5d3
@@ -5092,7 +5092,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fraction.js@npm:^4.1.1":
+"fraction.js@npm:^4.3.7":
   version: 4.3.7
   resolution: "fraction.js@npm:4.3.7"
   checksum: 10c0/df291391beea9ab4c263487ffd9d17fed162dbb736982dee1379b2a8cc94e4e24e46ed508c6d278aded9080ba51872f1bc5f3a5fd8d7c74e5f105b508ac28711
@@ -8343,7 +8343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-value-parser@npm:^4.1.0":
+"postcss-value-parser@npm:^4.1.0, postcss-value-parser@npm:^4.2.0":
   version: 4.2.0
   resolution: "postcss-value-parser@npm:4.2.0"
   checksum: 10c0/f4142a4f56565f77c1831168e04e3effd9ffcc5aebaf0f538eee4b2d465adfd4b85a44257bb48418202a63806a7da7fe9f56c330aebb3cac898e46b4cbf49161
@@ -9286,7 +9286,7 @@ __metadata:
     "@vitejs/plugin-react-refresh": "npm:1.3.6"
     "@wojtekmaj/enzyme-adapter-react-17": "npm:0.6.5"
     antd: "npm:5.15.2"
-    autoprefixer: "npm:10.4.0"
+    autoprefixer: "npm:10.4.21"
     axios: "npm:0.30.0"
     axios-mock-adapter: "npm:1.20.0"
     chai: "npm:4.3.4"
