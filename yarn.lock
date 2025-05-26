@@ -7522,10 +7522,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment@npm:2.29.1":
-  version: 2.29.1
-  resolution: "moment@npm:2.29.1"
-  checksum: 10c0/2617e383c0e0f910696214d026b9742173ea1916775d2023b39fd7d5fc3fae694f67c17876d154e246b139ad2a8028c42b2898c66cd665316b61c18453a5103f
+"moment@npm:2.29.4":
+  version: 2.29.4
+  resolution: "moment@npm:2.29.4"
+  checksum: 10c0/844c6f3ce42862ac9467c8ca4f5e48a00750078682cc5bda1bc0e50cc7ca88e2115a0f932d65a06e4a90e26cb78892be9b3ca3dd6546ca2c4d994cebb787fc2b
   languageName: node
   linkType: hard
 
@@ -9228,7 +9228,7 @@ __metadata:
     less: "npm:4.1.2"
     mobx: "npm:6.3.8"
     mobx-react: "npm:7.2.0"
-    moment: "npm:2.29.1"
+    moment: "npm:2.29.4"
     nyc: "npm:15.1.0"
     postcss: "npm:8.4.4"
     postcss-cli: "npm:9.0.2"
