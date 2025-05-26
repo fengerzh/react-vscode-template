@@ -816,7 +816,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/request@npm:^3.0.0":
+"@cypress/request@npm:^3.0.6":
   version: 3.0.8
   resolution: "@cypress/request@npm:3.0.8"
   dependencies:
@@ -3156,6 +3156,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ci-info@npm:^4.0.0":
+  version: 4.2.0
+  resolution: "ci-info@npm:4.2.0"
+  checksum: 10c0/37a2f4b6a213a5cf835890eb0241f0d5b022f6cfefde58a69e9af8e3a0e71e06d6ad7754b0d4efb9cd2613e58a7a33996d71b56b0d04242722e86666f3f3d058
+  languageName: node
+  linkType: hard
+
 "cjs-module-lexer@npm:^1.0.0":
   version: 1.4.3
   resolution: "cjs-module-lexer@npm:1.4.3"
@@ -3537,11 +3544,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:13.7.3":
-  version: 13.7.3
-  resolution: "cypress@npm:13.7.3"
+"cypress@npm:13.17.0":
+  version: 13.17.0
+  resolution: "cypress@npm:13.17.0"
   dependencies:
-    "@cypress/request": "npm:^3.0.0"
+    "@cypress/request": "npm:^3.0.6"
     "@cypress/xvfb": "npm:^1.2.4"
     "@types/sinonjs__fake-timers": "npm:8.1.1"
     "@types/sizzle": "npm:^2.3.2"
@@ -3552,6 +3559,7 @@ __metadata:
     cachedir: "npm:^2.3.0"
     chalk: "npm:^4.1.0"
     check-more-types: "npm:^2.24.0"
+    ci-info: "npm:^4.0.0"
     cli-cursor: "npm:^3.1.0"
     cli-table3: "npm:~0.6.1"
     commander: "npm:^6.2.1"
@@ -3566,7 +3574,6 @@ __metadata:
     figures: "npm:^3.2.0"
     fs-extra: "npm:^9.1.0"
     getos: "npm:^3.2.1"
-    is-ci: "npm:^3.0.1"
     is-installed-globally: "npm:~0.4.0"
     lazy-ass: "npm:^1.6.0"
     listr2: "npm:^3.8.3"
@@ -3580,12 +3587,13 @@ __metadata:
     request-progress: "npm:^3.0.0"
     semver: "npm:^7.5.3"
     supports-color: "npm:^8.1.1"
-    tmp: "npm:~0.2.1"
+    tmp: "npm:~0.2.3"
+    tree-kill: "npm:1.2.2"
     untildify: "npm:^4.0.0"
     yauzl: "npm:^2.10.0"
   bin:
     cypress: bin/cypress
-  checksum: 10c0/51643d6bcf647abb50e5f3a88fbffe5c41bb680394e8900162aded05547f473018070146df923ec8a7908356e3ff9e9c26629b51523f4361046e0c447f757d63
+  checksum: 10c0/159ce620e32d2785082aaa1f4f30f203dcec466df4a8e80dfa299035358772fd513c35820070ba8db52e2bf58078a372ff7009068e26967f993656e7da62e221
   languageName: node
   linkType: hard
 
@@ -5876,17 +5884,6 @@ __metadata:
   version: 1.2.7
   resolution: "is-callable@npm:1.2.7"
   checksum: 10c0/ceebaeb9d92e8adee604076971dd6000d38d6afc40bb843ea8e45c5579b57671c3f3b50d7f04869618242c6cee08d1b67806a8cb8edaaaf7c0748b3720d6066f
-  languageName: node
-  linkType: hard
-
-"is-ci@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "is-ci@npm:3.0.1"
-  dependencies:
-    ci-info: "npm:^3.2.0"
-  bin:
-    is-ci: bin.js
-  checksum: 10c0/0e81caa62f4520d4088a5bef6d6337d773828a88610346c4b1119fb50c842587ed8bef1e5d9a656835a599e7209405b5761ddf2339668f2d0f4e889a92fe6051
   languageName: node
   linkType: hard
 
@@ -9266,7 +9263,7 @@ __metadata:
     axios-mock-adapter: "npm:1.20.0"
     chai: "npm:4.3.4"
     chai-spies: "npm:1.0.0"
-    cypress: "npm:13.7.3"
+    cypress: "npm:13.17.0"
     dayjs: "npm:1.10.7"
     enzyme: "npm:3.11.0"
     eslint: "npm:7.32.0"
@@ -10446,7 +10443,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmp@npm:^0.2.1, tmp@npm:~0.2.1":
+"tmp@npm:^0.2.1, tmp@npm:~0.2.3":
   version: 0.2.3
   resolution: "tmp@npm:0.2.3"
   checksum: 10c0/3e809d9c2f46817475b452725c2aaa5d11985cf18d32a7a970ff25b568438e2c076c2e8609224feef3b7923fa9749b74428e3e634f6b8e520c534eef2fd24125
@@ -10512,6 +10509,15 @@ __metadata:
   dependencies:
     punycode: "npm:^2.1.1"
   checksum: 10c0/cdc47cad3a9d0b6cb293e39ccb1066695ae6fdd39b9e4f351b010835a1f8b4f3a6dc3a55e896b421371187f22b48d7dac1b693de4f6551bdef7b6ab6735dfe3b
+  languageName: node
+  linkType: hard
+
+"tree-kill@npm:1.2.2":
+  version: 1.2.2
+  resolution: "tree-kill@npm:1.2.2"
+  bin:
+    tree-kill: cli.js
+  checksum: 10c0/7b1b7c7f17608a8f8d20a162e7957ac1ef6cd1636db1aba92f4e072dc31818c2ff0efac1e3d91064ede67ed5dc57c565420531a8134090a12ac10cf792ab14d2
   languageName: node
   linkType: hard
 
