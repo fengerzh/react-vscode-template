@@ -3695,7 +3695,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.1.0, debug@npm:^3.2.6, debug@npm:^3.2.7":
+"debug@npm:^3.1.0, debug@npm:^3.2.7":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
   dependencies:
@@ -5656,7 +5656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.4":
+"iconv-lite@npm:0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
   dependencies:
@@ -7068,9 +7068,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less@npm:4.1.2":
-  version: 4.1.2
-  resolution: "less@npm:4.1.2"
+"less@npm:4.3.0":
+  version: 4.3.0
+  resolution: "less@npm:4.3.0"
   dependencies:
     copy-anything: "npm:^2.0.1"
     errno: "npm:^0.1.1"
@@ -7078,7 +7078,7 @@ __metadata:
     image-size: "npm:~0.5.0"
     make-dir: "npm:^2.1.0"
     mime: "npm:^1.4.1"
-    needle: "npm:^2.5.2"
+    needle: "npm:^3.1.0"
     parse-node-version: "npm:^1.0.1"
     source-map: "npm:~0.6.0"
     tslib: "npm:^2.3.0"
@@ -7099,7 +7099,7 @@ __metadata:
       optional: true
   bin:
     lessc: bin/lessc
-  checksum: 10c0/fa5ea22f81ce12d127881742d7a2b6666727751214c6f014a7793ebb7e406a153a46bb3c77c86adf68e1b79bc7477a156f84b01dfff56c532591fbb094194b5a
+  checksum: 10c0/69a9260d4613387fd1f2da3b0904005423272c59f304b27475c145a62f6890be5d38729fd78ef2a65cba3d1d9b02760f309074cad0be4764252934ad04efb2ae
   languageName: node
   linkType: hard
 
@@ -7635,16 +7635,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"needle@npm:^2.5.2":
-  version: 2.9.1
-  resolution: "needle@npm:2.9.1"
+"needle@npm:^3.1.0":
+  version: 3.3.1
+  resolution: "needle@npm:3.3.1"
   dependencies:
-    debug: "npm:^3.2.6"
-    iconv-lite: "npm:^0.4.4"
+    iconv-lite: "npm:^0.6.3"
     sax: "npm:^1.2.4"
   bin:
-    needle: ./bin/needle
-  checksum: 10c0/65a7eaeaf4ca3410de492957474592af9838e02875273d9232ff6cff331393c58a95e48c592bd9a05f575e5bb9b08543d6cfd19eb96595dbd3d7da2c5fe1accb
+    needle: bin/needle
+  checksum: 10c0/233b9315d47b735867d03e7a018fb665ee6cacf3a83b991b19538019cf42b538a3e85ca745c840b4c5e9a0ffdca76472f941363bf7c166214ae8cbc650fd4d39
   languageName: node
   linkType: hard
 
@@ -9284,7 +9283,7 @@ __metadata:
     jest-transform-stub: "npm:2.0.0"
     jsdom: "npm:18.1.1"
     jsdom-global: "npm:3.0.2"
-    less: "npm:4.1.2"
+    less: "npm:4.3.0"
     mobx: "npm:6.3.8"
     mobx-react: "npm:7.2.0"
     moment: "npm:2.29.4"
