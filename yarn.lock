@@ -2100,29 +2100,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wojtekmaj/enzyme-adapter-react-17@npm:0.6.5":
-  version: 0.6.5
-  resolution: "@wojtekmaj/enzyme-adapter-react-17@npm:0.6.5"
+"@wojtekmaj/enzyme-adapter-react-17@npm:0.8.0":
+  version: 0.8.0
+  resolution: "@wojtekmaj/enzyme-adapter-react-17@npm:0.8.0"
   dependencies:
-    "@wojtekmaj/enzyme-adapter-utils": "npm:^0.1.1"
+    "@wojtekmaj/enzyme-adapter-utils": "npm:^0.2.0"
     enzyme-shallow-equal: "npm:^1.0.0"
     has: "npm:^1.0.0"
-    object.assign: "npm:^4.1.0"
-    object.values: "npm:^1.1.0"
     prop-types: "npm:^15.7.0"
-    react-is: "npm:^17.0.2"
+    react-is: "npm:^17.0.0"
     react-test-renderer: "npm:^17.0.0"
   peerDependencies:
     enzyme: ^3.0.0
     react: ^17.0.0-0
     react-dom: ^17.0.0-0
-  checksum: 10c0/0cd2ab0ffe38c0ef2fe37ffee1d079293cbc135507963a3da2d5bb703c53d658990b16a0e9d4d7ff09ffb5117a195f5240d362c5f2910cca8a20b91bec44a40d
+  checksum: 10c0/310316605594f9921f5d54d5f68dded27040559866f90f87146ac11fb8ee28589884b2d406259263841eeeca957e51364b40008645379abfcaa8b0063e3669e1
   languageName: node
   linkType: hard
 
-"@wojtekmaj/enzyme-adapter-utils@npm:^0.1.1":
-  version: 0.1.4
-  resolution: "@wojtekmaj/enzyme-adapter-utils@npm:0.1.4"
+"@wojtekmaj/enzyme-adapter-utils@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@wojtekmaj/enzyme-adapter-utils@npm:0.2.0"
   dependencies:
     function.prototype.name: "npm:^1.1.0"
     has: "npm:^1.0.0"
@@ -2130,7 +2128,7 @@ __metadata:
     prop-types: "npm:^15.7.0"
   peerDependencies:
     react: ^17.0.0-0
-  checksum: 10c0/3d192b914e296fab89b35b9c0b7f0ba3181dbfa71181a5748c232de4e4089e41bb6048e71c6708921c83001530a91e4e124860a2d5f1f2cdd875c59555ce7f34
+  checksum: 10c0/1d1fc2d86f20065e86c67b4da784a8a165a2863db57c584119e92565e6289601779a03d85ca7a679a38352011be972f7b63e53404454f429327fcc8d0c355925
   languageName: node
   linkType: hard
 
@@ -7917,7 +7915,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.values@npm:^1.1.0, object.values@npm:^1.1.1, object.values@npm:^1.1.5, object.values@npm:^1.1.6":
+"object.values@npm:^1.1.1, object.values@npm:^1.1.5, object.values@npm:^1.1.6":
   version: 1.2.1
   resolution: "object.values@npm:1.2.1"
   dependencies:
@@ -9191,7 +9189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^17.0.1, react-is@npm:^17.0.2":
+"react-is@npm:^17.0.0, react-is@npm:^17.0.1, react-is@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 10c0/2bdb6b93fbb1820b024b496042cce405c57e2f85e777c9aabd55f9b26d145408f9f74f5934676ffdc46f3dcff656d78413a6e43968e7b3f92eea35b3052e9053
@@ -9285,7 +9283,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:5.5.0"
     "@typescript-eslint/parser": "npm:5.5.0"
     "@vitejs/plugin-react-refresh": "npm:1.3.6"
-    "@wojtekmaj/enzyme-adapter-react-17": "npm:0.6.5"
+    "@wojtekmaj/enzyme-adapter-react-17": "npm:0.8.0"
     antd: "npm:5.15.2"
     autoprefixer: "npm:10.4.21"
     axios: "npm:0.30.0"
