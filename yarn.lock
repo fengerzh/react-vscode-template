@@ -8226,9 +8226,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-cli@npm:9.0.2":
-  version: 9.0.2
-  resolution: "postcss-cli@npm:9.0.2"
+"postcss-cli@npm:9.1.0":
+  version: 9.1.0
+  resolution: "postcss-cli@npm:9.1.0"
   dependencies:
     chokidar: "npm:^3.3.0"
     dependency-graph: "npm:^0.11.0"
@@ -8246,7 +8246,7 @@ __metadata:
     postcss: ^8.0.0
   bin:
     postcss: index.js
-  checksum: 10c0/03e324f9be37120f87eef2645e06e3e3ae71dc3d2131ca891b90bd3a09f29a7564194abb56eb747db314c437f567feaf972bd3aa92d5ad4741775e651d8e94d2
+  checksum: 10c0/ae34e46217bf0317f93632263661f8296be3ee9f7859f5afb517a206197aa3abac6500814f00879702b7d372b64fea1b45cb36e00dd6ba37e021b79ab8bc67ee
   languageName: node
   linkType: hard
 
@@ -9290,7 +9290,7 @@ __metadata:
     moment: "npm:2.29.4"
     nyc: "npm:15.1.0"
     postcss: "npm:8.4.31"
-    postcss-cli: "npm:9.0.2"
+    postcss-cli: "npm:9.1.0"
     prop-types: "npm:15.7.2"
     react: "npm:^18.3.0"
     react-dom: "npm:^18.3.0"
