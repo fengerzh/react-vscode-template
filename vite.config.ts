@@ -1,12 +1,10 @@
 import path from 'path';
 import { defineConfig } from 'vite';
-import reactRefresh from '@vitejs/plugin-react-refresh';
 import vitePluginImp from 'vite-plugin-imp';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    reactRefresh(),
     vitePluginImp({
       libList: [
         // antd 5.x 不再需要按需引入 less 样式，官方推荐全局引入 reset.css
