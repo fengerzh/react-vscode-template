@@ -7528,7 +7528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx-react-lite@npm:^3.2.0":
+"mobx-react-lite@npm:^3.4.0":
   version: 3.4.3
   resolution: "mobx-react-lite@npm:3.4.3"
   peerDependencies:
@@ -7543,20 +7543,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx-react@npm:7.2.0":
-  version: 7.2.0
-  resolution: "mobx-react@npm:7.2.0"
+"mobx-react@npm:7.6.0":
+  version: 7.6.0
+  resolution: "mobx-react@npm:7.6.0"
   dependencies:
-    mobx-react-lite: "npm:^3.2.0"
+    mobx-react-lite: "npm:^3.4.0"
   peerDependencies:
     mobx: ^6.1.0
-    react: ^16.8.0 || ^17
+    react: ^16.8.0 || ^17 || ^18
   peerDependenciesMeta:
     react-dom:
       optional: true
     react-native:
       optional: true
-  checksum: 10c0/fd8418fdb5652d5a948e8a9d334b67b430496c5084d081b21aa571d61ba5dfffa1f72652a4eb930ab1b14e1dd0b747ce1c0e9025e38a773127125676505a9fb4
+  checksum: 10c0/60f619edb999b9c66a86baa7ab5cf8b1f3651c85c16f2aa8adf3c0c553d52bc0ec083bbd42e8fe0c785f2435a7b1afdf20f103553b80bbf6d28616f160baa144
   languageName: node
   linkType: hard
 
@@ -9286,7 +9286,7 @@ __metadata:
     jsdom-global: "npm:3.0.2"
     less: "npm:4.1.2"
     mobx: "npm:6.3.8"
-    mobx-react: "npm:7.2.0"
+    mobx-react: "npm:7.6.0"
     moment: "npm:2.29.4"
     nyc: "npm:15.1.0"
     postcss: "npm:8.4.31"
