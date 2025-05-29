@@ -9694,7 +9694,7 @@ __metadata:
     react-dom: "npm:^19.0.0"
     react-router-dom: "npm:7.6.1"
     source-map-support: "npm:0.5.21"
-    tailwindcss: "npm:4.1.7"
+    tailwindcss: "npm:4.1.8"
     ts-jest: "npm:29.3.4"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.8.3"
@@ -10735,10 +10735,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:4.1.7":
-  version: 4.1.7
-  resolution: "tailwindcss@npm:4.1.7"
-  checksum: 10c0/abe56f990bd4b03e0b332a2a39063e7f0f7359e6591282ba4e56ac18e5c58baca6b271072221253fcab7d9534d50f384f13fc41b66b06e0e427ef3f0ab2035bf
+"tailwindcss@npm:4.1.8":
+  version: 4.1.8
+  resolution: "tailwindcss@npm:4.1.8"
+  checksum: 10c0/a566d049ee313f9c1638fd2a5fe95ae7e40bb35b58e92ed8d7c51880e71dff2a423dd430ff97444e2496c9c77b3f44ad4df48110b11484133019c1a8520d7bce
   languageName: node
   linkType: hard
 
