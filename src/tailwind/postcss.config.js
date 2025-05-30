@@ -1,22 +1,16 @@
-const tailwindcss = require('tailwindcss');
+import tailwindcss from "tailwindcss";
 
-const purgecss = require('@fullhuman/postcss-purgecss')({
+const purgecss = {
   // Specify the paths to all of the template files in your project
-  content: [
-    './src/**/*.html',
-    './src/**/*.vue',
-    './src/**/*.jsx',
-    './src/**/*.js',
-    './index.html',
-  ],
+  content: ["./src/**/*.html", "./src/**/*.vue", "./src/**/*.jsx", "./src/**/*.js", "./index.html"],
 
   // Include any special characters you're using in this regular expression
   defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
-});
+};
 
-module.exports = {
+export default {
   plugins: [
-    tailwindcss('./src/tailwind/tailwind.config.js'),
+    tailwindcss("./src/tailwind/tailwind.config.js"),
     // require('autoprefixer'),
     purgecss,
   ],

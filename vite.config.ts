@@ -1,7 +1,7 @@
-import path from 'path';
-import { defineConfig } from 'vite';
-import vitePluginImp from 'vite-plugin-imp';
-import react from '@vitejs/plugin-react';
+import path from "path";
+import { defineConfig } from "vite";
+import vitePluginImp from "vite-plugin-imp";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,10 +10,10 @@ export default defineConfig({
     vitePluginImp({
       libList: [
         {
-          libName: 'antd',
+          libName: "antd",
           style: (name) => {
-            if (name === 'col' || name === 'row') {
-              return 'antd/lib/style/index.js';
+            if (name === "col" || name === "row") {
+              return "antd/lib/style/index.js";
             }
             return `antd/es/${name}/style/index.js`;
           },
@@ -23,7 +23,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '/src'),
+      "@": path.resolve(__dirname, "/src"),
     },
   },
   css: {
@@ -37,7 +37,7 @@ export default defineConfig({
     rollupOptions: {
       external: (id) => {
         // 排除 Ant Design 组件的 CSS 导入
-        if (id.includes('antd/es') && id.endsWith('.css.js')) {
+        if (id.includes("antd/es") && id.endsWith(".css.js")) {
           return true;
         }
         return false;
@@ -45,7 +45,7 @@ export default defineConfig({
     },
   },
   esbuild: {
-    jsxInject: 'import React from \'react\'',
+    jsxInject: "import React from 'react'",
   },
   server: {
     port: 3123,

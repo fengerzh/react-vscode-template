@@ -1,23 +1,23 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
-const UserLayout = lazy(() => import('@/layout/UserLayout'));
-const Login = lazy(() => import('@/pages/User/Login'));
+const UserLayout = lazy(() => import("@/layout/UserLayout"));
+const Login = lazy(() => import("@/pages/User/Login"));
 
 export default [
   {
-    path: '/user',
-    key: 'user',
+    path: "/user",
+    key: "user",
     component: UserLayout,
     auth: false,
     children: [
       {
         index: true,
-        redirect: '/user/login',
+        redirect: "/user/login",
       },
       {
-        name: '登录',
-        path: 'login',
-        key: 'login',
+        name: "登录",
+        path: "login",
+        key: "login",
         component: Login,
       },
     ],

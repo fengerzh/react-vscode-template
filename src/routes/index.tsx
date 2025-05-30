@@ -1,9 +1,9 @@
-import { Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { Spin } from 'antd';
-import userRouterConfig from './user-router';
-import commonRouterConfig from './common-router';
-import exceptionRouterConfig from './exception-router';
+import React, { Suspense } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Spin } from "antd";
+import userRouterConfig from "./user-router";
+import commonRouterConfig from "./common-router";
+import exceptionRouterConfig from "./exception-router";
 
 const routerConfig = [
   ...exceptionRouterConfig,
@@ -11,8 +11,19 @@ const routerConfig = [
   ...commonRouterConfig,
 ];
 
-function renderRoutes(configs: any[]) {
-  const cookies = Object.fromEntries(document.cookie.split('; ').map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent)));
+// 路由配置类型定义
+interface RouteConfig {
+  path?: string;
+  key?: string;
+  component?: React.ComponentType<unknown>;
+  auth?: boolean;
+  redirect?: string;
+  index?: boolean;
+  children?: RouteConfig[];
+}
+
+function renderRoutes(configs: RouteConfig[]) {
+  const cookies = Object.fromEntries(document.cookie.split("; ").map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent)));
   return configs.map((config) => {
     // 权限拦截
     if (config.auth && !cookies.token) {
@@ -21,9 +32,21 @@ function renderRoutes(configs: any[]) {
     // 重定向
     if (config.redirect) {
       if (config.index) {
-        return <Route key={config.key || config.redirect} index element={<Navigate to={config.redirect} replace />} />;
+        return (
+          <Route
+            key={config.key || config.redirect}
+            index
+            element={<Navigate to={config.redirect} replace />}
+          />
+        );
       }
-      return <Route key={config.key || config.redirect} path={config.path} element={<Navigate to={config.redirect} replace />} />;
+      return (
+        <Route
+          key={config.key || config.redirect}
+          path={config.path}
+          element={<Navigate to={config.redirect} replace />}
+        />
+      );
     }
     // 嵌套路由
     if (config.children && config.children.length > 0) {
@@ -32,7 +55,7 @@ function renderRoutes(configs: any[]) {
         <Route
           key={config.key}
           path={config.path}
-          element={Comp ? <Comp routes={config.children} /> : undefined}
+          element={Comp ? <Comp /> : undefined}
         >
           {renderRoutes(config.children)}
         </Route>
@@ -41,7 +64,13 @@ function renderRoutes(configs: any[]) {
     // 普通路由
     if (config.component) {
       const Comp = config.component;
-      return <Route key={config.key} path={config.path} element={<Comp routes={config.children} />} />;
+      return (
+        <Route
+          key={config.key}
+          path={config.path}
+          element={<Comp />}
+        />
+      );
     }
     return null;
   });
@@ -50,7 +79,7 @@ function renderRoutes(configs: any[]) {
 export default (
   <Suspense
     fallback={(
-      <Spin size="large" spinning style={{ margin: 'auto' }} />
+      <Spin size="large" spinning style={{ margin: "auto" }} />
     )}
   >
     <Routes>

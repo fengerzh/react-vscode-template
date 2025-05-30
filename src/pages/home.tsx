@@ -1,27 +1,27 @@
-import { Link } from 'react-router-dom';
-import { PageContainer } from '@ant-design/pro-components';
-import ProTable from '@ant-design/pro-table';
-import { getUsers } from '@/services';
+import { Link } from "react-router-dom";
+import { PageContainer } from "@ant-design/pro-components";
+import ProTable from "@ant-design/pro-table";
+import { getUsers } from "@/services";
 
-const Home = () => {
+function Home() {
   const columns = [
     {
-      title: '姓名',
-      dataIndex: 'name',
+      title: "姓名",
+      dataIndex: "name",
     },
     {
-      title: '年龄',
-      dataIndex: 'age',
-      valueType: 'digit',
+      title: "年龄",
+      dataIndex: "age",
+      valueType: "digit",
     },
     {
-      title: '生日',
-      dataIndex: 'birthday',
-      valueType: 'date',
+      title: "生日",
+      dataIndex: "birthday",
+      valueType: "date",
     },
   ];
 
-  const breadcrumbItemRender = (route: any) => (
+  const breadcrumbItemRender = (route: { path?: string; breadcrumbName: string }) => (
     route.path
       ? <Link to={route.path}>{route.breadcrumbName}</Link>
       : <span>{route.breadcrumbName}</span>
@@ -31,16 +31,16 @@ const Home = () => {
     <PageContainer
       fixedHeader
       header={{
-        title: '首页',
-        subTitle: '这里是首页',
+        title: "首页",
+        subTitle: "这里是首页",
         breadcrumb: {
           itemRender: breadcrumbItemRender,
           items: [
             {
-              title: '网站',
+              title: "网站",
             },
             {
-              title: '首页',
+              title: "首页",
             },
           ],
         },
@@ -56,6 +56,6 @@ const Home = () => {
       />
     </PageContainer>
   );
-};
+}
 
 export default Home;

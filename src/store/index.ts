@@ -1,19 +1,19 @@
-import { observable, action } from 'mobx';
+import { observable, action } from "mobx";
 
 class UserStore {
   userInfo = observable({
-    userName: '',
-  })
+    userName: "",
+  });
 
   getUserInfo = action(() => {
     this.userInfo = {
-      userName: localStorage.getItem('userName'),
+      userName: localStorage.getItem("userName"),
     };
-  })
+  });
 
-  setUserInfo = action((userInfo: any) => {
+  setUserInfo = action((userInfo: { userName: string | null }) => {
     this.userInfo = userInfo;
-  })
+  });
 }
 
 export default new UserStore();

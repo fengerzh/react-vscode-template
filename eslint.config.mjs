@@ -1,16 +1,15 @@
-import globals from 'globals';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import eslint from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
-import tseslint from 'typescript-eslint';
+import globals from "globals";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import eslint from "@eslint/js";
+import { FlatCompat } from "@eslint/eslintrc";
+import tseslint from "typescript-eslint";
+import stylistic from "@stylistic/eslint-plugin";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const compat = new FlatCompat({
   baseDirectory: dirname,
-  // recommendedConfig: js.configs.recommended,
-  // allConfig: js.configs.all,
 });
 
 export default tseslint.config(
@@ -18,10 +17,11 @@ export default tseslint.config(
   tseslint.configs.recommended,
   {
     extends: compat.extends(
-      'airbnb',
+      "airbnb",
     ),
 
     plugins: {
+      "@stylistic": stylistic,
     },
 
     languageOptions: {
@@ -30,17 +30,17 @@ export default tseslint.config(
       },
 
       parserOptions: {
-        project: './tsconfig.json',
-        sourceType: 'module',
-        ecmaVersion: 'latest',
+        project: "./tsconfig.json",
+        sourceType: "module",
+        ecmaVersion: "latest",
       },
     },
 
     settings: {
-      'import/resolver': {
+      "import/resolver": {
         alias: {
-          map: [['babel-polyfill', 'babel-polyfill/dist/polyfill.min.js'], ['@', './src/']],
-          extensions: ['.js', '.ts', '.jsx', '.tsx'],
+          map: [["babel-polyfill", "babel-polyfill/dist/polyfill.min.js"], ["@", "./src/"]],
+          extensions: [".js", ".ts", ".jsx", ".tsx"],
         },
 
         typescript: {},
@@ -48,17 +48,18 @@ export default tseslint.config(
     },
 
     rules: {
-      'react/react-in-jsx-scope': 'off',
+      quotes: ["error", "double"],
+      "react/react-in-jsx-scope": "off",
 
-      'react/jsx-filename-extension': ['error', {
-        extensions: ['.jsx', '.tsx'],
+      "react/jsx-filename-extension": ["error", {
+        extensions: [".jsx", ".tsx"],
       }],
 
-      'import/extensions': ['error', 'ignorePackages', {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
+      "import/extensions": ["error", "ignorePackages", {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
       }],
     },
   },
