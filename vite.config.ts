@@ -9,15 +9,13 @@ export default defineConfig({
     react(),
     vitePluginImp({
       libList: [
-        // antd 5.x 不再需要按需引入 less 样式，官方推荐全局引入 reset.css
-        // 如有其它库需要按需引入样式，可在此添加
         {
           libName: 'antd',
           style: (name) => {
-              if (name === 'col' || name === 'row') {
-                  return 'antd/lib/style/index.js'
-              }
-              return `antd/es/${name}/style/index.js`
+            if (name === 'col' || name === 'row') {
+              return 'antd/lib/style/index.js';
+            }
+            return `antd/es/${name}/style/index.js`;
           },
         },
       ],
@@ -25,7 +23,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // '~antd': path.resolve(__dirname, '/node_modules/antd'),
       '@': path.resolve(__dirname, '/src'),
     },
   },

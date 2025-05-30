@@ -1,5 +1,4 @@
 {
-  "javascript.implicitProjectConfig.experimentalDecorators": true,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "[javascript]": {
