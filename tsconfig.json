@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "types": ["jest"],
+    "esModuleInterop": true,
+    "lib": ["es2018", "dom", "esnext"],
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/*.mock.ts"]
+}

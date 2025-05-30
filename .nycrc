@@ -1,0 +1,12 @@
+{
+  "extends": "@istanbuljs/nyc-config-typescript",
+  "all": true,
+  "include": [
+    "src/**/*.{js,ts,jsx,tsx}"
+  ],
+  "exclude": [
+    "!src/**/*.{spec,test,fixture}.ts",
+    "!**/node_modules/**",
+    "src/tailwind/**"
+  ]
+}
