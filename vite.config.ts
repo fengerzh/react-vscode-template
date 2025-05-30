@@ -1,10 +1,12 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import vitePluginImp from 'vite-plugin-imp';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    react(),
     vitePluginImp({
       libList: [
         // antd 5.x 不再需要按需引入 less 样式，官方推荐全局引入 reset.css
