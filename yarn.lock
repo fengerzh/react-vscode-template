@@ -3048,9 +3048,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd@npm:5.25.3":
-  version: 5.25.3
-  resolution: "antd@npm:5.25.3"
+"antd@npm:5.25.4":
+  version: 5.25.4
+  resolution: "antd@npm:5.25.4"
   dependencies:
     "@ant-design/colors": "npm:^7.2.1"
     "@ant-design/cssinjs": "npm:^1.23.0"
@@ -3071,7 +3071,7 @@ __metadata:
     rc-checkbox: "npm:~3.5.0"
     rc-collapse: "npm:~3.9.0"
     rc-dialog: "npm:~9.6.0"
-    rc-drawer: "npm:~7.2.0"
+    rc-drawer: "npm:~7.3.0"
     rc-dropdown: "npm:~4.2.1"
     rc-field-form: "npm:~2.7.0"
     rc-image: "npm:~7.12.0"
@@ -3097,14 +3097,14 @@ __metadata:
     rc-tooltip: "npm:~6.4.0"
     rc-tree: "npm:~5.13.1"
     rc-tree-select: "npm:~5.27.0"
-    rc-upload: "npm:~4.9.0"
+    rc-upload: "npm:~4.9.2"
     rc-util: "npm:^5.44.4"
     scroll-into-view-if-needed: "npm:^3.1.0"
     throttle-debounce: "npm:^5.0.2"
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 10c0/ec6b1e1dbe4b8be51aaadf1b5f8cfd51af9c97bb0adaa42346f5c27808e58a761855de56a512265c5d00c6142912c0d52139625fb4eca50df57f256319535daa
+  checksum: 10c0/3644f0e93a0c078be3ace75d8e19b0e9798d246ff2c60063aec40bec96edfc33e237b57e91f2a91a74382ff703a9ee96fcbc4632642f8084dae8239be812a53f
   languageName: node
   linkType: hard
 
@@ -9254,9 +9254,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rc-drawer@npm:~7.2.0":
-  version: 7.2.0
-  resolution: "rc-drawer@npm:7.2.0"
+"rc-drawer@npm:~7.3.0":
+  version: 7.3.0
+  resolution: "rc-drawer@npm:7.3.0"
   dependencies:
     "@babel/runtime": "npm:^7.23.9"
     "@rc-component/portal": "npm:^1.1.1"
@@ -9266,7 +9266,7 @@ __metadata:
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 10c0/d6814998983100193d6a521745324a94fa8d65cbb979b2764d1d48a78d6b6e22f9d078ebb68545b68a0cc38f062298d11ed3635e93d004a60415d384330a8573
+  checksum: 10c0/e2c3211d6a3790813bf2c1626cebf3fdb3a4c48ab56bee2d208ba07dd0e5058154981563e89e02571d573dd56c2ddc65db33a0cf37c58820ecc4b08785e8d169
   languageName: node
   linkType: hard
 
@@ -9700,9 +9700,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rc-upload@npm:~4.9.0":
-  version: 4.9.0
-  resolution: "rc-upload@npm:4.9.0"
+"rc-upload@npm:~4.9.2":
+  version: 4.9.2
+  resolution: "rc-upload@npm:4.9.2"
   dependencies:
     "@babel/runtime": "npm:^7.18.3"
     classnames: "npm:^2.2.5"
@@ -9710,7 +9710,7 @@ __metadata:
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 10c0/183e30d6c483e50c83217c51b498756dd8fd8e2d71d5a6274932cedbe7c65aaf673894f7be2fd08a93a287cb6e561e66011f44aeaec3dab545e5c0ab7647291e
+  checksum: 10c0/2299f4a3d8fa87449178761fcdc3c574b21e34d2f6816ecb6c08729f699e67b23d1284f4077b9ceceb1cc8502d7c350311bc2d1dfacec7f6780d2bf9691888cb
   languageName: node
   linkType: hard
 
@@ -9889,7 +9889,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:8.33.0"
     "@vitejs/plugin-react": "npm:^4.5.0"
     "@wojtekmaj/enzyme-adapter-react-17": "npm:0.8.0"
-    antd: "npm:5.25.3"
+    antd: "npm:5.25.4"
     autoprefixer: "npm:10.4.21"
     axios: "npm:1.9.0"
     axios-mock-adapter: "npm:2.1.0"
