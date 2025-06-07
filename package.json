@@ -82,7 +82,7 @@
     "vite": "6.3.5",
     "vite-plugin-imp": "2.4.0"
   },
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.9.2",
   "devDependencies": {
     "@testing-library/dom": "^10.0.0",
     "@types/node": "^22.15.26",
