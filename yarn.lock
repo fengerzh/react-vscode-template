@@ -3123,9 +3123,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd@npm:5.25.4":
-  version: 5.25.4
-  resolution: "antd@npm:5.25.4"
+"antd@npm:5.26.0":
+  version: 5.26.0
+  resolution: "antd@npm:5.26.0"
   dependencies:
     "@ant-design/colors": "npm:^7.2.1"
     "@ant-design/cssinjs": "npm:^1.23.0"
@@ -3166,7 +3166,7 @@ __metadata:
     rc-slider: "npm:~11.1.8"
     rc-steps: "npm:~6.0.1"
     rc-switch: "npm:~4.1.0"
-    rc-table: "npm:~7.50.5"
+    rc-table: "npm:~7.51.0"
     rc-tabs: "npm:~15.6.1"
     rc-textarea: "npm:~1.10.0"
     rc-tooltip: "npm:~6.4.0"
@@ -3179,7 +3179,7 @@ __metadata:
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 10c0/3644f0e93a0c078be3ace75d8e19b0e9798d246ff2c60063aec40bec96edfc33e237b57e91f2a91a74382ff703a9ee96fcbc4632642f8084dae8239be812a53f
+  checksum: 10c0/da8c9d7d725e3100809c8885ff29ea94eceae4fd1174a213948031185f87a36a2c0624069c61460ef98144e4816b7b4bb8ccca852a1ad363c8f4cee1c70d508f
   languageName: node
   linkType: hard
 
@@ -9677,9 +9677,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rc-table@npm:~7.50.5":
-  version: 7.50.5
-  resolution: "rc-table@npm:7.50.5"
+"rc-table@npm:~7.51.0":
+  version: 7.51.0
+  resolution: "rc-table@npm:7.51.0"
   dependencies:
     "@babel/runtime": "npm:^7.10.1"
     "@rc-component/context": "npm:^1.4.0"
@@ -9690,7 +9690,7 @@ __metadata:
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 10c0/952d4a0b2cb1158ca13032f0aabdf2e65e3a02f19a53b84526c9010f3413c3e95cefbf20188511f8664eb1dc9b46532865ca5f51d2b7c227fd8e27015a091281
+  checksum: 10c0/52b92e052e2509ea21d9b9b5c74cd92f47d6b66a48048f5c1d23a3d357b4fb173cb2e1e18c4d7951d4703b4ee9ea9c590a22b3d7a7fbf8ba3738e4d8a2c1b18a
   languageName: node
   linkType: hard
 
@@ -9964,7 +9964,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:8.34.0"
     "@vitejs/plugin-react": "npm:^4.5.0"
     "@wojtekmaj/enzyme-adapter-react-17": "npm:0.8.0"
-    antd: "npm:5.25.4"
+    antd: "npm:5.26.0"
     autoprefixer: "npm:10.4.21"
     axios: "npm:1.9.0"
     axios-mock-adapter: "npm:2.1.0"
