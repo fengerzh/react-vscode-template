@@ -10119,7 +10119,7 @@ __metadata:
   dependencies:
     "@ant-design/icons": "npm:6.0.0"
     "@ant-design/pro-components": "npm:^2.8.7"
-    "@ant-design/pro-field": "npm:3.0.4"
+    "@ant-design/pro-field": "npm:3.0.6"
     "@ant-design/pro-form": "npm:2.31.7"
     "@ant-design/pro-table": "npm:3.19.0"
     "@eslint/eslintrc": "npm:^3.3.1"
