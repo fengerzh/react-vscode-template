@@ -126,25 +126,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/pro-card@npm:2.9.7":
-  version: 2.9.7
-  resolution: "@ant-design/pro-card@npm:2.9.7"
-  dependencies:
-    "@ant-design/cssinjs": "npm:^1.21.1"
-    "@ant-design/icons": "npm:^5.0.0"
-    "@ant-design/pro-provider": "npm:2.15.4"
-    "@ant-design/pro-utils": "npm:2.17.0"
-    "@babel/runtime": "npm:^7.18.0"
-    classnames: "npm:^2.3.2"
-    rc-resize-observer: "npm:^1.0.0"
-    rc-util: "npm:^5.4.0"
-  peerDependencies:
-    antd: ^4.24.15 || ^5.11.2
-    react: ">=17.0.0"
-  checksum: 10c0/ad2ccd352ac0c4875f28d175920c1db65a26263bedce776ffef22aa8432fd57d2b71068dc46e69812b4321c58a049878d4096fbb683e13f4d005485cd298798f
-  languageName: node
-  linkType: hard
-
 "@ant-design/pro-card@npm:2.9.9":
   version: 2.9.9
   resolution: "@ant-design/pro-card@npm:2.9.9"
@@ -398,37 +379,6 @@ __metadata:
     react: ">=17.0.0"
     react-dom: ">=17.0.0"
   checksum: 10c0/76b7a0ddf4f75c14d7ea2b3cc6d5ee86d40d64b8d73790c17fd51b0a5082f020f8ea38b63053d38352ea8223fd3bfbbe31749af495fa56b166613c0b6d080b15
-  languageName: node
-  linkType: hard
-
-"@ant-design/pro-table@npm:3.19.0":
-  version: 3.19.0
-  resolution: "@ant-design/pro-table@npm:3.19.0"
-  dependencies:
-    "@ant-design/cssinjs": "npm:^1.21.1"
-    "@ant-design/icons": "npm:^5.0.0"
-    "@ant-design/pro-card": "npm:2.9.7"
-    "@ant-design/pro-field": "npm:3.0.4"
-    "@ant-design/pro-form": "npm:2.31.7"
-    "@ant-design/pro-provider": "npm:2.15.4"
-    "@ant-design/pro-utils": "npm:2.17.0"
-    "@babel/runtime": "npm:^7.18.0"
-    "@dnd-kit/core": "npm:^6.0.8"
-    "@dnd-kit/modifiers": "npm:^6.0.1"
-    "@dnd-kit/sortable": "npm:^7.0.2"
-    "@dnd-kit/utilities": "npm:^3.2.1"
-    classnames: "npm:^2.3.2"
-    dayjs: "npm:^1.11.10"
-    lodash: "npm:^4.17.21"
-    lodash-es: "npm:^4.17.21"
-    rc-resize-observer: "npm:^1.0.0"
-    rc-util: "npm:^5.0.1"
-  peerDependencies:
-    antd: ^4.24.15 || ^5.11.2
-    rc-field-form: ">=1.22.0"
-    react: ">=17.0.0"
-    react-dom: ">=17.0.0"
-  checksum: 10c0/ddea6e40c6d26687d1e7530db89097cdbcb3adef11474a79756bc7742c55b97c662bc3ddf38b4b457b59e7dda17cf3eea9eca8712ff91d137773113d05c4a5bf
   languageName: node
   linkType: hard
 
@@ -10102,7 +10052,7 @@ __metadata:
     "@ant-design/pro-components": "npm:^2.8.7"
     "@ant-design/pro-field": "npm:3.0.6"
     "@ant-design/pro-form": "npm:2.31.7"
-    "@ant-design/pro-table": "npm:3.19.0"
+    "@ant-design/pro-table": "npm:3.20.1"
     "@eslint/eslintrc": "npm:^3.3.1"
     "@eslint/js": "npm:^9.27.0"
     "@fullhuman/postcss-purgecss": "npm:7.0.2"
