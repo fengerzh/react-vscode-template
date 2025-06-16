@@ -38,7 +38,7 @@
     "@typescript-eslint/parser": "8.34.0",
     "@vitejs/plugin-react": "^4.5.0",
     "@wojtekmaj/enzyme-adapter-react-17": "0.8.0",
-    "antd": "5.26.0",
+    "antd": "5.26.1",
     "autoprefixer": "10.4.21",
     "axios": "1.10.0",
     "axios-mock-adapter": "2.1.0",
