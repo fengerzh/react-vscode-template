@@ -12,7 +12,13 @@ context("React-Vscode-Template", () => {
 
   it("首页", () => {
     cy.visit("/dashboard/home");
+    // 等待加载动画消失
     cy.get(".ant-spin", { timeout: 158000 }).should("not.exist");
-    cy.get(".ant-page-header-heading-title").should("have.text", "首页");
+    // 等待页面内容加载完成
+    cy.get(".ant-layout", { timeout: 158000 }).should("exist");
+    // 检查页面标题
+    cy.get(".ant-page-header-heading-title", { timeout: 158000 })
+      .should("be.visible")
+      .should("have.text", "首页");
   });
 });
