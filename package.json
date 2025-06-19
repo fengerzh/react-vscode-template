@@ -82,7 +82,6 @@
     "vite": "6.3.5",
     "vite-plugin-imp": "2.4.0"
   },
-  "packageManager": "yarn@4.9.2",
   "devDependencies": {
     "@testing-library/dom": "^10.0.0",
     "@types/node": "^22.15.26",
@@ -90,5 +89,6 @@
     "eslint-config-airbnb-extended": "^1.0.11",
     "jest-environment-jsdom": "^30.0.0",
     "rc-field-form": "^2.7.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha512.ff4579ab459bb25aa7c0ff75b62acebe576f6084b36aa842971cf250a5d8c6cd3bc9420b22ce63c7f93a0857bc6ef29291db39c3e7a23aab5adfd5a4dd6c5d71"
 }
