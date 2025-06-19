@@ -5,17 +5,17 @@ orbs:
 jobs:
   codacy-coverage-report:
     docker:
-      - image: circleci/node:17.2.0-browsers
+      - image: cimg/node:17.2-browsers
     steps:
       - checkout
       - run: yarn
       - run:
-          name: 'Run Jest and Collect Coverage Reports'
+          name: "Run Jest and Collect Coverage Reports"
           command: yarn test
       - store_artifacts:
           path: coverage
       - coverage-reporter/send_report:
-          coverage-reports: 'coverage/clover.xml,coverage/lcov.info'
+          coverage-reports: "coverage/clover.xml,coverage/lcov.info"
 workflows:
   build:
     jobs:
