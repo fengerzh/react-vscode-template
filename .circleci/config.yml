@@ -5,7 +5,7 @@ orbs:
 jobs:
   codacy-coverage-report:
     docker:
-      - image: cimg/node:17.2-browsers
+      - image: cimg/node:20.9-browsers
     steps:
       - checkout
       - run: yarn
