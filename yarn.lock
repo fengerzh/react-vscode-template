@@ -3701,10 +3701,10 @@ eslint-config-airbnb-base@^15.0.0:
     object.entries "^1.1.5"
     semver "^6.3.0"
 
-eslint-config-airbnb-extended@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-extended/-/eslint-config-airbnb-extended-2.1.0.tgz#b7fedf9dca16ade072f078696f57ca55aad3447b"
-  integrity sha512-vdMjJUGSQNkyuDogr6/yeMh0raiOuUC+jg4h4Vc9LEqNUZVrwltUfomDDfwJHtELcLxEAYEQXeCXtQnJdBWHZQ==
+eslint-config-airbnb-extended@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-extended/-/eslint-config-airbnb-extended-2.1.1.tgz#24fd3d30d2f1102314d8a70a43d89156dedbebbc"
+  integrity sha512-/0I3wclSwZ96AW2kBgCuTSumNe5oQjA1mMyTvGYZZ6jg4SfywxHMKdWYbiULjStpICQ3S0qQx7RvdsIYVTaG0A==
   dependencies:
     confusing-browser-globals "^1.0.11"
     globals "^16.2.0"
