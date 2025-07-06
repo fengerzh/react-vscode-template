@@ -3702,12 +3702,12 @@ eslint-config-airbnb-base@^15.0.0:
     semver "^6.3.0"
 
 eslint-config-airbnb-extended@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-extended/-/eslint-config-airbnb-extended-2.1.1.tgz#24fd3d30d2f1102314d8a70a43d89156dedbebbc"
-  integrity sha512-/0I3wclSwZ96AW2kBgCuTSumNe5oQjA1mMyTvGYZZ6jg4SfywxHMKdWYbiULjStpICQ3S0qQx7RvdsIYVTaG0A==
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-extended/-/eslint-config-airbnb-extended-2.1.2.tgz#ad36d05c7dc18a7729a603c2dbf4783342272d29"
+  integrity sha512-hcph8OvzwNfLifdw1nPBYFTsJwWF1ESf7JgYwpe0u4ZWflsfUE9EonDNAk9dGEJqkS3PDBGaVhf1u60uF7coTg==
   dependencies:
     confusing-browser-globals "^1.0.11"
-    globals "^16.2.0"
+    globals "^16.3.0"
 
 eslint-config-airbnb@19.0.4:
   version "19.0.4"
@@ -4412,7 +4412,7 @@ globals@^14.0.0:
   resolved "https://registry.npmjs.org/globals/-/globals-14.0.0.tgz#898d7413c29babcf6bafe56fcadded858ada724e"
   integrity sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==
 
-globals@^16.2.0:
+globals@^16.2.0, globals@^16.3.0:
   version "16.3.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-16.3.0.tgz#66118e765ddaf9e2d880f7e17658543f93f1f667"
   integrity sha512-bqWEnJ1Nt3neqx2q5SFfGS8r/ahumIakg3HcwtNlrVlwXIeNumWn/c7Pn/wKzGhf6SaW6H6uWXLqC30STCMchQ==
