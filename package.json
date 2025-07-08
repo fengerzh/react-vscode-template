@@ -42,7 +42,7 @@
     "autoprefixer": "10.4.21",
     "axios": "1.10.0",
     "axios-mock-adapter": "2.1.0",
-    "chai": "5.2.0",
+    "chai": "5.2.1",
     "chai-spies": "1.1.0",
     "cypress": "14.5.1",
     "dayjs": "1.11.13",
