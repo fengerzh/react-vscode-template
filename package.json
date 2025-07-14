@@ -17,7 +17,7 @@
     "@ant-design/pro-form": "2.31.9",
     "@ant-design/pro-table": "3.20.1",
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.27.0",
+    "@eslint/js": "^9.31.0",
     "@fullhuman/postcss-purgecss": "7.0.2",
     "@istanbuljs/nyc-config-typescript": "1.0.2",
     "@jest/globals": "30.0.4",
