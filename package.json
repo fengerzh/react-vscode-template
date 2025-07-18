@@ -15,7 +15,7 @@
     "@ant-design/pro-components": "^2.8.7",
     "@ant-design/pro-field": "3.1.0",
     "@ant-design/pro-form": "2.32.0",
-    "@ant-design/pro-table": "3.20.1",
+    "@ant-design/pro-table": "3.21.0",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.27.0",
     "@fullhuman/postcss-purgecss": "7.0.2",
