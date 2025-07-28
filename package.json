@@ -83,7 +83,7 @@
     "vite-plugin-imp": "2.4.0"
   },
   "devDependencies": {
-    "@testing-library/dom": "^10.0.0",
+    "@testing-library/dom": "^10.4.1",
     "@types/node": "^24.0.7",
     "@types/react": "^19.1.6",
     "eslint-config-airbnb-extended": "^2.1.1",
