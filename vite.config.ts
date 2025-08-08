@@ -23,7 +23,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "/src"),
+      "@": path.resolve(__dirname, "src"),
     },
   },
   css: {
@@ -44,9 +44,7 @@ export default defineConfig({
       },
     },
   },
-  esbuild: {
-    jsxInject: "import React from 'react'",
-  },
+
   server: {
     port: 3123,
   },

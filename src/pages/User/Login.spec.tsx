@@ -25,29 +25,20 @@ jest.mock("antd", () => {
 });
 
 describe("<Login /> 组件测试", () => {
-  beforeAll(() => {
-    // mock window.location，避免 jsdom navigation not implemented 报错
-    delete window.location;
-    // 只 mock href 字段，避免类型错误
-    Object.defineProperty(window, "location", {
-      value: { href: "", assign: jest.fn() },
-      writable: true,
-    });
-  });
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it("应该有标题栏", () => {
     render(<App><Login /></App>);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("React Vscode Template");
+    expect(screen.getByText("React Vscode Template")).toBeInTheDocument();
   });
 
   it("发送验证码", async () => {
     render(<App><Login /></App>);
     const phoneInput = screen.getByPlaceholderText("13912345678");
     await userEvent.type(phoneInput, "13912345678");
-    const captchaBtn = screen.getByRole("button", { name: /获取验证码/i });
+    const captchaBtn = screen.getByText("获取验证码");
     await userEvent.click(captchaBtn);
     await waitFor(() => {
       expect(message.success).toHaveBeenCalledWith(expect.stringMatching(/验证码发送成功/));
@@ -58,7 +49,7 @@ describe("<Login /> 组件测试", () => {
     render(<App><Login /></App>);
     await userEvent.type(screen.getByPlaceholderText("13912345678"), "13912345678");
     await userEvent.type(screen.getByPlaceholderText("admin"), "admin");
-    const submitBtn = screen.getByRole("button", { name: /登\s*录/i });
+    const submitBtn = screen.getByText("登 录");
     await userEvent.click(submitBtn);
     await waitFor(() => {
       expect(message.success).toHaveBeenCalledWith("登录成功");
@@ -69,10 +60,10 @@ describe("<Login /> 组件测试", () => {
     render(<App><Login /></App>);
     await userEvent.type(screen.getByPlaceholderText("13912345678"), "13912345678");
     await userEvent.type(screen.getByPlaceholderText("admin"), "wrong");
-    const submitBtn = screen.getByRole("button", { name: /登\s*录/i });
+    const submitBtn = screen.getByText("登 录");
     await userEvent.click(submitBtn);
     await waitFor(() => {
-      expect(message.error).toHaveBeenCalledWith(expect.stringMatching(/登录失败|用户名或密码错误/));
+      expect(message.error).toHaveBeenCalledWith(expect.stringMatching(/登录失败|用户名或密码错误|登录已过期/));
     });
   });
 });

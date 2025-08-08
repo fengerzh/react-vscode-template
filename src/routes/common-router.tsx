@@ -1,8 +1,9 @@
 import { lazy } from "react";
-import { HomeOutlined } from "@ant-design/icons";
+import { HomeOutlined, SettingOutlined } from "@ant-design/icons";
 
 const BasicLayout = lazy(() => import("@/layout/BasicLayout"));
 const Home = lazy(() => import("@/pages/home"));
+const Settings = lazy(() => import("@/pages/Settings"));
 
 export default [
   {
@@ -21,6 +22,13 @@ export default [
         key: "home",
         icon: <HomeOutlined />,
         component: Home,
+      },
+      {
+        name: "个人设置",
+        path: "settings",
+        key: "settings",
+        icon: <SettingOutlined />,
+        component: Settings,
       },
     ],
   },

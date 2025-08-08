@@ -1,43 +1,162 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import { Avatar, Dropdown } from "antd";
-import { ProLayout } from "@ant-design/pro-components";
-import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
+import React, { memo, useCallback, useMemo } from "react";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import { Avatar, Dropdown, Button, message } from "antd";
+import { ProLayout, MenuDataItem } from "@ant-design/pro-components";
+import {
+  UserOutlined,
+  LogoutOutlined,
+  SettingOutlined,
+  HomeOutlined,
+  BellOutlined,
+} from "@ant-design/icons";
+import { observer } from "mobx-react";
+import userStore from "@/store";
+import logo from "../logo.svg";
 
-function BasicLayout() {
-  const userName = localStorage.getItem("userName");
+// 菜单数据类型
+interface MenuItem extends MenuDataItem {
+  key: string;
+  name: string;
+  path: string;
+  icon?: React.ReactNode;
+  children?: MenuItem[];
+}
+
+const BasicLayout: React.FC = memo(observer(() => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // 从store获取用户信息
+  const { userInfo, appState, clearUserInfo, toggleCollapsed } = userStore;
+
+  // 菜单数据
+  const menuData: MenuItem[] = useMemo(() => [
+    {
+      key: "home",
+      name: "首页",
+      path: "/dashboard/home",
+      icon: <HomeOutlined />,
+    },
+    // 可以在这里添加更多菜单项
+  ], []);
+
+  // 退出登录处理
+  const handleLogout = useCallback(() => {
+    clearUserInfo();
+    message.success("退出登录成功");
+    navigate("/user", { replace: true });
+  }, [clearUserInfo, navigate]);
+
+  // 用户设置处理
+  const handleSettings = useCallback(() => {
+    message.info("设置功能开发中...");
+  }, []);
+
+  // 通知处理
+  const handleNotifications = useCallback(() => {
+    message.info("通知功能开发中...");
+  }, []);
+
+  // 用户下拉菜单
+  const userMenuItems = useMemo(() => [
+    {
+      key: "settings",
+      icon: <SettingOutlined />,
+      label: "个人设置",
+      onClick: () => navigate("/dashboard/settings"),
+    },
+    {
+      type: "divider" as const,
+    },
+    {
+      key: "logout",
+      icon: <LogoutOutlined />,
+      label: "退出登录",
+      onClick: handleLogout,
+    },
+  ], [handleSettings, handleLogout]);
+
+  // 右侧操作栏
+  const actionsRender = useCallback(() => [
+    <Button
+      key="notifications"
+      type="text"
+      icon={<BellOutlined />}
+      onClick={handleNotifications}
+    />,
+    <Dropdown
+      key="user"
+      menu={{ items: userMenuItems }}
+      placement="bottomRight"
+    >
+      <div style={{
+        cursor: "pointer",
+        padding: "0 8px",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+      }}>
+        <Avatar
+          shape="circle"
+          size="small"
+          icon={<UserOutlined />}
+          style={{ backgroundColor: "#1890ff" }}
+        />
+        <span style={{ fontSize: "14px" }}>
+          {userStore.displayName}
+        </span>
+      </div>
+    </Dropdown>,
+  ], [userMenuItems, userInfo, handleNotifications]);
+
+  // 菜单点击处理
+  const handleMenuClick = useCallback((menuInfo: { key: string }) => {
+    const menuItem = menuData.find(item => item.key === menuInfo.key);
+    if (menuItem?.path) {
+      navigate(menuItem.path);
+    }
+  }, [menuData, navigate]);
+
   return (
     <ProLayout
+      title="React Template"
+      logo={logo}
       navTheme="light"
-      menuHeaderRender={false}
-      contentStyle={{ display: "flex", flexDirection: "column" }}
-      actionsRender={() => [
-        <Dropdown
-          menu={{
-            items: [
-              {
-                key: "logout",
-                icon: <LogoutOutlined />,
-                label: "退出登录",
-                onClick: () => {
-                  document.cookie = "token=;path=/";
-                  localStorage.removeItem("userName");
-                  navigate("/user", { replace: true });
-                },
-              },
-            ],
-          }}
-        >
-          <div>
-            <Avatar shape="square" size="small" icon={<UserOutlined />} />
-            {userName || ""}
+      layout="mix"
+      contentWidth="Fluid"
+      fixedHeader
+      fixSiderbar
+      collapsed={appState.collapsed}
+      onCollapse={toggleCollapsed}
+      menuDataRender={() => menuData}
+      menuItemRender={(menuItemProps, defaultDom) => {
+        if (menuItemProps.isUrl || !menuItemProps.path) {
+          return defaultDom;
+        }
+        return (
+          <div onClick={() => handleMenuClick({ key: menuItemProps.key || "" })}>
+            {defaultDom}
           </div>
-        </Dropdown>,
-      ]}
+        );
+      }}
+      location={{
+        pathname: location.pathname,
+      }}
+      actionsRender={actionsRender}
+      contentStyle={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "calc(100vh - 64px)",
+      }}
+      waterMarkProps={{
+        content: userInfo.userName || "React Template",
+      }}
     >
       <Outlet />
     </ProLayout>
   );
-}
+}));
+
+BasicLayout.displayName = "BasicLayout";
 
 export default BasicLayout;

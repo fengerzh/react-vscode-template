@@ -20,14 +20,25 @@ interface RouteConfig {
   redirect?: string;
   index?: boolean;
   children?: RouteConfig[];
+  name?: string;
+  icon?: React.ReactNode;
 }
 
+// 权限检查函数
+const checkAuth = (): boolean => {
+  const cookies = Object.fromEntries(
+    document.cookie.split("; ").map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent))
+  );
+  return !!cookies.token;
+};
+
 function renderRoutes(configs: RouteConfig[]) {
-  const cookies = Object.fromEntries(document.cookie.split("; ").map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent)));
+  const isAuthenticated = checkAuth();
+
   return configs.map((config) => {
     // 权限拦截
-    if (config.auth && !cookies.token) {
-      return <Route key={config.key} path={config.path} element={<Navigate to="/user" replace />} />;
+    if (config.auth && !isAuthenticated) {
+      return <Route key={config.key || config.path} path={config.path} element={<Navigate to="/user" replace />} />;
     }
     // 重定向
     if (config.redirect) {
@@ -53,7 +64,7 @@ function renderRoutes(configs: RouteConfig[]) {
       const Comp = config.component;
       return (
         <Route
-          key={config.key}
+          key={config.key || config.path}
           path={config.path}
           element={Comp ? <Comp /> : undefined}
         >
@@ -66,7 +77,7 @@ function renderRoutes(configs: RouteConfig[]) {
       const Comp = config.component;
       return (
         <Route
-          key={config.key}
+          key={config.key || config.path}
           path={config.path}
           element={<Comp />}
         />
@@ -76,16 +87,28 @@ function renderRoutes(configs: RouteConfig[]) {
   });
 }
 
-export default (
-  <Suspense
-    fallback={(
-      <Spin size="large" spinning style={{ margin: "auto" }} />
-    )}
-  >
-    <Routes>
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
-      {renderRoutes(routerConfig)}
-      <Route path="*" element={<Navigate to="/exception/404" replace />} />
-    </Routes>
-  </Suspense>
-);
+// 路由组件
+const AppRouter: React.FC = () => {
+  return (
+    <Suspense
+      fallback={(
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh"
+        }}>
+          <Spin size="large" />
+        </div>
+      )}
+    >
+      <Routes>
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        {renderRoutes(routerConfig)}
+        <Route path="*" element={<Navigate to="/exception/404" replace />} />
+      </Routes>
+    </Suspense>
+  );
+};
+
+export default <AppRouter />;
