@@ -125,4 +125,93 @@ describe("Home Component", () => {
       expect(getUsers).toHaveBeenCalled();
     }, { timeout: 3000 });
   });
+
+  it("应该处理编辑按钮点击", async () => {
+    const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    const mockData = [
+      { id: 1, name: "张三", age: 18, birthday: "2005-01-01", email: "zhangsan@example.com" },
+    ];
+
+    getUsers.mockResolvedValue({
+      data: {
+        data: mockData,
+        total: 1,
+        success: true,
+      },
+    });
+
+    renderWithRouter(<Home />);
+
+    // 等待数据加载和表格渲染
+    await waitFor(() => {
+      expect(screen.getByText("张三")).toBeInTheDocument();
+    });
+
+    // 查找编辑按钮并点击
+    const editButton = screen.getByText("编辑");
+    fireEvent.click(editButton);
+
+    expect(consoleSpy).toHaveBeenCalledWith("编辑用户:", mockData[0]);
+
+    consoleSpy.mockRestore();
+  });
+
+  it("应该处理删除按钮点击", async () => {
+    const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    const mockData = [
+      { id: 1, name: "张三", age: 18, birthday: "2005-01-01", email: "zhangsan@example.com" },
+    ];
+
+    getUsers.mockResolvedValue({
+      data: {
+        data: mockData,
+        total: 1,
+        success: true,
+      },
+    });
+
+    renderWithRouter(<Home />);
+
+    // 等待数据加载和表格渲染
+    await waitFor(() => {
+      expect(screen.getByText("张三")).toBeInTheDocument();
+    });
+
+    // 查找删除按钮并点击
+    const deleteButton = screen.getByText("删除");
+    fireEvent.click(deleteButton);
+
+    expect(consoleSpy).toHaveBeenCalledWith("删除用户:", mockData[0]);
+
+    consoleSpy.mockRestore();
+  });
+
+  it("应该处理新建用户按钮点击", async () => {
+    const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    getUsers.mockResolvedValue({
+      data: {
+        data: [],
+        total: 0,
+        success: true,
+      },
+    });
+
+    renderWithRouter(<Home />);
+
+    // 等待组件完全渲染
+    await waitFor(() => {
+      expect(screen.getByText("新建用户")).toBeInTheDocument();
+    });
+
+    // 点击新建用户按钮
+    const addButton = screen.getByText("新建用户");
+    fireEvent.click(addButton);
+
+    expect(consoleSpy).toHaveBeenCalledWith("添加用户");
+
+    consoleSpy.mockRestore();
+  });
 });

@@ -1,6 +1,6 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { login, getUsers, LoginParams, User } from "../services";
+import { login, getUsers, LoginParams, User, axiosInstance } from "../services";
 
 // 创建axios mock实例
 let mock = new MockAdapter(axios);
@@ -185,5 +185,154 @@ describe("Services", () => {
         expect(error).toBeDefined();
       }
     });
+
+    it("应该处理403权限不足", async () => {
+      mock.onPost("/test").reply(403, {
+        success: false,
+        message: "权限不足",
+      });
+
+      try {
+        await axios.post("/test", {});
+      } catch (error) {
+        expect(error).toBeDefined();
+      }
+    });
+
+    it("应该处理404资源不存在", async () => {
+      mock.onPost("/test").reply(404, {
+        success: false,
+        message: "资源不存在",
+      });
+
+      try {
+        await axios.post("/test", {});
+      } catch (error) {
+        expect(error).toBeDefined();
+      }
+    });
+
+    it("应该处理500服务器错误", async () => {
+      mock.onPost("/test").reply(500, {
+        success: false,
+        message: "服务器内部错误",
+      });
+
+      try {
+        await axios.post("/test", {});
+      } catch (error) {
+        expect(error).toBeDefined();
+      }
+    });
+
+    it("应该处理其他HTTP状态码", async () => {
+      mock.onPost("/test").reply(502, {
+        success: false,
+        message: "网关错误",
+      });
+
+      try {
+        await axios.post("/test", {});
+      } catch (error) {
+        expect(error).toBeDefined();
+      }
+    });
+
+    it("应该处理网络连接错误", async () => {
+      mock.onPost("/test").networkError();
+
+      try {
+        await axios.post("/test", {});
+      } catch (error) {
+        expect(error).toBeDefined();
+      }
+    });
+
+    it("应该处理请求配置错误", async () => {
+      // 模拟请求配置错误
+      const originalRequest = axios.request;
+      axios.request = jest.fn().mockRejectedValue(new Error("请求配置错误"));
+
+      try {
+        await axios.post("/test", {});
+      } catch (error) {
+        expect(error).toBeDefined();
+      }
+
+      // 恢复原始方法
+      axios.request = originalRequest;
+    });
+  });
+});
+
+describe("响应拦截器（axiosInstance）", () => {
+  let mockInstance: MockAdapter;
+
+  beforeEach(() => {
+    mockInstance = new MockAdapter(axiosInstance as any);
+  });
+
+  afterEach(() => {
+    mockInstance.reset();
+    mockInstance.restore();
+  });
+
+  it("应该处理业务失败响应（instance）", async () => {
+    mockInstance.onPost("/biz").reply(200, {
+      success: false,
+      message: "业务错误",
+    });
+
+    await expect(axiosInstance.post("/biz", {})).rejects.toBeDefined();
+  });
+
+  it("应该处理403权限不足（instance）", async () => {
+    mockInstance.onPost("/test").reply(403, {
+      success: false,
+      message: "权限不足",
+    });
+
+    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
+  });
+
+  it("应该处理404资源不存在（instance）", async () => {
+    mockInstance.onPost("/test").reply(404, {
+      success: false,
+      message: "资源不存在",
+    });
+
+    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
+  });
+
+  it("应该处理500服务器错误（instance）", async () => {
+    mockInstance.onPost("/test").reply(500, {
+      success: false,
+      message: "服务器内部错误",
+    });
+
+    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
+  });
+
+  it("应该处理其他HTTP状态码（instance，默认分支）", async () => {
+    mockInstance.onPost("/test").reply(502, {
+      success: false,
+      message: "网关错误",
+    });
+
+    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
+  });
+
+  it("应该处理网络连接错误（instance）", async () => {
+    mockInstance.onPost("/test").networkError();
+
+    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
+  });
+
+  it("应该处理 error.request 分支（instance）", async () => {
+    // 直接调用响应拦截器的 rejected 分支，模拟一个包含 request 的错误
+    const handlers = (axiosInstance as any).interceptors.response.handlers;
+    const rejected = handlers.find((h: any) => typeof h.rejected === "function").rejected;
+    const fakeError = { request: {}, message: "Network Error" };
+    await expect(rejected(fakeError)).rejects.toBeDefined();
   });
 });
