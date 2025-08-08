@@ -1,14 +1,22 @@
+/* eslint-env es2020 */
+// 断言扩展（toBeInTheDocument 等）
+import "@testing-library/jest-dom";
+import { jest } from "@jest/globals";
+import { TextEncoder, TextDecoder } from "util";
+
 // 先静音部分无关紧要的错误，避免在后续 mock 过程中出现噪声
-const originalError = console.error;
+const originalError: typeof console.error = console.error;
 const shouldSilenceConsole = (args: unknown[]): boolean => {
   const text = args
     .map((a) => {
       // 更稳健地识别 Error-like 对象（跨 realm 不用 instanceof）
       if (
-        a &&
-        typeof a === "object" &&
-        (Object.prototype.hasOwnProperty.call(a, "message") ||
-          Object.prototype.hasOwnProperty.call(a, "stack"))
+        a
+        && typeof a === "object"
+        && (
+          Object.prototype.hasOwnProperty.call(a, "message")
+          || Object.prototype.hasOwnProperty.call(a, "stack")
+        )
       ) {
         const anyA = a as { message?: unknown; stack?: unknown };
         const parts = [anyA.message, anyA.stack]
@@ -36,25 +44,29 @@ const shouldSilenceConsole = (args: unknown[]): boolean => {
     "Request failed with status code 401",
   ].some((needle) => text.includes(needle));
 };
-console.error = (...args: unknown[]) => {
+console.error = (
+  ...args: Parameters<typeof console.error>
+) => {
   if (shouldSilenceConsole(args)) return;
-  // @ts-expect-error 保持与原实现一致
-  originalError(...(args as any));
+  originalError(...args);
 };
 
 // 对 console.log 也应用相同的静音逻辑，避免噪声
-const originalLog = console.log;
-console.log = (...args: unknown[]) => {
+const originalLog: typeof console.log = console.log;
+console.log = (
+  ...args: Parameters<typeof console.log>
+) => {
   if (shouldSilenceConsole(args)) return;
-  // @ts-expect-error 保持与原实现一致
-  originalLog(...(args as any));
+  originalLog(...args);
 };
 
 // 添加全局polyfills
-import { TextEncoder, TextDecoder } from "util";
-
-global.TextEncoder = TextEncoder;
-global.TextDecoder = TextDecoder;
+const g = global as unknown as {
+  TextEncoder: typeof TextEncoder;
+  TextDecoder: typeof TextDecoder;
+};
+g.TextEncoder = TextEncoder;
+g.TextDecoder = TextDecoder;
 
 // Mock window.matchMedia
 Object.defineProperty(window, "matchMedia", {
@@ -83,20 +95,6 @@ Object.defineProperty(window, "getComputedStyle", {
     alignItems: "",
   }),
 });
-
-// Mock ResizeObserver
-global.ResizeObserver = jest.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
-}));
-
-// Mock IntersectionObserver
-global.IntersectionObserver = jest.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
-}));
 
 // Mock scrollTo
 Object.defineProperty(window, "scrollTo", {

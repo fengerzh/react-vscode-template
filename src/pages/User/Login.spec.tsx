@@ -1,9 +1,12 @@
-/* global jest, describe, beforeAll, beforeEach, it, expect */
+/* global jest, describe, beforeEach, it, expect */
 import "./matchMedia.mock";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { App, message } from "antd";
+import type { AxiosResponse } from "axios";
+import type { ApiResponse, LoginResponse } from "@/services/index";
+import * as services from "@/services/index";
 import Login from "./Login";
 
 // mock antd message
@@ -46,14 +49,26 @@ describe("<Login /> 组件测试", () => {
   });
 
   it("登录成功", async () => {
+    // 直接 spy 登录方法，确保触发 onFinish 并返回预期结构
+    const loginSpy = jest.spyOn(services, "login").mockResolvedValue({
+      status: 200,
+      data: {
+        success: true,
+        data: { userName: "张三", userId: "user_001", token: "mock_token_123456" },
+        message: "登录成功",
+      },
+    } as AxiosResponse<ApiResponse<LoginResponse>>);
+
     render(<App><Login /></App>);
     await userEvent.type(screen.getByPlaceholderText("13912345678"), "13912345678");
     await userEvent.type(screen.getByPlaceholderText("admin"), "admin");
-    const submitBtn = screen.getByText("登 录");
+    const submitBtn = screen.getByText(/登录|登 录/);
     await userEvent.click(submitBtn);
     await waitFor(() => {
       expect(message.success).toHaveBeenCalledWith("登录成功");
+      expect(loginSpy).toHaveBeenCalled();
     });
+    loginSpy.mockRestore();
   });
 
   it("登录失败", async () => {
