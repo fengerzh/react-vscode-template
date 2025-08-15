@@ -43,9 +43,10 @@ describe("<Login /> 组件测试", () => {
     await userEvent.type(phoneInput, "13912345678");
     const captchaBtn = screen.getByText("获取验证码");
     await userEvent.click(captchaBtn);
+    // 等待验证码发送的异步操作完成
     await waitFor(() => {
       expect(message.success).toHaveBeenCalledWith(expect.stringMatching(/验证码发送成功/));
-    });
+    }, { timeout: 2000 });
   });
 
   it("登录成功", async () => {

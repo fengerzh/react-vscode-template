@@ -1,85 +1,170 @@
-# React Vscode Template
+# React VSCode Template
 
-<p align="center">
-  <img src="src/logo.png" alt="logo" />
-</p>
+一个基于 React 19 的现代化前端项目模板，集成了最新的技术栈和开发工具。
 
-[![CircleCI](https://circleci.com/gh/fengerzh/react-vscode-template.svg?style=svg)](https://circleci.com/gh/fengerzh/react-vscode-template) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/51b6e97af415445b9c68abc5719051f3)](https://www.codacy.com/gh/fengerzh/react-vscode-template/dashboard?utm_source=github.com&utm_medium=referral&utm_content=fengerzh/react-vscode-template&utm_campaign=Badge_Grade)
+## 技术栈
 
-用最新的技术，做最好的网站
+- **React 19.0.0** - 最新版本的 React，支持并发特性和新的 Hooks
+- **TypeScript** - 类型安全的 JavaScript
+- **Vite** - 快速的构建工具
+- **Ant Design** - 企业级 UI 组件库
+- **Tailwind CSS** - 原子化 CSS 框架
+- **Jest + Testing Library** - 测试框架
+- **Cypress** - E2E 测试
+- **ESLint + Prettier** - 代码规范和格式化
 
----
+## React 19 新特性应用
 
-## 主要特性
+### useOptimistic Hook
 
-- 基于 **React 18**、**Ant Design 5.x**、**@ant-design/pro-components 2.x**、**react-router-dom 6.x**、**Yarn 4.x** 全面升级
-- 极速开发体验：采用 **Vite** 构建，热更新极快
-- UI 体系：Ant Design 5.x + Pro 组件（ProLayout、ProTable、ProForm 等）
-- 现代 CSS：**TailwindCSS** 全面支持
-- 代码规范：**TypeScript** + **Airbnb Eslint** 规则，零警告、零错误
-- 目录清晰，适合中大型项目最佳实践
+本项目展示了 React 19 新引入的 `useOptimistic` Hook 的使用方法。这个 Hook 用于实现乐观更新（Optimistic Updates），提供更好的用户体验。
 
-## 安装和运行
+#### 特性说明
 
-进入项目文件夹，运行依赖安装：
+`useOptimistic` 允许你在异步操作（如 API 调用）完成之前立即更新 UI，如果操作失败会自动回滚到原始状态。
 
-```sh
-yarn
+#### 在项目中的应用
+
+1. **用户管理页面** (`src/pages/home.tsx`)
+
+   - 用户删除操作：点击删除按钮后立即从列表中移除用户
+   - 用户添加操作：点击添加按钮后立即在列表中显示新用户
+   - 显示乐观更新状态指示器
+
+2. **设置页面** (`src/pages/Settings/index.tsx`)
+
+   - 表单提交：提交后立即显示新的表单值
+   - 按钮状态：显示加载状态和进度指示
+
+3. **登录页面** (`src/pages/User/Login.tsx`)
+   - 登录表单：提交后立即显示登录状态
+   - 按钮文本：动态显示"登录中..."状态
+
+#### 使用示例
+
+```typescript
+import { useOptimistic, startTransition } from "react";
+
+function MyComponent() {
+  const [optimisticData, addOptimisticData] = useOptimistic<DataType[]>(
+    [] // 初始状态
+  );
+
+  const handleSubmit = async (data: DataType) => {
+    // 乐观更新：立即更新 UI
+    startTransition(() => {
+      addOptimisticData((prev) => [...prev, data]);
+    });
+
+    try {
+      // 异步操作
+      await apiCall(data);
+      // 成功：清除乐观更新状态
+      startTransition(() => {
+        addOptimisticData((prev) => prev.filter((item) => item.id !== data.id));
+      });
+    } catch (error) {
+      // 失败：自动回滚到原始状态
+      startTransition(() => {
+        addOptimisticData((prev) => prev.filter((item) => item.id !== data.id));
+      });
+    }
+  };
+
+  return (
+    <div>
+      {/* 显示乐观更新状态 */}
+      {optimisticData.length > 0 && <div>正在处理中...</div>}
+
+      {/* 其他 UI 组件 */}
+    </div>
+  );
+}
 ```
 
-编译 TailwindCSS：
+#### 优势
 
-```sh
-yarn css
+1. **即时反馈**：用户操作后立即看到界面变化
+2. **自动回滚**：操作失败时自动恢复到原始状态
+3. **类型安全**：完整的 TypeScript 支持
+4. **并发安全**：与 React 的并发特性完全兼容
+
+## 快速开始
+
+### 安装依赖
+
+```bash
+yarn install
 ```
 
-启动开发环境：
+### 开发模式
 
-```sh
+```bash
 yarn start
 ```
 
-构建生产包：
+### 构建生产版本
 
-```sh
+```bash
 yarn build
 ```
 
-本地预览生产包：
+### 运行测试
 
-```sh
-yarn serve
-```
-
-运行单元测试：
-
-```sh
+```bash
+# 单元测试
 yarn test
+
+# E2E 测试
+yarn e2e
 ```
 
-## 依赖与兼容性说明
+## 项目结构
 
-- 已适配 **React 18**，入口采用 `createRoot`，支持并发特性
-- UI 体系为 **Ant Design 5.x**，样式采用官方推荐 `import 'antd/dist/reset.css'`，已移除所有 less 样式引入
-- Pro 相关依赖全部升级为 `@ant-design/pro-components`，原 `pro-layout` 已废弃
-- 路由全面升级为 **react-router-dom v6**，支持嵌套路由、动态重定向
-- 支持 **Yarn 4.x**，推荐 node 16+ 环境
+```
+src/
+├── pages/           # 页面组件
+│   ├── home.tsx     # 用户管理页面 (useOptimistic 示例)
+│   ├── Settings/    # 设置页面 (useOptimistic 示例)
+│   └── User/        # 用户相关页面
+│       └── Login.tsx # 登录页面 (useOptimistic 示例)
+├── services/        # API 服务
+├── store/          # 状态管理
+├── routes/         # 路由配置
+└── types/          # TypeScript 类型定义
+```
 
-## 常见问题与解决方案
+## 开发规范
 
-- antd icon 类型报错：如遇 `onPointerEnterCapture` 类型报错，直接在报错行前加 `// @ts-expect-error` 注释即可
-- 退出登录、跳转等开发环境警告：React 18+ 已消除 setState on unmounted 警告
-- 依赖升级建议：定期 `yarn upgrade` 保持依赖最新
+### Git 提交规范
 
-## 推荐开发环境
+遵循约定式提交（Conventional Commits）规范：
 
-- 推荐使用 **VSCode**，配合 Volar、TypeScript、ESLint 插件获得最佳体验
+- `feat`: 新功能
+- `fix`: 修复
+- `docs`: 文档更新
+- `style`: 代码格式
+- `refactor`: 重构
+- `perf`: 性能优化
+- `test`: 测试相关
+- `chore`: 构建工具或辅助工具的变动
 
-## 贡献与反馈
+示例：
 
-- 欢迎提 issue 或 PR，或在禅道/钉钉群内反馈问题
-- 本项目长期维护，持续跟进社区最佳实践
+```
+feat: 添加用户登录功能
+fix: 修复登录页面显示异常
+docs: 更新 API 文档
+```
 
----
+## 贡献指南
 
-如有更多问题，欢迎随时交流！
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'feat: 添加新特性'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 创建 Pull Request
+
+## 许可证
+
+MIT License - 详见 [LICENSE](LICENSE) 文件

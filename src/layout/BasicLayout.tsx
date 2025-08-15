@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useMemo } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import { Avatar, Dropdown, Button, message } from "antd";
+import { Avatar, Dropdown, Button, message, FloatButton } from "antd";
 import { ProLayout, MenuDataItem } from "@ant-design/pro-components";
 import {
   UserOutlined,
@@ -8,6 +8,9 @@ import {
   SettingOutlined,
   HomeOutlined,
   BellOutlined,
+  UpOutlined,
+  PlusOutlined,
+  QuestionCircleOutlined,
 } from "@ant-design/icons";
 import { observer } from "mobx-react";
 import userStore from "@/store";
@@ -55,6 +58,21 @@ const BasicLayout: React.FC = memo(observer(() => {
   // 通知处理
   const handleNotifications = useCallback(() => {
     message.info("通知功能开发中...");
+  }, []);
+
+  // 返回顶部处理
+  const handleBackToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  // 快速添加用户处理
+  const handleQuickAdd = useCallback(() => {
+    message.info("快速添加用户功能开发中...");
+  }, []);
+
+  // 帮助处理
+  const handleHelp = useCallback(() => {
+    message.info("帮助功能开发中...");
   }, []);
 
   // 用户下拉菜单
@@ -153,6 +171,32 @@ const BasicLayout: React.FC = memo(observer(() => {
       }}
     >
       <Outlet />
+      
+      {/* 浮动按钮组 */}
+      <FloatButton.Group
+        trigger="hover"
+        style={{
+          right: 24,
+          bottom: 24,
+        }}
+        icon={<UpOutlined />}
+      >
+        <FloatButton
+          icon={<UpOutlined />}
+          tooltip="返回顶部"
+          onClick={handleBackToTop}
+        />
+        <FloatButton
+          icon={<PlusOutlined />}
+          tooltip="快速添加"
+          onClick={handleQuickAdd}
+        />
+        <FloatButton
+          icon={<QuestionCircleOutlined />}
+          tooltip="帮助"
+          onClick={handleHelp}
+        />
+      </FloatButton.Group>
     </ProLayout>
   );
 }));

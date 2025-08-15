@@ -3,6 +3,7 @@ import ProForm, { ProFormText, ProFormCaptcha } from "@ant-design/pro-form";
 import { MobileOutlined, MailOutlined } from "@ant-design/icons";
 import { login } from "@/services/index";
 import type { LoginParams } from "@/services/index";
+import { useOptimistic, startTransition } from "react";
 
 const waitTime = (time = 100) => new Promise((resolve) => {
   setTimeout(() => {
@@ -11,6 +12,11 @@ const waitTime = (time = 100) => new Promise((resolve) => {
 });
 
 function Login() {
+  // 使用 useOptimistic 进行乐观更新
+  const [optimisticLogin, addOptimisticLogin] = useOptimistic<LoginParams | null>(
+    null,
+  );
+
   return (
     <div
       style={{
@@ -20,17 +26,35 @@ function Login() {
     >
       <ProForm
         onFinish={async (data: LoginParams) => {
-          const res = await login(data);
-          if (res) {
-            message.success("登录成功");
-            localStorage.setItem("userName", res.data.data.userName);
-            document.cookie = "token=abcde;path=/";
-            window.location.href = "/dashboard";
+          try {
+            // 乐观更新：立即显示登录状态
+            startTransition(() => {
+              addOptimisticLogin(data);
+            });
+
+            const res = await login(data);
+            if (res) {
+              message.success("登录成功");
+              localStorage.setItem("userName", res.data.data.userName);
+              document.cookie = "token=abcde;path=/";
+              window.location.href = "/dashboard";
+            }
+
+            // 清除乐观更新状态
+            startTransition(() => {
+              addOptimisticLogin(null);
+            });
+          } catch (excetion) {
+            // 如果失败，自动回滚到原始状态
+            startTransition(() => {
+              addOptimisticLogin(null);
+            });
+            message.error(`登录失败，请重试: ${excetion}`);
           }
         }}
         submitter={{
           searchConfig: {
-            submitText: "登录",
+            submitText: optimisticLogin ? "登录中..." : "登录",
           },
           render: (_, dom) => dom.pop(),
           submitButtonProps: {
@@ -38,6 +62,7 @@ function Login() {
             style: {
               width: "100%",
             },
+            loading: optimisticLogin !== null,
           },
         }}
       >
@@ -102,6 +127,24 @@ function Login() {
           }}
         />
       </ProForm>
+
+      {/* 显示乐观更新状态 */}
+      {optimisticLogin && (
+        <div
+          style={{
+            marginTop: 16,
+            padding: 8,
+            backgroundColor: "#f6ffed",
+            border: "1px solid #b7eb8f",
+            borderRadius: 4,
+            textAlign: "center",
+          }}
+        >
+          <p style={{ margin: 0, color: "#52c41a" }}>
+            ⚡ 正在登录中...
+          </p>
+        </div>
+      )}
     </div>
   );
 }
