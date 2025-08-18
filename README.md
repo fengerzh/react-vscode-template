@@ -1,5 +1,7 @@
 # React VSCode Template
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/fengerzh/react-vscode-template/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fengerzh/react-vscode-template/tree/master)
+
 一个基于 React 19 的现代化前端项目模板，集成了最新的技术栈和开发工具。
 
 ## 技术栈
