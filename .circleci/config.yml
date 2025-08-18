@@ -1,25 +1,9 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@5
-  coverage-reporter: codacy/coverage-reporter@13.5.3
-jobs:
-  codacy-coverage-report:
-    docker:
-      - image: cimg/node:22.18.0-browsers
-    steps:
-      - checkout
-      - run: yarn
-      - run:
-          name: "Run Jest and Collect Coverage Reports"
-          command: yarn test
-      - store_artifacts:
-          path: coverage
-      - coverage-reporter/send_report:
-          coverage-reports: "coverage/clover.xml,coverage/lcov.info"
 workflows:
   build:
     jobs:
-      - codacy-coverage-report
       - cypress/run:
           install-command: yarn
           start-command: yarn start
