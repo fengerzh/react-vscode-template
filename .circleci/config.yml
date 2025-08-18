@@ -23,4 +23,4 @@ workflows:
       - cypress/run:
           install-command: yarn
           start-command: yarn start
-          cypress-command: yarn e2e
+          cypress-command: yarn e2e:run

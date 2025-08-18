@@ -19,6 +19,6 @@ context("React-Vscode-Template", () => {
     // 检查页面标题
     cy.get(".ant-page-header-heading-title", { timeout: 158000 })
       .should("be.visible")
-      .should("have.text", "首页");
+      .should("have.text", "用户管理");
   });
 });
