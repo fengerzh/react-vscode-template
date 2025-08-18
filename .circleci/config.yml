@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@14.5.4
+  cypress: cypress-io/cypress@5
   coverage-reporter: codacy/coverage-reporter@13.5.3
 jobs:
   codacy-coverage-report:
@@ -23,3 +23,4 @@ workflows:
       - cypress/run:
           install-command: yarn
           start-command: yarn start
+          cypress-command: yarn e2e
