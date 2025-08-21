@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@5.0.1
+  coverage-reporter: codacy/coverage-reporter@14.1.0
 workflows:
   build:
     jobs:
@@ -8,3 +9,11 @@ workflows:
           install-command: yarn
           start-command: yarn start
           cypress-command: yarn e2e:run
+      - codacy-coverage-report:
+          docker:
+            - image: cimg/node:18.19
+          steps:
+            - checkout
+            - run: yarn test
+            - coverage-reporter/send_report:
+                coverage-reports: coverage/clover.xml,coverage/lcov.info
