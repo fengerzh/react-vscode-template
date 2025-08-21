@@ -13,6 +13,7 @@ jobs:
       - run: yarn test
       - coverage-reporter/send_report:
           coverage-reports: coverage/clover.xml,coverage/lcov.info
+          project-token: EPuNapjPGGwRnoahGQ3a
 
 workflows:
   build:
