@@ -1,6 +1,6 @@
 # React VSCode Template
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/fengerzh/react-vscode-template/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fengerzh/react-vscode-template/tree/master) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/51b6e97af415445b9c68abc5719051f3)](https://app.codacy.com/gh/fengerzh/react-vscode-template/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/fengerzh/react-vscode-template/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fengerzh/react-vscode-template/tree/master) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/51b6e97af415445b9c68abc5719051f3)](https://app.codacy.com/gh/fengerzh/react-vscode-template/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/51b6e97af415445b9c68abc5719051f3)](https://app.codacy.com/gh/fengerzh/react-vscode-template/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
 一个基于 React 19 的现代化前端项目模板，集成了最新的技术栈和开发工具。
 
