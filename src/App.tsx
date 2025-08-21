@@ -1,4 +1,3 @@
-
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
@@ -27,12 +26,14 @@ export class ErrorBoundary extends React.Component<
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error("应用发生错误:", error, errorInfo);
+  override componentDidCatch() {
   }
 
-  render() {
-    if (this.state.hasError) {
+  override render() {
+    const { hasError } = this.state;
+    const { children } = this.props;
+
+    if (hasError) {
       return (
         <div style={{ padding: "20px", textAlign: "center" }}>
           <h2>应用出现了错误</h2>
@@ -55,7 +56,7 @@ export class ErrorBoundary extends React.Component<
       );
     }
 
-    return this.props.children;
+    return children;
   }
 }
 

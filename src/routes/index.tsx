@@ -27,7 +27,7 @@ interface RouteConfig {
 // 权限检查函数
 const checkAuth = (): boolean => {
   const cookies = Object.fromEntries(
-    document.cookie.split("; ").map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent))
+    document.cookie.split("; ").map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent)),
   );
   return !!cookies.token;
 };
@@ -88,7 +88,7 @@ function renderRoutes(configs: RouteConfig[]) {
 }
 
 // 路由组件
-const AppRouter: React.FC = () => {
+function AppRouter() {
   return (
     <Suspense
       fallback={(
@@ -96,8 +96,9 @@ const AppRouter: React.FC = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh"
-        }}>
+          height: "100vh",
+        }}
+        >
           <Spin size="large" />
         </div>
       )}
@@ -109,6 +110,6 @@ const AppRouter: React.FC = () => {
       </Routes>
     </Suspense>
   );
-};
+}
 
 export default <AppRouter />;

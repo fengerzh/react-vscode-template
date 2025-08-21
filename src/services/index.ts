@@ -70,15 +70,13 @@ instance.interceptors.request.use(
       ?.split("=")[1];
 
     if (token && config.headers) {
+      // eslint-disable-next-line no-param-reassign
       config.headers.Authorization = `Bearer ${token}`;
     }
 
     return config;
   },
-  (error: AxiosError) => {
-    console.error("请求拦截器错误:", error);
-    return Promise.reject(error);
-  }
+  (error: AxiosError) => Promise.reject(error),
 );
 
 // 响应拦截器
@@ -95,8 +93,6 @@ instance.interceptors.response.use(
     return response;
   },
   (error: AxiosError<ApiResponse>) => {
-    console.error("API请求错误:", error);
-
     // 处理不同的HTTP状态码
     if (error.response) {
       const { status, data } = error.response;
@@ -127,7 +123,7 @@ instance.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 // Mock数据配置
@@ -145,7 +141,7 @@ mock.onPost("/login").reply((config) => {
           data: {
             userName: "张三",
             userId: "user_001",
-            token: "mock_token_123456"
+            token: "mock_token_123456",
           },
           success: true,
           message: "登录成功",
@@ -157,10 +153,10 @@ mock.onPost("/login").reply((config) => {
       401,
       {
         success: false,
-        message: "手机号或验证码错误"
-      }
+        message: "手机号或验证码错误",
+      },
     ];
-  } catch (error) {
+  } catch {
     return [400, { success: false, message: "请求参数格式错误" }];
   }
 });
@@ -172,10 +168,18 @@ mock.onPost("/users").reply((config) => {
     const { current = 1, pageSize = 10 } = params;
 
     const allUsers: User[] = [
-      { id: 1, name: "张三", age: 18, birthday: "2005-01-01", email: "zhangsan@example.com" },
-      { id: 2, name: "李四", age: 20, birthday: "2003-05-15", email: "lisi@example.com" },
-      { id: 3, name: "王五", age: 22, birthday: "2001-09-20", email: "wangwu@example.com" },
-      { id: 4, name: "赵六", age: 25, birthday: "1998-12-10", email: "zhaoliu@example.com" },
+      {
+        id: 1, name: "张三", age: 18, birthday: "2005-01-01", email: "zhangsan@example.com",
+      },
+      {
+        id: 2, name: "李四", age: 20, birthday: "2003-05-15", email: "lisi@example.com",
+      },
+      {
+        id: 3, name: "王五", age: 22, birthday: "2001-09-20", email: "wangwu@example.com",
+      },
+      {
+        id: 4, name: "赵六", age: 25, birthday: "1998-12-10", email: "zhaoliu@example.com",
+      },
     ];
 
     const start = (current - 1) * pageSize;
@@ -192,23 +196,17 @@ mock.onPost("/users").reply((config) => {
         pageSize,
       },
     ];
-  } catch (error) {
+  } catch {
     return [400, { success: false, message: "请求参数格式错误" }];
   }
 });
 
 // API函数
-export const login = async (params: LoginParams): Promise<AxiosResponse<ApiResponse<LoginResponse>>> => {
-  return instance.post("/login", params);
-};
+export const login = async (params: LoginParams): Promise<AxiosResponse<ApiResponse<LoginResponse>>> => instance.post("/login", params);
 
-export const getUsers = async (params: PaginationParams): Promise<AxiosResponse<PaginatedResponse<User>>> => {
-  return instance.post("/users", params);
-};
+export const getUsers = async (params: PaginationParams): Promise<AxiosResponse<PaginatedResponse<User>>> => instance.post("/users", params);
 
-export const getCompany = async (): Promise<AxiosResponse<ApiResponse>> => {
-  return instance.get("/company");
-};
+export const getCompany = async (): Promise<AxiosResponse<ApiResponse>> => instance.get("/company");
 
 // 导出axios实例供其他地方使用
 export { instance as axiosInstance };

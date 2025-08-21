@@ -16,6 +16,7 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   {
+    ignores: ["eslint.config.mjs"],
     extends: compat.extends(
       "airbnb",
     ),
@@ -29,6 +30,7 @@ export default tseslint.config(
         ...globals.browser,
         ...globals.node,
         ...globals.es2021,
+        ...globals.jest,
       },
 
       parserOptions: {

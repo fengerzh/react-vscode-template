@@ -1,6 +1,8 @@
 import React, { memo, useCallback, useMemo } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import { Avatar, Dropdown, Button, message, FloatButton } from "antd";
+import {
+  Avatar, Dropdown, Button, message, FloatButton,
+} from "antd";
 import { ProLayout, MenuDataItem } from "@ant-design/pro-components";
 import {
   UserOutlined,
@@ -30,7 +32,9 @@ const BasicLayout: React.FC = memo(observer(() => {
   const location = useLocation();
 
   // 从store获取用户信息
-  const { userInfo, appState, clearUserInfo, toggleCollapsed } = userStore;
+  const {
+    userInfo, appState, clearUserInfo, toggleCollapsed,
+  } = userStore;
 
   // 菜单数据
   const menuData: MenuItem[] = useMemo(() => [
@@ -113,7 +117,8 @@ const BasicLayout: React.FC = memo(observer(() => {
         display: "flex",
         alignItems: "center",
         gap: "8px",
-      }}>
+      }}
+      >
         <Avatar
           shape="circle"
           size="small"
@@ -129,7 +134,7 @@ const BasicLayout: React.FC = memo(observer(() => {
 
   // 菜单点击处理
   const handleMenuClick = useCallback((menuInfo: { key: string }) => {
-    const menuItem = menuData.find(item => item.key === menuInfo.key);
+    const menuItem = menuData.find((item) => item.key === menuInfo.key);
     if (menuItem?.path) {
       navigate(menuItem.path);
     }
@@ -152,7 +157,13 @@ const BasicLayout: React.FC = memo(observer(() => {
           return defaultDom;
         }
         return (
-          <div onClick={() => handleMenuClick({ key: menuItemProps.key || "" })}>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => handleMenuClick({ key: menuItemProps.key || "" })}
+            onKeyDown={() => {
+            }}
+          >
             {defaultDom}
           </div>
         );
@@ -171,7 +182,7 @@ const BasicLayout: React.FC = memo(observer(() => {
       }}
     >
       <Outlet />
-      
+
       {/* 浮动按钮组 */}
       <FloatButton.Group
         trigger="hover"

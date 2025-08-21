@@ -192,8 +192,7 @@ const Home: React.FC = memo(() => {
         current,
         pageSize,
       };
-    } catch (error) {
-      console.error("获取用户列表失败:", error);
+    } catch {
       return {
         data: [],
         success: false,

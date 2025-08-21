@@ -68,8 +68,6 @@ class UserStore {
           userId: localStorage.getItem("userId") || undefined,
         };
       });
-    } catch (error) {
-      console.error("获取用户信息失败:", error);
     } finally {
       this.setLoading(false);
     }

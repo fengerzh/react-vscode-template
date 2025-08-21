@@ -28,7 +28,7 @@ describe("App Component", () => {
 
   it("应该正确渲染App组件", () => {
     render(<App />);
-    
+
     // 检查路由内容是否渲染
     expect(screen.getByTestId("router-content")).toBeInTheDocument();
   });
@@ -43,13 +43,13 @@ describe("App Component", () => {
     };
 
     // 创建一个包含错误组件的App版本
-    const AppWithError = () => {
+    function AppWithError() {
       return (
         <div>
           <ThrowError />
         </div>
       );
-    };
+    }
 
     // 使用ErrorBoundary包装
     const { ErrorBoundary } = require("../App");
@@ -57,7 +57,7 @@ describe("App Component", () => {
     render(
       <ErrorBoundary>
         <AppWithError />
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
     // 检查错误边界是否显示
@@ -70,7 +70,7 @@ describe("App Component", () => {
 
   it("应该设置正确的locale", () => {
     render(<App />);
-    
+
     // 检查ConfigProvider是否正确设置了中文locale
     // 这里我们通过检查是否没有英文文本来间接验证
     expect(screen.queryByText("No Data")).not.toBeInTheDocument();
