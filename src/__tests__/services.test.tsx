@@ -1,6 +1,8 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { login, getUsers, LoginParams, User, axiosInstance } from "../services";
+import {
+  login, getUsers, LoginParams, axiosInstance,
+} from "../services";
 
 // 创建axios mock实例
 let mock = new MockAdapter(axios);
@@ -13,6 +15,19 @@ jest.mock("antd", () => ({
     info: jest.fn(),
   },
 }));
+
+const originalLocation = window.location;
+
+beforeAll(() => {
+  window.location = {
+    ...originalLocation,
+    href: "",
+    assign: jest.fn(),
+    replace: jest.fn(),
+    reload: jest.fn(),
+    toString: jest.fn(() => ""),
+  } as unknown as string & Location;
+});
 
 describe("Services", () => {
   beforeEach(() => {
@@ -149,7 +164,7 @@ describe("Services", () => {
 
       try {
         await axios.post("/test", {});
-      } catch (error) {
+      } catch {
         // 忽略错误，我们只关心请求头
       }
     });
@@ -171,8 +186,7 @@ describe("Services", () => {
 
     it("应该处理401未授权", async () => {
       // Mock window.location.href
-      delete (window as any).location;
-      (window as any).location = { href: "" };
+      window.location.href = "http://localhost:3000/login";
 
       mock.onPost("/test").reply(401, {
         success: false,
@@ -269,7 +283,7 @@ describe("响应拦截器（axiosInstance）", () => {
   let mockInstance: MockAdapter;
 
   beforeEach(() => {
-    mockInstance = new MockAdapter(axiosInstance as any);
+    mockInstance = new MockAdapter(axiosInstance as AxiosInstance);
   });
 
   afterEach(() => {
@@ -330,8 +344,10 @@ describe("响应拦截器（axiosInstance）", () => {
 
   it("应该处理 error.request 分支（instance）", async () => {
     // 直接调用响应拦截器的 rejected 分支，模拟一个包含 request 的错误
-    const handlers = (axiosInstance as any).interceptors.response.handlers;
-    const rejected = handlers.find((h: any) => typeof h.rejected === "function").rejected;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { handlers } = (axiosInstance as any).interceptors.response;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { rejected } = handlers.find((h: any) => typeof h.rejected === "function");
     const fakeError = { request: {}, message: "Network Error" };
     await expect(rejected(fakeError)).rejects.toBeDefined();
   });

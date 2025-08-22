@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import App from "../App";
+import App, { ErrorBoundary } from "../App";
 
 // Mock MobX store
 jest.mock("@/store", () => ({
@@ -52,8 +52,6 @@ describe("App Component", () => {
     }
 
     // 使用ErrorBoundary包装
-    const { ErrorBoundary } = require("../App");
-
     render(
       <ErrorBoundary>
         <AppWithError />

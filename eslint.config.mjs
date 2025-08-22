@@ -5,6 +5,7 @@ import eslint from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
 import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
+import pluginCypress from "eslint-plugin-cypress";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -15,6 +16,7 @@ const compat = new FlatCompat({
 export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
+  pluginCypress.configs.recommended,
   {
     ignores: ["eslint.config.mjs"],
     extends: compat.extends(
@@ -23,6 +25,7 @@ export default tseslint.config(
 
     plugins: {
       "@stylistic": stylistic,
+      cypress: pluginCypress,
     },
 
     languageOptions: {
