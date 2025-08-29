@@ -2674,7 +2674,7 @@ convert-source-map@^2.0.0:
 
 cookie@^1.0.1:
   version "1.0.2"
-  resolved "https://registry.npmjs.org/cookie/-/cookie-1.0.2.tgz#27360701532116bd3f1f9416929d176afe1e4610"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-1.0.2.tgz#27360701532116bd3f1f9416929d176afe1e4610"
   integrity sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==
 
 copy-to-clipboard@^3.3.3:
@@ -5966,16 +5966,16 @@ react-refresh@^0.17.0:
   integrity sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==
 
 react-router-dom@^7.8.0:
-  version "7.8.1"
-  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.8.1.tgz#9b5fedaf1886362ab02c9e4c51bc6afcd03151a0"
-  integrity sha512-NkgBCF3sVgCiAWIlSt89GR2PLaksMpoo3HDCorpRfnCEfdtRPLiuTf+CNXvqZMI5SJLZCLpVCvcZrTdtGW64xQ==
+  version "7.8.2"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-7.8.2.tgz#25a8fc36588189baf3bbb5e360c8ffffbd2beabc"
+  integrity sha512-Z4VM5mKDipal2jQ385H6UBhiiEDlnJPx6jyWsTYoZQdl5TrjxEV2a9yl3Fi60NBJxYzOTGTTHXPi0pdizvTwow==
   dependencies:
-    react-router "7.8.1"
+    react-router "7.8.2"
 
-react-router@7.8.1:
-  version "7.8.1"
-  resolved "https://registry.npmjs.org/react-router/-/react-router-7.8.1.tgz#62d62bc1a3fcde79c3ced8f7114f7b4f86916ce2"
-  integrity sha512-5cy/M8DHcG51/KUIka1nfZ2QeylS4PJRs6TT8I4PF5axVsI5JUxp0hC0NZ/AEEj8Vw7xsEoD7L/6FY+zoYaOGA==
+react-router@7.8.2:
+  version "7.8.2"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.8.2.tgz#9d2d4147ca72832c550acc60ed688062d18f70b8"
+  integrity sha512-7M2fR1JbIZ/jFWqelpvSZx+7vd7UlBTfdZqf6OSdF9g6+sfdqJDAWcak6ervbHph200ePlu+7G8LdoiC3ReyAQ==
   dependencies:
     cookie "^1.0.1"
     set-cookie-parser "^2.6.0"
@@ -6223,7 +6223,7 @@ semver@^7.5.3, semver@^7.5.4, semver@^7.6.0, semver@^7.7.1, semver@^7.7.2:
 
 set-cookie-parser@^2.6.0:
   version "2.7.1"
-  resolved "https://registry.npmjs.org/set-cookie-parser/-/set-cookie-parser-2.7.1.tgz#3016f150072202dfbe90fadee053573cc89d2943"
+  resolved "https://registry.yarnpkg.com/set-cookie-parser/-/set-cookie-parser-2.7.1.tgz#3016f150072202dfbe90fadee053573cc89d2943"
   integrity sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==
 
 set-function-length@^1.2.2:
