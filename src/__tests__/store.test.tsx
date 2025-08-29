@@ -1,4 +1,5 @@
-import userStore, { UserInfo } from "../store";
+import { renderHook, act } from "@testing-library/react";
+import useUserStore, { UserInfo } from "../store";
 
 // Mock localStorage
 const localStorageMock = {
@@ -24,141 +25,203 @@ describe("UserStore", () => {
     jest.clearAllMocks();
     localStorageMock.getItem.mockReturnValue(null);
 
-    // 重置store状态
-    userStore.userInfo = { userName: "" };
-    userStore.appState = {
-      loading: false,
-      theme: "light",
-      collapsed: false,
-    };
+    // 重置 Zustand store 状态
+    act(() => {
+      useUserStore.setState({
+        userInfo: { userName: "" },
+        appState: {
+          loading: false,
+          theme: "light",
+          collapsed: false,
+        },
+      });
+    });
+
+    // 清除持久化存储
+    localStorageMock.removeItem("user-store");
   });
 
   describe("用户信息管理", () => {
     it("应该正确设置用户信息", () => {
+      const { result } = renderHook(() => useUserStore());
       const userInfo: UserInfo = {
         userName: "张三",
         userId: "user_001",
         email: "zhangsan@example.com",
       };
 
-      userStore.setUserInfo(userInfo);
+      act(() => {
+        result.current.setUserInfo(userInfo);
+      });
 
-      expect(userStore.userInfo.userName).toBe("张三");
-      expect(userStore.userInfo.userId).toBe("user_001");
-      expect(userStore.userInfo.email).toBe("zhangsan@example.com");
-      expect(localStorageMock.setItem).toHaveBeenCalledWith("userName", "张三");
-      expect(localStorageMock.setItem).toHaveBeenCalledWith("userId", "user_001");
+      expect(result.current.userInfo.userName).toBe("张三");
+      expect(result.current.userInfo.userId).toBe("user_001");
+      expect(result.current.userInfo.email).toBe("zhangsan@example.com");
     });
 
     it("应该正确清除用户信息", () => {
+      const { result } = renderHook(() => useUserStore());
+
       // 先设置用户信息
-      userStore.setUserInfo({ userName: "张三", userId: "user_001" });
-
-      // 清除用户信息
-      userStore.clearUserInfo();
-
-      expect(userStore.userInfo.userName).toBe("");
-      expect(userStore.userInfo.userId).toBeUndefined();
-      expect(localStorageMock.removeItem).toHaveBeenCalledWith("userName");
-      expect(localStorageMock.removeItem).toHaveBeenCalledWith("userId");
-    });
-
-    it("应该从localStorage初始化用户信息", () => {
-      // 先清除模块缓存
-      jest.resetModules();
-
-      localStorageMock.getItem.mockImplementation((key: string) => {
-        if (key === "userName") return "李四";
-        if (key === "userId") return "user_002";
-        return null;
+      act(() => {
+        result.current.setUserInfo({ userName: "张三", userId: "user_001" });
       });
 
-      // eslint-disable-next-line global-require, @typescript-eslint/no-require-imports
-      const newStore = require("../store").default;
+      // 清除用户信息
+      act(() => {
+        result.current.clearUserInfo();
+      });
 
-      expect(newStore.userInfo.userName).toBe("李四");
-      expect(newStore.userInfo.userId).toBe("user_002");
+      expect(result.current.userInfo.userName).toBe("");
+      expect(result.current.userInfo.userId).toBeUndefined();
+    });
+
+    it("应该支持用户信息的部分更新", () => {
+      const { result } = renderHook(() => useUserStore());
+
+      // 先设置基本用户信息
+      act(() => {
+        result.current.setUserInfo({ userName: "李四" });
+      });
+
+      expect(result.current.userInfo.userName).toBe("李四");
+      expect(result.current.userInfo.userId).toBeUndefined();
+
+      // 再更新用户ID
+      act(() => {
+        result.current.setUserInfo({ userId: "user_002" });
+      });
+
+      // 验证部分更新成功
+      expect(result.current.userInfo.userName).toBe("李四");
+      expect(result.current.userInfo.userId).toBe("user_002");
     });
   });
 
   describe("应用状态管理", () => {
     it("应该正确切换加载状态", () => {
-      expect(userStore.appState.loading).toBe(false);
+      const { result } = renderHook(() => useUserStore());
 
-      userStore.setLoading(true);
-      expect(userStore.appState.loading).toBe(true);
+      expect(result.current.appState.loading).toBe(false);
 
-      userStore.setLoading(false);
-      expect(userStore.appState.loading).toBe(false);
+      act(() => {
+        result.current.setLoading(true);
+      });
+      expect(result.current.appState.loading).toBe(true);
+
+      act(() => {
+        result.current.setLoading(false);
+      });
+      expect(result.current.appState.loading).toBe(false);
     });
 
     it("应该正确切换主题", () => {
-      expect(userStore.appState.theme).toBe("light");
+      const { result } = renderHook(() => useUserStore());
 
-      userStore.toggleTheme();
-      expect(userStore.appState.theme).toBe("dark");
+      expect(result.current.appState.theme).toBe("light");
 
-      userStore.toggleTheme();
-      expect(userStore.appState.theme).toBe("light");
+      act(() => {
+        result.current.toggleTheme();
+      });
+      expect(result.current.appState.theme).toBe("dark");
+
+      act(() => {
+        result.current.toggleTheme();
+      });
+      expect(result.current.appState.theme).toBe("light");
     });
 
     it("应该正确切换侧边栏折叠状态", () => {
-      expect(userStore.appState.collapsed).toBe(false);
+      const { result } = renderHook(() => useUserStore());
 
-      userStore.toggleCollapsed();
-      expect(userStore.appState.collapsed).toBe(true);
+      expect(result.current.appState.collapsed).toBe(false);
 
-      userStore.toggleCollapsed();
-      expect(userStore.appState.collapsed).toBe(false);
+      act(() => {
+        result.current.toggleCollapsed();
+      });
+      expect(result.current.appState.collapsed).toBe(true);
+
+      act(() => {
+        result.current.toggleCollapsed();
+      });
+      expect(result.current.appState.collapsed).toBe(false);
     });
   });
 
   describe("计算属性", () => {
     it("isLoggedIn应该正确返回登录状态", () => {
-      expect(userStore.isLoggedIn).toBe(false);
+      const { result } = renderHook(() => useUserStore());
 
-      userStore.setUserInfo({ userName: "张三" });
-      expect(userStore.isLoggedIn).toBe(true);
+      expect(result.current.isLoggedIn()).toBe(false);
 
-      userStore.clearUserInfo();
-      expect(userStore.isLoggedIn).toBe(false);
+      act(() => {
+        result.current.setUserInfo({ userName: "张三" });
+      });
+      expect(result.current.isLoggedIn()).toBe(true);
+
+      act(() => {
+        result.current.clearUserInfo();
+      });
+      expect(result.current.isLoggedIn()).toBe(false);
     });
 
     it("displayName应该正确返回显示名称", () => {
-      expect(userStore.displayName).toBe("未登录");
+      const { result } = renderHook(() => useUserStore());
 
-      userStore.setUserInfo({ userName: "张三" });
-      expect(userStore.displayName).toBe("张三");
+      expect(result.current.displayName()).toBe("未登录");
 
-      userStore.clearUserInfo();
-      expect(userStore.displayName).toBe("未登录");
+      act(() => {
+        result.current.setUserInfo({ userName: "张三" });
+      });
+      expect(result.current.displayName()).toBe("张三");
+
+      act(() => {
+        result.current.clearUserInfo();
+      });
+      expect(result.current.displayName()).toBe("未登录");
     });
   });
 
   describe("异步方法", () => {
     it("getUserInfo应该正确处理成功情况", async () => {
-      localStorageMock.getItem.mockImplementation((key: string) => {
-        if (key === "userName") return "王五";
-        if (key === "userId") return "user_003";
-        return null;
+      const { result } = renderHook(() => useUserStore());
+
+      // 先设置一些用户信息
+      act(() => {
+        result.current.setUserInfo({ userName: "王五", userId: "user_003" });
       });
 
-      await userStore.getUserInfo();
+      await act(async () => {
+        await result.current.getUserInfo();
+      });
 
-      expect(userStore.userInfo.userName).toBe("王五");
-      expect(userStore.userInfo.userId).toBe("user_003");
+      // getUserInfo 主要是模拟 API 调用，不会改变现有的用户信息
+      expect(result.current.userInfo.userName).toBe("王五");
+      expect(result.current.userInfo.userId).toBe("user_003");
     });
 
     it("getUserInfo应该正确处理加载状态", async () => {
-      const getUserInfoPromise = userStore.getUserInfo();
+      const { result } = renderHook(() => useUserStore());
 
-      // 在异步操作期间，loading应该为true
-      expect(userStore.appState.loading).toBe(true);
+      // 确保初始状态为false
+      expect(result.current.appState.loading).toBe(false);
 
-      await getUserInfoPromise;
+      await act(async () => {
+        // 启动异步操作
+        const getUserInfoPromise = result.current.getUserInfo();
+
+        // 等待一个微任务，让setLoading(true)执行
+        await Promise.resolve();
+
+        // 现在loading应该为true
+        expect(result.current.appState.loading).toBe(true);
+
+        // 等待操作完成
+        await getUserInfoPromise;
+      });
 
       // 异步操作完成后，loading应该为false
-      expect(userStore.appState.loading).toBe(false);
+      expect(result.current.appState.loading).toBe(false);
     });
   });
 });

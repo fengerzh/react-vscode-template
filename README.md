@@ -8,6 +8,7 @@
 
 - **React 19.0.0** - 最新版本的 React，支持并发特性和新的 Hooks
 - **TypeScript** - 类型安全的 JavaScript
+- **Zustand** - 轻量级状态管理库
 - **Vite** - 快速的构建工具
 - **Ant Design** - 企业级 UI 组件库
 - **Tailwind CSS** - 原子化 CSS 框架
@@ -131,7 +132,7 @@ src/
 │   └── User/        # 用户相关页面
 │       └── Login.tsx # 登录页面 (useOptimistic 示例)
 ├── services/        # API 服务
-├── store/          # 状态管理
+├── store/          # Zustand 状态管理
 ├── routes/         # 路由配置
 └── types/          # TypeScript 类型定义
 ```

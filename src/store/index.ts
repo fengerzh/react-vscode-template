@@ -1,4 +1,5 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { create } from "zustand";
+import { subscribeWithSelector, persist } from "zustand/middleware";
 
 // 用户信息类型定义
 export interface UserInfo {
@@ -16,108 +17,112 @@ export interface AppState {
   collapsed: boolean;
 }
 
-class UserStore {
-  // 用户信息
-  userInfo: UserInfo = {
-    userName: "",
-  };
+// Store 状态类型定义
+interface UserStoreState {
+  // 状态
+  userInfo: UserInfo;
+  appState: AppState;
 
-  // 应用状态
-  appState: AppState = {
-    loading: false,
-    theme: "light",
-    collapsed: false,
-  };
+  // Actions
+  getUserInfo: () => Promise<void>;
+  setUserInfo: (userInfo: Partial<UserInfo>) => void;
+  clearUserInfo: () => void;
+  setLoading: (loading: boolean) => void;
+  toggleTheme: () => void;
+  toggleCollapsed: () => void;
 
-  constructor() {
-    // 使用makeAutoObservable自动处理observable和action
-    makeAutoObservable(this, {}, { autoBind: true });
-
-    // 初始化时从localStorage恢复用户信息
-    this.initUserInfo();
-  }
-
-  // 初始化用户信息
-  private initUserInfo() {
-    const savedUserName = localStorage.getItem("userName");
-    const savedUserId = localStorage.getItem("userId");
-
-    if (savedUserName) {
-      this.userInfo = {
-        ...this.userInfo,
-        userName: savedUserName,
-        userId: savedUserId || undefined,
-      };
-    }
-  }
-
-  // 获取用户信息
-  async getUserInfo(): Promise<void> {
-    try {
-      this.setLoading(true);
-
-      // 这里可以调用API获取用户信息
-      // const response = await api.getUserInfo();
-
-      // 模拟API调用
-      await new Promise((resolve) => { setTimeout(resolve, 500); });
-
-      runInAction(() => {
-        this.userInfo = {
-          userName: localStorage.getItem("userName") || "",
-          userId: localStorage.getItem("userId") || undefined,
-        };
-      });
-    } finally {
-      this.setLoading(false);
-    }
-  }
-
-  // 设置用户信息
-  setUserInfo(userInfo: Partial<UserInfo>): void {
-    this.userInfo = { ...this.userInfo, ...userInfo };
-
-    // 持久化到localStorage
-    if (userInfo.userName) {
-      localStorage.setItem("userName", userInfo.userName);
-    }
-    if (userInfo.userId) {
-      localStorage.setItem("userId", userInfo.userId);
-    }
-  }
-
-  // 清除用户信息
-  clearUserInfo(): void {
-    this.userInfo = { userName: "" };
-    localStorage.removeItem("userName");
-    localStorage.removeItem("userId");
-    document.cookie = "token=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  }
-
-  // 设置加载状态
-  setLoading(loading: boolean): void {
-    this.appState.loading = loading;
-  }
-
-  // 切换主题
-  toggleTheme(): void {
-    this.appState.theme = this.appState.theme === "light" ? "dark" : "light";
-  }
-
-  // 切换侧边栏折叠状态
-  toggleCollapsed(): void {
-    this.appState.collapsed = !this.appState.collapsed;
-  }
-
-  // 计算属性：是否已登录
-  get isLoggedIn(): boolean {
-    return !!this.userInfo.userName;
-  }
-
-  // 计算属性：用户显示名称
-  get displayName(): string {
-    return this.userInfo.userName || "未登录";
-  }
+  // 计算属性
+  isLoggedIn: () => boolean;
+  displayName: () => string;
 }
 
-export default new UserStore();
+
+
+// 创建 Zustand store
+const useUserStore = create<UserStoreState>()(
+  persist(
+    subscribeWithSelector((set, get) => ({
+    // 初始状态
+    userInfo: { userName: "" },
+    appState: {
+      loading: false,
+      theme: "light",
+      collapsed: false,
+    },
+
+
+
+    // 获取用户信息
+    getUserInfo: async () => {
+      try {
+        get().setLoading(true);
+
+        // 这里可以调用API获取用户信息
+        // const response = await api.getUserInfo();
+
+        // 模拟API调用
+        await new Promise((resolve) => { setTimeout(resolve, 500); });
+
+        // 由于使用了持久化中间件，用户信息已经自动从 localStorage 恢复
+        // 这里可以根据需要更新用户信息，比如从服务器获取最新数据
+      } finally {
+        get().setLoading(false);
+      }
+    },
+
+    // 设置用户信息
+    setUserInfo: (userInfo: Partial<UserInfo>) => {
+      set((state) => ({
+        userInfo: { ...state.userInfo, ...userInfo },
+      }));
+    },
+
+    // 清除用户信息
+    clearUserInfo: () => {
+      set({ userInfo: { userName: "" } });
+      document.cookie = "token=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    },
+
+    // 设置加载状态
+    setLoading: (loading: boolean) => {
+      set((state) => ({
+        appState: { ...state.appState, loading },
+      }));
+    },
+
+    // 切换主题
+    toggleTheme: () => {
+      set((state) => ({
+        appState: {
+          ...state.appState,
+          theme: state.appState.theme === "light" ? "dark" : "light",
+        },
+      }));
+    },
+
+    // 切换侧边栏折叠状态
+    toggleCollapsed: () => {
+      set((state) => ({
+        appState: { ...state.appState, collapsed: !state.appState.collapsed },
+      }));
+    },
+
+    // 计算属性：是否已登录
+    isLoggedIn: () => {
+      return !!get().userInfo.userName;
+    },
+
+    // 计算属性：用户显示名称
+    displayName: () => {
+      return get().userInfo.userName || "未登录";
+    },
+  })),
+  {
+    name: "user-store", // 存储的键名
+    partialize: (state) => ({
+      userInfo: state.userInfo
+    }), // 只持久化用户信息，不持久化应用状态
+  }
+));
+
+export default useUserStore;

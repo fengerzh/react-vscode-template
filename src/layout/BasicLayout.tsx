@@ -14,8 +14,7 @@ import {
   PlusOutlined,
   QuestionCircleOutlined,
 } from "@ant-design/icons";
-import { observer } from "mobx-react";
-import userStore from "@/store";
+import useUserStore from "@/store";
 import logo from "../logo.svg";
 
 // 菜单数据类型
@@ -27,14 +26,16 @@ interface MenuItem extends MenuDataItem {
   children?: MenuItem[];
 }
 
-const BasicLayout: React.FC = memo(observer(() => {
+const BasicLayout: React.FC = memo(() => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 从store获取用户信息
-  const {
-    userInfo, appState, clearUserInfo, toggleCollapsed,
-  } = userStore;
+  // 从 Zustand store 获取状态和方法
+  const userInfo = useUserStore((state) => state.userInfo);
+  const appState = useUserStore((state) => state.appState);
+  const clearUserInfo = useUserStore((state) => state.clearUserInfo);
+  const toggleCollapsed = useUserStore((state) => state.toggleCollapsed);
+  const displayName = useUserStore((state) => state.displayName());
 
   // 菜单数据
   const menuData: MenuItem[] = useMemo(() => [
@@ -126,7 +127,7 @@ const BasicLayout: React.FC = memo(observer(() => {
           style={{ backgroundColor: "#1890ff" }}
         />
         <span style={{ fontSize: "14px" }}>
-          {userStore.displayName}
+          {displayName}
         </span>
       </div>
     </Dropdown>,
@@ -140,6 +141,27 @@ const BasicLayout: React.FC = memo(observer(() => {
     }
   }, [menuData, navigate]);
 
+  // 菜单项渲染处理
+  const handleMenuItemRender = useCallback((
+    menuItemProps: MenuDataItem,
+    defaultDom: React.ReactNode,
+  ) => {
+    if (menuItemProps.isUrl || !menuItemProps.path) {
+      return defaultDom;
+    }
+    return (
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => handleMenuClick({ key: menuItemProps.key || "" })}
+        onKeyDown={() => {
+        }}
+      >
+        {defaultDom}
+      </div>
+    );
+  }, [handleMenuClick]);
+
   return (
     <ProLayout
       title="React Template"
@@ -152,22 +174,7 @@ const BasicLayout: React.FC = memo(observer(() => {
       collapsed={appState.collapsed}
       onCollapse={toggleCollapsed}
       menuDataRender={() => menuData}
-      menuItemRender={(menuItemProps, defaultDom) => {
-        if (menuItemProps.isUrl || !menuItemProps.path) {
-          return defaultDom;
-        }
-        return (
-          <div
-            role="button"
-            tabIndex={0}
-            onClick={() => handleMenuClick({ key: menuItemProps.key || "" })}
-            onKeyDown={() => {
-            }}
-          >
-            {defaultDom}
-          </div>
-        );
-      }}
+      menuItemRender={handleMenuItemRender}
       location={{
         pathname: location.pathname,
       }}
@@ -210,7 +217,7 @@ const BasicLayout: React.FC = memo(observer(() => {
       </FloatButton.Group>
     </ProLayout>
   );
-}));
+});
 
 BasicLayout.displayName = "BasicLayout";
 

@@ -4,6 +4,7 @@ import { MobileOutlined, MailOutlined } from "@ant-design/icons";
 import { login } from "@/services/index";
 import type { LoginParams } from "@/services/index";
 import { useOptimistic, startTransition } from "react";
+import useUserStore from "@/store";
 
 const waitTime = (time = 100) => new Promise((resolve) => {
   setTimeout(() => {
@@ -16,6 +17,9 @@ function Login() {
   const [optimisticLogin, addOptimisticLogin] = useOptimistic<LoginParams | null>(
     null,
   );
+
+  // 获取 Zustand store 方法
+  const setUserInfo = useUserStore((state) => state.setUserInfo);
 
   return (
     <div
@@ -35,7 +39,13 @@ function Login() {
             const res = await login(data);
             if (res) {
               message.success("登录成功");
-              localStorage.setItem("userName", res.data.data.userName);
+
+              // 使用 Zustand store 设置用户信息，会自动持久化到 localStorage
+              setUserInfo({
+                userName: res.data.data.userName,
+                ...(res.data.data.userId && { userId: res.data.data.userId }),
+              });
+
               document.cookie = "token=abcde;path=/";
               window.location.href = "/dashboard";
             }
