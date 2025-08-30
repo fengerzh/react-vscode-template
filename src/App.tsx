@@ -3,6 +3,7 @@ import { ConfigProvider } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
+import { ErrorBoundary } from "react-error-boundary";
 import "antd/dist/reset.css";
 import router from "@/routes";
 
@@ -12,9 +13,11 @@ dayjs.locale("zh-cn");
 function App() {
   return (
     <ConfigProvider locale={zhCN}>
-      <BrowserRouter>
-        {router}
-      </BrowserRouter>
+      <ErrorBoundary fallback={<div>Error</div>}>
+        <BrowserRouter>
+          {router}
+        </BrowserRouter>
+      </ErrorBoundary>
     </ConfigProvider>
   );
 }

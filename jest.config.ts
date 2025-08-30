@@ -5,6 +5,9 @@ const config: Config.InitialOptions = {
   transform: {
     "^.+\\.(ts|tsx|js|jsx)$": "ts-jest",
   },
+  transformIgnorePatterns: [
+    "node_modules/(?!react-error-boundary)/",
+  ],
   moduleNameMapper: {
     "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
     "@/(.*)": "<rootDir>/src/$1",
