@@ -15,7 +15,9 @@ const routerConfig = [
 interface RouteConfig {
   path?: string;
   key?: string;
-  component?: React.ComponentType<unknown>;
+  component?:
+    | React.ComponentType<Record<string, unknown>>
+    | React.LazyExoticComponent<React.ComponentType<Record<string, unknown>>>;
   auth?: boolean;
   redirect?: string;
   index?: boolean;

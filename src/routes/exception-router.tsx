@@ -23,4 +23,12 @@ export default [
       },
     ],
   },
+  // 添加一个独立的404路由，不嵌套在UserLayout中
+  {
+    name: "404",
+    path: "/exception/404",
+    key: "404-standalone",
+    component: NotFound,
+    auth: false,
+  },
 ];
