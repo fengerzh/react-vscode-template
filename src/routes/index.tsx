@@ -91,6 +91,8 @@ function renderRoutes(configs: RouteConfig[]) {
 
 // 路由组件
 function AppRouter() {
+  const isAuthenticated = checkAuth();
+
   return (
     <Suspense
       fallback={(
@@ -108,7 +110,15 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         {renderRoutes(routerConfig)}
-        <Route path="*" element={<Navigate to="/exception/404" replace />} />
+        <Route
+          path="*"
+          element={(
+            <Navigate
+              to={isAuthenticated ? "/dashboard/404" : "/exception/404"}
+              replace
+            />
+          )}
+        />
       </Routes>
     </Suspense>
   );
