@@ -102,8 +102,8 @@ describe("Home Component", () => {
     // 检查页面标题和基本元素
     expectToBeInDocument(screen.getByText("用户管理"));
     expectToBeInDocument(screen.getByText(/管理系统用户信息/));
-    expect(screen.getAllByText("姓名")).toHaveLength(2); // 搜索表单和表格头都有
-    expect(screen.getAllByText("年龄")).toHaveLength(2); // 搜索表单和表格头都有
+    expect(screen.getAllByText("姓名")).toHaveLength(3); // 搜索表单、表格头和内部渲染都有
+    expect(screen.getAllByText("年龄")).toHaveLength(3); // 搜索表单、表格头和内部渲染都有
   });
 
   it("应该显示新建用户按钮", async () => {
