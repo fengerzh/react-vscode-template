@@ -30,7 +30,7 @@
     "react-dom": "^19.1.1",
     "react-error-boundary": "^6.0.0",
     "react-router-dom": "^7.9.3",
-    "tailwindcss": "^4.1.12",
+    "tailwindcss": "^4.1.15",
     "vite": "^7.1.9",
     "vite-plugin-imp": "^2.4.0",
     "zustand": "^5.0.8"
