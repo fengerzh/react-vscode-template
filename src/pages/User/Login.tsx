@@ -1,5 +1,5 @@
 import { message } from "antd";
-import ProForm, { ProFormText, ProFormCaptcha } from "@ant-design/pro-form";
+import { ProForm, ProFormText, ProFormCaptcha } from "@ant-design/pro-components";
 import { MobileOutlined, MailOutlined } from "@ant-design/icons";
 import { login } from "@/services/index";
 import type { LoginParams } from "@/services/index";

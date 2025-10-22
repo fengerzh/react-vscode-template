@@ -3,7 +3,7 @@ import React, {
 } from "react";
 import { Link } from "react-router-dom";
 import { PageContainer } from "@ant-design/pro-components";
-import ProTable, { ProColumns } from "@ant-design/pro-table";
+import { ProTable, ProColumns } from "@ant-design/pro-components";
 import {
   Button, Space, Tag, FloatButton, message,
 } from "antd";

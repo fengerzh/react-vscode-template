@@ -1,5 +1,45 @@
 {
-  "extends": [
-    "config:recommended"
-  ]
+  "extends": ["config:recommended"],
+  "schedule": ["before 3am on Monday"],
+  "timezone": "Asia/Shanghai",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["dependencies", "major-update"],
+      "prTitle": "{{updateType}} {{depName}} to {{newVersion}}"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr",
+      "labels": ["dependencies", "automerge"]
+    },
+    {
+      "matchPackageNames": ["react", "react-dom"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["dependencies", "react-major"]
+    },
+    {
+      "matchPackageNames": ["@types/*"],
+      "automerge": true,
+      "labels": ["dependencies", "types"]
+    },
+    {
+      "matchPackageNames": ["eslint*", "@typescript-eslint/*"],
+      "automerge": false,
+      "labels": ["dependencies", "linting"]
+    },
+    {
+      "matchPackageNames": ["@ant-design/*"],
+      "automerge": false,
+      "labels": ["dependencies", "antd"]
+    }
+  ],
+  "ignoreDeps": ["vite-plugin-imp"],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security"]
+  }
 }

@@ -77,7 +77,8 @@
     "cypress/**/*",
     "vite.config.ts",
     "jest.config.ts",
-    "jest.setup.ts"
+    "jest.setup.ts",
+    "cypress.config.ts"
   ],
   "exclude": [
     "node_modules",
