@@ -143,7 +143,7 @@
     rc-util "^5.4.0"
     swr "^2.0.0"
 
-"@ant-design/pro-form@2.32.0", "@ant-design/pro-form@^2.32.0":
+"@ant-design/pro-form@2.32.0":
   version "2.32.0"
   resolved "https://registry.npmjs.org/@ant-design/pro-form/-/pro-form-2.32.0.tgz#bbc7758fd3b39cf0d8795d5dcd06fa36b1ab8741"
   integrity sha512-GZnVAMeYv+YHJb17lJ7rX5PYuQPvEA6EotQnPbHi9tGLN3PfexcAd21rqzuO+OrulU2x7TEMDIxtY9MzvvOGbg==
@@ -219,7 +219,7 @@
   dependencies:
     "@babel/runtime" "^7.18.0"
 
-"@ant-design/pro-table@3.21.0", "@ant-design/pro-table@^3.21.0":
+"@ant-design/pro-table@3.21.0":
   version "3.21.0"
   resolved "https://registry.npmjs.org/@ant-design/pro-table/-/pro-table-3.21.0.tgz#cae2f3b09c95e9d821092f6013d029886ac62d39"
   integrity sha512-sI81d3FYRv5sXamUc+M5CsHZ9CchuUQgOAPzo5H4oPAVL5h+mkYGRsBzPsxQX7khTNpWjrAtPoRm5ipx3vvWog==
@@ -6647,9 +6647,9 @@ systeminformation@5.27.7:
   integrity sha512-saaqOoVEEFaux4v0K8Q7caiauRwjXC4XbD2eH60dxHXbpKxQ8kH9Rf7Jh+nryKpOUSEFxtCdBlSUx0/lO6rwRg==
 
 tailwindcss@^4.1.15:
-  version "4.1.15"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.1.15.tgz#1437ee75ed8f66d8d866da5e25daa38d06ce5cea"
-  integrity sha512-k2WLnWkYFkdpRv+Oby3EBXIyQC8/s1HOFMBUViwtAh6Z5uAozeUSMQlIsn/c6Q2iJzqG6aJT3wdPaRNj70iYxQ==
+  version "4.1.16"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.1.16.tgz#c32179f98725eb551e5c1189813a3db437ad5a7f"
+  integrity sha512-pONL5awpaQX4LN5eiv7moSiSPd/DLDzKVRJz8Q9PgzmAdd1R4307GQS2ZpfiN7ZmekdQrfhZZiSE5jkLR4WNaA==
 
 test-exclude@^6.0.0:
   version "6.0.0"
