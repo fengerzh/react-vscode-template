@@ -11,7 +11,7 @@
 - **Zustand** - 轻量级状态管理库
 - **Vite** - 快速的构建工具
 - **Ant Design** - 企业级 UI 组件库
-- **Tailwind CSS** - 原子化 CSS 框架
+- **Tailwind CSS 4.x** - 采用零配置方案的原子化 CSS 框架
 - **Jest + Testing Library** - 测试框架
 - **Cypress** - E2E 测试
 - **ESLint + Prettier** - 代码规范和格式化
