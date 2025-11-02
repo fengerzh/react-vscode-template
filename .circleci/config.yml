@@ -6,7 +6,7 @@ orbs:
 jobs:
   codacy-coverage-report:
     docker:
-      - image: cimg/node:22.21.0
+      - image: cimg/node:22.21.1
     steps:
       - checkout
       - run: yarn install
