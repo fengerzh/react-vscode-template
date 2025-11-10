@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@5.0.1
+  cypress: cypress-io/cypress@6.0.0
   coverage-reporter: codacy/coverage-reporter@14.1.0
 
 jobs:
