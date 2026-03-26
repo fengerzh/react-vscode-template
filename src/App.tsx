@@ -12,7 +12,16 @@ dayjs.locale("zh-cn");
 
 function App() {
   return (
-    <ConfigProvider locale={zhCN}>
+    <ConfigProvider
+      locale={zhCN}
+      theme={{
+        token: {
+          colorPrimary: "#667eea",
+          colorPrimaryHover: "#764ba2",
+          borderRadius: 8,
+        },
+      }}
+    >
       <ErrorBoundary fallback={<div>Error</div>}>
         <BrowserRouter>
           {router}

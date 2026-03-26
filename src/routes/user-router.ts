@@ -19,6 +19,7 @@ export default [
         path: "login",
         key: "login",
         component: Login,
+        guest: true, // 标记为游客页面，已登录用户自动跳转
       },
     ],
   },

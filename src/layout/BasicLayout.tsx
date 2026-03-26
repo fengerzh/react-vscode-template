@@ -124,7 +124,9 @@ const BasicLayout: React.FC = memo(() => {
           shape="circle"
           size="small"
           icon={<UserOutlined />}
-          style={{ backgroundColor: "#1890ff" }}
+          style={{
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          }}
         />
         <span style={{ fontSize: "14px" }}>
           {displayName}
@@ -187,6 +189,10 @@ const BasicLayout: React.FC = memo(() => {
       waterMarkProps={{
         content: userInfo.userName || "React Template",
       }}
+      style={{
+        "--ant-primary-color": "#667eea",
+        "--ant-primary-color-hover": "#764ba2",
+      } as React.CSSProperties}
     >
       <Outlet />
 

@@ -1,5 +1,7 @@
-import React, { Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, { Suspense, useMemo } from "react";
+import {
+  Routes, Route, Navigate, useLocation, Outlet,
+} from "react-router-dom";
 import { Spin } from "antd";
 import userRouterConfig from "./user-router";
 import commonRouterConfig from "./common-router";
@@ -19,6 +21,7 @@ interface RouteConfig {
     | React.ComponentType<Record<string, unknown>>
     | React.LazyExoticComponent<React.ComponentType<Record<string, unknown>>>;
   auth?: boolean;
+  guest?: boolean; // 游客页面，已登录用户自动跳转
   redirect?: string;
   index?: boolean;
   children?: RouteConfig[];
@@ -34,14 +37,34 @@ const checkAuth = (): boolean => {
   return !!cookies.token;
 };
 
-function renderRoutes(configs: RouteConfig[]) {
+// 认证守卫组件
+interface AuthGuardProps {
+  children: React.ReactNode;
+  auth: boolean;
+  guest: boolean; // 用于登录页，已登录用户自动跳转
+}
+
+function AuthGuard({ children, auth = false, guest = false }: AuthGuardProps) {
+  const location = useLocation();
+
+  // 每次渲染都直接读取 cookie，确保获取最新状态
   const isAuthenticated = checkAuth();
 
+  // 需要登录但未登录，跳转到登录页
+  if (auth && !isAuthenticated) {
+    return <Navigate to="/user" replace state={{ from: location }} />;
+  }
+
+  // 游客页面（如登录页），已登录用户自动跳转到首页
+  if (guest && isAuthenticated) {
+    return <Navigate to="/dashboard/home" replace />;
+  }
+
+  return children as React.ReactElement;
+}
+
+function renderRoutes(configs: RouteConfig[]) {
   return configs.map((config) => {
-    // 权限拦截
-    if (config.auth && !isAuthenticated) {
-      return <Route key={config.key || config.path} path={config.path} element={<Navigate to="/user" replace />} />;
-    }
     // 重定向
     if (config.redirect) {
       if (config.index) {
@@ -68,7 +91,11 @@ function renderRoutes(configs: RouteConfig[]) {
         <Route
           key={config.key || config.path}
           path={config.path}
-          element={Comp ? <Comp /> : undefined}
+          element={(
+            <AuthGuard auth={config.auth ?? false} guest={config.guest ?? false}>
+              {Comp ? <Comp /> : <Outlet />}
+            </AuthGuard>
+          )}
         >
           {renderRoutes(config.children)}
         </Route>
@@ -81,7 +108,11 @@ function renderRoutes(configs: RouteConfig[]) {
         <Route
           key={config.key || config.path}
           path={config.path}
-          element={<Comp />}
+          element={(
+            <AuthGuard auth={config.auth ?? false} guest={config.guest ?? false}>
+              <Comp />
+            </AuthGuard>
+          )}
         />
       );
     }
@@ -91,7 +122,8 @@ function renderRoutes(configs: RouteConfig[]) {
 
 // 路由组件
 function AppRouter() {
-  const isAuthenticated = checkAuth();
+  const location = useLocation();
+  const isAuthenticated = useMemo(() => checkAuth(), [location.pathname]);
 
   return (
     <Suspense

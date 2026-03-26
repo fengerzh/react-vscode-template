@@ -1,12 +1,21 @@
 import "./matchMedia.mock";
+import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { App, message } from "antd";
+import { MemoryRouter } from "react-router-dom";
 import type { AxiosResponse } from "axios";
 import type { ApiResponse, LoginResponse } from "@/services/index";
 import * as services from "@/services/index";
 import Login from "./Login";
+
+// 包装组件，提供 Router 上下文
+const renderWithRouter = (component: React.ReactElement) => render(
+  <MemoryRouter>
+    <App>{component}</App>
+  </MemoryRouter>,
+);
 
 // mock antd message
 jest.mock("antd", () => {
@@ -32,12 +41,12 @@ describe("<Login /> 组件测试", () => {
   });
 
   it("应该有标题栏", () => {
-    render(<App><Login /></App>);
-    expect(screen.getByText("React Vscode Template")).toBeInTheDocument();
+    renderWithRouter(<Login />);
+    expect(screen.getByText("欢迎回来")).toBeInTheDocument();
   });
 
   it("发送验证码", async () => {
-    render(<App><Login /></App>);
+    renderWithRouter(<Login />);
     const phoneInput = screen.getByPlaceholderText("13912345678");
     await userEvent.type(phoneInput, "13912345678");
     const captchaBtn = screen.getByText("获取验证码");
@@ -59,7 +68,7 @@ describe("<Login /> 组件测试", () => {
       },
     } as AxiosResponse<ApiResponse<LoginResponse>>);
 
-    render(<App><Login /></App>);
+    renderWithRouter(<Login />);
     await userEvent.type(screen.getByPlaceholderText("13912345678"), "13912345678");
     await userEvent.type(screen.getByPlaceholderText("admin"), "admin");
     const submitBtn = screen.getByText(/登录|登 录/);
@@ -72,7 +81,7 @@ describe("<Login /> 组件测试", () => {
   });
 
   it("登录失败", async () => {
-    render(<App><Login /></App>);
+    renderWithRouter(<Login />);
     await userEvent.type(screen.getByPlaceholderText("13912345678"), "13912345678");
     await userEvent.type(screen.getByPlaceholderText("admin"), "wrong");
     const submitBtn = screen.getByText("登 录");
