@@ -2,8 +2,7 @@ import React, {
   memo, useCallback, useMemo, useOptimistic, startTransition,
 } from "react";
 import { Link } from "react-router-dom";
-import { PageContainer } from "@ant-design/pro-components";
-import { ProTable, ProColumns } from "@ant-design/pro-components";
+import { PageContainer, ProTable, ProColumns } from "@ant-design/pro-components";
 import {
   Button, Space, Tag, FloatButton, message,
 } from "antd";
