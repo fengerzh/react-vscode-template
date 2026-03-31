@@ -3,7 +3,14 @@ import type { Config } from "@jest/types";
 const config: Config.InitialOptions = {
   collectCoverage: true,
   transform: {
-    "^.+\\.(ts|tsx|js|jsx)$": "ts-jest",
+    "^.+\\.(ts|tsx|js|jsx)$": [
+      "ts-jest",
+      {
+        tsconfig: {
+          moduleResolution: "bundler",
+        },
+      },
+    ],
   },
   transformIgnorePatterns: [
     "node_modules/(?!react-error-boundary)/",

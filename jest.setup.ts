@@ -1,8 +1,16 @@
 /* eslint-env es2020 */
 // 断言扩展（toBeInTheDocument 等）
-import "@testing-library/jest-dom";
-import { jest } from "@jest/globals";
+import "@testing-library/jest-dom/vitest";
+import { vi } from "vitest";
 import { TextEncoder, TextDecoder } from "util";
+
+// ResizeObserver polyfill
+class ResizeObserverPolyfill {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+window.ResizeObserver = ResizeObserverPolyfill;
 
 // 先静音部分无关紧要的错误，避免在后续 mock 过程中出现噪声
 const originalError: typeof console.error = console.error;
@@ -71,15 +79,15 @@ g.TextDecoder = TextDecoder;
 // Mock window.matchMedia
 Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: jest.fn().mockImplementation((query) => ({
+  value: vi.fn().mockImplementation((query: string) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(), // deprecated
-    removeListener: jest.fn(), // deprecated
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
+    addListener: vi.fn(), // deprecated
+    removeListener: vi.fn(), // deprecated
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
   })),
 });
 
@@ -98,7 +106,7 @@ Object.defineProperty(window, "getComputedStyle", {
 
 // Mock scrollTo
 Object.defineProperty(window, "scrollTo", {
-  value: jest.fn(),
+  value: vi.fn(),
 });
 
 // 不直接覆盖 window.location，保持 jsdom 默认实现

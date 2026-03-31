@@ -3,22 +3,14 @@ import {
   render, screen, fireEvent, waitFor,
 } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import "@testing-library/jest-dom";
-import {
-  jest, describe, it, expect, beforeEach,
-} from "@jest/globals";
+import { vi, describe, it, expect, beforeEach } from "vitest";
 import { AxiosResponse } from "axios";
 import { message } from "antd";
 import * as services from "@/services";
 import { PaginatedResponse, User } from "@/services";
 import Home from "../../pages/home";
 
-// 辅助函数来处理jest-dom断言
-const expectToBeInDocument = (element: HTMLElement) => {
-  (expect(element) as unknown as { toBeInTheDocument(): void }).toBeInTheDocument();
-};
-
-const { getUsers } = jest.mocked(services);
+const { getUsers } = vi.mocked(services);
 
 // 创建完整的 AxiosResponse mock 辅助函数
 const createMockResponse = <T, >(data: T): AxiosResponse<T> => ({
@@ -31,20 +23,20 @@ const createMockResponse = <T, >(data: T): AxiosResponse<T> => ({
 });
 
 // Mock services
-jest.mock("@/services", () => ({
-  getUsers: jest.fn(),
+vi.mock("@/services", () => ({
+  getUsers: vi.fn(),
   User: {},
 }));
 
 // Mock antd message
-jest.mock("antd", () => {
-  const actual = jest.requireActual("antd") as Record<string, unknown>;
+vi.mock("antd", async () => {
+  const actual = await vi.importActual("antd") as Record<string, unknown>;
   return {
     ...actual,
     message: {
-      error: jest.fn(),
-      success: jest.fn(),
-      info: jest.fn(),
+      error: vi.fn(),
+      success: vi.fn(),
+      info: vi.fn(),
     },
   };
 });
@@ -58,10 +50,10 @@ const renderWithRouter = (component: React.ReactElement) => render(
 
 describe("Home Component", () => {
   // 获取mock的引用
-  const mockMessage = jest.mocked(message);
+  const mockMessage = vi.mocked(message);
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("应该正确渲染Home组件", () => {
@@ -84,8 +76,8 @@ describe("Home Component", () => {
     renderWithRouter(<Home />);
 
     // 检查页面标题
-    expectToBeInDocument(screen.getByText("用户管理"));
-    expectToBeInDocument(screen.getByText(/管理系统用户信息/));
+    expect(screen.getByText("用户管理")).toBeInTheDocument();
+    expect(screen.getByText(/管理系统用户信息/)).toBeInTheDocument();
   });
 
   it("应该显示基本页面元素", () => {
@@ -100,8 +92,8 @@ describe("Home Component", () => {
     renderWithRouter(<Home />);
 
     // 检查页面标题和基本元素
-    expectToBeInDocument(screen.getByText("用户管理"));
-    expectToBeInDocument(screen.getByText(/管理系统用户信息/));
+    expect(screen.getByText("用户管理")).toBeInTheDocument();
+    expect(screen.getByText(/管理系统用户信息/)).toBeInTheDocument();
     expect(screen.getAllByText("姓名")).toHaveLength(3); // 搜索表单、表格头和内部渲染都有
     expect(screen.getAllByText("年龄")).toHaveLength(3); // 搜索表单、表格头和内部渲染都有
   });
@@ -119,7 +111,7 @@ describe("Home Component", () => {
 
     // 等待组件完全渲染
     await waitFor(() => {
-      expectToBeInDocument(screen.getByText("新建用户"));
+      expect(screen.getByText("新建用户")).toBeInTheDocument();
     });
   });
 
@@ -135,8 +127,8 @@ describe("Home Component", () => {
     renderWithRouter(<Home />);
 
     // 检查面包屑
-    expectToBeInDocument(screen.getByText("网站"));
-    expectToBeInDocument(screen.getByText("首页"));
+    expect(screen.getByText("网站")).toBeInTheDocument();
+    expect(screen.getByText("首页")).toBeInTheDocument();
   });
 
   it("应该正确调用getUsers API", async () => {
@@ -177,7 +169,7 @@ describe("Home Component", () => {
 
     // 等待数据加载和表格渲染
     await waitFor(() => {
-      expectToBeInDocument(screen.getByText("张三"));
+      expect(screen.getByText("张三")).toBeInTheDocument();
     });
 
     // 查找编辑按钮并点击
@@ -207,7 +199,7 @@ describe("Home Component", () => {
 
     // 等待数据加载和表格渲染
     await waitFor(() => {
-      expectToBeInDocument(screen.getByText("张三"));
+      expect(screen.getByText("张三")).toBeInTheDocument();
     });
 
     // 查找删除按钮并点击
@@ -233,7 +225,7 @@ describe("Home Component", () => {
 
     // 等待组件完全渲染
     await waitFor(() => {
-      expectToBeInDocument(screen.getByText("新建用户"));
+      expect(screen.getByText("新建用户")).toBeInTheDocument();
     });
 
     // 点击新建用户按钮

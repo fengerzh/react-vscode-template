@@ -37,16 +37,15 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": false,
 
-    // 路径映射
-    "baseUrl": "./",
+    // 路径映射 (Vite 和 Jest 通过各自的配置处理路径别名)
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"],
-      "@/pages/*": ["src/pages/*"],
-      "@/services/*": ["src/services/*"],
-      "@/store/*": ["src/store/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/types/*": ["src/types/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/store/*": ["./src/store/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/types/*": ["./src/types/*"]
     },
 
     // 类型声明
@@ -93,7 +92,7 @@
     "esm": true,
     "compilerOptions": {
       "module": "ESNext",
-      "moduleResolution": "node"
+      "moduleResolution": "bundler"
     }
   }
 }

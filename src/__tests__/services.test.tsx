@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import MockAdapter from "axios-mock-adapter";
+import { vi, describe, it, expect, beforeEach, afterEach, beforeAll, afterAll } from "vitest";
 import {
   login, getUsers, LoginParams, axiosInstance,
 } from "../services";
@@ -8,11 +9,11 @@ import {
 let mock = new MockAdapter(axios);
 
 // Mock antd message
-jest.mock("antd", () => ({
+vi.mock("antd", () => ({
   message: {
-    error: jest.fn(),
-    success: jest.fn(),
-    info: jest.fn(),
+    error: vi.fn(),
+    success: vi.fn(),
+    info: vi.fn(),
   },
 }));
 
@@ -22,17 +23,17 @@ beforeAll(() => {
   window.location = {
     ...originalLocation,
     href: "",
-    assign: jest.fn(),
-    replace: jest.fn(),
-    reload: jest.fn(),
-    toString: jest.fn(() => ""),
+    assign: vi.fn(),
+    replace: vi.fn(),
+    reload: vi.fn(),
+    toString: vi.fn(() => ""),
   } as unknown as string & Location;
 });
 
 describe("Services", () => {
   beforeEach(() => {
     mock.reset();
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     // 重置axios实例的mock适配器
     mock.restore();
     mock = new MockAdapter(axios);
@@ -265,7 +266,7 @@ describe("Services", () => {
     it("应该处理请求配置错误", async () => {
       // 模拟请求配置错误
       const originalRequest = axios.request;
-      axios.request = jest.fn().mockRejectedValue(new Error("请求配置错误"));
+      axios.request = vi.fn().mockRejectedValue(new Error("请求配置错误"));
 
       try {
         await axios.post("/test", {});

@@ -2,8 +2,8 @@ import "./matchMedia.mock";
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import "@testing-library/jest-dom";
-import { App, message } from "antd";
+import { vi, describe, it, expect, beforeEach } from "vitest";
+import { message } from "antd";
 import { MemoryRouter } from "react-router-dom";
 import type { AxiosResponse } from "axios";
 import type { ApiResponse, LoginResponse } from "@/services/index";
@@ -13,31 +13,30 @@ import Login from "./Login";
 // 包装组件，提供 Router 上下文
 const renderWithRouter = (component: React.ReactElement) => render(
   <MemoryRouter>
-    <App>{component}</App>
+    {component}
   </MemoryRouter>,
 );
 
 // mock antd message
-jest.mock("antd", () => {
-  const antd = jest.requireActual("antd");
+vi.mock("antd", async () => {
+  const antd = await vi.importActual("antd");
   return {
     ...antd,
     message: {
-      success: jest.fn(),
-      error: jest.fn(),
-      info: jest.fn(),
-      warning: jest.fn(),
-      loading: jest.fn(),
-      open: jest.fn(),
-      destroy: jest.fn(),
+      success: vi.fn(),
+      error: vi.fn(),
+      info: vi.fn(),
+      warning: vi.fn(),
+      loading: vi.fn(),
+      open: vi.fn(),
+      destroy: vi.fn(),
     },
-    App: antd.App,
   };
 });
 
 describe("<Login /> 组件测试", () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("应该有标题栏", () => {
@@ -59,7 +58,7 @@ describe("<Login /> 组件测试", () => {
 
   it("登录成功", async () => {
     // 直接 spy 登录方法，确保触发 onFinish 并返回预期结构
-    const loginSpy = jest.spyOn(services, "login").mockResolvedValue({
+    const loginSpy = vi.spyOn(services, "login").mockResolvedValue({
       status: 200,
       data: {
         success: true,

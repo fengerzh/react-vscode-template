@@ -1,29 +1,26 @@
 import { renderHook, act } from "@testing-library/react";
+import { vi, describe, it, expect, beforeEach } from "vitest";
 import useUserStore, { UserInfo } from "../store";
 
-// Mock localStorage
-const localStorageMock = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  removeItem: jest.fn(),
-  clear: jest.fn(),
-};
+// Simple localStorage mock
+const store: Record<string, string> = {};
 
-Object.defineProperty(window, "localStorage", {
-  value: localStorageMock,
-});
-
-// Mock document.cookie
-Object.defineProperty(document, "cookie", {
-  writable: true,
-  value: "",
+vi.stubGlobal("localStorage", {
+  getItem: (key: string) => store[key] ?? null,
+  setItem: (key: string, value: string) => { store[key] = value; },
+  removeItem: (key: string) => { delete store[key]; },
+  clear: () => { Object.keys(store).forEach(k => delete store[k]); },
+  length: 0,
+  key: vi.fn(),
 });
 
 describe("UserStore", () => {
   beforeEach(() => {
+    // 清空 storage
+    Object.keys(store).forEach(k => delete store[k]);
+
     // 重置所有mock
-    jest.clearAllMocks();
-    localStorageMock.getItem.mockReturnValue(null);
+    vi.clearAllMocks();
 
     // 重置 Zustand store 状态
     act(() => {
@@ -36,9 +33,6 @@ describe("UserStore", () => {
         },
       });
     });
-
-    // 清除持久化存储
-    localStorageMock.removeItem("user-store");
   });
 
   describe("用户信息管理", () => {

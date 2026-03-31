@@ -1,17 +1,20 @@
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import { vi, describe, it, expect, beforeEach } from "vitest";
 import App from "../App";
 
-// Mock router
-jest.mock("@/routes", () => ({
-  __esModule: true,
-  default: <div data-testid="router-content">Router Content</div>,
-}));
+// Mock router - use React.createElement to ensure proper JSX
+vi.mock("@/routes", () => {
+  const MockRouter = () => <div data-testid="router-content">Router Content</div>;
+  return {
+    __esModule: true,
+    default: MockRouter,
+  };
+});
 
 describe("App Component", () => {
   beforeEach(() => {
     // 清除所有mock调用记录
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("应该正确渲染App组件", () => {
