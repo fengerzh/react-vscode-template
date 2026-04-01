@@ -1,7 +1,6 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import Settings from "@/pages/Settings";
-import * as antd from "antd";
 
 // Mock antd message
 vi.mock("antd", async () => {
