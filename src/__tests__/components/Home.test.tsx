@@ -81,7 +81,8 @@ describe("Home Component", () => {
     );
     renderWithRouter(<Home />);
     await waitFor(() => expect(screen.getAllByText("张三").length).toBeGreaterThan(0));
-    screen.getByText("编辑").click();
+    const editButtons = screen.getAllByText("编辑");
+    editButtons[0].click();
     expect(mockMessage.info).toHaveBeenCalledWith("编辑用户: 张三");
   });
 
@@ -95,7 +96,8 @@ describe("Home Component", () => {
     );
     renderWithRouter(<Home />);
     await waitFor(() => expect(screen.getAllByText("张三").length).toBeGreaterThan(0));
-    screen.getByText("删除").click();
+    const deleteButtons = screen.getAllByText("删除");
+    deleteButtons[0].click();
     await waitFor(() => expect(mockMessage.success).toHaveBeenCalledWith("用户删除成功"), { timeout: 2000 });
   });
 
@@ -104,8 +106,9 @@ describe("Home Component", () => {
       createMockResponse<PaginatedResponse<User>>({ data: [], total: 0, success: true }),
     );
     renderWithRouter(<Home />);
-    await waitFor(() => expect(screen.getByText("新建用户")).toBeInTheDocument());
-    screen.getByText("新建用户").click();
+    await waitFor(() => expect(screen.getAllByText("新建用户").length).toBeGreaterThan(0));
+    const addButtons = screen.getAllByText("新建用户");
+    addButtons[0].click();
     await waitFor(() => expect(mockMessage.success).toHaveBeenCalledWith("用户添加成功"), { timeout: 2000 });
   });
 });

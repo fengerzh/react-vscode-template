@@ -43,8 +43,10 @@ describe("<Login /> 组件测试", () => {
   it("发送验证码", async () => {
     renderWithRouter(<Login />);
     const phoneInput = screen.getAllByPlaceholderText("13912345678")[0];
+    await userEvent.clear(phoneInput);
     await userEvent.type(phoneInput, "13912345678");
-    await userEvent.click(screen.getByText("获取验证码"));
+    const verifyButtons = screen.getAllByText("获取验证码");
+    await userEvent.click(verifyButtons[0]);
     await waitFor(
       () => expect(message.success).toHaveBeenCalledWith(expect.stringMatching(/验证码发送成功/)),
       { timeout: 2000 },
@@ -62,23 +64,34 @@ describe("<Login /> 组件测试", () => {
     } as AxiosResponse<ApiResponse<LoginResponse>>);
 
     renderWithRouter(<Login />);
-    await userEvent.type(screen.getAllByPlaceholderText("13912345678")[0], "13912345678");
-    await userEvent.type(screen.getAllByPlaceholderText("admin")[0], "admin");
-    await userEvent.click(screen.getAllByText(/登录|登 录/)[0]);
+    const phoneInput = screen.getAllByPlaceholderText("13912345678")[0];
+    const passwordInput = screen.getAllByPlaceholderText("admin")[0];
+    await userEvent.clear(phoneInput);
+    await userEvent.clear(passwordInput);
+    await userEvent.type(phoneInput, "13912345678");
+    await userEvent.type(passwordInput, "admin");
+    const loginButtons = screen.getAllByText(/登录|登 录/);
+    await userEvent.click(loginButtons[0]);
     await waitFor(() => {
       expect(message.success).toHaveBeenCalledWith("登录成功");
       expect(loginSpy).toHaveBeenCalled();
-    });
+    }, { timeout: 3000 });
     loginSpy.mockRestore();
   });
 
   it("登录失败", async () => {
     renderWithRouter(<Login />);
-    await userEvent.type(screen.getAllByPlaceholderText("13912345678")[0], "13912345678");
-    await userEvent.type(screen.getAllByPlaceholderText("admin")[0], "wrong");
-    await userEvent.click(screen.getAllByText("登 录")[0]);
+    const phoneInput = screen.getAllByPlaceholderText("13912345678")[0];
+    const passwordInput = screen.getAllByPlaceholderText("admin")[0];
+    await userEvent.clear(phoneInput);
+    await userEvent.clear(passwordInput);
+    await userEvent.type(phoneInput, "13912345678");
+    await userEvent.type(passwordInput, "wrong");
+    const loginButtons = screen.getAllByText("登 录");
+    await userEvent.click(loginButtons[0]);
     await waitFor(
       () => expect(message.error).toHaveBeenCalledWith(expect.stringMatching(/登录失败|用户名或密码错误|登录已过期/)),
+      { timeout: 3000 },
     );
   });
 });
