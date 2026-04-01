@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn test
+      - run: yarn test -- --coverage
       - coverage-reporter/send_report:
           coverage-reports: coverage/clover.xml,coverage/lcov.info
           project-token: 739a3d0b510e48b7850cadf6c5ccf7b5
