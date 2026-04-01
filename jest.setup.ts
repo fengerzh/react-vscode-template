@@ -12,6 +12,18 @@ class ResizeObserverPolyfill {
 }
 window.ResizeObserver = ResizeObserverPolyfill;
 
+// Setup localStorage mock for zustand persist
+const localStorageStore: Record<string, string> = {};
+const mockLocalStorage = {
+  getItem: (key: string) => localStorageStore[key] ?? null,
+  setItem: (key: string, value: string) => { localStorageStore[key] = String(value); },
+  removeItem: (key: string) => { delete localStorageStore[key]; },
+  clear: () => { Object.keys(localStorageStore).forEach(k => delete localStorageStore[k]); },
+  length: 0,
+  key: (_index: number) => null,
+};
+vi.stubGlobal("localStorage", mockLocalStorage);
+
 // 先静音部分无关紧要的错误，避免在后续 mock 过程中出现噪声
 const originalError: typeof console.error = console.error;
 const shouldSilenceConsole = (args: unknown[]): boolean => {

@@ -1,10 +1,10 @@
 # API测试策略
 
 <cite>
-**Referenced Files in This Document**   
+**本文引用的文件**
 - [src/__tests__/services.test.tsx](file://src/__tests__/services.test.tsx)
 - [src/services/index.ts](file://src/services/index.ts)
-- [jest.config.ts](file://jest.config.ts)
+- [vitest.config.ts](file://vitest.config.ts)
 - [jest.setup.ts](file://jest.setup.ts)
 </cite>
 
@@ -18,14 +18,18 @@
 7. [结论](#结论)
 
 ## 引言
-本文档详细阐述了项目中针对API服务层的单元测试策略。基于`src/services/index.ts`中定义的API函数和`src/__tests__/services.test.tsx`中的测试用例，本文将深入分析如何利用Jest框架和`axios-mock-adapter`库来模拟API响应，确保服务层逻辑的健壮性和可靠性。文档将涵盖测试用例的设计方法、拦截器的验证、异常处理以及异步调用的最佳实践。
+本文档详细阐述了项目中针对API服务层的单元测试策略。基于`src/services/index.ts`中定义的API函数和`src/__tests__/services.test.tsx`中的测试用例，本文将深入分析如何利用Vitest框架和`axios-mock-adapter`库来模拟API响应，确保服务层逻辑的健壮性和可靠性。文档将涵盖测试用例的设计方法、拦截器的验证、异常处理以及异步调用的最佳实践。
+
+**更新** 项目已从Jest迁移到Vitest框架，测试语法和Mock机制相应更新。
 
 ## 项目结构与测试配置
-项目的测试文件遵循约定俗成的结构，位于`src/__tests__`目录下。API服务的测试文件`services.test.tsx`与被测代码`src/services/index.ts`在逻辑上紧密关联。测试框架采用Jest，其配置文件`jest.config.ts`定义了代码转换、模块映射和测试环境等关键设置。`jest.setup.ts`文件则负责在测试运行前进行全局配置，如引入`@testing-library/jest-dom`以支持DOM断言，并对`console.error`和`console.log`进行静音处理，以过滤掉非关键的警告信息，确保测试输出的清晰度。
+项目的测试文件遵循约定俗成的结构，位于`src/__tests__`目录下。API服务的测试文件`services.test.tsx`与被测代码`src/services/index.ts`在逻辑上紧密关联。测试框架采用Vitest，其配置文件`vitest.config.ts`定义了代码转换、模块映射和测试环境等关键设置。`jest.setup.ts`文件则负责在测试运行前进行全局配置，如引入`@testing-library/jest-dom/vitest`以支持DOM断言，并对`console.error`和`console.log`进行静音处理，以过滤掉非关键的警告信息，确保测试输出的清晰度。
 
-**Section sources**
-- [jest.config.ts](file://jest.config.ts#L1-L23)
-- [jest.setup.ts](file://jest.setup.ts#L1-L107)
+**更新** 配置文件从`jest.config.ts`更新为`vitest.config.ts`，测试导入语句从`jest`更新为`vitest`。
+
+**章节来源**
+- [vitest.config.ts:1-29](file://vitest.config.ts#L1-L29)
+- [jest.setup.ts:1-126](file://jest.setup.ts#L1-L126)
 
 ## 核心API服务与测试用例
 `src/services/index.ts`文件定义了核心的API服务函数，如`login`和`getUsers`。这些函数封装了对后端API的HTTP请求，使用`axios`实例进行通信。`src/__tests__/services.test.tsx`文件则为这些服务函数编写了详尽的单元测试。
@@ -49,12 +53,12 @@ D --> D1["login: 网络错误"]
 D --> D2["请求配置错误"]
 ```
 
-**Diagram sources**
-- [src/__tests__/services.test.tsx](file://src/__tests__/services.test.tsx#L45-L278)
+**图表来源**
+- [src/__tests__/services.test.tsx:46-281](file://src/__tests__/services.test.tsx#L46-L281)
 
-**Section sources**
-- [src/services/index.ts](file://src/services/index.ts#L204-L208)
-- [src/__tests__/services.test.tsx](file://src/__tests__/services.test.tsx#L45-L278)
+**章节来源**
+- [src/services/index.ts:204-208](file://src/services/index.ts#L204-L208)
+- [src/__tests__/services.test.tsx:46-281](file://src/__tests__/services.test.tsx#L46-L281)
 
 ## 测试环境与Mock配置
 测试的核心是使用`axios-mock-adapter`库来拦截真实的HTTP请求并返回预定义的Mock数据，从而实现对API的隔离测试。
@@ -68,6 +72,8 @@ D --> D2["请求配置错误"]
 ### 异步API调用的测试
 所有API调用都是异步的，因此测试用例均使用`async/await`语法。通过`await`关键字等待异步函数的完成，然后使用`expect`断言来验证返回的Promise结果。对于预期会抛出错误的场景（如登录失败），测试用例会使用`try/catch`块来捕获被拒绝的Promise，并断言错误对象的存在。
 
+**更新** 测试语法从`jest.mock()`更新为`vi.mock()`，Mock机制保持不变。
+
 ```mermaid
 sequenceDiagram
 participant Test as "测试用例"
@@ -80,13 +86,13 @@ Service-->>Test : 返回响应对象
 Test->>Test : expect(response.status).toBe(200)
 ```
 
-**Diagram sources**
-- [src/__tests__/services.test.tsx](file://src/__tests__/services.test.tsx#L20-L40)
-- [src/services/index.ts](file://src/services/index.ts#L148-L198)
+**图表来源**
+- [src/__tests__/services.test.tsx:46-104](file://src/__tests__/services.test.tsx#L46-L104)
+- [src/services/index.ts:129-202](file://src/services/index.ts#L129-L202)
 
-**Section sources**
-- [src/__tests__/services.test.tsx](file://src/__tests__/services.test.tsx#L20-L40)
-- [src/services/index.ts](file://src/services/index.ts#L148-L198)
+**章节来源**
+- [src/__tests__/services.test.tsx:46-104](file://src/__tests__/services.test.tsx#L46-L104)
+- [src/services/index.ts:129-202](file://src/services/index.ts#L129-L202)
 
 ## 请求与响应拦截器测试
 `index.ts`中定义了全局的请求和响应拦截器，用于在请求发出前自动添加认证Token，以及在响应返回后统一处理错误和业务状态。
@@ -96,6 +102,8 @@ Test->>Test : expect(response.status).toBe(200)
 
 ### 响应拦截器测试
 响应拦截器的测试是其核心。测试用例会模拟各种HTTP状态码（401, 403, 404, 500）和业务失败响应（`success: false`）。通过验证`antd`的`message.error`方法是否被调用，以及在401情况下`window.location.href`是否被修改，可以确认拦截器的错误处理逻辑和重定向功能是否按预期执行。
+
+**更新** Mock机制从`jest`更新为`vitest`，使用`vi.mock()`和`vi.fn()`替代原有的`jest.mock()`和`jest.fn()`。
 
 ```mermaid
 sequenceDiagram
@@ -108,13 +116,13 @@ Interceptor->>window.location : href = "/user"
 Note over Interceptor : 验证错误提示和页面跳转
 ```
 
-**Diagram sources**
-- [src/__tests__/services.test.tsx](file://src/__tests__/services.test.tsx#L216-L278)
-- [src/services/index.ts](file://src/services/index.ts#L100-L146)
+**图表来源**
+- [src/__tests__/services.test.tsx:174-280](file://src/__tests__/services.test.tsx#L174-L280)
+- [src/services/index.ts:82-127](file://src/services/index.ts#L82-L127)
 
-**Section sources**
-- [src/__tests__/services.test.tsx](file://src/__tests__/services.test.tsx#L216-L278)
-- [src/services/index.ts](file://src/services/index.ts#L100-L146)
+**章节来源**
+- [src/__tests__/services.test.tsx:174-280](file://src/__tests__/services.test.tsx#L174-L280)
+- [src/services/index.ts:82-127](file://src/services/index.ts#L82-L127)
 
 ## 最佳实践与测试设计模式
 该项目的API测试体现了多项最佳实践：
@@ -124,5 +132,9 @@ Note over Interceptor : 验证错误提示和页面跳转
 - **异步测试的规范写法**：统一使用`async/await`处理异步操作，代码清晰易懂。
 - **边界条件覆盖**：测试用例涵盖了正常、错误、异常和边界情况，如默认分页参数。
 
+**更新** 测试框架从Jest更新为Vitest，测试语法和Mock机制相应调整，但测试逻辑和断言方式保持不变。
+
 ## 结论
-通过对`src/services/index.ts`和`src/__tests__/services.test.tsx`的分析，可以看出该项目建立了一套成熟、可靠的API单元测试体系。通过`axios-mock-adapter`进行精准的请求拦截和响应模拟，结合Jest强大的断言和Mock功能，能够有效验证API服务的正确性、健壮性和错误处理能力。这种测试策略为前端应用的稳定运行提供了坚实的质量保障。
+通过对`src/services/index.ts`和`src/__tests__/services.test.tsx`的分析，可以看出该项目建立了一套成熟、可靠的API单元测试体系。通过`axios-mock-adapter`进行精准的请求拦截和响应模拟，结合Vitest强大的断言和Mock功能，能够有效验证API服务的正确性、健壮性和错误处理能力。这种测试策略为前端应用的稳定运行提供了坚实的质量保障。
+
+**更新** 项目已完成从Jest到Vitest的迁移，测试框架升级为Vitest，提供了更好的性能和更现代化的测试体验，同时保持了原有的测试逻辑和断言方式的一致性。

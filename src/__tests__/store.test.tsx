@@ -2,24 +2,8 @@ import { renderHook, act } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
 import useUserStore, { UserInfo } from "../store";
 
-// Simple localStorage mock
-const store: Record<string, string> = {};
-
-vi.stubGlobal("localStorage", {
-  getItem: (key: string) => store[key] ?? null,
-  setItem: (key: string, value: string) => { store[key] = value; },
-  removeItem: (key: string) => { delete store[key]; },
-  clear: () => { Object.keys(store).forEach(k => delete store[k]); },
-  length: 0,
-  key: vi.fn(),
-});
-
 describe("UserStore", () => {
   beforeEach(() => {
-    // 清空 storage
-    Object.keys(store).forEach(k => delete store[k]);
-
-    // 重置所有mock
     vi.clearAllMocks();
 
     // 重置 Zustand store 状态
@@ -56,12 +40,10 @@ describe("UserStore", () => {
     it("应该正确清除用户信息", () => {
       const { result } = renderHook(() => useUserStore());
 
-      // 先设置用户信息
       act(() => {
         result.current.setUserInfo({ userName: "张三", userId: "user_001" });
       });
 
-      // 清除用户信息
       act(() => {
         result.current.clearUserInfo();
       });
@@ -73,7 +55,6 @@ describe("UserStore", () => {
     it("应该支持用户信息的部分更新", () => {
       const { result } = renderHook(() => useUserStore());
 
-      // 先设置基本用户信息
       act(() => {
         result.current.setUserInfo({ userName: "李四" });
       });
@@ -81,12 +62,10 @@ describe("UserStore", () => {
       expect(result.current.userInfo.userName).toBe("李四");
       expect(result.current.userInfo.userId).toBeUndefined();
 
-      // 再更新用户ID
       act(() => {
         result.current.setUserInfo({ userId: "user_002" });
       });
 
-      // 验证部分更新成功
       expect(result.current.userInfo.userName).toBe("李四");
       expect(result.current.userInfo.userId).toBe("user_002");
     });
@@ -180,7 +159,6 @@ describe("UserStore", () => {
     it("getUserInfo应该正确处理成功情况", async () => {
       const { result } = renderHook(() => useUserStore());
 
-      // 先设置一些用户信息
       act(() => {
         result.current.setUserInfo({ userName: "王五", userId: "user_003" });
       });
@@ -189,7 +167,6 @@ describe("UserStore", () => {
         await result.current.getUserInfo();
       });
 
-      // getUserInfo 主要是模拟 API 调用，不会改变现有的用户信息
       expect(result.current.userInfo.userName).toBe("王五");
       expect(result.current.userInfo.userId).toBe("user_003");
     });
@@ -197,24 +174,15 @@ describe("UserStore", () => {
     it("getUserInfo应该正确处理加载状态", async () => {
       const { result } = renderHook(() => useUserStore());
 
-      // 确保初始状态为false
       expect(result.current.appState.loading).toBe(false);
 
       await act(async () => {
-        // 启动异步操作
         const getUserInfoPromise = result.current.getUserInfo();
-
-        // 等待一个微任务，让setLoading(true)执行
         await Promise.resolve();
-
-        // 现在loading应该为true
         expect(result.current.appState.loading).toBe(true);
-
-        // 等待操作完成
         await getUserInfoPromise;
       });
 
-      // 异步操作完成后，loading应该为false
       expect(result.current.appState.loading).toBe(false);
     });
   });
