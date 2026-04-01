@@ -33,13 +33,14 @@ describe("BasicLayout", () => {
     // Reset store state
     useUserStore.setState({
       userInfo: {
-        userId: 1,
+        userId: "1",
         userName: "testuser",
-        nickName: "Test User",
         avatar: "",
       },
       appState: {
         collapsed: false,
+        loading: false,
+        theme: "light" as const,
       },
     });
   });
@@ -141,6 +142,8 @@ describe("BasicLayout", () => {
     useUserStore.setState({
       appState: {
         collapsed: true,
+        loading: false,
+        theme: "light" as const,
       },
     });
 
@@ -160,9 +163,8 @@ describe("BasicLayout", () => {
   it("renders with different user info", () => {
     useUserStore.setState({
       userInfo: {
-        userId: 2,
+        userId: "2",
         userName: "anotheruser",
-        nickName: "Another User",
         avatar: "",
       },
     });
