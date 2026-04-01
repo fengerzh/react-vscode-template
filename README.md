@@ -12,7 +12,7 @@
 - **Vite** - 快速的构建工具
 - **Ant Design** - 企业级 UI 组件库
 - **Tailwind CSS 4.x** - 采用零配置方案的原子化 CSS 框架
-- **Jest + Testing Library** - 测试框架
+- **Vitest + Testing Library** - 测试框架
 - **Cypress** - E2E 测试
 - **ESLint + Prettier** - 代码规范和格式化
 
@@ -29,13 +29,11 @@
 #### 在项目中的应用
 
 1. **用户管理页面** (`src/pages/home.tsx`)
-
    - 用户删除操作：点击删除按钮后立即从列表中移除用户
    - 用户添加操作：点击添加按钮后立即在列表中显示新用户
    - 显示乐观更新状态指示器
 
 2. **设置页面** (`src/pages/Settings/index.tsx`)
-
    - 表单提交：提交后立即显示新的表单值
    - 按钮状态：显示加载状态和进度指示
 
