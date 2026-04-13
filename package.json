@@ -19,7 +19,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react": "^6.0.0",
     "antd": "6.3.5",
-    "axios": "^1.12.2",
+    "axios": "^1.15.0",
     "axios-mock-adapter": "^2.1.0",
     "cypress": "^15.0.0",
     "dayjs": "^1.11.13",
