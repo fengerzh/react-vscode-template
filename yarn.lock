@@ -108,6 +108,20 @@
     rc-resize-observer "^1.0.0"
     rc-util "^5.4.0"
 
+"@ant-design/pro-card@2.9.9":
+  version "2.9.9"
+  resolved "https://registry.npmjs.org/@ant-design/pro-card/-/pro-card-2.9.9.tgz#f5310e111464f9687d312b2d66b28cacd35fb718"
+  integrity sha512-n0evqAu8rmw/xCkVk7l/8Tk0HqeVPPHeieDCtFKoRIG/ajiadAVM3NfkndEjYKuWbw/dgaVOyc5wW0iBD6dKCA==
+  dependencies:
+    "@ant-design/cssinjs" "^1.21.1"
+    "@ant-design/icons" "^5.0.0"
+    "@ant-design/pro-provider" "2.16.1"
+    "@ant-design/pro-utils" "2.17.2"
+    "@babel/runtime" "^7.18.0"
+    classnames "^2.3.2"
+    rc-resize-observer "^1.0.0"
+    rc-util "^5.4.0"
+
 "@ant-design/pro-components@^2.8.10":
   version "2.8.10"
   resolved "https://registry.npmjs.org/@ant-design/pro-components/-/pro-components-2.8.10.tgz#6e5037cd58f1aad3ada2755ac84a925bf7fbfa65"
@@ -139,6 +153,23 @@
     rc-resize-observer "^0.2.3"
     rc-util "^5.0.6"
 
+"@ant-design/pro-field@3.0.6":
+  version "3.0.6"
+  resolved "https://registry.npmjs.org/@ant-design/pro-field/-/pro-field-3.0.6.tgz#00d11f02b9fecd9fcf34a20d6da31507e41264e4"
+  integrity sha512-zjJAMS5+lu7Zw95UzPY15DmEpHbT9UKPxWPiSQMAJGXUJRYm3ajDYomq7c0gWznpbxuOIiDojhbK5y4CHHcrAw==
+  dependencies:
+    "@ant-design/icons" "^5.0.0"
+    "@ant-design/pro-provider" "2.16.1"
+    "@ant-design/pro-utils" "2.17.2"
+    "@babel/runtime" "^7.18.0"
+    "@chenshuai2144/sketch-color" "^1.0.8"
+    classnames "^2.3.2"
+    dayjs "^1.11.10"
+    lodash "^4.17.21"
+    lodash-es "^4.17.21"
+    rc-util "^5.4.0"
+    swr "^2.0.0"
+
 "@ant-design/pro-field@3.1.0":
   version "3.1.0"
   resolved "https://registry.npmjs.org/@ant-design/pro-field/-/pro-field-3.1.0.tgz#3b814d3d320d2cde739e7e7d08dbc33eda008827"
@@ -155,6 +186,25 @@
     lodash-es "^4.17.21"
     rc-util "^5.4.0"
     swr "^2.0.0"
+
+"@ant-design/pro-form@2.31.9":
+  version "2.31.9"
+  resolved "https://registry.npmjs.org/@ant-design/pro-form/-/pro-form-2.31.9.tgz#0f47e946aa725626c2e54ea9ef5600479d1872b0"
+  integrity sha512-w8lKCWkpuf7tZnRSQAoGxlRuo2r+8sXMxo8Vba2fi7/wb4u75ECI8qQ9r5dUeN1muBxfWlqBOywEwi9jqXE23Q==
+  dependencies:
+    "@ant-design/icons" "^5.0.0"
+    "@ant-design/pro-field" "3.0.6"
+    "@ant-design/pro-provider" "2.16.1"
+    "@ant-design/pro-utils" "2.17.2"
+    "@babel/runtime" "^7.18.0"
+    "@chenshuai2144/sketch-color" "^1.0.7"
+    "@umijs/use-params" "^1.0.9"
+    classnames "^2.3.2"
+    dayjs "^1.11.10"
+    lodash "^4.17.21"
+    lodash-es "^4.17.21"
+    rc-resize-observer "^1.1.0"
+    rc-util "^5.0.6"
 
 "@ant-design/pro-form@2.32.0":
   version "2.32.0"
@@ -190,7 +240,7 @@
     classnames "^2.3.2"
     lodash "^4.17.21"
     lodash-es "^4.17.21"
-    path-to-regexp "8.2.0"
+    path-to-regexp "^8.4.0"
     rc-resize-observer "^1.1.0"
     rc-util "^5.0.6"
     swr "^2.0.0"
@@ -213,6 +263,35 @@
     rc-resize-observer "^1.0.0"
     rc-util "^4.19.0"
 
+"@ant-design/pro-list@^2.6.9":
+  version "2.6.9"
+  resolved "https://registry.npmjs.org/@ant-design/pro-list/-/pro-list-2.6.9.tgz#8b706eb4fa9171ac738ebb271f5f248f72f3c5d7"
+  integrity sha512-YKA/6yCjngQnwjMdAzgjMxOInfQf6Wk+gm0tZJzXs/9GYk0cMIOv5OdaSFW9IBsSmzJ97nBZECYCSOlsgz51uw==
+  dependencies:
+    "@ant-design/cssinjs" "^1.21.1"
+    "@ant-design/icons" "^5.0.0"
+    "@ant-design/pro-card" "2.9.9"
+    "@ant-design/pro-field" "3.0.6"
+    "@ant-design/pro-table" "3.20.1"
+    "@ant-design/pro-utils" "2.17.2"
+    "@babel/runtime" "^7.18.0"
+    classnames "^2.3.2"
+    dayjs "^1.11.10"
+    rc-resize-observer "^1.0.0"
+    rc-util "^4.19.0"
+
+"@ant-design/pro-provider@2.16.1":
+  version "2.16.1"
+  resolved "https://registry.npmjs.org/@ant-design/pro-provider/-/pro-provider-2.16.1.tgz#1132faa138332da6e56ff7e83d9075ddaf40a3ae"
+  integrity sha512-9kSiptgoEybRleajA9KiMqnGqLTbIGdm7TDclBS4QGGrjkHfcXDw+GruiDwghOHvTwTkZT98Xttvw4w1XfrS+g==
+  dependencies:
+    "@ant-design/cssinjs" "^1.21.1"
+    "@babel/runtime" "^7.18.0"
+    "@ctrl/tinycolor" "^3.4.0"
+    dayjs "^1.11.10"
+    rc-util "^5.0.1"
+    swr "^2.0.0"
+
 "@ant-design/pro-provider@2.16.2":
   version "2.16.2"
   resolved "https://registry.npmjs.org/@ant-design/pro-provider/-/pro-provider-2.16.2.tgz#3ccec06ea9a69a4d48adc593a268413c813dab2f"
@@ -231,6 +310,30 @@
   integrity sha512-3M2jNOZQZWEDR8pheY00OkHREfb0rquvFZLCa6DypGmiksiuuYuR9Y4iA82ZF+mva2FmpHekdwbje/GpbxqBeg==
   dependencies:
     "@babel/runtime" "^7.18.0"
+
+"@ant-design/pro-table@3.20.1":
+  version "3.20.1"
+  resolved "https://registry.npmjs.org/@ant-design/pro-table/-/pro-table-3.20.1.tgz#4014c3eed093d44068ba3bd068cb9c3980dde214"
+  integrity sha512-QsxKkHfkKnLIZsuznoNBVws0OGGTvOWAk+uWqgb7QBo8jxhofMUDQ/fs10wGSuX5Jm78DhVfMBGBhq8hcZaj7Q==
+  dependencies:
+    "@ant-design/cssinjs" "^1.21.1"
+    "@ant-design/icons" "^5.0.0"
+    "@ant-design/pro-card" "2.9.9"
+    "@ant-design/pro-field" "3.0.6"
+    "@ant-design/pro-form" "2.31.9"
+    "@ant-design/pro-provider" "2.16.1"
+    "@ant-design/pro-utils" "2.17.2"
+    "@babel/runtime" "^7.18.0"
+    "@dnd-kit/core" "^6.0.8"
+    "@dnd-kit/modifiers" "^6.0.1"
+    "@dnd-kit/sortable" "^7.0.2"
+    "@dnd-kit/utilities" "^3.2.1"
+    classnames "^2.3.2"
+    dayjs "^1.11.10"
+    lodash "^4.17.21"
+    lodash-es "^4.17.21"
+    rc-resize-observer "^1.0.0"
+    rc-util "^5.0.1"
 
 "@ant-design/pro-table@3.21.0":
   version "3.21.0"
@@ -255,6 +358,22 @@
     lodash-es "^4.17.21"
     rc-resize-observer "^1.0.0"
     rc-util "^5.0.1"
+
+"@ant-design/pro-utils@2.17.2":
+  version "2.17.2"
+  resolved "https://registry.npmjs.org/@ant-design/pro-utils/-/pro-utils-2.17.2.tgz#f0a1ecabf4354737dafe4630cea22f514d8e32d0"
+  integrity sha512-DE7H14nfmdTyPwmJA1mgxHzcedOHSBYpTcqCvEAooK8fi8yXpcwpUs7XuUTeFHPj1gHYl/17X8Mzc3ngB8s63Q==
+  dependencies:
+    "@ant-design/icons" "^5.0.0"
+    "@ant-design/pro-provider" "2.16.1"
+    "@babel/runtime" "^7.18.0"
+    classnames "^2.3.2"
+    dayjs "^1.11.10"
+    lodash "^4.17.21"
+    lodash-es "^4.17.21"
+    rc-util "^5.0.6"
+    safe-stable-stringify "^2.4.3"
+    swr "^2.0.0"
 
 "@ant-design/pro-utils@2.18.0":
   version "2.18.0"
@@ -3729,9 +3848,9 @@ lodash-es@4.18.0:
   integrity sha512-koAgswPPA+UTaPN64Etp+PGP+WT6oqOS2NMi5yDkMaiGw9qY4VxQbQF0mtKMyr4BlTznWyzePV5UpECTJQmSUA==
 
 lodash-es@^4.17.21:
-  version "4.17.23"
-  resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.23.tgz#58c4360fd1b5d33afc6c0bbd3d1149349b1138e0"
-  integrity sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==
+  version "4.18.1"
+  resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.18.1.tgz#b962eeb80d9d983a900bf342961fb7418ca10b1d"
+  integrity sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==
 
 lodash.once@^4.1.1:
   version "4.1.1"
@@ -3740,7 +3859,7 @@ lodash.once@^4.1.1:
 
 lodash@^4.0.1, lodash@^4.17.21, lodash@^4.17.23:
   version "4.18.1"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.18.1.tgz#ff2b66c1f6326d59513de2407bf881439812771c"
+  resolved "https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz#ff2b66c1f6326d59513de2407bf881439812771c"
   integrity sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==
 
 log-symbols@^4.0.0:
@@ -4059,10 +4178,10 @@ path-parse@^1.0.7:
   resolved "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
-path-to-regexp@8.2.0:
-  version "8.2.0"
-  resolved "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.2.0.tgz#73990cc29e57a3ff2a0d914095156df5db79e8b4"
-  integrity sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==
+path-to-regexp@^8.4.0:
+  version "8.4.2"
+  resolved "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.4.2.tgz#795c420c4f7ca45c5b887366f622ee0c9852cccd"
+  integrity sha512-qRcuIdP69NPm4qbACK+aDogI5CBDMi1jKe0ry5rSQJz8JVLsC7jV8XpiJjGRLLol3N+R5ihGYcrPLTno6pAdBA==
 
 pathe@^2.0.3:
   version "2.0.3"
@@ -4762,9 +4881,9 @@ strip-indent@^3.0.0:
     min-indent "^1.0.0"
 
 stylis@^4.3.4:
-  version "4.3.6"
-  resolved "https://registry.npmjs.org/stylis/-/stylis-4.3.6.tgz#7c7b97191cb4f195f03ecab7d52f7902ed378320"
-  integrity sha512-yQ3rwFWRfwNUY7H5vpU0wfdkNSnvnJinhF9830Swlaxl03zsOjCfmX0ugac+3LtK0lYSgwL/KXc8oYL3mG4YFQ==
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/stylis/-/stylis-4.4.0.tgz#c5846c9345f4bfc51bd0cbd7ca35a0744f485a5d"
+  integrity sha512-5Z9ZpRzfuH6l/UAvCPAPUo3665Nk2wLaZU3x+TLHKVzIz33+sbJqbtrYoC3KD4/uVOr2Zp+L0LySezP9OHV9yA==
 
 supports-color@^7.1.0:
   version "7.2.0"
