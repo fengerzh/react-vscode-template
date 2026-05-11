@@ -24,7 +24,7 @@
     "axios-mock-adapter": "^2.1.0",
     "cypress": "^15.14.1",
     "dayjs": "^1.11.13",
-    "lodash-es": "4.18.0",
+    "lodash-es": "4.18.1",
     "path-to-regexp": "^8.4.0",
     "rc-field-form": "^2.7.1",
     "react": "^19.2.5",
