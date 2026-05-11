@@ -4,6 +4,25 @@ import "@testing-library/jest-dom/vitest";
 import { vi } from "vitest";
 import { TextEncoder, TextDecoder } from "util";
 
+// ============================================================
+// React 19 + jsdom 兼容性修复：确保 window 在全局始终可用
+// 防止 scheduler 异步任务中 window 变为 undefined
+// ============================================================
+if (typeof globalThis.window === "undefined") {
+  // @ts-expect-error jsdom 环境下 window 应该存在
+  globalThis.window = globalThis as unknown as Window & typeof globalThis;
+}
+if (typeof globalThis.document === "undefined") {
+  // @ts-expect-error jsdom 环境下 document 应该存在
+  globalThis.document = window.document;
+}
+
+// 确保 global 指向 window（React 19 scheduler 需要）
+// @ts-expect-error 兼容性修复
+if (!globalThis.global) globalThis.global = globalThis;
+
+// ============================================================
+
 // ResizeObserver polyfill
 class ResizeObserverPolyfill {
   observe() {}
@@ -18,7 +37,7 @@ const mockLocalStorage = {
   getItem: (key: string) => localStorageStore[key] ?? null,
   setItem: (key: string, value: string) => { localStorageStore[key] = String(value); },
   removeItem: (key: string) => { delete localStorageStore[key]; },
-  clear: () => { Object.keys(localStorageStore).forEach(k => delete localStorageStore[k]); },
+  clear: () => { Object.keys(localStorageStore).forEach(k => delete localStorageStore[key]); },
   length: 0,
   key: (_index: number) => null,
 };
@@ -62,6 +81,8 @@ const shouldSilenceConsole = (args: unknown[]): boolean => {
     // 预期内的接口失败场景（如 401）产生的 AxiosError 输出
     "AxiosError",
     "Request failed with status code 401",
+    // React 19 scheduler 相关噪声
+    "window is not defined",
   ].some((needle) => text.includes(needle));
 };
 console.error = (
