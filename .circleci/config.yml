@@ -14,7 +14,14 @@ jobs:
           name: Verify react versions
           command: |
             node -e "const r = require('react/package.json'); const d = require('react-dom/package.json'); console.log('react:', r.version, 'react-dom:', d.version); if (r.version !== d.version) { console.error('VERSION MISMATCH!'); process.exit(1); }"
-      - run: yarn test -- --coverage
+      - run:
+          name: Run tests with coverage
+          command: yarn test -- --coverage --reporter=verbose 2>&1 | tee test-output.txt
+          no_output_timeout: 5m
+      - run:
+          name: Print test output on failure
+          command: cat test-output.txt
+          when: on_fail
       - coverage-reporter/send_report:
           coverage-reports: coverage/clover.xml,coverage/lcov.info
           project-token: 739a3d0b510e48b7850cadf6c5ccf7b5
