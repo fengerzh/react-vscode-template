@@ -26,6 +26,13 @@ export default defineConfig({
         "src/layout/UserLayout.cy.tsx",
       ],
     },
+    // 禁用并行测试，避免 scheduler 异步任务冲突
+    pool: "forks",
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+    },
   },
   resolve: {
     alias: {
