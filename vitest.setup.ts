@@ -1,7 +1,7 @@
 /* eslint-env es2020 */
 // 断言扩展（toBeInTheDocument 等）
 import "@testing-library/jest-dom/vitest";
-import { vi } from "vitest";
+import { vi, afterEach } from "vitest";
 import { TextEncoder, TextDecoder } from "util";
 
 // ============================================================
@@ -145,3 +145,11 @@ Object.defineProperty(window, "scrollTo", {
 // 不直接覆盖 window.location，保持 jsdom 默认实现
 
 // 静音逻辑已提前放到文件顶部
+
+// ============================================================
+// 全局测试清理：防止 React 19 scheduler 异步任务导致 unhandled error
+// ============================================================
+afterEach(() => {
+  // 清理所有定时器
+  vi.useRealTimers();
+});
