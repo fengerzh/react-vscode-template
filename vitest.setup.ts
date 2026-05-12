@@ -21,6 +21,10 @@ if (typeof globalThis.document === "undefined") {
 // @ts-expect-error 兼容性修复
 if (!globalThis.global) globalThis.global = globalThis;
 
+// 确保 window.event 始终可用（React 19 scheduler 需要）
+// @ts-expect-error 兼容性修复
+if (!globalThis.window.event) globalThis.window.event = undefined;
+
 // ============================================================
 
 // ResizeObserver polyfill
