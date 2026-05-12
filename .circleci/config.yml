@@ -10,6 +10,10 @@ jobs:
     steps:
       - checkout
       - run: yarn install
+      - run:
+          name: Verify react versions
+          command: |
+            node -e "const r = require('react/package.json'); const d = require('react-dom/package.json'); console.log('react:', r.version, 'react-dom:', d.version); if (r.version !== d.version) { console.error('VERSION MISMATCH!'); process.exit(1); }"
       - run: yarn test -- --coverage
       - coverage-reporter/send_report:
           coverage-reports: coverage/clover.xml,coverage/lcov.info

@@ -28,11 +28,7 @@ export default defineConfig({
     },
     // 禁用并行测试，避免 scheduler 异步任务冲突
     pool: "forks",
-    poolOptions: {
-      forks: {
-        singleFork: true,
-      },
-    },
+    singleFork: true,
   },
   resolve: {
     alias: {
