@@ -12,7 +12,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@ant-design/icons": "^6.2.2",
+    "@ant-design/icons": "^6.2.3",
     "@ant-design/pro-components": "^2.8.10",
     "@ant-design/pro-list": "^2.6.9",
     "@testing-library/jest-dom": "^6.9.1",
