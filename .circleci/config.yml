@@ -9,6 +9,9 @@ jobs:
       - image: cimg/node:24.14.1
     steps:
       - checkout
+      - run:
+          name: Enable Corepack for Yarn 4
+          command: corepack enable
       - run: yarn install
       - run:
           name: Verify react versions
@@ -30,7 +33,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          install-command: yarn
+          install-command: corepack enable && yarn install
           start-command: yarn start
           cypress-command: yarn e2e:run
       - codacy-coverage-report
