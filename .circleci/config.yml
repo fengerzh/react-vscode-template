@@ -19,8 +19,14 @@ jobs:
             node -e "const r = require('react/package.json'); const d = require('react-dom/package.json'); console.log('react:', r.version, 'react-dom:', d.version); if (r.version !== d.version) { console.error('VERSION MISMATCH!'); process.exit(1); }"
       - run:
           name: Run tests with coverage
-          command: yarn test -- --coverage --reporter=verbose 2>&1 | tee test-output.txt
+          command: yarn test -- --coverage 2>&1 | tee test-output.txt
           no_output_timeout: 5m
+      - run:
+          name: Verify coverage files exist
+          command: |
+            ls -la coverage/
+            test -f coverage/clover.xml && echo "clover.xml exists" || echo "clover.xml missing"
+            test -f coverage/lcov.info && echo "lcov.info exists" || echo "lcov.info missing"
       - run:
           name: Print test output on failure
           command: cat test-output.txt
