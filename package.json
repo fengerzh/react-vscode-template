@@ -22,7 +22,7 @@
     "antd": "6.3.7",
     "axios": "^1.16.1",
     "axios-mock-adapter": "^2.1.0",
-    "cypress": "^15.14.1",
+    "cypress": "^15.15.0",
     "dayjs": "^1.11.13",
     "lodash-es": "4.18.1",
     "path-to-regexp": "^8.4.0",
