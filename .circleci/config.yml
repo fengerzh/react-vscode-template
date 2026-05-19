@@ -9,6 +9,9 @@ jobs:
       - image: cimg/node:24.14.1
     steps:
       - checkout
+      - run:
+          name: Enable Corepack for Yarn 4
+          command: sudo corepack enable
       - run: yarn install
       - run:
           name: Verify react versions
@@ -16,8 +19,14 @@ jobs:
             node -e "const r = require('react/package.json'); const d = require('react-dom/package.json'); console.log('react:', r.version, 'react-dom:', d.version); if (r.version !== d.version) { console.error('VERSION MISMATCH!'); process.exit(1); }"
       - run:
           name: Run tests with coverage
-          command: yarn test -- --coverage --reporter=verbose 2>&1 | tee test-output.txt
+          command: yarn vitest run --coverage 2>&1 | tee test-output.txt
           no_output_timeout: 5m
+      - run:
+          name: Verify coverage files exist
+          command: |
+            ls -la coverage/ || echo "No coverage directory"
+            test -f coverage/clover.xml && echo "clover.xml exists" || echo "clover.xml MISSING"
+            test -f coverage/lcov.info && echo "lcov.info exists" || echo "lcov.info MISSING"
       - run:
           name: Print test output on failure
           command: cat test-output.txt
@@ -30,7 +39,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          install-command: yarn
+          install-command: sudo corepack enable && yarn install
           start-command: yarn start
           cypress-command: yarn e2e:run
       - codacy-coverage-report
