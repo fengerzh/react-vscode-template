@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Enable Corepack for Yarn 4
-          command: corepack enable
+          command: sudo corepack enable
       - run: yarn install
       - run:
           name: Verify react versions
@@ -33,7 +33,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
-          install-command: corepack enable && yarn install
+          install-command: sudo corepack enable && yarn install
           start-command: yarn start
           cypress-command: yarn e2e:run
       - codacy-coverage-report
