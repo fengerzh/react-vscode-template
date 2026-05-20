@@ -33,9 +33,9 @@ interface RouteConfig {
 function useAuth(): boolean | null {
   const [authed, setAuthed] = React.useState<boolean | null>(null);
   React.useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setAuthed(!!session);
-    });
+    supabase.auth.getSession()
+      .then(({ data: { session } }) => setAuthed(!!session))
+      .catch(() => setAuthed(false)); // CI 环境无 Supabase → 视为未登录
   }, []);
   return authed;
 }
