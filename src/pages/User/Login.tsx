@@ -40,9 +40,6 @@ function Login() {
     }
   };
 
-  /* eslint-disable-next-line @stylistic/max-len */
-  const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0';
-
   return (
     <div
       style={{
@@ -136,7 +133,7 @@ function Login() {
         </a>
       </div>
 
-      {/* Supabase 本地开发：默认关闭邮箱验证 */}
+      {/* Supabase 本地开发 */}
       <div style={{
         marginTop: 24,
         padding: 12,
@@ -147,10 +144,7 @@ function Login() {
         textAlign: 'center',
       }}
       >
-        <div>🔗 API: localhost:54321</div>
-        <div style={{ wordBreak: 'break-all', marginTop: 4 }}>
-          🔑 anon_key: {anonKey.substring(0, 20)}...
-        </div>
+        <div>🔗 {import.meta.env.VITE_SUPABASE_URL || 'http://localhost:54321'}</div>
       </div>
     </div>
   );
