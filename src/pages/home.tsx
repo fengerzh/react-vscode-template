@@ -1,168 +1,134 @@
 import React, {
-  memo, useCallback, useMemo, useOptimistic, startTransition,
-} from "react";
-import { Link } from "react-router-dom";
-import { PageContainer, ProTable, ProColumns } from "@ant-design/pro-components";
-import {
-  Button, Space, Tag, FloatButton, message,
-} from "antd";
-import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
-import { getUsers, User } from "@/services";
+  memo, useCallback, useMemo, useRef, useState,
+} from 'react';
+import { Link } from 'react-router-dom';
+import { PageContainer, ProTable, type ProColumns } from '@ant-design/pro-components';
+import { Button, Space, Tag, message, Modal, Form, Input, InputNumber, DatePicker } from 'antd';
+import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
+import { getUsers, createUser, updateUser, deleteUser, type UserRow } from '@/services';
+import dayjs from 'dayjs';
 
-// 面包屑路由类型
 interface BreadcrumbRoute {
   path?: string;
   title?: React.ReactNode;
 }
 
-// 表格请求参数类型
-interface TableParams {
-  current?: number;
-  pageSize?: number;
-  [key: string]: unknown;
-}
-
 const Home: React.FC = memo(() => {
-  // 使用 useOptimistic 进行乐观更新
-  const [optimisticUsers, addOptimisticUser] = useOptimistic<User[]>(
-    [], // 初始状态
-  );
+  const actionRef = useRef<any>();
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [editingUser, setEditingUser] = useState<UserRow | null>(null);
+  const [form] = Form.useForm();
+
+  // 新建用户
+  const handleAdd = useCallback(() => {
+    setEditingUser(null);
+    form.resetFields();
+    setEditModalOpen(true);
+  }, [form]);
 
   // 编辑用户
-  const handleEdit = useCallback((record: User) => {
-    message.info(`编辑用户: ${record.name}`);
-    // TODO: 实现编辑逻辑
+  const handleEdit = useCallback((record: UserRow) => {
+    setEditingUser(record);
+    form.setFieldsValue({
+      name: record.name,
+      age: record.age,
+      email: record.email || '',
+      birthday: record.birthday ? dayjs(record.birthday) : undefined,
+    });
+    setEditModalOpen(true);
+  }, [form]);
+
+  // 提交表单
+  const handleSubmit = useCallback(async () => {
+    const values = await form.validateFields();
+    const payload = {
+      name: values.name,
+      age: values.age,
+      email: values.email || null,
+      birthday: values.birthday ? values.birthday.format('YYYY-MM-DD') : null,
+    };
+
+    try {
+      if (editingUser) {
+        await updateUser(editingUser.id, payload);
+        message.success('用户更新成功');
+      } else {
+        await createUser(payload);
+        message.success('用户创建成功');
+      }
+      setEditModalOpen(false);
+      actionRef.current?.reload();
+    } catch (e: any) {
+      message.error(e.message || '操作失败');
+    }
+  }, [editingUser, form]);
+
+  // 删除用户
+  const handleDelete = useCallback(async (record: UserRow) => {
+    Modal.confirm({
+      title: `确定要删除 ${record.name} 吗？`,
+      okType: 'danger',
+      async onOk() {
+        try {
+          await deleteUser(record.id);
+          message.success('删除成功');
+          actionRef.current?.reload();
+        } catch (e: any) {
+          message.error(e.message || '删除失败');
+        }
+      },
+    });
   }, []);
 
-  // 删除用户 - 使用乐观更新
-  const handleDelete = useCallback(async (record: User) => {
-    try {
-      // 乐观更新：立即从列表中移除用户
-      startTransition(() => {
-        addOptimisticUser((prev) => prev.filter((user) => user.id !== record.id));
-      });
-
-      // 模拟 API 调用
-      await new Promise((resolve) => {
-        setTimeout(resolve, 1000);
-      });
-
-      // 如果成功，显示成功消息
-      message.success("用户删除成功");
-    } catch {
-      // 如果失败，自动回滚到原始状态
-      message.error("删除失败，请重试");
-    }
-  }, [addOptimisticUser]);
-
-  // 添加用户
-  const handleAdd = useCallback(async () => {
-    try {
-      const newUser: User = {
-        id: Date.now(),
-        name: `新用户${Date.now()}`,
-        age: Math.floor(Math.random() * 50) + 18,
-        email: `user${Date.now()}@example.com`,
-      };
-
-      // 乐观更新：立即添加到列表中
-      startTransition(() => {
-        addOptimisticUser((prev) => [...prev, newUser]);
-      });
-
-      // 模拟 API 调用
-      await new Promise((resolve) => {
-        setTimeout(resolve, 1000);
-      });
-
-      message.success("用户添加成功");
-    } catch {
-      message.error("添加失败，请重试");
-    }
-  }, [addOptimisticUser]);
-
-  // 表格列配置
-  const columns: ProColumns<User>[] = useMemo(() => [
+  const columns: ProColumns<UserRow>[] = useMemo(() => [
+    { title: 'ID', dataIndex: 'id', width: 80, search: false },
     {
-      title: "ID",
-      dataIndex: "id",
-      width: 80,
-      search: false,
-    },
-    {
-      title: "姓名",
-      dataIndex: "name",
+      title: '姓名',
+      dataIndex: 'name',
       ellipsis: true,
-      formItemProps: {
-        rules: [
-          {
-            required: true,
-            message: "姓名为必填项",
-          },
-        ],
-      },
+      formItemProps: { rules: [{ required: true, message: '姓名为必填项' }] },
     },
     {
-      title: "年龄",
-      dataIndex: "age",
-      valueType: "digit",
+      title: '年龄',
+      dataIndex: 'age',
+      valueType: 'digit',
       width: 100,
       sorter: true,
-      fieldProps: {
-        min: 0,
-        max: 150,
-      },
     },
     {
-      title: "生日",
-      dataIndex: "birthday",
-      valueType: "date",
+      title: '生日',
+      dataIndex: 'birthday',
+      valueType: 'date',
       width: 120,
       search: false,
     },
     {
-      title: "邮箱",
-      dataIndex: "email",
-      valueType: "text",
+      title: '邮箱',
+      dataIndex: 'email',
       ellipsis: true,
       search: false,
     },
     {
-      title: "状态",
-      dataIndex: "status",
-      valueType: "select",
+      title: '状态',
+      dataIndex: 'age',
       width: 100,
-      valueEnum: {
-        active: { text: "活跃", status: "Success" },
-        inactive: { text: "非活跃", status: "Default" },
-      },
+      search: false,
       render: (_, record) => (
-        <Tag color={record.age && record.age > 20 ? "green" : "orange"}>
-          {record.age && record.age > 20 ? "活跃" : "非活跃"}
+        <Tag color={record.age && record.age > 20 ? 'green' : 'orange'}>
+          {record.age && record.age > 20 ? '活跃' : '非活跃'}
         </Tag>
       ),
     },
     {
-      title: "操作",
-      valueType: "option",
+      title: '操作',
+      valueType: 'option',
       width: 150,
       render: (_, record) => (
         <Space size="small">
-          <Button
-            type="link"
-            size="small"
-            icon={<EditOutlined />}
-            onClick={() => handleEdit(record)}
-          >
+          <Button type="link" size="small" icon={<EditOutlined />} onClick={() => handleEdit(record)}>
             编辑
           </Button>
-          <Button
-            type="link"
-            size="small"
-            danger
-            icon={<DeleteOutlined />}
-            onClick={() => handleDelete(record)}
-          >
+          <Button type="link" size="small" danger icon={<DeleteOutlined />} onClick={() => handleDelete(record)}>
             删除
           </Button>
         </Space>
@@ -170,80 +136,48 @@ const Home: React.FC = memo(() => {
     },
   ], [handleEdit, handleDelete]);
 
-  // 面包屑渲染函数
-  const breadcrumbItemRender = useCallback((route: BreadcrumbRoute) => {
-    const { path, title } = route;
-    return path ? <Link to={path}>{title}</Link> : <span>{title}</span>;
-  }, []);
+  const breadcrumbItemRender = useCallback(
+    (route: BreadcrumbRoute) => {
+      const { path, title } = route;
+      return path ? <Link to={path}>{title}</Link> : <span>{title}</span>;
+    },
+    [],
+  );
 
-  // 表格数据请求函数
-  const handleRequest = useCallback(async (params: TableParams) => {
+  const handleRequest = useCallback(async (params: Record<string, any>) => {
     try {
-      const response = await getUsers(params);
-      const {
-        data, total, current, pageSize,
-      } = response.data;
-
+      const result = await getUsers({
+        current: params.current,
+        pageSize: params.pageSize,
+        name: params.name,
+        age: params.age,
+      });
       return {
-        data,
+        data: result.data,
         success: true,
-        total,
-        current,
-        pageSize,
+        total: result.total,
+        current: result.current,
+        pageSize: result.pageSize,
       };
     } catch {
-      return {
-        data: [],
-        success: false,
-        total: 0,
-      };
+      return { data: [], success: false, total: 0 };
     }
   }, []);
-
-  // 面包屑配置
-  const breadcrumbItems = useMemo(() => [
-    {
-      title: "网站",
-    },
-    {
-      title: "首页",
-    },
-  ], []);
 
   return (
     <PageContainer
       fixedHeader
       header={{
-        title: "用户管理",
-        subTitle: "管理系统用户信息 (使用 React 19 useOptimistic)",
+        title: '用户管理',
+        subTitle: '数据读写 Supabase Postgres',
         breadcrumb: {
           itemRender: breadcrumbItemRender,
-          items: breadcrumbItems,
+          items: [{ title: '网站' }, { title: '首页' }],
         },
       }}
     >
-      {/* 显示乐观更新状态 */}
-      {optimisticUsers.length > 0 && (
-        <div
-          style={{
-            marginBottom: 16,
-            padding: 8,
-            backgroundColor: "#e6f7ff",
-            border: "1px solid #91d5ff",
-            borderRadius: 4,
-          }}
-        >
-          <p style={{ margin: 0, color: "#1890ff" }}>
-            ⚡ 乐观更新状态:
-            {" "}
-            {optimisticUsers.length}
-            {" "}
-            个操作正在进行中...
-          </p>
-        </div>
-      )}
-
-      <ProTable<User>
+      <ProTable<UserRow>
+        actionRef={actionRef}
         rowKey="id"
         columns={columns}
         request={handleRequest}
@@ -253,42 +187,41 @@ const Home: React.FC = memo(() => {
           showQuickJumper: true,
           showTotal: (total, range) => `第 ${range[0]}-${range[1]} 条/总共 ${total} 条`,
         }}
-        search={{
-          labelWidth: "auto",
-          defaultCollapsed: false,
-        }}
+        search={{ labelWidth: 'auto', defaultCollapsed: false }}
         toolBarRender={() => [
-          <Button
-            key="add"
-            type="primary"
-            icon={<PlusOutlined />}
-            onClick={handleAdd}
-          >
+          <Button key="add" type="primary" icon={<PlusOutlined />} onClick={handleAdd}>
             新建用户
           </Button>,
         ]}
-        options={{
-          setting: {
-            listsHeight: 400,
-          },
-        }}
         scroll={{ x: 800 }}
       />
 
-      {/* 页面专用浮动按钮 */}
-      <FloatButton
-        icon={<PlusOutlined />}
-        tooltip="快速添加用户"
-        onClick={handleAdd}
-        style={{
-          right: 24,
-          bottom: 120, // 避免与全局浮动按钮重叠
-        }}
-      />
+      <Modal
+        title={editingUser ? '编辑用户' : '新建用户'}
+        open={editModalOpen}
+        onOk={handleSubmit}
+        onCancel={() => setEditModalOpen(false)}
+        destroyOnClose
+      >
+        <Form form={form} layout="vertical" style={{ marginTop: 16 }}>
+          <Form.Item label="姓名" name="name" rules={[{ required: true, message: '请输入姓名' }]}>
+            <Input placeholder="请输入姓名" />
+          </Form.Item>
+          <Form.Item label="年龄" name="age" rules={[{ required: true, message: '请输入年龄' }]}>
+            <InputNumber min={0} max={150} style={{ width: '100%' }} />
+          </Form.Item>
+          <Form.Item label="邮箱" name="email">
+            <Input placeholder="请输入邮箱" />
+          </Form.Item>
+          <Form.Item label="生日" name="birthday">
+            <DatePicker style={{ width: '100%' }} />
+          </Form.Item>
+        </Form>
+      </Modal>
     </PageContainer>
   );
 });
 
-Home.displayName = "Home";
+Home.displayName = 'Home';
 
 export default Home;

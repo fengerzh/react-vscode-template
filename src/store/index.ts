@@ -1,121 +1,157 @@
-import { create } from "zustand";
-import { subscribeWithSelector, persist } from "zustand/middleware";
+import { create } from 'zustand';
+import { subscribeWithSelector, persist } from 'zustand/middleware';
+import { supabase } from '@/lib/supabase';
+import { getProfile, upsertProfile, type ProfileRow } from '@/services';
 
-// 用户信息类型定义
+// ============ 类型定义 ============
+
 export interface UserInfo {
-  userName: string;
   userId?: string;
-  avatar?: string;
+  userName: string;
   email?: string;
-  roles?: string[];
+  avatar?: string;
+  phone?: string;
 }
 
-// 应用状态类型定义
 export interface AppState {
   loading: boolean;
-  theme: "light" | "dark";
+  theme: 'light' | 'dark';
   collapsed: boolean;
 }
 
-// Store 状态类型定义
 interface UserStoreState {
-  // 状态
   userInfo: UserInfo;
   appState: AppState;
 
-  // Actions
-  getUserInfo: () => Promise<void>;
-  // eslint-disable-next-line no-unused-vars
-  setUserInfo: (userInfo: Partial<UserInfo>) => void;
+  // 认证相关
+  initAuth: () => Promise<void>;
+  setUserInfo: (info: Partial<UserInfo>) => void;
   clearUserInfo: () => void;
-  // eslint-disable-next-line no-unused-vars
+  refreshProfile: () => Promise<void>;
+
+  // 应用状态
   setLoading: (loading: boolean) => void;
   toggleTheme: () => void;
   toggleCollapsed: () => void;
 
-  // 计算属性
+  // 计算
   isLoggedIn: () => boolean;
   displayName: () => string;
 }
 
-// 创建 Zustand store
 const useUserStore = create<UserStoreState>()(
   persist(
     subscribeWithSelector((set, get) => ({
-    // 初始状态
-      userInfo: { userName: "" },
-      appState: {
-        loading: false,
-        theme: "light",
-        collapsed: false,
+      userInfo: { userName: '' },
+      appState: { loading: false, theme: 'light', collapsed: false },
+
+      // ====== 初始化认证 ======
+      initAuth: async () => {
+        set((s) => ({ appState: { ...s.appState, loading: true } }));
+
+        // 从 Supabase 恢复 session
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          // 查 profile
+          const profile = await getProfile();
+          if (profile) {
+            set({
+              userInfo: {
+                userId: session.user.id,
+                userName: profile.name || session.user.email?.split('@')[0] || '',
+                email: session.user.email,
+                phone: profile.phone,
+              },
+            });
+          } else {
+            // 有 auth 用户但没 profile（刚注册），创建一个
+            const name = session.user.email?.split('@')[0] || '新用户';
+            await upsertProfile({ name, email: session.user.email });
+            set({
+              userInfo: {
+                userId: session.user.id,
+                userName: name,
+                email: session.user.email,
+              },
+            });
+          }
+        }
+
+        set((s) => ({ appState: { ...s.appState, loading: false } }));
+
+        // 监听 auth 状态变化（登录/登出/过期）
+        supabase.auth.onAuthStateChange(async (event, session) => {
+          if (event === 'SIGNED_IN' && session?.user) {
+            const profile = await getProfile();
+            set({
+              userInfo: {
+                userId: session.user.id,
+                userName: profile?.name || session.user.email?.split('@')[0] || '',
+                email: session.user.email,
+                phone: profile?.phone,
+              },
+            });
+          } else if (event === 'SIGNED_OUT') {
+            set({ userInfo: { userName: '' } });
+          }
+        });
       },
 
-      // 获取用户信息
-      getUserInfo: async () => {
-        try {
-          get().setLoading(true);
+      // ====== 设置用户信息 ======
+      setUserInfo: (info: Partial<UserInfo>) => {
+        set((state) => ({
+          userInfo: { ...state.userInfo, ...info },
+        }));
+      },
 
-          // 这里可以调用API获取用户信息
-          // const response = await api.getUserInfo();
+      // ====== 清除用户信息 ======
+      clearUserInfo: () => {
+        set({ userInfo: { userName: '' } });
+        supabase.auth.signOut();
+      },
 
-          // 模拟API调用
-          await new Promise((resolve) => { setTimeout(resolve, 500); });
-
-        // 由于使用了持久化中间件，用户信息已经自动从 localStorage 恢复
-        // 这里可以根据需要更新用户信息，比如从服务器获取最新数据
-        } finally {
-          get().setLoading(false);
+      // ====== 刷新 profile ======
+      refreshProfile: async () => {
+        const profile = await getProfile();
+        if (profile) {
+          set((state) => ({
+            userInfo: {
+              ...state.userInfo,
+              userName: profile.name,
+              email: profile.email,
+              phone: profile.phone,
+            },
+          }));
         }
       },
 
-      // 设置用户信息
-      setUserInfo: (userInfo: Partial<UserInfo>) => {
-        set((state) => ({
-          userInfo: { ...state.userInfo, ...userInfo },
-        }));
-      },
-
-      // 清除用户信息
-      clearUserInfo: () => {
-        set({ userInfo: { userName: "" } });
-        document.cookie = "token=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-      },
-
-      // 设置加载状态
+      // ====== 应用状态 ======
       setLoading: (loading: boolean) => {
-        set((state) => ({
-          appState: { ...state.appState, loading },
-        }));
+        set((s) => ({ appState: { ...s.appState, loading } }));
       },
 
-      // 切换主题
       toggleTheme: () => {
-        set((state) => ({
+        set((s) => ({
           appState: {
-            ...state.appState,
-            theme: state.appState.theme === "light" ? "dark" : "light",
+            ...s.appState,
+            theme: s.appState.theme === 'light' ? 'dark' : 'light',
           },
         }));
       },
 
-      // 切换侧边栏折叠状态
       toggleCollapsed: () => {
-        set((state) => ({
-          appState: { ...state.appState, collapsed: !state.appState.collapsed },
+        set((s) => ({
+          appState: { ...s.appState, collapsed: !s.appState.collapsed },
         }));
       },
 
-      // 计算属性：是否已登录
       isLoggedIn: () => !!get().userInfo.userName,
 
-      // 计算属性：用户显示名称
-      displayName: () => get().userInfo.userName || "未登录",
+      displayName: () => get().userInfo.userName || '未登录',
     })),
     {
-      name: "user-store", // 存储的键名
-      partialize: (state) => ({
-        userInfo: state.userInfo,
-      }), // 只持久化用户信息，不持久化应用状态
+      name: 'user-store',
+      partialize: (state) => ({ userInfo: state.userInfo }),
     },
   ),
 );
