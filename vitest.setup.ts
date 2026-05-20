@@ -151,6 +151,35 @@ Object.defineProperty(window, "scrollTo", {
 // 静音逻辑已提前放到文件顶部
 
 // ============================================================
+// Supabase mock
+// ============================================================
+vi.mock('@/lib/supabase', () => ({
+  supabase: {
+    auth: {
+      getSession: vi.fn().mockResolvedValue({ data: { session: null } }),
+      getUser: vi.fn().mockResolvedValue({ data: { user: null } }),
+      signUp: vi.fn().mockResolvedValue({ data: {}, error: null }),
+      signInWithPassword: vi.fn().mockResolvedValue({ data: {}, error: null }),
+      signOut: vi.fn().mockResolvedValue({ error: null }),
+      onAuthStateChange: vi.fn().mockReturnValue({
+        data: { subscription: { unsubscribe: vi.fn() } },
+      }),
+    },
+    from: vi.fn().mockReturnThis(),
+    select: vi.fn().mockReturnThis(),
+    insert: vi.fn().mockReturnThis(),
+    update: vi.fn().mockReturnThis(),
+    delete: vi.fn().mockReturnThis(),
+    upsert: vi.fn().mockReturnThis(),
+    eq: vi.fn().mockReturnThis(),
+    ilike: vi.fn().mockReturnThis(),
+    order: vi.fn().mockReturnThis(),
+    range: vi.fn().mockReturnThis(),
+    single: vi.fn().mockResolvedValue({ data: null, error: null }),
+  },
+}));
+
+// ============================================================
 // 全局测试清理：防止 React 19 scheduler 异步任务导致 unhandled error
 // ============================================================
 afterEach(() => {

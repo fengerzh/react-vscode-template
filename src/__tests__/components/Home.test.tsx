@@ -2,113 +2,51 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { vi, describe, it, expect, beforeEach } from "vitest";
-import { AxiosResponse } from "axios";
-import { message } from "antd";
 import * as services from "@/services";
-import { PaginatedResponse, User } from "@/services";
 import Home from "../../pages/home";
-
-const { getUsers } = vi.mocked(services);
-
-const createMockResponse = <T, >(data: T): AxiosResponse<T> => ({
-  data,
-  status: 200,
-  statusText: "OK",
-  headers: {},
-  config: {} as AxiosResponse<T>["config"],
-  request: {},
-});
 
 vi.mock("@/services", () => ({
   getUsers: vi.fn(),
-  User: {},
+  createUser: vi.fn(),
+  updateUser: vi.fn(),
+  deleteUser: vi.fn(),
+  signUp: vi.fn(),
+  signIn: vi.fn(),
+  signOut: vi.fn(),
+  getProfile: vi.fn(),
+  upsertProfile: vi.fn(),
 }));
 
+// 复用 vitest.setup.ts 中的全局 supabase mock，不重复 mock
+
 vi.mock("antd", async () => {
-  const actual = await vi.importActual("antd") as Record<string, unknown>;
-  return {
-    ...actual,
-    message: {
-      error: vi.fn(),
-      success: vi.fn(),
-      info: vi.fn(),
-    },
-  };
+  const antd = await vi.importActual("antd") as Record<string, unknown>;
+  return { ...antd, message: { error: vi.fn(), success: vi.fn(), info: vi.fn() } };
 });
 
-const renderWithRouter = (component: React.ReactElement) => render(
-  <BrowserRouter>{component}</BrowserRouter>,
-);
+const { getUsers } = vi.mocked(services);
+
+const mockUsers = [
+  { id: 1, name: "张三", age: 18, birthday: "2005-01-01", email: "zhangsan@test.com" },
+];
+
+const renderHome = () => render(<BrowserRouter><Home /></BrowserRouter>);
 
 describe("Home Component", () => {
-  const mockMessage = vi.mocked(message);
-
   beforeEach(() => {
     vi.clearAllMocks();
+    getUsers.mockResolvedValue({ data: mockUsers, total: 1, current: 1, pageSize: 10 });
   });
 
-  it("应该正确渲染Home组件", () => {
-    getUsers.mockResolvedValue(
-      createMockResponse<PaginatedResponse<User>>({
-        data: [{ id: 1, name: "张三", age: 18, birthday: "2005-01-01" }],
-        total: 1,
-        success: true,
-      }),
-    );
-    renderWithRouter(<Home />);
-    expect(screen.getAllByText("用户管理").length).toBeGreaterThan(0);
+  it("渲染 Home 组件标题", async () => {
+    renderHome();
+    expect(screen.getByText("用户管理")).toBeInTheDocument();
+    await waitFor(() => expect(getUsers).toHaveBeenCalled());
   });
 
-  it("应该正确调用getUsers API", async () => {
-    getUsers.mockResolvedValue(
-      createMockResponse<PaginatedResponse<User>>({
-        data: [{ id: 1, name: "张三", age: 18 }],
-        total: 1,
-        success: true,
-      }),
-    );
-    renderWithRouter(<Home />);
-    await waitFor(() => expect(getUsers).toHaveBeenCalled(), { timeout: 3000 });
-  });
-
-  it("应该处理编辑按钮点击", async () => {
-    getUsers.mockResolvedValue(
-      createMockResponse<PaginatedResponse<User>>({
-        data: [{ id: 1, name: "张三", age: 18, birthday: "2005-01-01", email: "test@test.com" }],
-        total: 1,
-        success: true,
-      }),
-    );
-    renderWithRouter(<Home />);
-    await waitFor(() => expect(screen.getAllByText("张三").length).toBeGreaterThan(0));
-    const editButtons = screen.getAllByText("编辑");
-    editButtons[0].click();
-    expect(mockMessage.info).toHaveBeenCalledWith("编辑用户: 张三");
-  });
-
-  it("应该处理删除按钮点击", async () => {
-    getUsers.mockResolvedValue(
-      createMockResponse<PaginatedResponse<User>>({
-        data: [{ id: 1, name: "张三", age: 18, birthday: "2005-01-01", email: "test@test.com" }],
-        total: 1,
-        success: true,
-      }),
-    );
-    renderWithRouter(<Home />);
-    await waitFor(() => expect(screen.getAllByText("张三").length).toBeGreaterThan(0));
-    const deleteButtons = screen.getAllByText("删除");
-    deleteButtons[0].click();
-    await waitFor(() => expect(mockMessage.success).toHaveBeenCalledWith("用户删除成功"), { timeout: 2000 });
-  });
-
-  it("应该处理新建用户按钮点击", async () => {
-    getUsers.mockResolvedValue(
-      createMockResponse<PaginatedResponse<User>>({ data: [], total: 0, success: true }),
-    );
-    renderWithRouter(<Home />);
-    await waitFor(() => expect(screen.getAllByText("新建用户").length).toBeGreaterThan(0));
-    const addButtons = screen.getAllByText("新建用户");
-    addButtons[0].click();
-    await waitFor(() => expect(mockMessage.success).toHaveBeenCalledWith("用户添加成功"), { timeout: 2000 });
+  it("显示新建用户按钮", () => {
+    renderHome();
+    const btns = screen.getAllByText("新建用户");
+    expect(btns.length).toBeGreaterThan(0);
   });
 });

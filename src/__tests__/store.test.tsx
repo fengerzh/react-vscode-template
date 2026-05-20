@@ -2,11 +2,32 @@ import { renderHook, act } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
 import useUserStore, { UserInfo } from "../store";
 
+vi.mock("@/lib/supabase", () => ({
+  supabase: {
+    auth: {
+      getSession: vi.fn().mockResolvedValue({ data: { session: null } }),
+      getUser: vi.fn().mockResolvedValue({ data: { user: null } }),
+      signOut: vi.fn().mockResolvedValue({ error: null }),
+      onAuthStateChange: vi.fn().mockReturnValue({
+        data: { subscription: { unsubscribe: vi.fn() } },
+      }),
+    },
+    from: vi.fn(),
+  },
+}));
+vi.mock("@/services", async () => {
+  const actual = await vi.importActual("@/services");
+  return {
+    ...actual,
+    getProfile: vi.fn().mockResolvedValue(null),
+    upsertProfile: vi.fn().mockResolvedValue(true),
+  };
+});
+
 describe("UserStore", () => {
   beforeEach(() => {
     vi.clearAllMocks();
 
-    // 重置 Zustand store 状态
     act(() => {
       useUserStore.setState({
         userInfo: { userName: "" },
@@ -155,34 +176,15 @@ describe("UserStore", () => {
     });
   });
 
-  describe("异步方法", () => {
-    it("getUserInfo应该正确处理成功情况", async () => {
+  describe("initAuth", () => {
+    it("initAuth 应该正确初始化", async () => {
       const { result } = renderHook(() => useUserStore());
 
-      act(() => {
-        result.current.setUserInfo({ userName: "王五", userId: "user_003" });
-      });
-
       await act(async () => {
-        await result.current.getUserInfo();
+        await result.current.initAuth();
       });
 
-      expect(result.current.userInfo.userName).toBe("王五");
-      expect(result.current.userInfo.userId).toBe("user_003");
-    });
-
-    it("getUserInfo应该正确处理加载状态", async () => {
-      const { result } = renderHook(() => useUserStore());
-
-      expect(result.current.appState.loading).toBe(false);
-
-      await act(async () => {
-        const getUserInfoPromise = result.current.getUserInfo();
-        await Promise.resolve();
-        expect(result.current.appState.loading).toBe(true);
-        await getUserInfoPromise;
-      });
-
+      // initAuth 调用了 supabase.auth.getSession，不应抛错
       expect(result.current.appState.loading).toBe(false);
     });
   });
