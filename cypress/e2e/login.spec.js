@@ -2,15 +2,22 @@
 context("React-Vscode-Template", () => {
   it("登录页面渲染", () => {
     cy.visit("/user/login");
-    // 邮箱和密码输入框应该存在
-    cy.get('input[type="email"]', { timeout: 10000 }).should("exist");
-    cy.get('input[type="password"]', { timeout: 10000 }).should("exist");
+
+    // Ant Design ProFormText 渲染 <input class="ant-input"> 而非 type="email"
+    // id 属性来自 ProFormText 的 name 属性
+    cy.get("#email, input[placeholder*='邮箱']", { timeout: 15000 })
+      .should("exist")
+      .should("have.length.at.least", 1);
+    cy.get("#password, input[placeholder*='密码']", { timeout: 15000 })
+      .should("exist")
+      .should("have.length.at.least", 1);
   });
 
   it("首页需要登录", () => {
-    // CI 无 Supabase 后端，auth guard 会检测到未登录并跳转到 /user
     cy.visit("/dashboard/home");
-    // 最终会渲染 login 页面（因为未认证跳转）
-    cy.get('input[type="email"]', { timeout: 15000 }).should("exist");
+    // CI 无 Supabase → auth guard 检测为未登录，自动跳转 /user
+    // 等待跳转后登录表单出现
+    cy.get("#email, input[placeholder*='邮箱']", { timeout: 20000 })
+      .should("exist");
   });
 });
