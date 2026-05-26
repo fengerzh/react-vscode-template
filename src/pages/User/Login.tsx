@@ -13,30 +13,35 @@ function Login() {
   const updateProfile = useUserStore((s) => s.refreshProfile);
 
   const handleSubmit = async (values: LoginParams) => {
-    const { data, error } = isRegister
-      ? await signUp(values)
-      : await signIn(values);
+    try {
+      const { data, error } = isRegister
+        ? await signUp(values)
+        : await signIn(values);
 
-    if (error) {
-      message.error(error.message);
-      return;
-    }
+      if (error) {
+        message.error(error.message);
+        return;
+      }
 
-    if (isRegister) {
-      // 注册成功：Supabase 可能自动登录，也可能需要确认邮箱
-      if (data.session) {
-        message.success('注册成功！');
+      if (isRegister) {
+        // 注册成功：Supabase 可能自动登录，也可能需要确认邮箱
+        if (data.session) {
+          message.success('注册成功！');
+          await updateProfile();
+          navigate('/dashboard/home', { replace: true });
+        } else {
+          message.success('注册成功！请查收验证邮件，或直接登录。');
+          setIsRegister(false);
+        }
+      } else {
+        // 登录成功
+        message.success('登录成功');
         await updateProfile();
         navigate('/dashboard/home', { replace: true });
-      } else {
-        message.success('注册成功！请查收验证邮件，或直接登录。');
-        setIsRegister(false);
       }
-    } else {
-      // 登录成功
-      message.success('登录成功');
-      await updateProfile();
-      navigate('/dashboard/home', { replace: true });
+    } catch (e: any) {
+      // 网络故障、SDK 抛错等兜底处理
+      message.error(e?.message || '网络异常，请稍后重试');
     }
   };
 
