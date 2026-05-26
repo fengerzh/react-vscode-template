@@ -40,15 +40,15 @@ const Home: React.FC = memo(() => {
 
   // 提交表单
   const handleSubmit = useCallback(async () => {
-    const values = await form.validateFields();
-    const payload = {
-      name: values.name,
-      age: values.age,
-      email: values.email || null,
-      birthday: values.birthday ? values.birthday.format('YYYY-MM-DD') : null,
-    };
-
     try {
+      const values = await form.validateFields();
+      const payload = {
+        name: values.name,
+        age: values.age,
+        email: values.email || null,
+        birthday: values.birthday ? values.birthday.format('YYYY-MM-DD') : null,
+      };
+
       if (editingUser) {
         await updateUser(editingUser.id, payload);
         message.success('用户更新成功');
@@ -59,6 +59,8 @@ const Home: React.FC = memo(() => {
       setEditModalOpen(false);
       actionRef.current?.reload();
     } catch (e: any) {
+      // 表单校验错误：antd 已自动提示，无需重复 message.error
+      if (e?.errorFields) return;
       message.error(e.message || '操作失败');
     }
   }, [editingUser, form]);

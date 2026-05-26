@@ -40,9 +40,11 @@ const Settings: React.FC = memo(() => {
       startTransition(() => {
         addOptimisticData(null);
       });
-    } catch {
-      // 校验失败已由 antd 提示
-      // 乐观更新会自动回滚
+    } catch (e: any) {
+      // 表单校验错误：antd 已自动提示，乐观更新会自动回滚
+      if (e?.errorFields) return;
+      // API 等其他错误
+      message.error(e?.message || '保存失败');
     }
   }, [form, addOptimisticData]);
 
