@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { MemoryRouter } from "react-router-dom";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import AppRoutes from "@/routes";
 
 describe("Routes", () => {
@@ -14,20 +14,16 @@ describe("Routes", () => {
       expect(container).toBeInTheDocument();
     });
 
-    it("redirects root path to dashboard", async () => {
-      render(
+    it("redirects root path to dashboard", () => {
+      const { container } = render(
         <MemoryRouter initialEntries={["/"]}>
           {AppRoutes}
         </MemoryRouter>,
       );
-
-      // Wait for navigation
-      await waitFor(() => {
-        expect(document.title).toBeDefined();
-      });
+      expect(container).toBeInTheDocument();
     });
 
-    it("renders user routes for /user path", async () => {
+    it("renders user routes for /user path", () => {
       const { container } = render(
         <MemoryRouter initialEntries={["/user"]}>
           {AppRoutes}
@@ -36,7 +32,7 @@ describe("Routes", () => {
       expect(container).toBeInTheDocument();
     });
 
-    it("renders exception routes for /exception path", async () => {
+    it("renders exception routes for /exception path", () => {
       const { container } = render(
         <MemoryRouter initialEntries={["/exception/404"]}>
           {AppRoutes}

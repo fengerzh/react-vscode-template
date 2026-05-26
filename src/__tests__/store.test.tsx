@@ -1,15 +1,27 @@
 import { renderHook, act } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
+import { supabase } from "@/lib/supabase";
 import useUserStore, { UserInfo } from "../store";
+
+// 复用 vitest.setup.ts 中的全局 supabase mock，不重复 mock
+
+vi.mock("@/services", async () => {
+  const actual = await vi.importActual("@/services");
+  return {
+    ...actual,
+    getProfile: vi.fn().mockResolvedValue(null),
+    upsertProfile: vi.fn().mockResolvedValue(true),
+  };
+});
 
 describe("UserStore", () => {
   beforeEach(() => {
     vi.clearAllMocks();
 
-    // 重置 Zustand store 状态
     act(() => {
       useUserStore.setState({
         userInfo: { userName: "" },
+        authed: null,
         appState: {
           loading: false,
           theme: "light",
@@ -155,35 +167,33 @@ describe("UserStore", () => {
     });
   });
 
-  describe("异步方法", () => {
-    it("getUserInfo应该正确处理成功情况", async () => {
+  describe("initAuth", () => {
+    it("initAuth 未登录时设置 authed 为 false", async () => {
+      vi.mocked(supabase.auth.getSession).mockResolvedValueOnce({ data: { session: null } } as any);
+
       const { result } = renderHook(() => useUserStore());
 
-      act(() => {
-        result.current.setUserInfo({ userName: "王五", userId: "user_003" });
-      });
-
       await act(async () => {
-        await result.current.getUserInfo();
+        await result.current.initAuth();
       });
 
-      expect(result.current.userInfo.userName).toBe("王五");
-      expect(result.current.userInfo.userId).toBe("user_003");
+      expect(result.current.authed).toBe(false);
+      expect(result.current.appState.loading).toBe(false);
     });
 
-    it("getUserInfo应该正确处理加载状态", async () => {
+    it("initAuth 已登录时设置 authed 为 true", async () => {
+      vi.mocked(supabase.auth.getSession).mockResolvedValueOnce({
+        data: { session: { user: { id: "u1", email: "test@test.com" } } },
+      } as any);
+
       const { result } = renderHook(() => useUserStore());
 
-      expect(result.current.appState.loading).toBe(false);
-
       await act(async () => {
-        const getUserInfoPromise = result.current.getUserInfo();
-        await Promise.resolve();
-        expect(result.current.appState.loading).toBe(true);
-        await getUserInfoPromise;
+        await result.current.initAuth();
       });
 
-      expect(result.current.appState.loading).toBe(false);
+      expect(result.current.authed).toBe(true);
+      expect(result.current.userInfo.userName).toBe("test");
     });
   });
 });

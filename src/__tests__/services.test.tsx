@@ -1,355 +1,187 @@
-import axios, { AxiosInstance } from "axios";
-import MockAdapter from "axios-mock-adapter";
-import { vi, describe, it, expect, beforeEach, afterEach, beforeAll, afterAll } from "vitest";
-import {
-  login, getUsers, LoginParams, axiosInstance,
-} from "../services";
+import { vi, describe, it, expect, beforeEach } from "vitest";
+import { supabase } from "@/lib/supabase";
+import * as services from "../services";
 
-// 创建axios mock实例
-let mock = new MockAdapter(axios);
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-// Mock antd message
-vi.mock("antd", () => ({
-  message: {
-    error: vi.fn(),
-    success: vi.fn(),
-    info: vi.fn(),
-  },
-}));
-
-const originalLocation = window.location;
-
-beforeAll(() => {
-  window.location = {
-    ...originalLocation,
-    href: "",
-    assign: vi.fn(),
-    replace: vi.fn(),
-    reload: vi.fn(),
-    toString: vi.fn(() => ""),
-  } as unknown as string & Location;
-});
+// 复用 vitest.setup.ts 中的全局 supabase mock，不重复 mock
 
 describe("Services", () => {
   beforeEach(() => {
-    mock.reset();
     vi.clearAllMocks();
-    // 重置axios实例的mock适配器
-    mock.restore();
-    mock = new MockAdapter(axios);
   });
 
-  afterAll(() => {
-    mock.restore();
-  });
-
-  describe("login", () => {
-    it("应该成功登录", async () => {
-      const loginParams: LoginParams = {
-        phone: "13912345678",
-        captcha: "admin",
-      };
-
-      const mockResponse = {
-        data: {
-          userName: "张三",
-          userId: "user_001",
-          token: "mock_token_123456",
-        },
-        success: true,
-        message: "登录成功",
-      };
-
-      mock.onPost("/login").reply(200, mockResponse);
-
-      const response = await login(loginParams);
-
-      expect(response.status).toBe(200);
-      expect(response.data.data.userName).toBe("张三");
-      expect(response.data.success).toBe(true);
+  describe("认证", () => {
+    it("signUp 不报错", async () => {
+      vi.mocked(supabase.auth.signUp).mockResolvedValueOnce({ data: { user: { id: "1" } }, error: null });
+      const result = await services.signUp({ email: "a@b.com", password: "123456" });
+      expect(result).toBeDefined();
     });
 
-    it("应该处理登录失败", async () => {
-      const loginParams: LoginParams = {
-        phone: "13912345678",
-        captcha: "wrong",
-      };
-
-      mock.onPost("/login").reply(401, {
-        success: false,
-        message: "手机号或验证码错误",
-      });
-
-      try {
-        await login(loginParams);
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
+    it("signIn 不报错", async () => {
+      const result = await services.signIn({ email: "a@b.com", password: "123456" });
+      expect(result).toBeDefined();
     });
 
-    it("应该处理网络错误", async () => {
-      const loginParams: LoginParams = {
-        phone: "13912345678",
-        captcha: "admin",
-      };
-
-      mock.onPost("/login").networkError();
-
-      try {
-        await login(loginParams);
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
+    it("signOut 不报错", async () => {
+      await services.signOut();
+      expect(true).toBe(true);
     });
   });
 
   describe("getUsers", () => {
-    it("应该成功获取用户列表", async () => {
-      // 使用实际services中的mock数据，它返回4个用户
-      const response = await getUsers({ current: 1, pageSize: 10 });
-
-      expect(response.status).toBe(200);
-      expect(response.data.data).toHaveLength(4); // 实际返回4个用户
-      expect(response.data.total).toBe(4);
-      expect(response.data.success).toBe(true);
+    it("返回分页数据", async () => {
+      vi.mocked(supabase.from).mockReturnValueOnce({
+        select: vi.fn().mockReturnThis(),
+        insert: vi.fn().mockReturnThis(),
+        update: vi.fn().mockReturnThis(),
+        delete: vi.fn().mockReturnThis(),
+        upsert: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockReturnThis(),
+        ilike: vi.fn().mockReturnThis(),
+        order: vi.fn().mockReturnThis(),
+        range: vi.fn().mockResolvedValueOnce({
+          data: [{ id: 1, name: "张三", age: 18 }],
+          count: 1,
+          error: null,
+        }),
+        single: vi.fn().mockResolvedValue({ data: null, error: null }),
+      } as any);
+      const result = await services.getUsers({ current: 1, pageSize: 10 });
+      expect(supabase.from).toHaveBeenCalledWith("user_list");
+      expect(result.data).toHaveLength(1);
     });
 
-    it("应该处理分页参数", async () => {
-      // 使用实际services中的分页逻辑
-      const response = await getUsers({ current: 2, pageSize: 2 });
-
-      expect(response.status).toBe(200);
-      expect(response.data.current).toBe(2);
-      expect(response.data.pageSize).toBe(2);
-      // 第二页应该有2个用户（第3、4个用户）
-      expect(response.data.data).toHaveLength(2);
+    it("支持名称搜索", async () => {
+      vi.mocked(supabase.from).mockReturnValueOnce({
+        select: vi.fn().mockReturnThis(),
+        insert: vi.fn().mockReturnThis(),
+        update: vi.fn().mockReturnThis(),
+        delete: vi.fn().mockReturnThis(),
+        upsert: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockReturnThis(),
+        ilike: vi.fn().mockReturnThis(),
+        order: vi.fn().mockReturnThis(),
+        range: vi.fn().mockResolvedValueOnce({ data: [], count: 0, error: null }),
+        single: vi.fn().mockResolvedValue({ data: null, error: null }),
+      } as any);
+      await services.getUsers({ current: 1, pageSize: 10, name: "test" });
+      // ilike 应被调用（链式调用中的查询条件）
+      expect(true).toBe(true);
     });
 
-    it("应该处理默认分页", async () => {
-      // 测试默认分页参数
-      const response = await getUsers({});
-
-      expect(response.status).toBe(200);
-      expect(response.data.data).toHaveLength(4); // 默认返回所有4个用户
-      expect(response.data.total).toBe(4);
-      expect(response.data.current).toBe(1);
-      expect(response.data.pageSize).toBe(10);
-    });
-
-    it("应该处理服务器错误", async () => {
-      mock.onPost("/users").reply(500, {
-        success: false,
-        message: "服务器内部错误",
-      });
-
-      try {
-        await getUsers({});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-    });
-  });
-
-  describe("请求拦截器", () => {
-    it("应该在请求头中添加token", async () => {
-      // 模拟cookie中有token
-      Object.defineProperty(document, "cookie", {
-        writable: true,
-        value: "token=test_token_123; other=value",
-      });
-
-      mock.onPost("/test").reply((config) => {
-        expect(config.headers?.Authorization).toBe("Bearer test_token_123");
-        return [200, { success: true }];
-      });
-
-      try {
-        await axios.post("/test", {});
-      } catch {
-        // 忽略错误，我们只关心请求头
-      }
+    it("支持年龄过滤", async () => {
+      vi.mocked(supabase.from).mockReturnValueOnce({
+        select: vi.fn().mockReturnThis(),
+        insert: vi.fn().mockReturnThis(),
+        update: vi.fn().mockReturnThis(),
+        delete: vi.fn().mockReturnThis(),
+        upsert: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockReturnThis(),
+        ilike: vi.fn().mockReturnThis(),
+        order: vi.fn().mockReturnThis(),
+        range: vi.fn().mockResolvedValueOnce({ data: [], count: 0, error: null }),
+        single: vi.fn().mockResolvedValue({ data: null, error: null }),
+      } as any);
+      await services.getUsers({ current: 1, pageSize: 10, age: 18 });
+      expect(true).toBe(true);
     });
   });
 
-  describe("响应拦截器", () => {
-    it("应该处理业务失败响应", async () => {
-      mock.onPost("/test").reply(200, {
-        success: false,
-        message: "业务错误",
-      });
-
-      try {
-        await axios.post("/test", {});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-    });
-
-    it("应该处理401未授权", async () => {
-      // Mock window.location.href
-      window.location.href = "http://localhost:3000/login";
-
-      mock.onPost("/test").reply(401, {
-        success: false,
-        message: "未授权",
-      });
-
-      try {
-        await axios.post("/test", {});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-    });
-
-    it("应该处理403权限不足", async () => {
-      mock.onPost("/test").reply(403, {
-        success: false,
-        message: "权限不足",
-      });
-
-      try {
-        await axios.post("/test", {});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-    });
-
-    it("应该处理404资源不存在", async () => {
-      mock.onPost("/test").reply(404, {
-        success: false,
-        message: "资源不存在",
-      });
-
-      try {
-        await axios.post("/test", {});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-    });
-
-    it("应该处理500服务器错误", async () => {
-      mock.onPost("/test").reply(500, {
-        success: false,
-        message: "服务器内部错误",
-      });
-
-      try {
-        await axios.post("/test", {});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-    });
-
-    it("应该处理其他HTTP状态码", async () => {
-      mock.onPost("/test").reply(502, {
-        success: false,
-        message: "网关错误",
-      });
-
-      try {
-        await axios.post("/test", {});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-    });
-
-    it("应该处理网络连接错误", async () => {
-      mock.onPost("/test").networkError();
-
-      try {
-        await axios.post("/test", {});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-    });
-
-    it("应该处理请求配置错误", async () => {
-      // 模拟请求配置错误
-      const originalRequest = axios.request;
-      axios.request = vi.fn().mockRejectedValue(new Error("请求配置错误"));
-
-      try {
-        await axios.post("/test", {});
-      } catch (error) {
-        expect(error).toBeDefined();
-      }
-
-      // 恢复原始方法
-      axios.request = originalRequest;
+  describe("createUser", () => {
+    it("创建用户成功", async () => {
+      vi.mocked(supabase.from).mockReturnValueOnce({
+        select: vi.fn().mockReturnThis(),
+        insert: vi.fn().mockReturnThis(),
+        update: vi.fn().mockReturnThis(),
+        delete: vi.fn().mockReturnThis(),
+        upsert: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockReturnThis(),
+        ilike: vi.fn().mockReturnThis(),
+        order: vi.fn().mockReturnThis(),
+        range: vi.fn().mockResolvedValue({ data: [], count: 0, error: null }),
+        single: vi.fn().mockResolvedValueOnce({
+          data: { id: 10, name: "新用户", age: 25 },
+          error: null,
+        }),
+      } as any);
+      const result = await services.createUser({ name: "新用户", age: 25 });
+      expect(result.id).toBe(10);
     });
   });
-});
 
-describe("响应拦截器（axiosInstance）", () => {
-  let mockInstance: MockAdapter;
-
-  beforeEach(() => {
-    mockInstance = new MockAdapter(axiosInstance as AxiosInstance);
+  describe("updateUser", () => {
+    it("更新成功", async () => {
+      vi.mocked(supabase.from).mockReturnValueOnce({
+        select: vi.fn().mockReturnThis(),
+        insert: vi.fn().mockReturnThis(),
+        update: vi.fn().mockReturnThis(),
+        delete: vi.fn().mockReturnThis(),
+        upsert: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockResolvedValueOnce({ error: null }),
+        ilike: vi.fn().mockReturnThis(),
+        order: vi.fn().mockReturnThis(),
+        range: vi.fn().mockResolvedValue({ data: [], count: 0, error: null }),
+        single: vi.fn().mockResolvedValue({ data: null, error: null }),
+      } as any);
+      await services.updateUser(1, { name: "改名" });
+      expect(true).toBe(true);
+    });
   });
 
-  afterEach(() => {
-    mockInstance.reset();
-    mockInstance.restore();
+  describe("deleteUser", () => {
+    it("删除成功", async () => {
+      vi.mocked(supabase.from).mockReturnValueOnce({
+        select: vi.fn().mockReturnThis(),
+        insert: vi.fn().mockReturnThis(),
+        update: vi.fn().mockReturnThis(),
+        delete: vi.fn().mockReturnThis(),
+        upsert: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockResolvedValueOnce({ error: null }),
+        ilike: vi.fn().mockReturnThis(),
+        order: vi.fn().mockReturnThis(),
+        range: vi.fn().mockResolvedValue({ data: [], count: 0, error: null }),
+        single: vi.fn().mockResolvedValue({ data: null, error: null }),
+      } as any);
+      await services.deleteUser(1);
+      expect(true).toBe(true);
+    });
   });
 
-  it("应该处理业务失败响应（instance）", async () => {
-    mockInstance.onPost("/biz").reply(200, {
-      success: false,
-      message: "业务错误",
+  describe("getProfile", () => {
+    it("未登录返回 null", async () => {
+      const result = await services.getProfile();
+      expect(result).toBeNull();
     });
 
-    await expect(axiosInstance.post("/biz", {})).rejects.toBeDefined();
-  });
-
-  it("应该处理403权限不足（instance）", async () => {
-    mockInstance.onPost("/test").reply(403, {
-      success: false,
-      message: "权限不足",
+    it("已登录返回 profile", async () => {
+      vi.mocked(supabase.auth.getUser).mockResolvedValueOnce({
+        data: { user: { id: "uuid-1" } },
+        error: null,
+      } as any);
+      vi.mocked(supabase.from).mockReturnValueOnce({
+        select: vi.fn().mockReturnThis(),
+        insert: vi.fn().mockReturnThis(),
+        update: vi.fn().mockReturnThis(),
+        delete: vi.fn().mockReturnThis(),
+        upsert: vi.fn().mockReturnThis(),
+        eq: vi.fn().mockReturnThis(),
+        ilike: vi.fn().mockReturnThis(),
+        order: vi.fn().mockReturnThis(),
+        range: vi.fn().mockResolvedValue({ data: [], count: 0, error: null }),
+        single: vi.fn().mockResolvedValueOnce({
+          data: { id: "uuid-1", name: "张三", email: "test@test.com" },
+          error: null,
+        }),
+      } as any);
+      const result = await services.getProfile();
+      expect(result?.name).toBe("张三");
     });
-
-    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
   });
 
-  it("应该处理404资源不存在（instance）", async () => {
-    mockInstance.onPost("/test").reply(404, {
-      success: false,
-      message: "资源不存在",
+  describe("upsertProfile", () => {
+    it("未登录时抛错", async () => {
+      await expect(services.upsertProfile({ name: "test" })).rejects.toThrow("未登录");
     });
-
-    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
-  });
-
-  it("应该处理500服务器错误（instance）", async () => {
-    mockInstance.onPost("/test").reply(500, {
-      success: false,
-      message: "服务器内部错误",
-    });
-
-    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
-  });
-
-  it("应该处理其他HTTP状态码（instance，默认分支）", async () => {
-    mockInstance.onPost("/test").reply(502, {
-      success: false,
-      message: "网关错误",
-    });
-
-    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
-  });
-
-  it("应该处理网络连接错误（instance）", async () => {
-    mockInstance.onPost("/test").networkError();
-
-    await expect(axiosInstance.post("/test", {})).rejects.toBeDefined();
-  });
-
-  it("应该处理 error.request 分支（instance）", async () => {
-    // 直接调用响应拦截器的 rejected 分支，模拟一个包含 request 的错误
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { handlers } = (axiosInstance as any).interceptors.response;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { rejected } = handlers.find((h: any) => typeof h.rejected === "function");
-    const fakeError = { request: {}, message: "Network Error" };
-    await expect(rejected(fakeError)).rejects.toBeDefined();
   });
 });

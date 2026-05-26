@@ -1,11 +1,12 @@
-import React, { Suspense, useMemo } from "react";
+import React, { Suspense, useEffect, useMemo } from 'react';
 import {
   Routes, Route, Navigate, useLocation, Outlet,
-} from "react-router-dom";
-import { Spin } from "antd";
-import userRouterConfig from "./user-router";
-import commonRouterConfig from "./common-router";
-import exceptionRouterConfig from "./exception-router";
+} from 'react-router-dom';
+import { Spin } from 'antd';
+import useUserStore from '@/store';
+import userRouterConfig from './user-router';
+import commonRouterConfig from './common-router';
+import exceptionRouterConfig from './exception-router';
 
 const routerConfig = [
   ...exceptionRouterConfig,
@@ -13,7 +14,6 @@ const routerConfig = [
   ...commonRouterConfig,
 ];
 
-// 路由配置类型定义
 interface RouteConfig {
   path?: string;
   key?: string;
@@ -21,7 +21,7 @@ interface RouteConfig {
     | React.ComponentType<Record<string, unknown>>
     | React.LazyExoticComponent<React.ComponentType<Record<string, unknown>>>;
   auth?: boolean;
-  guest?: boolean; // 游客页面，已登录用户自动跳转
+  guest?: boolean;
   redirect?: string;
   index?: boolean;
   children?: RouteConfig[];
@@ -29,34 +29,40 @@ interface RouteConfig {
   icon?: React.ReactNode;
 }
 
-// 权限检查函数
-const checkAuth = (): boolean => {
-  const cookies = Object.fromEntries(
-    document.cookie.split("; ").map((x) => x.split(/=(.*)$/, 2).map(decodeURIComponent)),
-  );
-  return !!cookies.token;
-};
+// 初始化认证状态（只调用一次 getSession）
+function AuthInitializer({ children }: { children: React.ReactNode }) {
+  const initAuth = useUserStore((s) => s.initAuth);
 
-// 认证守卫组件
+  useEffect(() => {
+    initAuth();
+  }, [initAuth]);
+
+  return children as React.ReactElement;
+}
+
 interface AuthGuardProps {
   children: React.ReactNode;
   auth: boolean;
-  guest: boolean; // 用于登录页，已登录用户自动跳转
+  guest: boolean;
 }
 
 function AuthGuard({ children, auth = false, guest = false }: AuthGuardProps) {
   const location = useLocation();
+  const authed = useUserStore((s) => s.authed);
 
-  // 每次渲染都直接读取 cookie，确保获取最新状态
-  const isAuthenticated = checkAuth();
+  if (authed === null) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
 
-  // 需要登录但未登录，跳转到登录页
-  if (auth && !isAuthenticated) {
+  if (auth && !authed) {
     return <Navigate to="/user" replace state={{ from: location }} />;
   }
 
-  // 游客页面（如登录页），已登录用户自动跳转到首页
-  if (guest && isAuthenticated) {
+  if (guest && authed) {
     return <Navigate to="/dashboard/home" replace />;
   }
 
@@ -65,26 +71,15 @@ function AuthGuard({ children, auth = false, guest = false }: AuthGuardProps) {
 
 function renderRoutes(configs: RouteConfig[]) {
   return configs.map((config) => {
-    // 重定向
     if (config.redirect) {
-      if (config.index) {
-        return (
-          <Route
-            key={config.key || config.redirect}
-            index
-            element={<Navigate to={config.redirect} replace />}
-          />
-        );
-      }
       return (
         <Route
           key={config.key || config.redirect}
-          path={config.path}
+          {...(config.index ? { index: true } : { path: config.path })}
           element={<Navigate to={config.redirect} replace />}
         />
       );
     }
-    // 嵌套路由
     if (config.children && config.children.length > 0) {
       const Comp = config.component;
       return (
@@ -101,7 +96,6 @@ function renderRoutes(configs: RouteConfig[]) {
         </Route>
       );
     }
-    // 普通路由
     if (config.component) {
       const Comp = config.component;
       return (
@@ -120,21 +114,13 @@ function renderRoutes(configs: RouteConfig[]) {
   });
 }
 
-// 路由组件
 function AppRouter() {
-  const location = useLocation();
-  const isAuthenticated = useMemo(() => checkAuth(), [location.pathname]);
+  const authed = useUserStore((s) => s.authed);
 
   return (
     <Suspense
       fallback={(
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-        >
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
           <Spin size="large" />
         </div>
       )}
@@ -146,7 +132,7 @@ function AppRouter() {
           path="*"
           element={(
             <Navigate
-              to={isAuthenticated ? "/dashboard/404" : "/exception/404"}
+              to={authed ? '/dashboard/404' : '/exception/404'}
               replace
             />
           )}
@@ -156,4 +142,9 @@ function AppRouter() {
   );
 }
 
-export default <AppRouter />;
+// 在顶层用 AuthInitializer 包裹，确保 getSession 只调用一次
+export default (
+  <AuthInitializer>
+    <AppRouter />
+  </AuthInitializer>
+);

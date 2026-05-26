@@ -1673,6 +1673,73 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@supabase/auth-js@npm:2.106.0":
+  version: 2.106.0
+  resolution: "@supabase/auth-js@npm:2.106.0"
+  dependencies:
+    tslib: "npm:2.8.1"
+  checksum: 10c0/17fd9e6337e079cea6e7ce1c4d0055494547f70d8daaf8ad88c65b9e249ca6605fe6066f9d30bc85cfacf8d525caa110d6da7f4bfdd543ba9c4d409bef546f32
+  languageName: node
+  linkType: hard
+
+"@supabase/functions-js@npm:2.106.0":
+  version: 2.106.0
+  resolution: "@supabase/functions-js@npm:2.106.0"
+  dependencies:
+    tslib: "npm:2.8.1"
+  checksum: 10c0/f222e42de4a9dfc8d6abeb49c238e3a4c45e4769ad0c769d1153d2f8f51fef061086d11ac16b92d6db4cd52acd5dfa2d3a7740cd9e6803474a47f72362771d9d
+  languageName: node
+  linkType: hard
+
+"@supabase/phoenix@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "@supabase/phoenix@npm:0.4.2"
+  checksum: 10c0/7d426ea70715539d76ef09a5d2364b335f848ffc32cefdc07b67707a9415c654d3f82ebf611851fceb987bdde31f1f77c088a05c40e372b65221801ca502945c
+  languageName: node
+  linkType: hard
+
+"@supabase/postgrest-js@npm:2.106.0":
+  version: 2.106.0
+  resolution: "@supabase/postgrest-js@npm:2.106.0"
+  dependencies:
+    tslib: "npm:2.8.1"
+  checksum: 10c0/5d6658291bb977f43fc33424fd5a25fe60d3fce50d21b9d78b52acdcab09daad21b599168b478ee07dbfc7c1ae66394d0bf71d3c4a32ff491cb237b4d208e013
+  languageName: node
+  linkType: hard
+
+"@supabase/realtime-js@npm:2.106.0":
+  version: 2.106.0
+  resolution: "@supabase/realtime-js@npm:2.106.0"
+  dependencies:
+    "@supabase/phoenix": "npm:^0.4.2"
+    tslib: "npm:2.8.1"
+  checksum: 10c0/b7e7dcefecd4408f39b71abb39b9765e16a41917d9dfbc2cf91ba03a5e7d12b5270bbcd37b31612410a34e86ad0ad6d520d9ae6006293acd0947e0bdb7952aad
+  languageName: node
+  linkType: hard
+
+"@supabase/storage-js@npm:2.106.0":
+  version: 2.106.0
+  resolution: "@supabase/storage-js@npm:2.106.0"
+  dependencies:
+    iceberg-js: "npm:^0.8.1"
+    tslib: "npm:2.8.1"
+  checksum: 10c0/8f59fb79ef117450ec576794fd9089b215fedae2454c9d0012a28f62362580b0a28bcacd7682592114a2e6c98e41430d9b3b3bb19c729ad0cb85bd15da056573
+  languageName: node
+  linkType: hard
+
+"@supabase/supabase-js@npm:^2.106.0":
+  version: 2.106.0
+  resolution: "@supabase/supabase-js@npm:2.106.0"
+  dependencies:
+    "@supabase/auth-js": "npm:2.106.0"
+    "@supabase/functions-js": "npm:2.106.0"
+    "@supabase/postgrest-js": "npm:2.106.0"
+    "@supabase/realtime-js": "npm:2.106.0"
+    "@supabase/storage-js": "npm:2.106.0"
+  checksum: 10c0/ebb18521adf73f0e78f990eb35aea4fe9b618aa937d13804f66707329b4eb26cd020608c75e5975546a7d253e19e96e9ae14340c0c499e0ad680790ce38c9729
+  languageName: node
+  linkType: hard
+
 "@testing-library/dom@npm:^10.4.1":
   version: 10.4.1
   resolution: "@testing-library/dom@npm:10.4.1"
@@ -4375,6 +4442,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"iceberg-js@npm:^0.8.1":
+  version: 0.8.1
+  resolution: "iceberg-js@npm:0.8.1"
+  checksum: 10c0/e504da64cc26e8ad7c5344353a7203c671a740c14eb6086f20505f5e9739cab774493e616032530c962df97f2a855115cc2e89a47dd81581df5917b21a69ec48
+  languageName: node
+  linkType: hard
+
 "ieee754@npm:^1.1.13":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
@@ -5619,14 +5693,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-to-regexp@npm:8.2.0":
-  version: 8.2.0
-  resolution: "path-to-regexp@npm:8.2.0"
-  checksum: 10c0/ef7d0a887b603c0a142fad16ccebdcdc42910f0b14830517c724466ad676107476bba2fe9fffd28fd4c141391ccd42ea426f32bb44c2c82ecaefe10c37b90f5a
-  languageName: node
-  linkType: hard
-
-"path-to-regexp@npm:^8.4.0":
+"path-to-regexp@npm:8.4.2":
   version: 8.4.2
   resolution: "path-to-regexp@npm:8.4.2"
   checksum: 10c0/05b115c49b47ad252ce05faa32930f643f23769c68b8bcfe78ad833545140c48bbffb3266986d6c8d5db13a64cf12e07e0d72d9882cab830efeefa553533ebaf
@@ -5937,6 +6004,7 @@ __metadata:
     "@ant-design/pro-components": "npm:^2.8.10"
     "@ant-design/pro-list": "npm:^2.6.9"
     "@stylistic/eslint-plugin": "npm:^5.2.3"
+    "@supabase/supabase-js": "npm:^2.106.0"
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/jest-dom": "npm:^6.9.1"
     "@testing-library/react": "npm:^16.3.0"
@@ -6919,7 +6987,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.4.0":
+"tslib@npm:2.8.1, tslib@npm:^2.0.0, tslib@npm:^2.4.0":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
