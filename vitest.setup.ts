@@ -151,8 +151,26 @@ Object.defineProperty(window, "scrollTo", {
 // 静音逻辑已提前放到文件顶部
 
 // ============================================================
-// Supabase mock
+// Supabase mock（全局唯一，所有测试文件复用）
 // ============================================================
+// 构建可链式调用的 mock query builder
+function createMockQueryBuilder() {
+  const builder: Record<string, ReturnType<typeof vi.fn>> = {};
+
+  const chainMethods = ["select", "insert", "update", "delete", "upsert", "eq", "ilike", "order"];
+  for (const m of chainMethods) {
+    builder[m] = vi.fn(() => builder);
+  }
+
+  // range 和 single 是终止方法，返回默认结果
+  builder.range = vi.fn().mockResolvedValue({ data: [], count: 0, error: null });
+  builder.single = vi.fn().mockResolvedValue({ data: null, error: null });
+
+  return builder;
+}
+
+const queryBuilder = createMockQueryBuilder();
+
 vi.mock('@/lib/supabase', () => ({
   supabase: {
     auth: {
@@ -165,17 +183,18 @@ vi.mock('@/lib/supabase', () => ({
         data: { subscription: { unsubscribe: vi.fn() } },
       }),
     },
-    from: vi.fn().mockReturnThis(),
-    select: vi.fn().mockReturnThis(),
-    insert: vi.fn().mockReturnThis(),
-    update: vi.fn().mockReturnThis(),
-    delete: vi.fn().mockReturnThis(),
-    upsert: vi.fn().mockReturnThis(),
-    eq: vi.fn().mockReturnThis(),
-    ilike: vi.fn().mockReturnThis(),
-    order: vi.fn().mockReturnThis(),
-    range: vi.fn().mockReturnThis(),
-    single: vi.fn().mockResolvedValue({ data: null, error: null }),
+    from: vi.fn(() => queryBuilder),
+    // 暴露 queryBuilder 上的链式方法供 from() 返回
+    select: queryBuilder.select,
+    insert: queryBuilder.insert,
+    update: queryBuilder.update,
+    delete: queryBuilder.delete,
+    upsert: queryBuilder.upsert,
+    eq: queryBuilder.eq,
+    ilike: queryBuilder.ilike,
+    order: queryBuilder.order,
+    range: queryBuilder.range,
+    single: queryBuilder.single,
   },
 }));
 

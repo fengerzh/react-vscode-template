@@ -1,9 +1,9 @@
-import React, { Suspense, useMemo } from 'react';
+import React, { Suspense, useEffect, useMemo } from 'react';
 import {
   Routes, Route, Navigate, useLocation, Outlet,
 } from 'react-router-dom';
 import { Spin } from 'antd';
-import { supabase } from '@/lib/supabase';
+import useUserStore from '@/store';
 import userRouterConfig from './user-router';
 import commonRouterConfig from './common-router';
 import exceptionRouterConfig from './exception-router';
@@ -29,15 +29,15 @@ interface RouteConfig {
   icon?: React.ReactNode;
 }
 
-// 用 Supabase session 检查认证状态
-function useAuth(): boolean | null {
-  const [authed, setAuthed] = React.useState<boolean | null>(null);
-  React.useEffect(() => {
-    supabase.auth.getSession()
-      .then(({ data: { session } }) => setAuthed(!!session))
-      .catch(() => setAuthed(false)); // CI 环境无 Supabase → 视为未登录
-  }, []);
-  return authed;
+// 初始化认证状态（只调用一次 getSession）
+function AuthInitializer({ children }: { children: React.ReactNode }) {
+  const initAuth = useUserStore((s) => s.initAuth);
+
+  useEffect(() => {
+    initAuth();
+  }, [initAuth]);
+
+  return children as React.ReactElement;
 }
 
 interface AuthGuardProps {
@@ -48,9 +48,9 @@ interface AuthGuardProps {
 
 function AuthGuard({ children, auth = false, guest = false }: AuthGuardProps) {
   const location = useLocation();
-  const isAuthenticated = useAuth();
+  const authed = useUserStore((s) => s.authed);
 
-  if (isAuthenticated === null) {
+  if (authed === null) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <Spin size="large" />
@@ -58,11 +58,11 @@ function AuthGuard({ children, auth = false, guest = false }: AuthGuardProps) {
     );
   }
 
-  if (auth && !isAuthenticated) {
+  if (auth && !authed) {
     return <Navigate to="/user" replace state={{ from: location }} />;
   }
 
-  if (guest && isAuthenticated) {
+  if (guest && authed) {
     return <Navigate to="/dashboard/home" replace />;
   }
 
@@ -115,8 +115,7 @@ function renderRoutes(configs: RouteConfig[]) {
 }
 
 function AppRouter() {
-  const location = useLocation();
-  const isAuthenticated = useAuth();
+  const authed = useUserStore((s) => s.authed);
 
   return (
     <Suspense
@@ -133,7 +132,7 @@ function AppRouter() {
           path="*"
           element={(
             <Navigate
-              to={isAuthenticated ? '/dashboard/404' : '/exception/404'}
+              to={authed ? '/dashboard/404' : '/exception/404'}
               replace
             />
           )}
@@ -143,4 +142,9 @@ function AppRouter() {
   );
 }
 
-export default <AppRouter />;
+// 在顶层用 AuthInitializer 包裹，确保 getSession 只调用一次
+export default (
+  <AuthInitializer>
+    <AppRouter />
+  </AuthInitializer>
+);

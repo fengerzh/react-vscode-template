@@ -1,20 +1,10 @@
 import { renderHook, act } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
+import { supabase } from "@/lib/supabase";
 import useUserStore, { UserInfo } from "../store";
 
-vi.mock("@/lib/supabase", () => ({
-  supabase: {
-    auth: {
-      getSession: vi.fn().mockResolvedValue({ data: { session: null } }),
-      getUser: vi.fn().mockResolvedValue({ data: { user: null } }),
-      signOut: vi.fn().mockResolvedValue({ error: null }),
-      onAuthStateChange: vi.fn().mockReturnValue({
-        data: { subscription: { unsubscribe: vi.fn() } },
-      }),
-    },
-    from: vi.fn(),
-  },
-}));
+// 复用 vitest.setup.ts 中的全局 supabase mock，不重复 mock
+
 vi.mock("@/services", async () => {
   const actual = await vi.importActual("@/services");
   return {
@@ -31,6 +21,7 @@ describe("UserStore", () => {
     act(() => {
       useUserStore.setState({
         userInfo: { userName: "" },
+        authed: null,
         appState: {
           loading: false,
           theme: "light",
@@ -177,15 +168,32 @@ describe("UserStore", () => {
   });
 
   describe("initAuth", () => {
-    it("initAuth 应该正确初始化", async () => {
+    it("initAuth 未登录时设置 authed 为 false", async () => {
+      vi.mocked(supabase.auth.getSession).mockResolvedValueOnce({ data: { session: null } } as any);
+
       const { result } = renderHook(() => useUserStore());
 
       await act(async () => {
         await result.current.initAuth();
       });
 
-      // initAuth 调用了 supabase.auth.getSession，不应抛错
+      expect(result.current.authed).toBe(false);
       expect(result.current.appState.loading).toBe(false);
+    });
+
+    it("initAuth 已登录时设置 authed 为 true", async () => {
+      vi.mocked(supabase.auth.getSession).mockResolvedValueOnce({
+        data: { session: { user: { id: "u1", email: "test@test.com" } } },
+      } as any);
+
+      const { result } = renderHook(() => useUserStore());
+
+      await act(async () => {
+        await result.current.initAuth();
+      });
+
+      expect(result.current.authed).toBe(true);
+      expect(result.current.userInfo.userName).toBe("test");
     });
   });
 });

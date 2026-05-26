@@ -19,9 +19,11 @@ export interface AppState {
   collapsed: boolean;
 }
 
+// authed: null = 正在检查, true = 已登录, false = 未登录
 interface UserStoreState {
   userInfo: UserInfo;
   appState: AppState;
+  authed: boolean | null;
 
   // 认证相关
   initAuth: () => Promise<void>;
@@ -44,10 +46,11 @@ const useUserStore = create<UserStoreState>()(
     subscribeWithSelector((set, get) => ({
       userInfo: { userName: '' },
       appState: { loading: false, theme: 'light', collapsed: false },
+      authed: null as boolean | null,
 
       // ====== 初始化认证 ======
       initAuth: async () => {
-        set((s) => ({ appState: { ...s.appState, loading: true } }));
+        set((s) => ({ appState: { ...s.appState, loading: true }, authed: null }));
 
         try {
           const { data: { session } } = await supabase.auth.getSession();
@@ -55,6 +58,7 @@ const useUserStore = create<UserStoreState>()(
             const profile = await getProfile();
             if (profile) {
               set({
+                authed: true,
                 userInfo: {
                   userId: session.user.id,
                   userName: profile.name || session.user.email?.split('@')[0] || '',
@@ -66,6 +70,7 @@ const useUserStore = create<UserStoreState>()(
               const name = session.user.email?.split('@')[0] || '新用户';
               await upsertProfile({ name, email: session.user.email });
               set({
+                authed: true,
                 userInfo: {
                   userId: session.user.id,
                   userName: name,
@@ -73,9 +78,12 @@ const useUserStore = create<UserStoreState>()(
                 },
               });
             }
+          } else {
+            set({ authed: false });
           }
         } catch {
-          // CI 环境无 Supabase 后端 → 静默跳过，不影响页面渲染
+          // CI 环境无 Supabase 后端 → 视为未登录
+          set({ authed: false });
         }
 
         set((s) => ({ appState: { ...s.appState, loading: false } }));
@@ -85,6 +93,7 @@ const useUserStore = create<UserStoreState>()(
           if (event === 'SIGNED_IN' && session?.user) {
             const profile = await getProfile();
             set({
+              authed: true,
               userInfo: {
                 userId: session.user.id,
                 userName: profile?.name || session.user.email?.split('@')[0] || '',
@@ -93,7 +102,7 @@ const useUserStore = create<UserStoreState>()(
               },
             });
           } else if (event === 'SIGNED_OUT') {
-            set({ userInfo: { userName: '' } });
+            set({ authed: false, userInfo: { userName: '' } });
           }
         });
       },
@@ -107,7 +116,7 @@ const useUserStore = create<UserStoreState>()(
 
       // ====== 清除用户信息 ======
       clearUserInfo: () => {
-        set({ userInfo: { userName: '' } });
+        set({ authed: false, userInfo: { userName: '' } });
         supabase.auth.signOut();
       },
 
