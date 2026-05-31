@@ -120,17 +120,17 @@ __metadata:
   linkType: hard
 
 "@ant-design/icons@npm:^6.2.2, @ant-design/icons@npm:^6.2.3":
-  version: 6.2.3
-  resolution: "@ant-design/icons@npm:6.2.3"
+  version: 6.2.5
+  resolution: "@ant-design/icons@npm:6.2.5"
   dependencies:
     "@ant-design/colors": "npm:^8.0.1"
     "@ant-design/icons-svg": "npm:^4.4.2"
-    "@rc-component/util": "npm:^1.10.1"
+    "@rc-component/util": "npm:^1.11.0"
     clsx: "npm:^2.1.1"
   peerDependencies:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: 10c0/16f452703b2f9dfed296645b54a16e46afe1c12daed72d4a875b6f8d51f084966246afedba920fcbe3dc765a88ba40446b5a48f00c902071289b7eb3cc9a614e
+  checksum: 10c0/9fe43c491465276d3dbd1dfeb1d97a33253c7e0a1e80f18dac86e04fa6d11164d7d8d95d68b17fa89797327d585d5a97a6d219f5ce66a0b90a07148977ee7357
   languageName: node
   linkType: hard
 
