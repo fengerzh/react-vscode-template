@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import Settings from "@/pages/Settings";
 
@@ -69,9 +69,46 @@ describe("Settings", () => {
     const displayNameInput = container.querySelector('input[id="displayName"]') as HTMLInputElement;
     const emailInput = container.querySelector('input[id="email"]') as HTMLInputElement;
 
+    // Inputs should be initialized from saved data
     expect(displayNameInput?.value).toBe("张三");
     expect(emailInput?.value).toBe("zhangsan@example.com");
+
+    // The optimistic display card should also reflect the same initial saved data
+    const cardBody = container.querySelectorAll(".ant-card")[1]; // inner card
+    expect(cardBody).toBeTruthy();
+    expect(cardBody?.textContent).toContain("当前生效的设置（乐观更新）");
+    expect(cardBody?.textContent).toContain("张三");
+    expect(cardBody?.textContent).toContain("zhangsan@example.com");
   });
+
+  it("optimistically updates card on submit before async save resolves", async () => {
+    // This test uses real timers because antd form.validateFields() relies on
+    // microtask scheduling that doesn't resolve properly with fake timers.
+    vi.useRealTimers();
+
+    const { container } = render(<Settings />);
+
+    const displayNameInput = container.querySelector('input[id="displayName"]') as HTMLInputElement;
+    const emailInput = container.querySelector('input[id="email"]') as HTMLInputElement;
+
+    // Fill form with new values
+    fireEvent.change(displayNameInput, { target: { value: "李四" } });
+    fireEvent.change(emailInput, { target: { value: "lisi@example.com" } });
+
+    // Submit the form
+    const submitButton = container.querySelector("button.ant-btn-primary") as HTMLButtonElement;
+    expect(submitButton).toBeTruthy();
+    await act(async () => {
+      fireEvent.click(submitButton);
+    });
+
+    // Optimistic update: card should reflect new values while the 2s save is in-flight
+    const getCardText = () => container.querySelectorAll(".ant-card")[1]?.textContent || "";
+    await waitFor(() => {
+      expect(getCardText()).toContain("李四");
+      expect(getCardText()).toContain("lisi@example.com");
+    }, { timeout: 1000 });
+  }, 10000);
 
   it("renders card component", () => {
     const { container } = render(<Settings />);
