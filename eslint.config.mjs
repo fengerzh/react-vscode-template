@@ -1,11 +1,11 @@
-import globals from "globals";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import eslint from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
-import tseslint from "typescript-eslint";
-import stylistic from "@stylistic/eslint-plugin";
-import pluginCypress from "eslint-plugin-cypress";
+import globals from 'globals';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import eslint from '@eslint/js';
+import { FlatCompat } from '@eslint/eslintrc';
+import tseslint from 'typescript-eslint';
+import stylistic from '@stylistic/eslint-plugin';
+import pluginCypress from 'eslint-plugin-cypress';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -18,13 +18,13 @@ export default tseslint.config(
   tseslint.configs.recommended,
   pluginCypress.configs.recommended,
   {
-    ignores: ["eslint.config.mjs"],
+    ignores: ['eslint.config.mjs'],
     extends: compat.extends(
-      "airbnb",
+      'airbnb',
     ),
 
     plugins: {
-      "@stylistic": stylistic,
+      '@stylistic': stylistic,
       cypress: pluginCypress,
     },
 
@@ -37,17 +37,17 @@ export default tseslint.config(
       },
 
       parserOptions: {
-        project: "./tsconfig.json",
-        sourceType: "module",
-        ecmaVersion: "latest",
+        project: './tsconfig.json',
+        sourceType: 'module',
+        ecmaVersion: 'latest',
       },
     },
 
     settings: {
-      "import/resolver": {
+      'import/resolver': {
         alias: {
-          map: [["babel-polyfill", "babel-polyfill/dist/polyfill.min.js"], ["@", "./src/"]],
-          extensions: [".js", ".ts", ".jsx", ".tsx"],
+          map: [['babel-polyfill', 'babel-polyfill/dist/polyfill.min.js'], ['@', './src/']],
+          extensions: ['.js', '.ts', '.jsx', '.tsx'],
         },
 
         typescript: {},
@@ -55,18 +55,18 @@ export default tseslint.config(
     },
 
     rules: {
-      quotes: ["error", "double"],
-      "react/react-in-jsx-scope": "off",
+      quotes: ['error', 'single'],
+      'react/react-in-jsx-scope': 'off',
 
-      "react/jsx-filename-extension": ["error", {
-        extensions: [".jsx", ".tsx"],
+      'react/jsx-filename-extension': ['error', {
+        extensions: ['.jsx', '.tsx'],
       }],
 
-      "import/extensions": ["error", "ignorePackages", {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
+      'import/extensions': ['error', 'ignorePackages', {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
       }],
     },
   },

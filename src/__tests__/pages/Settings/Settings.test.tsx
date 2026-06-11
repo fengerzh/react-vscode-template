@@ -27,7 +27,7 @@ describe("Settings", () => {
     render(<Settings />);
 
     expect(screen.getByText("个人设置")).toBeInTheDocument();
-    expect(screen.getByText("管理个人资料与偏好")).toBeInTheDocument();
+    expect(screen.getByText("管理个人资料与偏好（useOptimistic 演示）")).toBeInTheDocument();
   });
 
   it("renders form fields", () => {
@@ -63,14 +63,14 @@ describe("Settings", () => {
     }
   });
 
-  it("renders with initial empty values", () => {
+  it("renders with initial values from saved data", () => {
     const { container } = render(<Settings />);
 
     const displayNameInput = container.querySelector('input[id="displayName"]') as HTMLInputElement;
     const emailInput = container.querySelector('input[id="email"]') as HTMLInputElement;
 
-    expect(displayNameInput?.value).toBe("");
-    expect(emailInput?.value).toBe("");
+    expect(displayNameInput?.value).toBe("张三");
+    expect(emailInput?.value).toBe("zhangsan@example.com");
   });
 
   it("renders card component", () => {
