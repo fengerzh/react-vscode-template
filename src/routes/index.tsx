@@ -117,6 +117,15 @@ function renderRoutes(configs: RouteConfig[]) {
 function AppRouter() {
   const authed = useUserStore((s) => s.authed);
 
+  // authed === null 时展示 loading，避免将已登录用户短暂误导到 /exception/404
+  const fallback404 = authed === null
+    ? (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Spin size="large" />
+      </div>
+    )
+    : <Navigate to={authed ? '/dashboard/404' : '/exception/404'} replace />;
+
   return (
     <Suspense
       fallback={(
@@ -130,12 +139,7 @@ function AppRouter() {
         {renderRoutes(routerConfig)}
         <Route
           path="*"
-          element={(
-            <Navigate
-              to={authed ? '/dashboard/404' : '/exception/404'}
-              replace
-            />
-          )}
+          element={fallback404}
         />
       </Routes>
     </Suspense>
