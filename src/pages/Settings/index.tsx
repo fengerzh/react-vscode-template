@@ -24,14 +24,22 @@ const Settings: React.FC = memo(() => {
   );
 
   const handleSubmit = useCallback(async () => {
+    let values: FormValues;
     try {
-      const values = await form.validateFields();
+      values = await form.validateFields();
+    } catch (e: any) {
+      // 表单校验错误：antd 已自动提示，无需额外处理
+      if (e?.errorFields) return;
+      message.error(e?.message || '保存失败');
+      return;
+    }
 
-      // React 19: 异步操作必须在 startTransition 内部，
-      // 这样 useOptimistic 才能在整个异步过程中保持乐观值
-      startTransition(async () => {
-        addOptimisticData(values);
-
+    // React 19: 异步操作必须在 startTransition 内部，
+    // 这样 useOptimistic 才能在整个异步过程中保持乐观值。
+    // 注意：startTransition 不会 await 回调，错误必须在内部捕获。
+    startTransition(async () => {
+      addOptimisticData(values);
+      try {
         // 模拟 API 调用（2秒延迟）
         await new Promise((resolve) => {
           setTimeout(resolve, 2000);
@@ -40,11 +48,10 @@ const Settings: React.FC = memo(() => {
         // 模拟成功：实际场景中 savedData 应从服务端刷新
         Object.assign(savedData, values);
         message.success("保存成功");
-      });
-    } catch (e: any) {
-      if (e?.errorFields) return;
-      message.error(e?.message || '保存失败');
-    }
+      } catch (e: any) {
+        message.error(e?.message || '保存失败');
+      }
+    });
   }, [form, addOptimisticData]);
 
   return (
