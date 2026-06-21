@@ -1798,21 +1798,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/auth-js@npm:2.108.1":
-  version: 2.108.1
-  resolution: "@supabase/auth-js@npm:2.108.1"
+"@supabase/auth-js@npm:2.108.2":
+  version: 2.108.2
+  resolution: "@supabase/auth-js@npm:2.108.2"
   dependencies:
     tslib: "npm:2.8.1"
-  checksum: 10c0/8bf1bce42703b63284a0562d5a6588ac879b4fdeb477046a92fa9ba6fa0d75de7d85f4177d389654f68b812e359e9f0c9c3a659e7d37d96aaa2f6eba12d9cff0
+  checksum: 10c0/31617770accb5910c1e7d19f230e3f1e5e1fd3e78912ea5ae342dddb7e032f58fb1d277560eae9a7892ef2d20b03c4989118a9ff17cb48aa5e7dd99eb566fb02
   languageName: node
   linkType: hard
 
-"@supabase/functions-js@npm:2.108.1":
-  version: 2.108.1
-  resolution: "@supabase/functions-js@npm:2.108.1"
+"@supabase/functions-js@npm:2.108.2":
+  version: 2.108.2
+  resolution: "@supabase/functions-js@npm:2.108.2"
   dependencies:
     tslib: "npm:2.8.1"
-  checksum: 10c0/da67a82c4a79e049fa3d077f1ca3917a58707fa35df642d39d8b23edf5056a2a2427ea201d3f49bb11eafb06413dfde552a6bf63b2da4865a421d44c690c0fe7
+  checksum: 10c0/06e899cd3445f519f8f595c648b8fa38f174f01335b18cf1ebcc87efc7cede997896e6b06c74747b4275c7b2514accee26d5ee0d4bb2bf5fc757c82070435624
   languageName: node
   linkType: hard
 
@@ -1823,45 +1823,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/postgrest-js@npm:2.108.1":
-  version: 2.108.1
-  resolution: "@supabase/postgrest-js@npm:2.108.1"
+"@supabase/postgrest-js@npm:2.108.2":
+  version: 2.108.2
+  resolution: "@supabase/postgrest-js@npm:2.108.2"
   dependencies:
     tslib: "npm:2.8.1"
-  checksum: 10c0/29168464f44a723175ef510410df36f993581229d617816dfd33eb9bf5378742910fb9c18508040188ba2a16c20988f84d6f722decd79e34190daea35a5374af
+  checksum: 10c0/eafb794763943f1c72683157785e325647e5cc8eb17904b6922b896b5c25f0be75c11376cb7a518b6f6ee983ad7d94a509e75950533f3da4fcf8f910f1e11433
   languageName: node
   linkType: hard
 
-"@supabase/realtime-js@npm:2.108.1":
-  version: 2.108.1
-  resolution: "@supabase/realtime-js@npm:2.108.1"
+"@supabase/realtime-js@npm:2.108.2":
+  version: 2.108.2
+  resolution: "@supabase/realtime-js@npm:2.108.2"
   dependencies:
     "@supabase/phoenix": "npm:^0.4.2"
     tslib: "npm:2.8.1"
-  checksum: 10c0/bb4cea92714389b6f5f4b626e4c3cbacee2a57c543b71217d3d3032bfe35574cd26fe305bfbde0426230ca3b887e2116c78d47aa37117160b2b9d5ba11564ded
+  checksum: 10c0/3a5c19c4283b64cf22e91d264580905de0a724376314acf6a9f9e53ae74ba05bad679eaf57fe5c31e95213608c1bd065485127824bed377500b021d01cec0454
   languageName: node
   linkType: hard
 
-"@supabase/storage-js@npm:2.108.1":
-  version: 2.108.1
-  resolution: "@supabase/storage-js@npm:2.108.1"
+"@supabase/storage-js@npm:2.108.2":
+  version: 2.108.2
+  resolution: "@supabase/storage-js@npm:2.108.2"
   dependencies:
     iceberg-js: "npm:^0.8.1"
     tslib: "npm:2.8.1"
-  checksum: 10c0/5a010b4d3af565b26ceb1d07e3d3f0541c8fe538350931c4fc15d0b560b3e40c354cc66259882a8b378e70dace59bc83dd53849feb48509155b8b342e00724a2
+  checksum: 10c0/9e7ed4560150012ea8fa45c12b180533f166d6900b4a61e1a2bbf7f12e872ea42f85670db3dc781b7e76f983f5c9d320d84574775969d18804c6a0ca4aa44e7d
   languageName: node
   linkType: hard
 
 "@supabase/supabase-js@npm:^2.108.0":
-  version: 2.108.1
-  resolution: "@supabase/supabase-js@npm:2.108.1"
+  version: 2.108.2
+  resolution: "@supabase/supabase-js@npm:2.108.2"
   dependencies:
-    "@supabase/auth-js": "npm:2.108.1"
-    "@supabase/functions-js": "npm:2.108.1"
-    "@supabase/postgrest-js": "npm:2.108.1"
-    "@supabase/realtime-js": "npm:2.108.1"
-    "@supabase/storage-js": "npm:2.108.1"
-  checksum: 10c0/9b8c3dd7153b4eb3c0bf47296e326c3e57bf77b979a5dc5d18b96a25c041195de942d227d13a5ce83a20203163580204e9102f2346f0a9461de4042b95f69f03
+    "@supabase/auth-js": "npm:2.108.2"
+    "@supabase/functions-js": "npm:2.108.2"
+    "@supabase/postgrest-js": "npm:2.108.2"
+    "@supabase/realtime-js": "npm:2.108.2"
+    "@supabase/storage-js": "npm:2.108.2"
+  checksum: 10c0/1e627189af3d8088329fdbdfbff754285dd757f30d7d4e0415881d75b684143b6c1fe519449b69d4b30b52f732a7f4510566718640826a966e124c8331becbfb
   languageName: node
   linkType: hard
 
