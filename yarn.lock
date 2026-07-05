@@ -6868,12 +6868,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:5.31.8":
-  version: 5.31.8
-  resolution: "systeminformation@npm:5.31.8"
+"systeminformation@npm:5.31.13":
+  version: 5.31.13
+  resolution: "systeminformation@npm:5.31.13"
   bin:
     systeminformation: lib/cli.js
-  checksum: 10c0/1b2cde58ee709f0d16cd7f31ba195b2a575a8dddeb8bcfc9433587da2ee2ad0b710d2ef90b0701bc3fa68871ff1731c74813f82d32a5f47eb16b45f052bddba6
+  checksum: 10c0/0a717cf558d16d51bcd2a3a167226bf7ac14529c5f5b6ea894900e5175a9fe6a15cb01b2db8c7565e8caedf0a662194059c2c054454b24c735a0f39e5cbe47dd
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
