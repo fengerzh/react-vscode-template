@@ -3213,9 +3213,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^15.16.0":
-  version: 15.16.0
-  resolution: "cypress@npm:15.16.0"
+"cypress@npm:^15.18.1":
+  version: 15.18.1
+  resolution: "cypress@npm:15.18.1"
   dependencies:
     "@cypress/request": "npm:^4.0.0"
     "@cypress/xvfb": "npm:^1.2.4"
@@ -3258,7 +3258,7 @@ __metadata:
     yauzl: "npm:^3.3.1"
   bin:
     cypress: bin/cypress
-  checksum: 10c0/9cee32e8cfc5e5f245ecea1ee9cfd1a9217b052bd88c42a1980986ee58eb3433c1f3be8a04e97e45161fae562fd4cc6e95746727e0263575c093bf2996232e93
+  checksum: 10c0/18543d1ef8b802d48eb30864279aa3ac6ac33c23d03a7d411e0447846bfac06c960f0419a7bdc3d7be54d599cab888197ea6b55640d0d4156f754406e54bf7e6
   languageName: node
   linkType: hard
 
@@ -6034,7 +6034,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:^6.0.0"
     "@vitest/coverage-v8": "npm:^4.1.8"
     antd: "npm:6.4.3"
-    cypress: "npm:^15.16.0"
+    cypress: "npm:^15.18.1"
     dayjs: "npm:^1.11.21"
     eslint: "npm:^10.4.1"
     eslint-config-airbnb: "npm:^19.0.4"
