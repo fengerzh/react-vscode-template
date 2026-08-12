@@ -14,7 +14,7 @@ interface BreadcrumbRoute {
 }
 
 const Home: React.FC = memo(() => {
-  const actionRef = useRef<any>();
+  const actionRef = useRef<any>(null);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [editingUser, setEditingUser] = useState<UserRow | null>(null);
   const [form] = Form.useForm();

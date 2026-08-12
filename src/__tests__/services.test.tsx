@@ -13,7 +13,7 @@ describe("Services", () => {
 
   describe("认证", () => {
     it("signUp 不报错", async () => {
-      vi.mocked(supabase.auth.signUp).mockResolvedValueOnce({ data: { user: { id: "1" } }, error: null });
+      vi.mocked(supabase.auth.signUp).mockResolvedValueOnce({ data: { user: { id: "1" } } as any, error: null });
       const result = await services.signUp({ email: "a@b.com", password: "123456" });
       expect(result).toBeDefined();
     });

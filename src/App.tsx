@@ -4,7 +4,7 @@ import zhCN from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { ErrorBoundary } from 'react-error-boundary';
-import 'antd/dist/reset.css';
+import 'antd/reset.css';
 import router from '@/routes';
 
 // 设置 dayjs 为中文

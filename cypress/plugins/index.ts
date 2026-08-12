@@ -1,8 +1,5 @@
-import { defineConfig } from "cypress";
-
-type SetupNodeEvents = Parameters<typeof defineConfig>[0]["e2e"]["setupNodeEvents"];
-
-/**
- * @type {Cypress.PluginConfig}
- */
-export default ((on, config) => config) satisfies SetupNodeEvents;
+// Cypress plugin file
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default (_on: any, config: any) => {
+  return config;
+};
