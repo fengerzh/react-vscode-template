@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useMemo } from "react";
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router";
 import {
   Avatar, Dropdown, Button, message, FloatButton,
 } from "antd";

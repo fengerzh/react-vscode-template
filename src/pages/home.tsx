@@ -1,7 +1,7 @@
 import React, {
   memo, useCallback, useMemo, useRef, useState,
 } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { PageContainer, ProTable, type ProColumns } from '@ant-design/pro-components';
 import { Button, Space, Tag, message, Modal, Form, Input, InputNumber, DatePicker } from 'antd';
 import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';

@@ -2,7 +2,7 @@ import "./matchMedia.mock";
 import React from "react";
 import { render } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router";
 import Login from "./Login";
 
 vi.mock("@/services", () => ({
@@ -10,8 +10,8 @@ vi.mock("@/services", () => ({
   signUp: vi.fn().mockResolvedValue({ data: {}, error: null }),
 }));
 
-vi.mock("react-router-dom", async () => {
-  const actual = await vi.importActual("react-router-dom");
+vi.mock("react-router", async () => {
+  const actual = await vi.importActual("react-router");
   return { ...actual, useNavigate: () => vi.fn() };
 });
 

@@ -1,6 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
+import { MemoryRouter } from "react-router";
+import { Routes, Route } from "react-router";
 import BasicLayout from "@/layout/BasicLayout";
 import useUserStore from "@/store";
 

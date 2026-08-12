@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useMemo } from 'react';
 import {
   Routes, Route, Navigate, useLocation, Outlet,
-} from 'react-router-dom';
+} from 'react-router';
 import { Spin } from 'antd';
 import useUserStore from '@/store';
 import userRouterConfig from './user-router';

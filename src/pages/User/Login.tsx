@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { message } from 'antd';
 import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { signIn, signUp } from '@/services';
 import type { LoginParams } from '@/services';
 import useUserStore from '@/store';
