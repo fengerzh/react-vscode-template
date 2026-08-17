@@ -96,7 +96,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons-svg@npm:^4.4.0, @ant-design/icons-svg@npm:^4.4.2":
+"@ant-design/icons-svg@npm:^4.4.0":
   version: 4.4.2
   resolution: "@ant-design/icons-svg@npm:4.4.2"
   checksum: 10c0/d08f051824599850efcd691a67b0ee602ee886f23fe04e77890b083a0343cde72560317e3909fd029f999df00aef7b57142c863326fff7293251d9162828079b
@@ -123,21 +123,6 @@ __metadata:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
   checksum: 10c0/7a9d9fd388c5c66d92818fd0eb794a54ef0b0dc3d75f15ac24c7cfde21c5c836c220cf35423768fd1faa28d55443a6917bf4260469c1485be83f799daa351976
-  languageName: node
-  linkType: hard
-
-"@ant-design/icons@npm:^6.2.2":
-  version: 6.2.5
-  resolution: "@ant-design/icons@npm:6.2.5"
-  dependencies:
-    "@ant-design/colors": "npm:^8.0.1"
-    "@ant-design/icons-svg": "npm:^4.4.2"
-    "@rc-component/util": "npm:^1.11.0"
-    clsx: "npm:^2.1.1"
-  peerDependencies:
-    react: ">=16.0.0"
-    react-dom: ">=16.0.0"
-  checksum: 10c0/9fe43c491465276d3dbd1dfeb1d97a33253c7e0a1e80f18dac86e04fa6d11164d7d8d95d68b17fa89797327d585d5a97a6d219f5ce66a0b90a07148977ee7357
   languageName: node
   linkType: hard
 
@@ -6209,7 +6194,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-vscode-template@workspace:."
   dependencies:
-    "@ant-design/icons": "npm:^6.2.2"
+    "@ant-design/icons": "npm:^6.3.2"
     "@ant-design/pro-components": "npm:^2.8.10"
     "@ant-design/pro-list": "npm:^2.6.9"
     "@eslint/eslintrc": "npm:^3.3.6"
