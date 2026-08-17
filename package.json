@@ -16,7 +16,7 @@
     "@ant-design/icons": "^6.2.2",
     "@ant-design/pro-components": "^2.8.10",
     "@ant-design/pro-list": "^2.6.9",
-    "@supabase/supabase-js": "^2.108.0",
+    "@supabase/supabase-js": "^2.112.3",
     "@vitejs/plugin-react": "^6.0.0",
     "antd": "6.5.1",
     "dayjs": "^1.11.21",
