@@ -96,17 +96,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons-svg@npm:^4.4.0, @ant-design/icons-svg@npm:^4.4.2":
+"@ant-design/icons-svg@npm:^4.4.0":
   version: 4.4.2
   resolution: "@ant-design/icons-svg@npm:4.4.2"
   checksum: 10c0/d08f051824599850efcd691a67b0ee602ee886f23fe04e77890b083a0343cde72560317e3909fd029f999df00aef7b57142c863326fff7293251d9162828079b
   languageName: node
   linkType: hard
 
-"@ant-design/icons-svg@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "@ant-design/icons-svg@npm:4.5.0"
-  checksum: 10c0/6d8c15ffc43c7c39560e075682da5b177462d42ca92ac227702c9ce267fea688025449bc6528d7b64f1bc88408384af5d6c52464afa47a01b5394894816d7f9e
+"@ant-design/icons-svg@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "@ant-design/icons-svg@npm:4.6.0"
+  checksum: 10c0/b9b8509a3fd507ee1627a9728a6ad8f86169cf640b4d07008b1c81518877198c55c74de184aeb1927e3cdd701f3cd24be80fa518f6469dda51fbace0674b3b17
   languageName: node
   linkType: hard
 
@@ -126,33 +126,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons@npm:^6.2.2":
-  version: 6.2.5
-  resolution: "@ant-design/icons@npm:6.2.5"
+"@ant-design/icons@npm:^6.2.2, @ant-design/icons@npm:^6.3.2":
+  version: 6.3.4
+  resolution: "@ant-design/icons@npm:6.3.4"
   dependencies:
     "@ant-design/colors": "npm:^8.0.1"
-    "@ant-design/icons-svg": "npm:^4.4.2"
+    "@ant-design/icons-svg": "npm:^4.6.0"
     "@rc-component/util": "npm:^1.11.0"
     clsx: "npm:^2.1.1"
   peerDependencies:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: 10c0/9fe43c491465276d3dbd1dfeb1d97a33253c7e0a1e80f18dac86e04fa6d11164d7d8d95d68b17fa89797327d585d5a97a6d219f5ce66a0b90a07148977ee7357
-  languageName: node
-  linkType: hard
-
-"@ant-design/icons@npm:^6.3.2":
-  version: 6.3.2
-  resolution: "@ant-design/icons@npm:6.3.2"
-  dependencies:
-    "@ant-design/colors": "npm:^8.0.1"
-    "@ant-design/icons-svg": "npm:^4.5.0"
-    "@rc-component/util": "npm:^1.11.0"
-    clsx: "npm:^2.1.1"
-  peerDependencies:
-    react: ">=16.0.0"
-    react-dom: ">=16.0.0"
-  checksum: 10c0/3f7dcfda65d22f43f78173de60ac47fd5ffcb54a9db4dcaa2fd8380aa424facb8c51edc9c7a9afeaab8ca012c07827edfe73bb51e7a33891fed90ce1da692620
+  checksum: 10c0/59343de3926bc6f3b8daa4c1022b0ff0a5774ba1d40f7a7f85ac77b338d0b3224fc028ee05d96af177bf951820249a25076c2a8cdd71baed6e228fc2e2a977b5
   languageName: node
   linkType: hard
 
