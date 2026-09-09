@@ -1,0 +1,58 @@
+# 机器可读的架构声明（Architecture as Code）。
+# 供 AI Agent 进入项目后一读即知：技术栈、目录映射、数据源、硬性规则与可用技能。
+# 变更 src 目录结构 / 依赖 / 规则时，请同步更新本文件保持一致。
+project:
+  name: react-vscode-template
+  version: 1.0.0
+
+frontend:
+  framework: react            # React 19
+  build: vite                 # Vite 8
+  ui: antd                    # Ant Design 6
+  state: zustand              # Zustand 5（全局状态）
+  router: react-router        # React Router 8（无 react-router-dom，全部从 'react-router' 导入）
+  package_manager: yarn       # yarn 4（Berry）
+
+architecture:
+  # 目录 -> 真实路径映射。AI Agent 看到模块归属即可落到正确位置。
+  pages: src/pages            # 页面目录；按业务模块拆 containers/components
+  services: src/services      # Service 层：封装对数据源/API 的调用，页面禁止直连
+  store: src/store            # 全局状态（Zustand store）
+  types: src/types            # 全局类型；业务模块类型也可随 service 放 types.ts
+  lib: src/lib                # 基础库/基础设施（如 @/lib/supabase）
+  routes: src/routes          # 路由定义（index/common/exception/user）
+  layout: src/layout          # 布局组件
+  tests: src/__tests__        # 全局 Vitest 测试（名称含 spec / test）
+  cypress: cypress/e2e        # Cypress E2E 测试（*.cy.ts）
+
+data:
+  data_source: supabase
+  reference: "@/lib/supabase" # 统一从 src/lib/supabase 导出客户端，业务层禁止自行 new 客户端
+
+rules:
+  page:
+    api_service_required: true # 页面禁止直接调用数据源/API，必须经 Service 层
+  state:
+    global: zustand            # 跨页共享状态用 Zustand
+    local: react               # 局部 UI 状态（表单项/弹窗等）留在组件内部
+  types:
+    no_any: true               # 禁止 any；用 unknown + 类型守卫 / 泛型 / 联合类型收敛
+    explicit_responses: true   # 所有 API 响应必须有显式类型（types.ts 或 service 同目录）
+  testing:
+    required: "unit_component_e2e" # 新模块应含 Service 单测 + 组件测试，必要时 E2E
+    commands:
+      unit: "yarn test"
+      e2e: "yarn e2e"
+
+skills:
+  # 可复用 AI 技能：路径为 .agents/skills/<name>/SKILL.md
+  - name: create-page   # 创建页面（列表详情型 / 简单表单型）
+    path: .agents/skills/create-page/SKILL.md
+  - name: create-crud   # 创建 CRUD 模块（列表 + 搜索 + 编辑弹窗 + 删除）
+    path: .agents/skills/create-crud/SKILL.md
+  - name: create-form   # 创建 Ant Design 表单（校验 / 回填 / 消息反馈）
+    path: .agents/skills/create-form/SKILL.md
+  - name: create-api    # 创建 Service/API 方法（supabase 封装 7 类方法）
+    path: .agents/skills/create-api/SKILL.md
+  - name: write-test    # 编写测试（Vitest 单测 + RTL 组件 + Cypress E2E）
+    path: .agents/skills/write-test/SKILL.md

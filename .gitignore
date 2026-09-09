@@ -17,3 +17,6 @@ coverage
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# AI test report (generated)
+/reports/

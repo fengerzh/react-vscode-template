@@ -1,0 +1,16 @@
+{
+  "name": "create-ai-react",
+  "version": "0.1.0",
+  "description": "CLI scaffold for react-vscode-template — AI-Native React Starter (Vite + React + TypeScript + Ant Design + Zustand + Testing + AI Rules/Skills)",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "create-ai-react": "src/index.mjs"
+  },
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

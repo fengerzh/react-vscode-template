@@ -10,7 +10,8 @@
     "e2e:run": "cypress run",
     "build": "vite build",
     "serve": "vite preview",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "ai:test": "node scripts/ai-test.mjs"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.2",

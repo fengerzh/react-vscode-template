@@ -1,0 +1,24 @@
+{
+  "name": "react-vscode-template-mcp",
+  "version": "0.1.0",
+  "description": "MCP stdio server exposing react-vscode-template AI-Native capabilities (structure/architecture/page/CRUD/test/lint) as MCP tools.",
+  "type": "module",
+  "bin": {
+    "react-vscode-template-mcp": "server.mjs"
+  },
+  "files": [
+    "server.mjs",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "react",
+    "vite",
+    "ai-native"
+  ],
+  "license": "MIT"
+}
