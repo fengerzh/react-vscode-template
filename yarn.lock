@@ -110,13 +110,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons-svg@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "@ant-design/icons-svg@npm:4.6.0"
-  checksum: 10c0/b9b8509a3fd507ee1627a9728a6ad8f86169cf640b4d07008b1c81518877198c55c74de184aeb1927e3cdd701f3cd24be80fa518f6469dda51fbace0674b3b17
-  languageName: node
-  linkType: hard
-
 "@ant-design/icons@npm:^5.0.0":
   version: 5.6.1
   resolution: "@ant-design/icons@npm:5.6.1"
@@ -133,22 +126,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons@npm:^6.3.2":
-  version: 6.3.4
-  resolution: "@ant-design/icons@npm:6.3.4"
-  dependencies:
-    "@ant-design/colors": "npm:^8.0.1"
-    "@ant-design/icons-svg": "npm:^4.6.0"
-    "@rc-component/util": "npm:^1.11.0"
-    clsx: "npm:^2.1.1"
-  peerDependencies:
-    react: ">=16.0.0"
-    react-dom: ">=16.0.0"
-  checksum: 10c0/59343de3926bc6f3b8daa4c1022b0ff0a5774ba1d40f7a7f85ac77b338d0b3224fc028ee05d96af177bf951820249a25076c2a8cdd71baed6e228fc2e2a977b5
-  languageName: node
-  linkType: hard
-
-"@ant-design/icons@npm:^6.3.4":
+"@ant-design/icons@npm:^6.3.2, @ant-design/icons@npm:^6.3.4":
   version: 6.3.4
   resolution: "@ant-design/icons@npm:6.3.4"
   dependencies:
@@ -6027,13 +6005,6 @@ __metadata:
   version: 4.0.4
   resolution: "picomatch@npm:4.0.4"
   checksum: 10c0/e2c6023372cc7b5764719a5ffb9da0f8e781212fa7ca4bd0562db929df8e117460f00dff3cb7509dacfc06b86de924b247f504d0ce1806a37fac4633081466b0
-  languageName: node
-  linkType: hard
-
-"picomatch@npm:^4.0.7":
-  version: 4.0.7
-  resolution: "picomatch@npm:4.0.7"
-  checksum: 10c0/beb6ae02c43ae44e84883b90830196d9046b1726ead292adcf7f57945e0bb0d992d68563d87e03b484b6f3c9a5c6defda7523477f047d7f0e663f126cc01787f
   languageName: node
   linkType: hard
 
