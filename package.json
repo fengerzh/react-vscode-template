@@ -60,7 +60,7 @@
   },
   "packageManager": "yarn@4.14.1",
   "resolutions": {
-    "systeminformation": "5.33.16",
+    "systeminformation": "5.33.19",
     "path-to-regexp": "8.4.2",
     "tmp": ">=0.2.6",
     "qs": ">=6.15.2",
